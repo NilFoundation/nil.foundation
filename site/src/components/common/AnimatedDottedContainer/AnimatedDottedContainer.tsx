@@ -15,8 +15,8 @@ function AnimatedDottedContainer({
   timeline,
   className,
   initialAnimationDuration,
-}: // scrollTriggerProps,
-InferProps<typeof AnimatedDottedContainer.propTypes>) {
+  scrollTriggerProps,
+}: InferProps<typeof AnimatedDottedContainer.propTypes>) {
   const containerRef = useRef(null);
   const { isMobile } = useViewport();
   const [timelineInstance, setTimelineInstance] =

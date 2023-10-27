@@ -5,10 +5,10 @@
 
 .root {
   position: relative;
-  width: 100%;
   display: flex;
-  font-family: Inter, sans-serif;
+  width: 100%;
   justify-content: space-between;
+  font-family: Inter, sans-serif;
   color: $gray-50;
   font-weight: 500;
   transition: color 0.15s ease;
@@ -62,33 +62,8 @@
       background-color: $gray-300;
     }
   }
-}
 
-.icon {
-  transition: transform 0.15s ease;
-  transform: rotate(45deg);
-}
-
-.size {
-  &-s {
-    font-size: size(14);
-    .icon {
-      width: size(14);
-      height: size(14);
-    }
-  }
-
-  &-l {
-    font-size: size(18);
-    .icon {
-      width: size(18);
-      height: size(18);
-    }
-  }
-}
-
-.disable {
-  &-disabled {
+  &:disabled {
     color: $gray-500;
     cursor: not-allowed;
 
@@ -118,6 +93,31 @@
       &::after {
         background-color: $gray-500;
       }
+    }
+  }
+}
+
+.icon {
+  transition: transform 0.15s ease;
+  transform: rotate(45deg);
+}
+
+.size {
+  &-s {
+    font-size: size(14);
+
+    .icon {
+      width: size(14);
+      height: size(14);
+    }
+  }
+
+  &-l {
+    font-size: size(18);
+
+    .icon {
+      width: size(18);
+      height: size(18);
     }
   }
 }

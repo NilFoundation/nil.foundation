@@ -10,26 +10,25 @@ import Icon from 'components/Icon'
 type WebButtonProps = {
   children?: string,
   href?: string,
-  onClick?:((event: MouseEvent) => void) | undefined,
+  onClick?:((event: MouseEvent) => void),
   size?: 's' | 'l',
   disabled?: boolean,
   className?: string,
 }
 
-const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size='l', disabled, className}) => {
+const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size='s', disabled, className}) => {
 
-    const disable = disabled ? "disabled" : "none";
 
     const classNames = useMemo(() => {
       const classes = modsClasses(s, {
-        size, disable,
+        size,
       })
 
       return cx(className, s.root, classes, {})
-    }, [className, size, disable])
+    }, [className, size])
 
   return (
-    <Button href={href} onClick={onClick} className={classNames}>
+    <Button href={href} onClick={onClick} className={classNames} disabled={disabled}>
         {children}
         <Icon name="arrow-up" className={s.icon} />
     </Button>

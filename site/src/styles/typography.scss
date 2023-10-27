@@ -5,49 +5,32 @@
   letter-spacing: -0.03em;
 }
 
-// Heading/H1 64 | 64
 @mixin heading-01 {
   font-size: size(64);
   line-height: size(64);
   letter-spacing: size(-1.28);
 
   @include mobile {
-    // font-size: size(45);
-    // line-height: size(40.5);
     @include heading-02;
   }
 }
 
-// Heading/H2 48 | 48
 @mixin heading-02 {
   font-size: size(48);
   line-height: size(48);
   letter-spacing: size(-0.96);
-
-  // @include glob-font-style;
-
-  // @include mobile {
-  //   font-size: size(24);
-  //   line-height: size(24);
-  // }
 }
 
-// Heading/H3 32 | 40
 @mixin heading-03 {
   font-size: size(32);
   line-height: size(40);
   letter-spacing: size(-0.96);
 
-  // @include glob-font-style;
-
   @include mobile {
-    // font-size: size(18);
-    // line-height: size(18);
     @include heading-04;
   }
 }
 
-// Heading/H4 24 | 32
 @mixin heading-04 {
   font-size: size(24);
   line-height: size(32);
@@ -67,14 +50,10 @@
   letter-spacing: initial;
 }
 
-// Body/Main
 @mixin paragraph {
   @include main;
-  // @include glob-font-style;
 
   @include mobile {
-    // font-size: size(15);
-    // line-height: size(15);
     @include small;
   }
 }
@@ -97,8 +76,6 @@
 
   letter-spacing: initial;
 
-  // @include glob-font-style;
-
   @include mobile {
     font-size: size(12);
     line-height: size(12);
@@ -110,17 +87,8 @@
   line-height: size(18);
 
   letter-spacing: size(0.4);
-
-  // letter-spacing: initial;
-  // @include glob-font-style;
 }
 
 @mixin sm-paragraph {
   @include small;
-
-  // @include glob-font-style;
-  // @include mobile {
-  //   font-size: size(12);
-  //   line-height: size(12);
-  // }
 }

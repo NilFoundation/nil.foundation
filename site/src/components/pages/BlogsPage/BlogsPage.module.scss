@@ -131,7 +131,6 @@
   padding-bottom: 20px;
 
   @include mobile {
-    // width: size(355);
     padding: 0 size(10);
     width: 100%;
   }

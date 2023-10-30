@@ -11,6 +11,7 @@ import Button from 'components/ArrowButton'
 
 import s from './Win.module.scss'
 import { homePageData } from 'stubs/homePageData'
+import { WebButton } from 'components/WebButton'
 
 type WinProps = {
   className?: string
@@ -45,7 +46,9 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button className={s.button} text={footer.text} href={footer.link} />
+            <div className={s.buttonBlock}>
+              <WebButton className={s.button} href={footer.link}>{footer.text}</WebButton>
+            </div>
             <WhiteRectangle />
           </div>
         </div>

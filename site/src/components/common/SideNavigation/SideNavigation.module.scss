@@ -65,6 +65,7 @@
 .linkWrapper {
   width: size(272);
   margin-bottom: size(30);
+  padding-right: size(16);
   background-color: $black;
 
   @include mobile {
@@ -75,7 +76,7 @@
 .link {
   @include paragraph;
   padding-left: 0;
-  margin-bottom: size(24);
+  margin-bottom: size(36);
 
   @include mobile {
     padding-left: size(10);
@@ -83,5 +84,5 @@
 }
 
 .bottomLine {
-  width: calc(100% + 2px);
+  width: 107%;
 }

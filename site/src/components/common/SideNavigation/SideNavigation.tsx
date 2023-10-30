@@ -9,6 +9,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import { useSideNavigationTimeline } from 'components/SideNavigation/useSideNavigationTimeline'
 import s from './SideNavigation.module.scss'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
+import { WebButton } from 'components/WebButton'
 
 function SideNavigation({
   title,
@@ -89,7 +90,7 @@ function SideNavigation({
       </div>
       <div className={s.linkWrapper}>
         {children}
-        {linkText && <ArrowButton href={link!} className={s.link} text={linkText} />}
+        {linkText && <WebButton className={s.link} href={link!}>{linkText}</WebButton>}
         <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>

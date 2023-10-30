@@ -7,10 +7,10 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import ListItem from 'components/ListItem'
-import Button from 'components/ArrowButton'
 
 import s from './FullCycle.module.scss'
 import { homePageData } from 'stubs/homePageData'
+import { WebButton } from 'components/WebButton'
 
 type FullCycleProps = {
   className?: string
@@ -41,7 +41,9 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button className={s.button} text={footer.text} href={footer.link} />
+            <div className={s.buttonBlock}>
+              <WebButton className={s.button} href={footer.link}>{footer.text}</WebButton>
+            </div>
             <WhiteRectangle />
           </div>
         </div>

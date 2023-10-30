@@ -1,7 +1,7 @@
 import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
-import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
+import { WebButton } from 'components/WebButton'
 
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
@@ -91,7 +91,7 @@ export const animatedItemMobileList = [
     id: 'm1',
     ySourceValue: '-30%',
     children: (
-      <ArrowButton className={s.link} text="Go to Proof Market" href="https://proof.market/#/market/account_mina" />
+      <div className={s.link}><WebButton href='https://proof.market/#/market/account_mina'>Go to Proof Market</WebButton></div>
     ),
   },
   {

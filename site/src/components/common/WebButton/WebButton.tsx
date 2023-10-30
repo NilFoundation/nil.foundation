@@ -8,32 +8,40 @@ import modsClasses from 'utils/modsClasses'
 import Icon from 'components/Icon'
 
 type WebButtonProps = {
-  children?: string,
-  href?: string,
-  onClick?:((event: MouseEvent) => void),
-  size?: 's' | 'l',
-  disabled?: boolean,
-  className?: string,
+  children?: string
+  href?: string
+  onClick?: (event: MouseEvent) => void
+  size?: 's' | 'l'
+  disabled?: boolean
+  className?: string
 }
 
-const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size='s', disabled, className}) => {
+const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size = 's', disabled, className }) => {
 
+    const isDisabledHref = useMemo(() => {
+        const url = disabled ? null : href;
+        const clickEvent = disabled ? null : onClick;
+        return url;
+    }, [disabled, href])
+
+    const isDisabledClick = useMemo(() => {
+        const clickEvent = disabled ? null : onClick;
+        return clickEvent;
+    }, [disabled, onClick])
 
     const classNames = useMemo(() => {
-      const classes = modsClasses(s, {
+        const classes = modsClasses(s, {
         size,
-      })
-
-      return cx(className, s.root, classes, {})
+        })
+        return cx(className, s.root, classes, {})
     }, [className, size])
 
   return (
-    <Button href={href} onClick={onClick} className={classNames} disabled={disabled}>
-        {children}
-        <Icon name="arrow-up" className={s.icon} />
+    <Button href={isDisabledHref} onClick={isDisabledClick} className={classNames} disabled={disabled}>
+      {children}
+      <Icon name="arrow-up" className={s.icon} />
     </Button>
-  );
-};
+  )
+}
 
-
-export default WebButton;
+export default WebButton

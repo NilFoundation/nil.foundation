@@ -5,7 +5,7 @@
 .root {
   display: flex;
   align-items: flex-start;
-  margin-bottom: size(74);
+  margin-bottom: size(97);
 
   @include mobile {
     flex-direction: column;
@@ -14,30 +14,19 @@
   }
 }
 
-.content {
-  background-color: $gray900;
-
-  @include mobile {
-    padding-top: size(73);
-  }
-}
-
 .left,
 .right {
   width: 50%;
+  background-color: $gray900;
 
   @include mobile {
     width: 100%;
   }
 }
 
-.left {
-  background-color: $gray900;
-}
-
 .right {
   position: relative;
-  margin-top: size(97);
+  margin-top: size(215);
 
   &:after {
     content: '';
@@ -55,19 +44,7 @@
 
   @include mobile {
     margin-top: 0;
-  }
-}
-
-.rightHeader {
-  display: flex;
-
-  & > div {
-    flex-basis: 50%;
-    background-color: $gray900;
-  }
-
-  & > div:first-child {
-    margin-top: size(30);
+    padding-top: size(40);
   }
 }
 

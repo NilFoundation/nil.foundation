@@ -6,7 +6,7 @@
 .root {
   display: flex;
   align-items: flex-start;
-  margin-bottom: size(129);
+  margin-bottom: size(8);
 
   @include mobile {
     flex-direction: column;
@@ -25,7 +25,7 @@
 
 .right {
   position: relative;
-  margin-top: size(180);
+  margin-top: size(350);
 
   &:after {
     content: '';
@@ -73,7 +73,7 @@
 }
 
 .button {
-  padding-top: size(104);
+  padding-top: size(24);
   padding-bottom: size(24);
   background-color: $gray900;
 

@@ -25,7 +25,7 @@ const About = ({
 			<div className={s.left}>
 				<WhiteRectangle />
 				<HeadingSection title={title} socials={social} />
-				<WhiteRectangle />
+				{!isMobile && <WhiteRectangle />}
 			</div>
 			<div className={s.right}>
 				{!isMobile && (

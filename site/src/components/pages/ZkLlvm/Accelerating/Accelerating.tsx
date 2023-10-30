@@ -7,7 +7,6 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 // import ListItem from 'components/ListItem';
-import Button from 'components/ArrowButton'
 import Icon from 'components/Icon'
 
 import s from './Accelerating.module.scss'
@@ -46,7 +45,9 @@ const Accelerating = ({ className, data: { title, description, content, footer }
           <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
-              <WebButton className={s.button} href={footer.link}>{footer.text}</WebButton>
+              <WebButton className={s.button} href={footer.link}>
+                {footer.text}
+              </WebButton>
             </div>
             <WhiteRectangle />
           </div>

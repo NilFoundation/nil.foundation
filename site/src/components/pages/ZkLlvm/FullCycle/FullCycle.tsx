@@ -6,7 +6,6 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import ListItem from 'components/ListItem'
-import Button from 'components/ArrowButton'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
 import s from './FullCycle.module.scss'
@@ -44,7 +43,9 @@ function FullCycle({ className, data }: FullCycleProps) {
           <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
-              <WebButton className={s.button} href={footer.link}>{footer.text}</WebButton>
+              <WebButton className={s.button} href={footer.link}>
+                {footer.text}
+              </WebButton>
             </div>
             <WhiteRectangle />
           </div>

@@ -39,7 +39,9 @@ const Jobs = ({ className, data: { title, description, button }, isSkillsSection
           <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
-              <WebButton className={s.button} size='l' href={button.link}>{button.text}</WebButton>
+              <WebButton className={s.button} size="l" href={button.link}>
+                {button.text}
+              </WebButton>
             </div>
             <WhiteRectangle />
           </div>

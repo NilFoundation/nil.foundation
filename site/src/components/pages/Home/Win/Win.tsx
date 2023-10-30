@@ -7,7 +7,6 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import ListItem from 'components/ListItem'
-import Button from 'components/ArrowButton'
 
 import s from './Win.module.scss'
 import { homePageData } from 'stubs/homePageData'
@@ -47,7 +46,9 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
           <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
-              <WebButton className={s.button} href={footer.link}>{footer.text}</WebButton>
+              <WebButton className={s.button} href={footer.link}>
+                {footer.text}
+              </WebButton>
             </div>
             <WhiteRectangle />
           </div>

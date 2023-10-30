@@ -6,7 +6,6 @@ import { useViewport } from 'hooks/useViewport'
 
 import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
-import Button from 'components/ArrowButton'
 
 import s from './OurTeam.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
@@ -34,7 +33,9 @@ const OurTeam = ({ className, data: { title, description, button } }: OurTeamPro
           <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
-              <WebButton className={s.button} href={button.link}>{button.text}</WebButton>
+              <WebButton className={s.button} href={button.link}>
+                {button.text}
+              </WebButton>
             </div>
             <WhiteRectangle />
           </div>

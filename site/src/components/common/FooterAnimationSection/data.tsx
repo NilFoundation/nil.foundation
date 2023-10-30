@@ -36,7 +36,13 @@ export const getAnimatedItemList: AnimationGetter = (text, href, prefersReducedM
       id: '5',
       ySourceValue: '-42%',
       yTransformValue: '-50%',
-      children: text && <div className={s.buttonBlock}><WebButton className={s.arrowButton} href={href} onClick={onClick}>{text}</WebButton></div>,
+      children: text && (
+        <div className={s.buttonBlock}>
+          <WebButton className={s.webButton} href={href} onClick={onClick}>
+            {text}
+          </WebButton>
+        </div>
+      ),
     },
     {
       id: '6',
@@ -79,7 +85,13 @@ export const getAnimatedItemMobileList: AnimationGetter = (text, href, prefersRe
     {
       id: 'm2',
       ySourceValue: '0%',
-      children: text && <div className={s.buttonBlock}><WebButton className={s.arrowButton} href={href} onClick={onClick}>{text}</WebButton></div>,
+      children: text && (
+        <div className={s.buttonBlock}>
+          <WebButton className={s.webButton} href={href} onClick={onClick}>
+            {text}
+          </WebButton>
+        </div>
+      ),
     },
     {
       id: 'm3',

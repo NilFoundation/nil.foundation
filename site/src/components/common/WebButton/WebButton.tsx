@@ -1,7 +1,7 @@
 import { InferProps, bool, func, string } from 'prop-types'
 import cx from 'classnames'
 
-import { FC, useMemo } from 'react'
+import { FC, useCallback, useMemo } from 'react'
 import s from './WebButton.module.scss'
 import Button from 'components/Button'
 import modsClasses from 'utils/modsClasses'
@@ -17,14 +17,13 @@ type WebButtonProps = {
 }
 
 const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size = 's', disabled, className }) => {
-  const isDisabledHref = useMemo(() => {
-    const url = disabled ? null : href
+  const verifiedHref = useMemo(() => {
+    const url = !disabled && href ? href : null;
     return url
   }, [disabled, href])
 
-  const isDisabledClick = useMemo(() => {
-    const clickEvent = disabled ? null : onClick
-    return clickEvent
+  const handleClick = useCallback((e: MouseEvent) => {
+    !disabled && onClick && onClick(e)
   }, [disabled, onClick])
 
   const classNames = useMemo(() => {
@@ -35,7 +34,7 @@ const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size = 's', di
   }, [className, size])
 
   return (
-    <Button href={isDisabledHref} onClick={isDisabledClick} className={classNames} disabled={disabled}>
+    <Button href={verifiedHref} onClick={handleClick} className={classNames} disabled={disabled}>
       {children}
       <Icon name="arrow-up" className={s.icon} />
     </Button>

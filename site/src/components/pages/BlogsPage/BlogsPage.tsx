@@ -107,7 +107,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
           </div>
         </div>
       </div>
-      <FooterAnimationSection className={s.footerSection} />
+      <FooterAnimationSection className={s.footerSection} linkText='Load more' link=''/>
     </Container>
   )
 }

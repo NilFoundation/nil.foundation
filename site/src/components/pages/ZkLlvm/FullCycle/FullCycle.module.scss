@@ -5,7 +5,6 @@
 .root {
   display: flex;
   align-items: flex-start;
-  margin-bottom: size(129);
 
   @include mobile {
     flex-direction: column;

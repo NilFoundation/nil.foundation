@@ -35,6 +35,7 @@ const Home = ({ data }: HomeProps) => (
           data={[154, 154, 184, 0]}
           marginTop={123}
         />
+        <div id="footer_nav" />
       </div>
     </div>
     {/* <FooterAnimationSection /> */}

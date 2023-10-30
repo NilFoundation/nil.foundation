@@ -8,6 +8,7 @@ import WhiteRectangle from 'components/WhiteRectangle';
 
 import s from './About.module.scss';
 import { homePageData } from 'stubs/homePageData';
+import ArrowButton from 'components/ArrowButton';
 
 type AboutProps = {
   className?: string;
@@ -27,6 +28,7 @@ const About = ({
           title={title}
           socials={social}
         />
+        <WhiteRectangle />
       </div>
       <div className={s.right}>
         {!isMobile && (
@@ -39,8 +41,20 @@ const About = ({
             </div>
           </div>
         )}
-        {/* {!isMobile && <WhiteRectangle />} */}
         <div className={s.description}>{description}</div>
+        <div className={s.rightFooter}>
+          <div>
+            <ArrowButton
+              className={s.link}
+              text="Learn more"
+              href="https://proof.market/#/market/account_mina"
+            />
+            <WhiteRectangle />
+          </div>
+          <div>
+            <WhiteRectangle />
+          </div>
+        </div>
       </div>
     </div>
   );

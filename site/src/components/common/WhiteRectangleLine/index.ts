@@ -1,1 +1,1 @@
-export { default } from './WhiteRectangleLine';
+export { default } from './WhiteRectangleLine'

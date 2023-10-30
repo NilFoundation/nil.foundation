@@ -2,9 +2,14 @@
 @use '~styles/typography' as *;
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   color: $gray50;
+
+  @include mobile {
+    margin: size($spacing12);
+  }
 
   @include sm-paragraph;
 }

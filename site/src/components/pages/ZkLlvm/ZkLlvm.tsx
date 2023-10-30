@@ -1,38 +1,48 @@
-import Container from 'components/Container'
+import Container from "components/Container";
 
-import JoinNil from 'pages/Home/JoinNil'
-import About from 'pages/Home/About'
-import ZkProof from 'pages/Home/ZkProof'
+import JoinNil from "pages/Home/JoinNil";
+import About from "pages/Home/About";
+import ZkProof from "pages/Home/ZkProof";
 
-import FooterAnimationSection from 'components/FooterAnimationSection'
-import Hero from './Hero'
-import FullCycle from './FullCycle'
-import Accelerating from './Accelerating'
+import FooterAnimationSection from "components/FooterAnimationSection";
+import Hero from "./Hero";
+import FullCycle from "./FullCycle";
+import Accelerating from "./Accelerating";
 
-import Intro from './Intro'
+import Intro from "./Intro";
 
-import s from './ZkLlvm.module.scss'
-import { zkllvmPageData } from 'stubs/zkllvmPageData'
+import s from "./ZkLlvm.module.scss";
+import { zkllvmPageData } from "stubs/zkllvmPageData";
+import { useViewport } from "hooks/useViewport";
+import WhiteRectangleLine from "components/WhiteRectangleLine";
 
 type ZkLlvmProps = {
-  data: typeof zkllvmPageData
-}
+	data: typeof zkllvmPageData;
+};
 
-const ZkLlvm = ({ data }: ZkLlvmProps) => (
-  <Container>
-    <Intro />
-    <div className={s.wrapper}>
-      <div className={s.content}>
-        <Hero data={data.hero} />
-        <Accelerating data={data.accelerating} />
-        <ZkProof data={data.zkProof} />
-        <FullCycle data={data.fullCycle} />
-        <JoinNil data={data.joinNil} withMargin />
-        <About data={data.about} />
-      </div>
-    </div>
-    <FooterAnimationSection link="/about" linkText="Learn more" />
-  </Container>
-)
+const ZkLlvm = ({ data }: ZkLlvmProps) => {
+	const { isMobile } = useViewport();
 
-export default ZkLlvm
+	return (
+		<Container>
+			<Intro />
+			<div className={s.wrapper}>
+				<div className={s.content}>
+					<Hero data={data.hero} />
+					<Accelerating data={data.accelerating} />
+					<ZkProof data={data.zkProof} />
+					<FullCycle data={data.fullCycle} />
+					<JoinNil data={data.joinNil} withMargin />
+					<About data={data.about} />
+					<WhiteRectangleLine
+						data={isMobile ? [0] : [154, 154, 184, 0]}
+						marginTop={isMobile ? 62 : 123}
+					/>
+					<div id="footer_nav" />
+				</div>
+			</div>
+		</Container>
+	);
+};
+
+export default ZkLlvm;

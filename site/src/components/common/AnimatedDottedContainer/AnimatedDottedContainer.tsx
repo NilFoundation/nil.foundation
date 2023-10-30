@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import DottedCard from 'components/DottedCard';
-import PropTypes, { InferProps } from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react'
+import DottedCard from 'components/DottedCard'
+import PropTypes, { InferProps } from 'prop-types'
 // import { gsap } from 'gsap';
-import classNames from 'classnames';
-import { useViewport } from 'hooks/useViewport';
-import AnimatedCard from './AnimatedCard';
-import s from './AnimatedDottedContainer.module.scss';
+import classNames from 'classnames'
+import { useViewport } from 'hooks/useViewport'
+import AnimatedCard from './AnimatedCard'
+import s from './AnimatedDottedContainer.module.scss'
 // import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion';
 
 function AnimatedDottedContainer({
@@ -17,10 +17,9 @@ function AnimatedDottedContainer({
   initialAnimationDuration,
   scrollTriggerProps,
 }: InferProps<typeof AnimatedDottedContainer.propTypes>) {
-  const containerRef = useRef(null);
-  const { isMobile } = useViewport();
-  const [timelineInstance, setTimelineInstance] =
-    useState<gsap.core.Timeline | null>(null);
+  const containerRef = useRef(null)
+  const { isMobile } = useViewport()
+  const [timelineInstance, setTimelineInstance] = useState<gsap.core.Timeline | null>(null)
   // const prefersReduceMotion = usePrefersReducedMotion();
 
   // useEffect(() => {
@@ -45,24 +44,21 @@ function AnimatedDottedContainer({
 
   useEffect(() => {
     if (isMobile && timelineInstance) {
-      timelineInstance?.scrollTrigger?.kill?.();
-      timelineInstance.kill?.();
+      timelineInstance?.scrollTrigger?.kill?.()
+      timelineInstance.kill?.()
     }
 
     return () => {
       if (timelineInstance) {
-        timelineInstance?.scrollTrigger?.kill?.();
-        timelineInstance.kill?.();
+        timelineInstance?.scrollTrigger?.kill?.()
+        timelineInstance.kill?.()
       }
-    };
-  }, [isMobile, timelineInstance]);
+    }
+  }, [isMobile, timelineInstance])
 
   return (
-    <DottedCard
-      ref={containerRef}
-      className={classNames(s.container, className)}
-    >
-      {items.map(item => (
+    <DottedCard ref={containerRef} className={classNames(s.container, className)}>
+      {items.map((item) => (
         <AnimatedCard
           key={item.id}
           {...item}
@@ -73,7 +69,7 @@ function AnimatedDottedContainer({
         />
       ))}
     </DottedCard>
-  );
+  )
 }
 
 AnimatedDottedContainer.propTypes = {
@@ -84,9 +80,9 @@ AnimatedDottedContainer.propTypes = {
   timeline: PropTypes.any,
   initialAnimationDuration: PropTypes.number,
   scrollTriggerProps: PropTypes.object,
-};
+}
 AnimatedDottedContainer.defaultProps = {
   isVisible: true,
   scrollTriggerProps: {},
-};
-export default AnimatedDottedContainer;
+}
+export default AnimatedDottedContainer

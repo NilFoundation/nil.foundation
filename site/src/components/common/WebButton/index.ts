@@ -1,1 +1,1 @@
-export {default as WebButton} from './WebButton'
+export { default as WebButton } from './WebButton'

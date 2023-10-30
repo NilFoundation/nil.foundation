@@ -17,24 +17,22 @@ type WebButtonProps = {
 }
 
 const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size = 's', disabled, className }) => {
+  const isDisabledHref = useMemo(() => {
+    const url = disabled ? null : href
+    return url
+  }, [disabled, href])
 
-    const isDisabledHref = useMemo(() => {
-        const url = disabled ? null : href;
-        const clickEvent = disabled ? null : onClick;
-        return url;
-    }, [disabled, href])
+  const isDisabledClick = useMemo(() => {
+    const clickEvent = disabled ? null : onClick
+    return clickEvent
+  }, [disabled, onClick])
 
-    const isDisabledClick = useMemo(() => {
-        const clickEvent = disabled ? null : onClick;
-        return clickEvent;
-    }, [disabled, onClick])
-
-    const classNames = useMemo(() => {
-        const classes = modsClasses(s, {
-        size,
-        })
-        return cx(className, s.root, classes, {})
-    }, [className, size])
+  const classNames = useMemo(() => {
+    const classes = modsClasses(s, {
+      size,
+    })
+    return cx(className, s.root, classes, {})
+  }, [className, size])
 
   return (
     <Button href={isDisabledHref} onClick={isDisabledClick} className={classNames} disabled={disabled}>

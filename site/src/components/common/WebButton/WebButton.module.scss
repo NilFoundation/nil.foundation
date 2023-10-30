@@ -7,7 +7,6 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: size(212);
   justify-content: space-between;
   align-items: center;
   font-family: Inter, sans-serif;
@@ -96,10 +95,6 @@
         background-color: $gray-500;
       }
     }
-  }
-
-  @include mobile {
-    max-width: size(229);
   }
 }
 

@@ -6,7 +6,7 @@
   flex-shrink: 0;
   width: 100%;
   height: size(30);
-  background-color: $gray50;
+  background-color: $gray-50;
 
   @include mobile {
     height: size(20);

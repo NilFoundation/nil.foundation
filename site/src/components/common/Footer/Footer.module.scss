@@ -5,7 +5,7 @@
 @use '~styles/paddings' as *;
 
 .root {
-  color: $gray50;
+  color: $gray-50;
 
   @include mobile {
     margin: size($spacing12);

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx @biomejs/biome format src",
+    "format": "npx @biomejs/biome check src --organize-imports-enabled=false --linter-enabled=false",
     "format:fix": "npx @biomejs/biome format src --write"
   },
   "dependencies": {

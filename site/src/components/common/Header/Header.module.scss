@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: size(262) repeat(2, size(270)) 1fr;
   padding: size(6) size(12);
-  background-color: $gray50;
+  background-color: $gray-50;
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);

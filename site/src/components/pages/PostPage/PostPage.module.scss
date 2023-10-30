@@ -124,7 +124,7 @@
 
 .info {
   display: flex;
-  color: $gray50;
+  color: $gray-50;
 }
 
 .type {
@@ -269,7 +269,7 @@
     border: size(1) solid $secondary;
     border-radius: size(2);
     background-color: $fullBlack;
-    color: $gray50;
+    color: $gray-50;
     word-wrap: normal;
 
     @include paragraph;
@@ -308,7 +308,7 @@
     @include p-article;
 
     a {
-      color: $gray50;
+      color: $gray-50;
       text-decoration: underline;
       cursor: pointer;
 
@@ -329,7 +329,7 @@
     @include p-article;
 
     a {
-      color: $gray50;
+      color: $gray-50;
       text-decoration: underline;
       cursor: pointer;
 
@@ -364,7 +364,7 @@
   }
 
   blockquote {
-    border-left: size(4) solid $gray50;
+    border-left: size(4) solid $gray-50;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -2,6 +2,7 @@ import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
 import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
+import { WebButton } from 'components/WebButton'
 
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
@@ -94,7 +95,7 @@ export const animatedItemMobileList = [
   {
     id: 'm1',
     ySourceValue: '-30%',
-    children: <ArrowButton className={s.link} text="Discover zkLLVM" href="https://github.com/NilFoundation/zkllvm" />,
+    children: <div className={s.link}><WebButton size='l' href='https://github.com/NilFoundation/zkllvm'>Discover zkLLVM</WebButton></div>,
   },
   {
     id: 'm2',

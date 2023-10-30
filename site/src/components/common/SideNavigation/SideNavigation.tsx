@@ -90,7 +90,7 @@ function SideNavigation({
       </div>
       <div className={s.linkWrapper}>
         {children}
-        {linkText && <WebButton className={s.link} href={link!}>{linkText}</WebButton>}
+        {linkText && <WebButton className={s.link} size='l' href={link!}>{linkText}</WebButton>}
         <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>

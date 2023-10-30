@@ -3,7 +3,6 @@
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
 
-
 .root {
   display: flex;
   align-items: flex-start;
@@ -78,7 +77,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  letter-spacing: -.03em;
+  letter-spacing: -0.03em;
 }
 
 .description {
@@ -97,13 +96,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.button {
-  padding-top: size(104);
-  padding-bottom: size(24);
+.buttonBlock {
+  padding: size(104) size(16) size(44);
   background-color: $black;
 
   @include mobile {
     padding-top: size(58);
-    padding-bottom: size(10);
+    padding-bottom: size(40);
   }
 }

@@ -10,6 +10,7 @@ import Button from 'components/ArrowButton'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
 import s from './FullCycle.module.scss'
+import { WebButton } from 'components/WebButton'
 
 type FullCycleProps = {
   className?: string
@@ -42,7 +43,9 @@ function FullCycle({ className, data }: FullCycleProps) {
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button className={s.button} text={footer.text} href={footer.link} />
+            <div className={s.buttonBlock}>
+              <WebButton className={s.button} href={footer.link}>{footer.text}</WebButton>
+            </div>
             <WhiteRectangle />
           </div>
         </div>

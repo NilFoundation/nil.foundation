@@ -91,7 +91,7 @@ export const animatedItemMobileList = [
     id: 'm1',
     ySourceValue: '-30%',
     children: (
-      <div className={s.link}><WebButton href='https://proof.market/#/market/account_mina'>Go to Proof Market</WebButton></div>
+      <div className={s.link}><WebButton size='l' href='https://proof.market/#/market/account_mina'>Go to Proof Market</WebButton></div>
     ),
   },
   {

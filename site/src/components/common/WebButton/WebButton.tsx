@@ -18,13 +18,16 @@ type WebButtonProps = {
 
 const WebButton: FC<WebButtonProps> = ({ children, href, onClick, size = 's', disabled, className }) => {
   const verifiedHref = useMemo(() => {
-    const url = !disabled && href ? href : null;
+    const url = !disabled && href ? href : null
     return url
   }, [disabled, href])
 
-  const handleClick = useCallback((e: MouseEvent) => {
-    !disabled && onClick && onClick(e)
-  }, [disabled, onClick])
+  const handleClick = useCallback(
+    (e: MouseEvent) => {
+      !disabled && onClick && onClick(e)
+    },
+    [disabled, onClick],
+  )
 
   const classNames = useMemo(() => {
     const classes = modsClasses(s, {

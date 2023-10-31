@@ -1,12 +1,11 @@
 import { memo } from 'react'
 import cx from 'classnames'
 
-import Icon from 'components/Icon'
-import Button from 'components/Button'
 import TagButton from 'components/TagButton'
 
 import s from './ResearchCard.module.scss'
 import { MappedResearch } from 'src/strapi/types/entities'
+import { Card } from 'components/Card'
 
 type ResearchCardProps = {
   className?: string
@@ -16,7 +15,7 @@ type ResearchCardProps = {
 
 function ResearchCard({ className, content, withTags }: ResearchCardProps) {
   return (
-    <Button href={content.link} className={cx(s.root, className)}>
+    <Card href={content.link} className={cx(s.root, className)}>
       <div>
         <div className={s.info}>
           <p className={s.author}>{content.author}</p>
@@ -31,8 +30,7 @@ function ResearchCard({ className, content, withTags }: ResearchCardProps) {
           ))}
         </div>
       )}
-      <Icon name="arrow-up" className={s.arrow} />
-    </Button>
+    </Card>
   )
 }
 

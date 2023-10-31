@@ -1,6 +1,7 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
+@use '~styles/typography' as *;
 
 .root {
   display: flex;
@@ -60,6 +61,10 @@
 }
 
 .item {
+  p {
+    @include paragraph;
+  }
+
   @include mobile {
     width: 100%;
   }

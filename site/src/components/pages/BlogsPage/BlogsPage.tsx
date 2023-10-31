@@ -21,6 +21,7 @@ import { Category } from 'entities/Category'
 import { Post } from 'entities/Post'
 import { Meta } from 'entities/Meta'
 import { MappedBlog, MappedCategory, MappedTag } from 'src/strapi/types/entities'
+import { Card } from 'components/Card'
 
 type BlogsPageProps = {
   data: {

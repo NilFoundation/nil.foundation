@@ -2,6 +2,7 @@
 @use '~styles/typography' as *;
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .wrapper {
   display: flex;
@@ -35,7 +36,10 @@
 
 .cardsWrapper {
   display: flex;
-  gap: size(30);
+  flex-direction: column;
+  gap: size($spacing32);
+
+  margin-left: size($spacing32);
 
   &:not(:last-child) {
     margin-bottom: size(20);

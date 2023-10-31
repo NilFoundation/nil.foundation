@@ -1,6 +1,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
 @use '~styles/colors' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
@@ -9,7 +10,7 @@
 .cardList {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: size(30);
+  gap: size($spacing32);
   padding: 0;
   margin-bottom: size(40);
 

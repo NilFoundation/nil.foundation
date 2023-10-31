@@ -124,6 +124,7 @@
 
 .info {
   display: flex;
+  color: $gray-50;
 }
 
 .type {
@@ -163,7 +164,7 @@
 }
 
 .moreBlogsWrapper {
-  background-color: $black;
+  background-color: $gray900;
 
   padding-bottom: 20px;
 
@@ -189,7 +190,7 @@
 }
 
 .subtitle {
-  @include heading-02;
+  @include heading-03;
 
   width: size(785);
 
@@ -201,10 +202,6 @@
 
 .author {
   margin-right: size(10);
-}
-
-.date {
-  color: $grey;
 }
 
 .blog {
@@ -260,15 +257,19 @@
     @include heading-03;
   }
 
+  h4 {
+    @include heading-04;
+  }
+
   pre {
     overflow-x: scroll;
     overflow-y: hidden;
     padding: size(10);
     margin: 0 0 size(30) 0;
-    border: size(1) solid $grey;
+    border: size(1) solid $secondary;
     border-radius: size(2);
     background-color: $fullBlack;
-    color: $white;
+    color: $gray-50;
     word-wrap: normal;
 
     @include paragraph;
@@ -302,12 +303,12 @@
 
   p {
     margin-bottom: size(30);
-    color: $grey;
+    color: $secondary;
 
     @include p-article;
 
     a {
-      color: $white;
+      color: $gray-50;
       text-decoration: underline;
       cursor: pointer;
 
@@ -323,12 +324,12 @@
 
   li {
     margin: 0 0 size(30) size(20);
-    color: $grey;
+    color: $secondary;
 
     @include p-article;
 
     a {
-      color: $white;
+      color: $gray-50;
       text-decoration: underline;
       cursor: pointer;
 
@@ -356,14 +357,14 @@
   }
 
   h5 {
-    color: $grey;
+    color: $secondary;
     margin-bottom: size(30);
 
     @include sm-paragraph;
   }
 
   blockquote {
-    border-left: size(4) solid $white;
+    border-left: size(4) solid $gray-50;
     display: flex;
     flex-direction: column;
     justify-content: center;

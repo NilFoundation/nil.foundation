@@ -2,27 +2,28 @@
 @use '~styles/colors' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
-  padding: size(15);
-  cursor: pointer;
-  transition: border 0.3s ease, opacity 0.3s ease, color 0.3s ease;
-  border: size(1) solid $grey;
-  color: $grey;
-  overflow: hidden;
+  gap: size($spacing32);
 
-  @include hover {
-    border: size(1) solid $white;
-    color: $white;
+  svg {
+    width: size(17);
+    height: size(17);
+    top: size(30);
+    right: size(36);
+  }
 
-    .tag {
-      border: size(1) solid $white;
+  @include mobile {
+    svg {
+      width: size(17);
+      height: size(17);
+      top: size(30);
+      right: size(25);
     }
   }
 }
@@ -33,42 +34,17 @@
   p {
     &:not(:last-child) {
       margin-right: size(10);
-
-      @include mobile {
-        color: $white;
-      }
     }
 
     @include sm-paragraph;
   }
 }
 
-.content {
-  display: flex;
-  margin-top: size(40);
-}
-
 .title {
-  margin: size(30) 0;
+  margin-top: size($spacing32);
+  color: $gray-50;
 
-  @include heading-02;
-
-  @include mobile {
-    color: $white;
-  }
-}
-
-.arrow {
-  position: absolute;
-  top: size(15);
-  right: size(15);
-  width: size(12);
-  height: size(12);
-  transform: rotate(45deg);
-
-  @include mobile {
-    color: $white;
-  }
+  @include heading-03;
 }
 
 .tags {
@@ -82,10 +58,5 @@
 
   &:not(:last-child) {
     margin-right: size(10);
-  }
-
-  @include mobile {
-    border: size(1) solid $white;
-    color: $white;
   }
 }

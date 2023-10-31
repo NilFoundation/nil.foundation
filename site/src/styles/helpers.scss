@@ -1,6 +1,5 @@
 $baseScreenSize: 1440;
-$mobileScreenSize: 375;
-
+$mobileScreenSize: 360;
 
 @function size($size) {
   @return calc(((#{$size} / var(--screen-size)) * 100) * 1vw);

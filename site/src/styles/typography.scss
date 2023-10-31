@@ -6,50 +6,55 @@
 }
 
 @mixin heading-01 {
-  font-size: size(60);
-  line-height: size(54);
-
-  @include glob-font-style;
+  font-size: size(64);
+  line-height: size(64);
+  letter-spacing: size(-1.28);
 
   @include mobile {
-    font-size: size(45);
-    line-height: size(40.5);
+    @include heading-02;
   }
 }
 
 @mixin heading-02 {
-  font-size: size(30);
-  line-height: size(30);
-
-  @include glob-font-style;
-
-  @include mobile {
-    font-size: size(24);
-    line-height: size(24);
-  }
+  font-size: size(48);
+  line-height: size(48);
+  letter-spacing: size(-0.96);
 }
 
 @mixin heading-03 {
-  font-size: size(24);
-  line-height: size(24);
-
-  @include glob-font-style;
+  font-size: size(32);
+  line-height: size(40);
+  letter-spacing: size(-0.96);
 
   @include mobile {
-    font-size: size(18);
-    line-height: size(18);
+    @include heading-04;
   }
 }
 
-@mixin paragraph {
-  font-size: size(18);
-  line-height: size(18);
+@mixin heading-04 {
+  font-size: size(24);
+  line-height: size(32);
+  letter-spacing: size(-0.48);
+}
 
-  @include glob-font-style;
+@mixin main {
+  font-size: size(18);
+  line-height: size(24);
+  letter-spacing: initial;
+}
+
+@mixin small {
+  font-size: size(16);
+  line-height: size(22);
+
+  letter-spacing: initial;
+}
+
+@mixin paragraph {
+  @include main;
 
   @include mobile {
-    font-size: size(15);
-    line-height: size(15);
+    @include small;
   }
 }
 
@@ -66,10 +71,10 @@
 }
 
 @mixin button {
-  font-size: size(16);
-  line-height: size(16);
+  font-size: size(18);
+  line-height: size(22);
 
-  @include glob-font-style;
+  letter-spacing: initial;
 
   @include mobile {
     font-size: size(12);
@@ -77,14 +82,13 @@
   }
 }
 
+@mixin button-small {
+  font-size: size(14);
+  line-height: size(18);
+
+  letter-spacing: size(0.4);
+}
+
 @mixin sm-paragraph {
-  font-size: size(15);
-  line-height: size(15);
-
-  @include glob-font-style;
-
-  @include mobile {
-    font-size: size(12);
-    line-height: size(12);
-  }
+  @include small;
 }

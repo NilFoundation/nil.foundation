@@ -32,7 +32,7 @@
   width: size(544);
   padding-bottom: size(30);
   margin-bottom: -1px;
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     width: 100%;
@@ -51,17 +51,17 @@
 .contentWrapper {
   position: relative;
   width: size(272);
-  background-color: $black;
+  background-color: $gray900;
   margin-bottom: -1px;
 
-    &:after {
+  &:after {
     content: '';
     position: absolute;
     top: 0px;
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;

@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: size(262) repeat(2, size(270)) 1fr;
   padding: size(6) size(12);
-  background-color: $white;
+  background-color: $gray-50;
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
@@ -29,7 +29,7 @@
 
 .logo {
   width: size(141.7);
-  color: $black;
+  color: $gray900;
 
   @include mobile {
     width: size(150);
@@ -67,11 +67,11 @@
   }
 
   @include hover {
-    color: $black;
+    color: $gray900;
     transition: color 0.3s ease;
 
     .square {
-      background-color: $black;
+      background-color: $gray900;
       transition: background-color 0.3s ease;
     }
   }
@@ -81,16 +81,16 @@
   transition: color 0.3s ease;
 
   @include hover {
-    color: $black;
+    color: $gray900;
     transition: color 0.3s ease;
   }
 }
 
 .isActive {
-  color: $black;
+  color: $gray900;
 
   .square {
-    background-color: $black;
+    background-color: $gray900;
   }
 }
 

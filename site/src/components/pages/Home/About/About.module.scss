@@ -27,7 +27,7 @@
   position: relative;
   margin-top: size(180);
   height: 100%;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -35,7 +35,7 @@
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
@@ -49,9 +49,9 @@
 
 .description {
   padding: size(30) size(160) size(60) size(30);
-  background-color: $black;
+  background-color: $gray900;
 
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
     margin-bottom: 0;
@@ -67,7 +67,7 @@
 .button {
   padding-top: size(104);
   padding-bottom: size(24);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding-top: size(58);

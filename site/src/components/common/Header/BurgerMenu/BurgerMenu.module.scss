@@ -10,7 +10,7 @@
   height: get-real-vh(100);
   width: 100%;
   z-index: -1;
-  background-color: $black;
+  background-color: $gray900;
   justify-content: space-between;
   transform: translateY(calc(-150% - size(30)));
   transition: transform 1s ease;
@@ -83,7 +83,7 @@
 
 .right {
   padding: 0 size(53) size(20) size(30);
-  background-color: $black;
+  background-color: $gray900;
 }
 
 .link {
@@ -105,7 +105,7 @@
 .box3 {
   width: 30%;
   height: 45%;
-  background: $black;
+  background: $gray900;
   display: flex;
   align-items: flex-end;
 }

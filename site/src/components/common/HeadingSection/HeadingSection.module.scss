@@ -11,31 +11,31 @@
   width: 100%;
   min-height: size(420);
   padding: size(30);
-  background-color: $black;
+  background-color: $gray900;
   word-break: break-word;
 
-    &:before {
+  &:before {
     content: '';
     position: absolute;
     top: 0px;
     left: -1px;
     width: 4px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
     }
   }
 
-    &:after {
+  &:after {
     content: '';
     position: absolute;
     top: 0px;
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;

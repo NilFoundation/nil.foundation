@@ -7,7 +7,7 @@
 #freshteam-widget {
   width: 100% !important;
   min-height: 100vh;
-  background-color: $black !important;
+  background-color: $gray900 !important;
   color: $grey !important;
 
   &.loading {
@@ -97,24 +97,24 @@
   }
 
   .job-details-header {
-    background-color: $black !important;
+    background-color: $gray900 !important;
   }
 
   .btn-primary {
     border: size(1) solid $white !important;
-    background: $black !important;
+    background: $gray900 !important;
     transition: all 0.1s ease-in-out !important;
 
     @include hover {
       background: $white !important;
-      color: $black !important;
+      color: $gray900 !important;
     }
   }
 
   .section-header > .section-description {
     display: none !important;
   }
-  
+
   .section-title::after {
     display: block;
     font-weight: normal !important;
@@ -142,7 +142,7 @@
   }
 
   .advanced-search {
-    background-color: $black !important;
+    background-color: $gray900 !important;
 
     @include mobile {
       max-width: size(340);
@@ -197,7 +197,7 @@
 
 .select2-results {
   &__options {
-    background-color: $black !important;
+    background-color: $gray900 !important;
   }
 }
 
@@ -217,7 +217,7 @@
 
 .select2-selection--multiple {
   color: $grey !important;
-  background-color: $black !important;
+  background-color: $gray900 !important;
 }
 
 .icon-tick {
@@ -267,7 +267,7 @@
 .form-control {
   border-color: $grey !important;
   color: $white !important;
-  background-color: $black !important;
+  background-color: $gray900 !important;
 
   &:focus {
     border-color: $white !important;
@@ -290,7 +290,7 @@
   li {
     @include fontType(H);
 
-    background: $black !important;
+    background: $gray900 !important;
     box-shadow: 0 0 2px 0 rgba(255, 255, 255, 1) !important;
   }
 }

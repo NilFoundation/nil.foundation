@@ -21,7 +21,7 @@
     height: size(8);
     margin: size(4) size(20) 0 0;
     content: '';
-    background-color: $white;
+    background-color: $gray-50;
 
     @include mobile {
       margin: size(4) size(10) 0 0;

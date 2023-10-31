@@ -31,7 +31,7 @@
 
 .content {
   position: relative;
-  background-color: $black;
+  background-color: $gray900;
 
   &:after {
     content: '';
@@ -40,7 +40,7 @@
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
@@ -68,7 +68,7 @@
   width: size(358);
   margin-bottom: size(80);
 
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
     max-width: size(291);
@@ -101,7 +101,7 @@
 
 .buttonBlock {
   padding: size(104) size(16) size(44);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding-top: size(58);

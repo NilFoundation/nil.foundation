@@ -13,27 +13,30 @@ export const careersPageData = {
         // TODO: add blog link
         linkTo: '/blog/post/database-management-system',
         title: '`DROP DATABASE *',
-        description: 'Trustless cloud computing and data management',
-        text: 'Layer protocol allowing decentralized operation of Proof Market or any other application',
+        description:
+          'Trustless cloud computing and data management. Layer protocol allowing decentralized operation of Proof Market or any other application',
+        // text: 'Layer protocol allowing decentralized operation of Proof Market or any other application',
       },
       {
         linkTo: 'https://github.com/NilFoundation/proof-market-toolchain',
         title: 'Proof Market',
-        description: 'Decentralized marketplace for zero-knowledge proofs',
-        text: 'Outsourcing zkProof generation to optimize time & cost of zk implementation',
+        description:
+          'Decentralized marketplace for zero-knowledge proofs. Automatic generation of high-performance circuits for multiple protocols',
+        // text: 'Outsourcing zkProof generation to optimize time & cost of zk implementation',
       },
       {
         linkTo: 'https://github.com/NilFoundation/zkllvm',
         title: 'zkLLVM',
-        description: 'Circuit compiler from C++, Rust, or other mainstream languages',
-        text: 'Automatic generation of high-performance circuits for multiple protocols',
+        description:
+          'Circuit compiler from C++, Rust, or other mainstream languages. Outsourcing zkProof generation to optimize time & cost of zk implementation',
+        // text: 'Automatic generation of high-performance circuits for multiple protocols',
       },
       {
         linkTo: 'https://github.com/NilFoundation/crypto3',
         title: 'Placeholder & Crypto3 suite',
         description:
-          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
-        text: 'Tech & research baseline to enable high performance circuit definition',
+          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping. Tech & research baseline to enable high performance circuit definition',
+        // text: 'Tech & research baseline to enable high performance circuit definition',
       },
     ],
   },

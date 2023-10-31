@@ -32,7 +32,7 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding-top: size(40);
@@ -77,7 +77,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  letter-spacing: -0.03em;
 }
 
 .description {
@@ -98,7 +97,7 @@
 
 .buttonBlock {
   padding: size(104) size(16) size(44);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding-top: size(58);

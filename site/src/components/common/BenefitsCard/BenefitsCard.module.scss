@@ -24,7 +24,7 @@
 .title {
   margin-bottom: size(16);
 
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
     margin-bottom: size(25);

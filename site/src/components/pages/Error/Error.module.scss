@@ -42,7 +42,7 @@
 }
 
 .title {
-  background-color: $black;
+  background-color: $gray900;
   margin: size(-30) 0 size(-5);
 
   font-size: size(330);
@@ -66,7 +66,7 @@
   @include mobile {
     position: relative;
     padding: size(10) size(12);
-    background-color: $black;
+    background-color: $gray900;
   }
 }
 
@@ -105,7 +105,7 @@
 
 .text {
   padding: size(112) size(30) size(30);
-  background-color: $black;
+  background-color: $gray900;
 
   @include paragraph;
 
@@ -118,7 +118,7 @@
 
 .box {
   width: size(272);
-  background-color: $black;
+  background-color: $gray900;
 }
 
 .box1 {

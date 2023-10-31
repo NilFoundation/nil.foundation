@@ -19,33 +19,6 @@ function IntroDescription({
   const { isMobile } = useViewport()
   const prefersReduceMotion = usePrefersReducedMotion()
 
-  // useEffect(() => {
-  //   if (isMobile) {
-  //     return;
-  //   }
-
-  //   timelineRef.current = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: 'body',
-  //       start: 'top top',
-  //       end: `+=10%`,
-  //       scrub: 0.5,
-  //     },
-  //   });
-
-  //   if (isMobile && timelineRef.current) {
-  //     timelineRef.current?.scrollTrigger?.kill?.();
-  //     timelineRef.current.kill();
-  //   }
-
-  //   return () => {
-  //     if (timelineRef.current) {
-  //       timelineRef.current?.scrollTrigger?.kill?.();
-  //       timelineRef.current.kill();
-  //     }
-  //   };
-  // }, [isMobile]);
-
   useEffect(() => {
     const description = ref.current
     const timeline = timelineRef.current

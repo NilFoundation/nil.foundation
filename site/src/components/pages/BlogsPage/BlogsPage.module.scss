@@ -193,3 +193,19 @@
     margin-left: size(-10);
   }
 }
+
+.footerSection {
+  article {
+    height: size(492);
+
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include mobile {
+    article {
+      height: size(180);
+
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

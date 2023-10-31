@@ -2,6 +2,7 @@
 @import 'src/styles/helpers';
 @import 'src/styles/colors';
 @import 'src/styles/mixins';
+@import 'src/styles/paddings';
 
 .container {
   position: relative;
@@ -32,10 +33,11 @@
   width: size(544);
   padding-bottom: size(30);
   margin-bottom: -1px;
-  background-color: $gray900;
 
   @include mobile {
     width: 100%;
+    background-color: $gray900;
+    // padding-bottom: 0;
     padding-bottom: size(70);
   }
 }
@@ -51,8 +53,8 @@
 .contentWrapper {
   position: relative;
   width: size(272);
+  margin-bottom: auto;
   background-color: $gray900;
-  margin-bottom: -1px;
 
   &:after {
     content: '';
@@ -77,17 +79,25 @@
 
 .contentWrapperLeft {
   composes: contentWrapper;
-  margin-top: size(210);
+  margin-top: size(206);
+
+  & > .text {
+    margin-bottom: size(64);
+
+    @include mobile {
+      margin-bottom: size(4);
+    }
+  }
 
   @include mobile {
+    padding-bottom: 0;
     margin-top: 0;
-    margin-bottom: size(140);
   }
 }
 
 .contentWrapperRight {
   composes: contentWrapper;
-  margin-top: size(300);
+  margin-top: size(236);
 
   @include mobile {
     margin-top: 0;
@@ -97,10 +107,19 @@
 }
 
 .text {
-  @include paragraph;
   padding: size(30);
+
+  @include paragraph;
 
   @include mobile {
     padding: size(10);
+  }
+}
+
+.bottomLine {
+  margin-top: size($spacing24);
+
+  @include mobile {
+    margin-top: 0;
   }
 }

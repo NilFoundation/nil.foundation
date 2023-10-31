@@ -9,6 +9,8 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import TagList from './TagList'
 import { useRouter } from 'next/router'
 import { MappedTag } from 'src/strapi/types/entities'
+import { footerDataItems, footerDataMobileItems } from './footerData'
+import { useViewport } from 'hooks/useViewport'
 
 type ResearchLayoutProps = {
   children: React.ReactNode
@@ -20,9 +22,11 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
 
   const activeTagSlug = router.query?.slug ?? ''
 
+  const { isMobile } = useViewport()
+
   const onTagClickHandler = async (tagItem: MappedTag) => {
     if (tagItem.slug === activeTagSlug) {
-      await router.push(`/research`)
+      await router.push('/research')
       return
     }
 
@@ -47,15 +51,17 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
             <TagList tags={tags} activeTagSlug={activeTagSlug} onTagClick={onTagClickHandler} />
           </section>
           {children}
+          <FooterAnimationSection
+            items={isMobile ? footerDataMobileItems : footerDataItems}
+            className={s.footerSection}
+          />
         </div>
       </div>
-      <div className={s.lastSection}>
-        <div className={s.lastSectionWrapper}>
-          <WhiteRectangle />
-          <LastSection withBackground />
-        </div>
-      </div>
-      <FooterAnimationSection className={s.footerSection} />
+      <FooterAnimationSection
+        items={isMobile ? footerDataMobileItems : footerDataItems}
+        className={s.footerSectionMobile}
+      />
+      <div id="footer_nav" />
     </Container>
   )
 }

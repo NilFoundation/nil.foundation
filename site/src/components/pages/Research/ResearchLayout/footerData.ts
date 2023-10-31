@@ -1,61 +1,61 @@
 import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
 
-export const blogsPageFooterItemData = [
+export const footerDataItems = [
   {
-    id: '1',
-    ySourceValue: '-89%',
+    id: 'z1',
+    ySourceValue: '-88%',
   },
   {
-    id: '2',
-    ySourceValue: '-89%',
+    id: 'z2',
+    ySourceValue: '-88%',
   },
   {
-    id: '3',
-    ySourceValue: '-89%',
+    id: 'z3',
+    ySourceValue: '-88%',
   },
   {
-    id: '4',
-    ySourceValue: '-60%',
+    id: 'z4',
+    ySourceValue: '-88%',
   },
   {
-    id: '6',
+    id: 'z5',
     ySourceValue: '6%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
-    id: '7',
+    id: 'z6',
     ySourceValue: '6%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
-    id: '8',
-    ySourceValue: '87%',
+    id: 'z7',
+    ySourceValue: '88%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
-    id: '9',
-    ySourceValue: '10%',
+    id: 'z8',
+    ySourceValue: '41%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
 ]
 
-export const blogsPageFooterMobileItemData = [
+export const footerDataMobileItems = [
   {
-    id: '1',
-    ySourceValue: '-76%',
+    id: 'z1',
+    ySourceValue: '-58%',
   },
   {
-    id: '2',
-    ySourceValue: '1%',
+    id: 'z2',
+    ySourceValue: '-58%',
   },
   {
-    id: '3',
-    ySourceValue: '76%',
+    id: 'z3',
+    ySourceValue: '61%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
-    id: '4',
-    ySourceValue: '76%',
+    id: 'z4',
+    ySourceValue: '61%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
 ]

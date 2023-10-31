@@ -1,46 +1,43 @@
-import Container from "components/Container";
+import Container from 'components/Container'
 
-import FooterAnimationSection from "components/FooterAnimationSection";
-import Hero from "./Hero/Hero";
-import Win from "./Win/Win";
-import ZkProof from "./ZkProof";
-import FullCycle from "./FullCycle";
-import JoinNil from "./JoinNil";
-import About from "./About";
-import Intro from "./Intro";
+import FooterAnimationSection from 'components/FooterAnimationSection'
+import Hero from './Hero/Hero'
+import Win from './Win/Win'
+import ZkProof from './ZkProof'
+import FullCycle from './FullCycle'
+import JoinNil from './JoinNil'
+import About from './About'
+import Intro from './Intro'
 
-import s from "./Home.module.scss";
-import { homePageData } from "stubs/homePageData";
-import WhiteRectangleLine from "components/WhiteRectangleLine";
-import { useViewport } from "hooks/useViewport";
+import s from './Home.module.scss'
+import { homePageData } from 'stubs/homePageData'
+import WhiteRectangleLine from 'components/WhiteRectangleLine'
+import { useViewport } from 'hooks/useViewport'
 
 type HomeProps = {
-	data: typeof homePageData;
-};
+  data: typeof homePageData
+}
 
 const Home = ({ data }: HomeProps) => {
-	const { isMobile } = useViewport();
+  const { isMobile } = useViewport()
 
-	return (
-		<Container className={s.root}>
-			<Intro />
-			<div className={s.wrapper}>
-				<div className={s.content}>
-					<Hero data={data.hero} />
-					<Win data={data.win} />
-					<ZkProof data={data.zkProof} />
-					<FullCycle data={data.fullCycle} />
-					<JoinNil data={data.joinNil} withMargin />
-					<About data={data.about} />
-					<WhiteRectangleLine
-						data={isMobile ? [0] : [154, 154, 184, 0]}
-						marginTop={isMobile ? 62 : 123}
-					/>
-					<div id="footer_nav" />
-				</div>
-			</div>
-		</Container>
-	);
-};
+  return (
+    <Container className={s.root}>
+      <Intro />
+      <div className={s.wrapper}>
+        <div className={s.content}>
+          <Hero data={data.hero} />
+          <Win data={data.win} />
+          <ZkProof data={data.zkProof} />
+          <FullCycle data={data.fullCycle} />
+          <JoinNil data={data.joinNil} withMargin />
+          <About data={data.about} />
+          <WhiteRectangleLine data={isMobile ? [0] : [154, 154, 184, 0]} marginTop={isMobile ? 62 : 123} />
+          <div id="footer_nav" />
+        </div>
+      </div>
+    </Container>
+  )
+}
 
-export default Home;
+export default Home

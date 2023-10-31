@@ -1,1 +1,1 @@
-export { default } from './ZkEnabledApps';
+export { default } from './ZkEnabledApps'

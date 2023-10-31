@@ -17,7 +17,7 @@ function JoinNil({
 			<div className={s.headingWrapper}>
 				<WhiteRectangle />
 				<HeadingSection title={title} socials={social} className={s.heading} />
-				<WhiteRectangle />
+				<WhiteRectangle className={s.line} />
 			</div>
 			<div className={s.contentWrapperLeft}>
 				<WhiteRectangle className={s.line} />

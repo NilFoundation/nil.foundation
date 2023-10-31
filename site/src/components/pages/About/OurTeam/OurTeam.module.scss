@@ -5,7 +5,7 @@
 
 .root {
   display: grid;
-  margin-bottom: size(186);
+  margin-bottom: size(319);
   grid-template-columns: 1fr 1fr;
 
   @include mobile {
@@ -23,6 +23,10 @@
 .left {
   max-height: size(480);
   margin-top: size(48);
+
+  @include mobile {
+    margin-top: 0;
+  }
 }
 
 .right {
@@ -64,6 +68,10 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    direction: rtl;
+  }
 }
 
 .button {

@@ -21,6 +21,37 @@
   grid-column: span 4 / 6;
 }
 
+.joinNil {
+  margin-bottom: size(149);
+}
+
+.aboutRightFooter {
+  & > div {
+    &:nth-child(1) {
+      // margin-top: size(30);
+    }
+  }
+}
+
+.aboutRightHeader {
+  & > div {
+    &:nth-child(1) {
+      margin-top: size(39);
+    }
+    &:nth-child(2) {
+      margin-top: size(69);
+    }
+  }
+}
+
+.joinNilBox {
+  margin-top: size(283);
+
+  &:last-of-type {
+    margin-top: size(313);
+  }
+}
+
 .sideNavigation {
   @include mobile {
     display: none;

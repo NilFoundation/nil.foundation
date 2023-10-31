@@ -31,11 +31,20 @@ const ZkLlvm = ({ data }: ZkLlvmProps) => {
 					<Accelerating data={data.accelerating} />
 					<ZkEnabledApps data={data.zkProof} />
 					<FullCycle data={data.fullCycle} />
-					<JoinNil data={data.joinNil} withMargin />
-					<About data={data.about} />
+					<JoinNil
+						data={data.joinNil}
+						className={s.joinNil}
+						boxClassName={s.joinNilBox}
+						withMargin
+					/>
+					<About
+						data={data.about}
+						rightFooterClassName={s.aboutRightFooter}
+						rightHeaderClassName={s.aboutRightHeader}
+					/>
 					<WhiteRectangleLine
-						data={isMobile ? [0] : [154, 154, 184, 0]}
-						marginTop={isMobile ? 62 : 123}
+						data={isMobile ? [0] : [176, 176, 214, 0]}
+						marginTop={isMobile ? 62 : 132}
 					/>
 					<div id="footer_nav" />
 				</div>

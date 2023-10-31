@@ -12,11 +12,14 @@ import ArrowButton from "components/ArrowButton";
 
 type AboutProps = {
 	className?: string;
+	rightHeaderClassName?: string;
+	rightFooterClassName?: string;
 	data: typeof homePageData.about;
 };
 
 const About = ({
 	className,
+	rightHeaderClassName,
 	data: { title, social, description },
 }: AboutProps) => {
 	const { isMobile } = useViewport();
@@ -29,7 +32,7 @@ const About = ({
 			</div>
 			<div className={s.right}>
 				{!isMobile && (
-					<div className={s.rightHeader}>
+					<div className={cx(s.rightHeader, rightHeaderClassName)}>
 						<div>
 							<WhiteRectangle />
 						</div>

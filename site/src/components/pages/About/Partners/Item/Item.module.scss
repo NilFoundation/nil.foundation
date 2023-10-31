@@ -10,7 +10,7 @@
   padding: size(30);
   cursor: pointer;
 
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
     padding: size(23) size(10);
@@ -32,7 +32,7 @@
     content: '';
     transition: transform 0.3s ease;
     transform: translateY(-50%);
-    background-color: $white;
+    background-color: $gray-50;
   }
 
   &::after {

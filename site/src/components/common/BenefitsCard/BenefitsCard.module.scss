@@ -30,7 +30,7 @@
 .title {
   margin-bottom: size($spacing48);
 
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
     margin-bottom: size($spacing24);

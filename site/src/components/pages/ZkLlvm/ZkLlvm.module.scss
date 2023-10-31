@@ -28,7 +28,7 @@
     z-index: 4;
     width: calc(100% - 2px);
     height: size(10);
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;

@@ -1,0 +1,28 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  width: 100%;
+
+  @include paragraph;
+
+  color: $secondary;
+
+  svg {
+    width: size(14);
+    height: size(14);
+    top: size(31);
+    right: size(34);
+  }
+}
+
+.title {
+  color: $gray-50;
+
+  @include heading-03;
+
+  margin-bottom: size($spacing16);
+}

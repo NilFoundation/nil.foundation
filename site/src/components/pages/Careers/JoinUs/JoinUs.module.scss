@@ -2,6 +2,7 @@
 @use '~styles/typography' as *;
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .wrapper {
   display: flex;
@@ -11,7 +12,7 @@
 .content {
   position: relative;
   height: 100%;
-  background-color: $black;
+  background-color: $gray900;
   width: 50%;
 
   &:after {
@@ -21,7 +22,7 @@
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
@@ -35,7 +36,10 @@
 
 .cardsWrapper {
   display: flex;
-  gap: size(30);
+  flex-direction: column;
+  gap: size($spacing32);
+
+  margin-left: size($spacing32);
 
   &:not(:last-child) {
     margin-bottom: size(20);
@@ -51,7 +55,7 @@
   width: 80%;
   padding: size(30);
 
-  @include heading-02;
+  @include heading-01;
 
   @include mobile {
     width: 100%;

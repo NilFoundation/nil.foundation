@@ -21,6 +21,7 @@
     top: size($spacing24);
     width: 100%;
     height: 100%;
+    width: size(158);
   }
 }
 
@@ -45,7 +46,7 @@
 }
 
 .title {
-  @include heading-02;
+  @include heading-03;
   text-align: left;
 
   @include mobile {
@@ -54,11 +55,9 @@
 }
 
 .titleLarge {
-  font-size: size(64);
-  line-height: 90%;
-
+  @include heading-01;
   @include mobile {
-    font-size: size(45);
+    @include heading-04;
     width: 100%;
   }
 }
@@ -66,7 +65,7 @@
 .linkWrapper {
   width: size(272);
   margin-bottom: size(30);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     display: none;

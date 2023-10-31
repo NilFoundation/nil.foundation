@@ -2,152 +2,119 @@
 @use '~styles/colors' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
-  display: flex;
   width: 100%;
-  padding: 0 size(30);
   cursor: pointer;
-  transition: color 0.3s ease;
-  color: $grey;
+  color: $secondary;
+
+  svg {
+    width: size(18);
+    height: size(18);
+    top: size(28);
+    right: size(28);
+  }
 
   &.featured {
-    padding: 0;
-  }
-
-  &:not(:last-child) {
-    margin-bottom: size(20);
-  }
-
-  @include hover {
-    color: $white;
-
-    .arrow {
-      opacity: 1;
+    svg {
+      width: size(22);
+      height: size(22);
+      top: size(30);
+      right: size(28);
     }
   }
 
-  @include mobile {
-    color: $white;
-    padding: 0;
-    margin-bottom: size(30);
-  }
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  transition: border-color 0.3s ease;
-  padding: size(30) 0;
-
-  @include hover {
-    border-color: $white;
+  &:not(:last-child) {
+    margin-bottom: size($spacing32);
   }
 
   @include mobile {
-    padding: size(20) 0 0;
-  }
-}
-
-.blogPost {
-  border-bottom: size(4) dashed $grey;
-
-  @include hover {
-    border-bottom: size(4) solid $white;
-  }
-}
-
-.featurePost {
-  padding: size(30) size(27);
-  border: size(4) dashed $grey;
-
-  @include hover {
-    border: size(4) solid $white;
-  }
-
-  @include mobile {
-    padding: size(30) size(20);
+    &:not(:last-child) {
+      margin-bottom: size($spacing24);
+    }
   }
 }
 
 .info {
   display: flex;
 
-  p {
-    &:not(:last-child) {
-      margin-right: size(10);
-    }
+  gap: size(10);
 
+  margin-bottom: size($spacing32);
+
+  p {
     @include sm-paragraph;
   }
 
-  &.featureInfo {
-    p {
-      @include paragraph;
-    }
+  @include mobile {
+    margin-bottom: size($spacing16);
   }
 }
 
-.date {
-  color: $grey;
+.featureInfo {
+  gap: size($spacing12);
+  margin-bottom: size($spacing48);
+
+  @include mobile {
+    margin-bottom: size($spacing16);
+  }
 }
 
 .content {
   display: flex;
-  align-items: center;
-  width: 100%;
-  margin-top: size(40);
+  gap: size($spacing32);
+  align-items: flex-start;
 
   @include mobile {
     flex-direction: column;
-    margin-top: size(30);
+    gap: size($spacing16);
+    // margin-top: size(30);
+  }
+}
+
+.featuredContent {
+  flex-direction: column;
+
+  gap: size($spacing48);
+
+  @include mobile {
+    gap: size($spacing16);
   }
 }
 
 .title {
-  width: 50%;
-  margin-right: size(105);
+  flex-basis: size(514);
 
-  @include heading-02;
+  flex-shrink: 0;
 
-  @include mobile {
-    width: 100%;
-    margin: 0 0 size(20) 0;
-    color: $white;
-  }
-}
+  color: $gray-50;
 
-.description {
-  width: 50%;
-
-  @include paragraph;
+  @include heading-03;
 
   @include mobile {
+    flex-basis: initial;
     width: 100%;
-    color: $grey;
-    margin-bottom: size(20);
   }
 }
 
 .featureTitle {
-  width: 70%;
-  margin-top: size(40);
-
   @include heading-01;
+
+  flex-basis: initial;
+
+  width: size(683);
 
   @include mobile {
     width: 100%;
-    color: $white;
-
-    @include heading-02;
   }
 }
 
 .featureDescription {
-  width: 60%;
-  margin-top: size(40);
+  flex-grow: initial;
+
+  width: size(616);
 
   @include paragraph;
 
@@ -156,36 +123,12 @@
   }
 }
 
-.author {
-  @include mobile {
-    color: $white;
-    max-width: size(250);
-  }
-}
+.description {
+  flex-grow: 1;
 
-.arrow {
-  position: absolute;
-  right: size(30);
-  width: size(14);
-  height: size(14);
-  opacity: 0.5;
-  transition: opacity 0.3s;
-  transform: rotate(45deg);
+  @include paragraph;
 
   @include mobile {
-    opacity: 1;
-    right: 0;
-  }
-}
-
-.bigArrow {
-  right: size(25);
-  width: size(18);
-  height: size(18);
-
-  @include mobile {
-    right: size(18);
-    width: size(14);
-    height: size(14);
+    @include main;
   }
 }

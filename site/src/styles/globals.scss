@@ -24,8 +24,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: $black;
-  color: $white;
+  background-color: $gray900;
+  color: $gray-50;
   overscroll-behavior: none;
 
   @include fontType(H);

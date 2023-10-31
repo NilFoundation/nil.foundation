@@ -8,7 +8,7 @@
   grid-template-columns: size(272) 1fr;
   width: 100%;
   min-height: calc(100vh - #{size(30)});
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     grid-template-columns: 100%;
@@ -21,7 +21,6 @@
   position: relative;
   grid-area: 2 / 2;
 
-
   &:before {
     content: '';
     position: absolute;
@@ -29,7 +28,7 @@
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
@@ -43,7 +42,7 @@
     left: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
@@ -71,11 +70,14 @@
 
 .description {
   @include paragraph;
+  line-height: size(21);
   width: 100%;
   z-index: 2;
 
   @include mobile {
     max-width: 100%;
+    // @include sm-paragraph;
+    line-height: size(20);
   }
 }
 

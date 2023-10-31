@@ -2,14 +2,13 @@
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
 
-
 .root {
   display: block;
   width: size(80);
   height: size(80);
   padding: size(20);
   border-radius: 50%;
-  background-color: $white;
+  background-color: $gray-50;
   transition: opacity 0.3s ease;
 
   @include mobile {

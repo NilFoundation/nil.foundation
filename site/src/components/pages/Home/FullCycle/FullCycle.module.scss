@@ -1,5 +1,6 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
+@use '~styles/typography' as *;
 @use '~styles/mixins' as *;
 @use '~styles/paddings' as *;
 
@@ -34,7 +35,7 @@
     right: -1px;
     width: 2px;
     height: 100%;
-    background-color: $black;
+    background-color: $gray900;
 
     @include mobile {
       display: none;
@@ -50,7 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: size($spacing32) size($spacing32) size($spacing64);
-  background-color: $black;
+  background-color: $gray900;
   gap: size(36);
 
   @include mobile {
@@ -75,7 +76,7 @@
 .button {
   padding-top: size(104);
   padding-bottom: size(24);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding-top: size(58);

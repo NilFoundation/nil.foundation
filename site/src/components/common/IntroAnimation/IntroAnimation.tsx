@@ -77,7 +77,7 @@ function IntroAnimation({
     })
 
     navigationTimeline.to(sideNavigation, {
-      scale: '0.52',
+      scale: '1',
       ease: 'expo.out',
     })
 

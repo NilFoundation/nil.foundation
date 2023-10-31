@@ -50,7 +50,7 @@
 }
 
 .info {
-  background-color: $black;
+  background-color: $gray900;
 
   p {
     @include paragraph;
@@ -82,7 +82,7 @@
   display: flex;
   flex-direction: column;
   padding-top: size(30);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding-top: size(30);

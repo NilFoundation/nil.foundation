@@ -4,7 +4,7 @@
 @import 'src/styles/mixins';
 
 .container {
-  background-color: $black;
+  background-color: $gray900;
 }
 
 .dottedCard {
@@ -41,7 +41,7 @@
   width: 50%;
   padding: size(30) size(30) size(60);
   margin-top: size(-30);
-  background-color: $black;
+  background-color: $gray900;
 
   @include mobile {
     padding: size(2) size(10) size(40);
@@ -50,11 +50,10 @@
 }
 
 .title {
-  @include heading-02;
+  @include heading-03;
 
   @include mobile {
-    font-size: 15px;
-    line-height: 100%;
+    @include main;
   }
 }
 

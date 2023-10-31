@@ -68,7 +68,7 @@
 }
 
 .description {
-  @include heading-02;
+  @include heading-03;
   padding: 0 size(30) size(30);
 
   @include mobile {
@@ -91,7 +91,7 @@
     width: 100%;
     overflow: auto;
     margin-bottom: size(20);
-    background-color: $black;
+    background-color: $gray900;
     z-index: 2;
   }
 }
@@ -111,7 +111,7 @@
     margin-bottom: 0;
     padding-top: size(20);
     padding-bottom: size(10);
-    background-color: $black;
+    background-color: $gray900;
   }
 }
 

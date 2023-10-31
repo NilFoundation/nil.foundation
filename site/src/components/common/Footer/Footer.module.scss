@@ -5,7 +5,7 @@
 @use '~styles/paddings' as *;
 
 .root {
-  color: $white;
+  color: $gray-50;
 
   @include sm-paragraph;
 }
@@ -55,6 +55,10 @@
     margin-bottom: size($spacing8);
     transition: opacity 0.3s ease;
 
+    @include button-small;
+
+    color: $buttonGray50;
+
     @include hover {
       opacity: 0.5;
       cursor: pointer;
@@ -70,7 +74,7 @@
 
 .title {
   margin-bottom: size($spacing12);
-  color: $grey;
+  color: $secondary;
 }
 
 .socials {
@@ -115,7 +119,7 @@
 .place {
   width: size(233);
 
-  @include paragraph;
+  @include main;
 
   @include mobile {
     width: 100%;
@@ -137,6 +141,8 @@
 .copyright {
   grid-column: span 3;
 
+  letter-spacing: size(-0.1);
+
   @include mobile {
     margin-bottom: size($spacing16);
   }
@@ -144,6 +150,10 @@
 
 .creators {
   transition: opacity 0.3s ease;
+
+  @include button-small;
+
+  color: $buttonGray50;
 
   @include hover {
     opacity: 0.5;

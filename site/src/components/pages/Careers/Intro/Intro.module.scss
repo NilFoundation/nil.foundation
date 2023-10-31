@@ -30,7 +30,7 @@
 }
 
 .text {
-  background-color: $black;
+  background-color: $gray900;
   padding: 0 size(30) size(30);
 
   @include paragraph;
@@ -43,7 +43,7 @@
 
 .box {
   width: size(272);
-  background-color: $black;
+  background-color: $gray900;
 }
 
 .box1 {

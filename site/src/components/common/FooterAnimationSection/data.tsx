@@ -20,7 +20,7 @@ export const getAnimatedItemList: AnimationGetter = (
 			id: "1",
 			ySourceValue: "-30%",
 			yTransformValue: "-30%",
-			// hideLine: true,
+			hideLine: true,
 		},
 		{
 			id: "2",
@@ -31,26 +31,26 @@ export const getAnimatedItemList: AnimationGetter = (
 			id: "3",
 			ySourceValue: "-100%",
 			yTransformValue: "-100%",
-			hideLine: true,
-			// children: text && (
-			//   <ArrowButton
-			//     className={s.arrowButton}
-			//     text={text}
-			//     href={href}
-			//     onClick={onClick}
-			//   />
-			// ),
+			// hideLine: true,
+			children: text && (
+				<ArrowButton
+					className={s.arrowButton}
+					text={text}
+					href={href}
+					onClick={onClick}
+				/>
+			),
 		},
 		{
 			id: "4",
 			ySourceValue: "-120%",
 			yTransformValue: "-75%",
 		},
-		// {
-		//   id: '5',
-		//   ySourceValue: '-42%',
-		//   yTransformValue: '-50%',
-		// },
+		{
+			id: "5",
+			ySourceValue: "-42%",
+			yTransformValue: "-50%",
+		},
 		{
 			id: "6",
 			ySourceValue: "85%",
@@ -78,13 +78,13 @@ export const getAnimatedItemList: AnimationGetter = (
 			yTransformValue: "85%",
 			alignment: ANIMATION_CARD_ALIGNMENT.bottom,
 		},
-		// {
-		//   id: '10',
-		//   ySourceValue: '85%',
-		//   // ySourceValue: prefersReducedMotion ? '90%' : '43%',
-		//   yTransformValue: '85%',
-		//   alignment: ANIMATION_CARD_ALIGNMENT.bottom,
-		// },
+		{
+			id: "10",
+			ySourceValue: "85%",
+			// ySourceValue: prefersReducedMotion ? '90%' : '43%',
+			yTransformValue: "85%",
+			alignment: ANIMATION_CARD_ALIGNMENT.bottom,
+		},
 	];
 };
 export const getAnimatedItemMobileList: AnimationGetter = (

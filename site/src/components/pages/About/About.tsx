@@ -1,6 +1,6 @@
 import Container from "components/Container";
 
-import JoinSection, { getJoinSectionProps } from "components/JoinSection";
+import JoinNil, { getJoinSectionProps } from "./JoinNil";
 import SideNavigation from "components/SideNavigation";
 import FooterAnimationSection from "components/FooterAnimationSection";
 import Hero from "./Hero";
@@ -33,11 +33,11 @@ const About = ({ data }: AboutProps) => {
 					<Toolchain data={data.toolchain} />
 					<Partners data={data.partners} />
 					<OurTeam data={data.ourTeam} />
-					<JoinSection {...getJoinSectionProps(data)} />
+					<JoinNil {...getJoinSectionProps(data)} />
 
 					<WhiteRectangleLine
 						marginTop={isMobile ? 60 : 142}
-						data={isMobile ? [0] : [112, 112, 136, 0]}
+						data={isMobile ? [0] : [142, 142, 168, 0]}
 					/>
 					<div id="footer_nav" />
 				</div>

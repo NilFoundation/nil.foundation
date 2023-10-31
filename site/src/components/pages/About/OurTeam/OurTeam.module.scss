@@ -22,11 +22,11 @@
 
 .left {
   max-height: size(480);
+  margin-top: size(48);
 }
 
 .right {
   position: relative;
-  margin-top: size(180);
 
   &:after {
     content: '';

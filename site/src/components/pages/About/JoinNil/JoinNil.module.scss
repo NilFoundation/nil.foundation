@@ -1,0 +1,106 @@
+@import 'src/styles/typography';
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @include mobile {
+    overflow: hidden;
+  }
+}
+
+.line {
+  @include mobile {
+    display: none;
+  }
+}
+
+.lineMobile {
+  display: block;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.headingWrapper {
+  width: size(544);
+  margin-bottom: -1px;
+  background-color: $gray900;
+
+  @include mobile {
+    width: 100%;
+    padding-bottom: size(70);
+  }
+}
+
+.heading {
+  padding: size(30);
+
+  @include mobile {
+    padding: size(20) size(10);
+  }
+}
+
+.contentWrapper {
+  position: relative;
+  width: size(272);
+  background-color: $gray900;
+  margin-bottom: -1px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $gray900;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    width: calc(50% + 2px);
+    margin-right: -1px;
+    margin-left: -1px;
+  }
+}
+
+.contentWrapperLeft {
+  composes: contentWrapper;
+  margin-top: size(2);
+
+  @include mobile {
+    margin-top: 0;
+    margin-bottom: size(140);
+  }
+}
+
+.contentWrapperRight {
+  composes: contentWrapper;
+  margin-top: size(92);
+
+  @include mobile {
+    margin-top: 0;
+    padding-top: size(50);
+    margin-bottom: auto;
+  }
+}
+
+.text {
+  @include paragraph;
+  padding: size(30);
+
+  @include mobile {
+    padding: size(10);
+  }
+}

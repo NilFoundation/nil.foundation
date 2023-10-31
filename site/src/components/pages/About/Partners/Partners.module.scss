@@ -6,7 +6,7 @@
 .root {
   display: grid;
   margin-top: size(81);
-  margin-bottom: size(569);
+  margin-bottom: size(508);
   grid-template-columns: 1fr 1fr;
 
   @include mobile {

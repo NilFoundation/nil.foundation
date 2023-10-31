@@ -134,7 +134,7 @@
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: size(20);
+    margin-bottom: size($spacing12);
   }
 }
 
@@ -168,8 +168,8 @@
 
   @include mobile {
     top: unset;
-    bottom: size(20);
-    right: size(18);
+    bottom: 0;
+    right: 0;
     width: size(18);
     height: size(18);
   }

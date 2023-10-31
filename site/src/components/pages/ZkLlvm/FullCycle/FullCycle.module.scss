@@ -37,7 +37,7 @@
   flex-wrap: wrap;
   padding: size(30) size(30) size(46);
   background-color: $gray900;
-  gap: size(36);
+  gap: size($spacing32);
 
   &:after {
     content: '';
@@ -57,7 +57,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: size(60) size(10) size(20);
-    gap: size(10);
+    gap: size($spacing12);
   }
 }
 

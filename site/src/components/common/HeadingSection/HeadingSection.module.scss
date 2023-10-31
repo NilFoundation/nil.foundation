@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
@@ -10,11 +11,11 @@
   justify-content: space-between;
   width: 100%;
   min-height: size(420);
-  padding: size(30);
+  padding: size($spacing32);
   background-color: $black;
   word-break: break-word;
 
-    &:before {
+  &:before {
     content: '';
     position: absolute;
     top: 0px;
@@ -28,7 +29,7 @@
     }
   }
 
-    &:after {
+  &:after {
     content: '';
     position: absolute;
     top: 0px;
@@ -45,25 +46,28 @@
   @include mobile {
     position: static;
     min-height: auto;
-    padding: size(10) size(10);
+    padding: size($spacing24) size($spacing12);
   }
 }
 
 .title {
   @include heading-01;
+  margin-bottom: size($spacing32);
+
+  @include mobile {
+    margin-bottom: size($spacing48);
+  }
 }
 
 .description {
   width: 100%;
-  max-width: size(241);
-  margin-top: size(64);
+  //margin-top: size(64);
   word-break: break-word;
 
   @include paragraph;
 
   @include mobile {
     max-width: 50%;
-    margin-top: size(40);
   }
 }
 
@@ -71,8 +75,4 @@
   display: flex;
   flex-wrap: wrap;
   gap: size(8);
-
-  @include mobile {
-    margin-top: size(60);
-  }
 }

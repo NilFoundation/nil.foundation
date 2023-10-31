@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -27,7 +28,7 @@
   position: relative;
   margin-top: size(180);
   height: 100%;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -48,14 +49,14 @@
 }
 
 .description {
-  padding: size(30) size(160) size(60) size(30);
+  padding: size($spacing32) size($spacing32) size($spacing64);
   background-color: $black;
 
   @include heading-02;
 
   @include mobile {
     margin-bottom: 0;
-    padding: size(60) size(10) size(20);
+    padding: size(72) size($spacing12) size($spacing24);
   }
 }
 

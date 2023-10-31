@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -19,7 +20,7 @@
     flex-shrink: 0;
     width: size(8);
     height: size(8);
-    margin: size(4) size(20) 0 0;
+    margin: size(4) size($spacing16) 0 0;
     content: '';
     background-color: $white;
 

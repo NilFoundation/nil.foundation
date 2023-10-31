@@ -1,6 +1,7 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -36,18 +37,18 @@
   background-color: $black;
 
   @include mobile {
-    padding-top: size(20);
+    padding-top: unset;
   }
 }
 
 .lottieWrapper {
   width: 100%;
   height: size(710);
-  padding-bottom: size(30);
+  padding-bottom: size($spacing24);
 
   @include mobile {
     height: size(470);
-    margin-bottom: size(20);
-    padding-bottom: size(15);
+    margin-bottom: size($spacing24);
+    padding-bottom: unset;
   }
 }

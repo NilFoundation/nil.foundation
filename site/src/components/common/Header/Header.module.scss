@@ -1,6 +1,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: fixed;
@@ -17,7 +18,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: size(262) repeat(2, size(270)) 1fr;
+  grid-template-columns: size(262) size(480) 1fr;
   padding: size(6) size(12);
   background-color: $gray-50;
 
@@ -25,6 +26,12 @@
     grid-template-columns: repeat(2, 1fr);
     padding: size(5) size(10);
   }
+}
+
+.mainWrapper {
+  display: flex;
+
+  gap: size($spacing24);
 }
 
 .logo {

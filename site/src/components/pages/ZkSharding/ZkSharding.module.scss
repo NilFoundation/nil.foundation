@@ -1,0 +1,38 @@
+@use '~styles/mixins' as *;
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/paddings' as *;
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  margin-top: size($spacing96);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.content {
+  position: relative;
+  background: url('/icons/dots.svg'), repeat;
+  grid-column: span 4 / 6;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+    width: calc(100% - 2px);
+    height: size(10);
+    background-color: $gray900;
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

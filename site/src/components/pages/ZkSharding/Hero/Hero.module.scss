@@ -1,0 +1,116 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: size(182);
+  z-index: 2;
+
+  @include mobile {
+    flex-direction: column;
+    padding-bottom: size(60);
+    margin-top: 0;
+  }
+}
+
+.heading {
+  min-height: unset;
+
+  @include mobile {
+    p {
+      display: none;
+    }
+  }
+}
+
+.left,
+.right {
+  width: 50%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  width: 100%;
+}
+
+.line {
+  width: 50%;
+}
+
+.info {
+  background-color: $gray900;
+  display: flex;
+  gap: size($spacing64);
+
+  padding: 0 size($spacing32) size($spacing32);
+
+  p {
+    flex-basis: 50%;
+
+    @include paragraph;
+  }
+
+  @include mobile {
+    display: flex;
+    align-items: flex-start;
+    padding: size(40) size(10) 0;
+
+    p {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.descriptionMobile {
+  display: none;
+
+  @include mobile {
+    display: inline-block;
+    margin-right: size(10);
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.lottieWrapper {
+  width: 100%;
+  height: size(710);
+  background-color: $gray900;
+
+  @include mobile {
+    height: size(470);
+  }
+}
+
+.rightFooter {
+  display: flex;
+
+  & > * {
+    flex-basis: 50%;
+  }
+}
+
+.footerLeftBox {
+  background-color: $gray900;
+}
+
+.buttonWrapper {
+  padding: 0 size($spacing16) size($spacing24);
+}

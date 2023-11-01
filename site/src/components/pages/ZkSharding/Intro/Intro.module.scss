@@ -1,0 +1,85 @@
+@import 'src/styles/typography';
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
+.container {
+  position: relative;
+  background-color: $gray900;
+  height: 130vh;
+  margin-bottom: -10vh;
+
+  @include mobile {
+    height: calc(100vh - #{size(30)});
+    padding-top: 0;
+    padding-bottom: size(20);
+    margin-bottom: 0;
+    box-sizing: content-box;
+  }
+}
+
+.animatedContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  margin-left: auto;
+
+  @include mobile {
+    grid-template-columns: 3fr 2fr 1fr;
+    height: 100%;
+  }
+}
+
+.description {
+  position: absolute;
+  left: size(30);
+  bottom: min(calc(#{size(24)} + 4vh), size(54));
+  width: size(226);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.descriptionMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: absolute;
+    top: size(4);
+    right: size(4);
+    left: unset;
+    width: size(175);
+  }
+}
+
+.animationWidget {
+  @include mobile {
+    display: none;
+  }
+}
+
+.animationWidgetMobile {
+  display: none;
+
+  @include mobile {
+    display: grid;
+  }
+}
+
+.link {
+  margin-bottom: size(10);
+}
+
+.underPatternLine {
+  display: none;
+
+  @include mobile {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+}

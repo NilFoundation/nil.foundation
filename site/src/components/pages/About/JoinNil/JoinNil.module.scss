@@ -2,11 +2,11 @@
 @import 'src/styles/helpers';
 @import 'src/styles/colors';
 @import 'src/styles/mixins';
-@import 'src/styles/paddings';
 
 .container {
   position: relative;
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
 
@@ -22,7 +22,7 @@
 }
 
 .lineMobile {
-  display: none;
+  display: block;
 
   @include mobile {
     display: block;
@@ -31,12 +31,11 @@
 
 .headingWrapper {
   width: size(544);
-  padding-bottom: size(30);
   margin-bottom: -1px;
+  background-color: $gray900;
 
   @include mobile {
     width: 100%;
-    background-color: $gray900;
     padding-bottom: size(70);
   }
 }
@@ -52,8 +51,8 @@
 .contentWrapper {
   position: relative;
   width: size(272);
-  margin-bottom: auto;
   background-color: $gray900;
+  margin-bottom: -1px;
 
   &:after {
     content: '';
@@ -78,47 +77,30 @@
 
 .contentWrapperLeft {
   composes: contentWrapper;
-  margin-top: size(206);
-
-  & > .text {
-    margin-bottom: size(64);
-
-    @include mobile {
-      margin-bottom: size(4);
-    }
-  }
+  margin-top: size(2);
 
   @include mobile {
-    padding-bottom: 0;
     margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
 .contentWrapperRight {
   composes: contentWrapper;
-  margin-top: size(236);
+  margin-top: size(92);
 
   @include mobile {
     margin-top: 0;
     padding-top: size(50);
-    margin-bottom: auto;
+    margin-bottom: 0;
   }
 }
 
 .text {
-  padding: size(30);
-
   @include paragraph;
+  padding: size(30);
 
   @include mobile {
     padding: size(10);
-  }
-}
-
-.bottomLine {
-  margin-top: size($spacing24);
-
-  @include mobile {
-    margin-top: 0;
   }
 }

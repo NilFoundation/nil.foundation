@@ -19,21 +19,6 @@
   background: url('/icons/dots.svg'), repeat;
   grid-column: span 4 / 6;
 
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: calc(100% - 2px);
-    height: size(10);
-    background-color: $gray900;
-    z-index: 4;
-
-    @include mobile {
-      display: none;
-    }
-  }
-
   @include mobile {
     grid-column: unset;
   }
@@ -42,5 +27,11 @@
 .sideNavigation {
   @include mobile {
     display: none;
+  }
+}
+
+.footer {
+  & > article {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

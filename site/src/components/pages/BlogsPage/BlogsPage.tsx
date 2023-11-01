@@ -22,6 +22,7 @@ import { Post } from 'entities/Post'
 import { Meta } from 'entities/Meta'
 import { MappedBlog, MappedCategory, MappedTag } from 'src/strapi/types/entities'
 import { Card } from 'components/Card'
+import { blogsPageFooterItemData, blogsPageFooterMobileItemData } from './data'
 
 type BlogsPageProps = {
   data: {
@@ -106,9 +107,13 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
               <ArticlesNotFound title="Articles not found" />
             )}
           </div>
+          <FooterAnimationSection
+            items={isMobile ? blogsPageFooterMobileItemData : blogsPageFooterItemData}
+            className={s.footerSection}
+          />
+          <div id="footer_nav" />
         </div>
       </div>
-      <FooterAnimationSection className={s.footerSection} />
     </Container>
   )
 }

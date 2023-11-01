@@ -1,0 +1,12 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/mixins' as *;
+
+.root {
+  display: flex;
+}
+
+.rectangle {
+  flex-grow: 1;
+  background-color: $gray900;
+}

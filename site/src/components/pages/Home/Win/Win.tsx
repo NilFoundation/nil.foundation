@@ -43,11 +43,11 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
         </div>
 
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
             <Button className={s.button} text={footer.text} href={footer.link} />
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

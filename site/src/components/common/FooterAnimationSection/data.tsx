@@ -52,7 +52,7 @@ export const getAnimatedItemList: AnimationGetter = (text, href, prefersReducedM
     },
     {
       id: '8',
-      ySourceValue: prefersReducedMotion ? '90%' : '94%',
+      ySourceValue: prefersReducedMotion ? '90%' : '90%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },

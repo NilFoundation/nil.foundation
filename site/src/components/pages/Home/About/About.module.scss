@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -25,8 +26,6 @@
 
 .right {
   position: relative;
-  margin-top: size(180);
-  height: 100%;
 
   &:after {
     content: '';
@@ -47,8 +46,43 @@
   }
 }
 
+.rightHeader {
+  display: flex;
+
+  & > div:nth-child(1) {
+    margin-top: size(30);
+  }
+
+  & > div:nth-child(2) {
+    margin-top: size(60);
+  }
+
+  & > div {
+    flex-basis: 50%;
+    background-color: $gray900;
+  }
+}
+
+.rightFooter {
+  display: flex;
+
+  & > div:nth-child(1) {
+    padding-top: size(30);
+  }
+
+  & > div {
+    flex-basis: 50%;
+    height: 100%;
+    background-color: $gray900;
+  }
+}
+
+.link {
+  margin-bottom: size($spacing16);
+}
+
 .description {
-  padding: size(30) size(160) size(60) size(30);
+  padding: size($spacing32) size($spacing32) size($spacing64) size($spacing32);
   background-color: $gray900;
 
   @include heading-03;

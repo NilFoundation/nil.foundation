@@ -11,6 +11,7 @@ import { JoinNilBaseData } from './JoinNilBaseData'
 
 type JoinNilProps<T extends JoinNilBaseData> = {
   className?: string
+  boxClassName?: string
   data: T
   withMargin?: boolean
 }
@@ -25,6 +26,7 @@ function getContent(isMobile: boolean | null, content: JoinNilBaseData['content'
 
 const JoinNil = <T extends JoinNilBaseData>({
   className,
+  boxClassName,
   data: { title, social, content },
   withMargin,
 }: JoinNilProps<T>) => {
@@ -44,12 +46,12 @@ const JoinNil = <T extends JoinNilBaseData>({
       </div>
 
       <div className={s.right}>
-        <div className={s.box}>
+        <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
           <p className={s.text}>{content.left}</p>
           <WhiteRectangle />
         </div>
-        <div className={s.box}>
+        <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
           <p className={s.text}>{contentRight}</p>
           <WhiteRectangle />

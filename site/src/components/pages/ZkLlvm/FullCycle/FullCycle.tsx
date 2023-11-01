@@ -33,6 +33,7 @@ function FullCycle({ className, data }: FullCycleProps) {
           {list.map((el, i) => (
             <div
               className={s.list}
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={i} // eslint-disable-line
             >
               <ListItem className={s.item} key={el.title} title={el.title} description={el.description} />
@@ -40,11 +41,11 @@ function FullCycle({ className, data }: FullCycleProps) {
           ))}
         </div>
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
             <Button className={s.button} text={footer.text} href={footer.link} />
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

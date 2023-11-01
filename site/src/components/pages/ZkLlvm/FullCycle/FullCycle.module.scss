@@ -6,7 +6,6 @@
 .root {
   display: flex;
   align-items: flex-start;
-  margin-bottom: size(129);
 
   @include mobile {
     flex-direction: column;
@@ -24,7 +23,7 @@
 }
 
 .right {
-  margin-top: size(180);
+  margin-top: size(284);
 
   @include mobile {
     margin-top: 0;

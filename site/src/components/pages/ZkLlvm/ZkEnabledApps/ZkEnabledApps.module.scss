@@ -1,22 +1,23 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
-@use '~styles/typography' as *;
 @use '~styles/mixins' as *;
 
 .root {
   display: flex;
   align-items: flex-start;
-  margin-top: size(55);
+  margin-bottom: size(97);
 
   @include mobile {
     flex-direction: column;
     margin-top: size(60);
+    margin-bottom: size(60);
   }
 }
 
 .left,
 .right {
   width: 50%;
+  background-color: $gray900;
 
   @include mobile {
     width: 100%;
@@ -25,8 +26,7 @@
 
 .right {
   position: relative;
-  margin-top: size(240);
-  background-color: $gray900;
+  margin-top: size(215);
 
   &:after {
     content: '';
@@ -49,33 +49,11 @@
 }
 
 .box {
-  display: flex;
-  gap: size(30);
+  &:not(:last-of-type) {
+    margin-bottom: size(60);
 
-  &:not(:last-child) {
-    margin-bottom: size(20);
-  }
-
-  @include mobile {
-    gap: size(20);
-    padding: 0 size(10);
-  }
-}
-
-.linkCard {
-  @include mobile {
-    width: 100%;
-    padding: size(20) 0;
-  }
-}
-
-.listItem {
-  max-width: size(202);
-  padding: size(30) 0;
-
-  @include mobile {
-    width: 100%;
-    max-width: size(162);
-    padding: size(20) 0;
+    @include mobile {
+      margin-bottom: size(20);
+    }
   }
 }

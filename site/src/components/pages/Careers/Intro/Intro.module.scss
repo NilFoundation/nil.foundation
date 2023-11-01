@@ -37,7 +37,7 @@
 
   @include mobile {
     padding: 0 size(10) size(10);
-    margin-top: size(-20);
+    margin-top: 0; // Need approve with new paddings and web button
   }
 }
 

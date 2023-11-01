@@ -7,6 +7,7 @@ import LastSection from 'components/LastSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 import s from './Glossary.module.scss'
 import { MappedGlossary } from 'src/strapi/types/entities'
+import { footerDataItems, footerDataMobileItems } from 'pages/Research/ResearchLayout/footerData'
 
 type GlossaryProps = {
   data: {
@@ -49,15 +50,11 @@ const Glossary = ({ data }: GlossaryProps) => {
               ))}
             </ul>
           </div>
+          <FooterAnimationSection items={footerDataItems} className={s.footerSection} />
         </div>
       </div>
-      <div className={s.lastSection}>
-        <div className={s.lastSectionWrapper}>
-          <WhiteRectangle />
-          <LastSection withBackground />
-        </div>
-      </div>
-      <FooterAnimationSection className={s.footerSection} />
+      <FooterAnimationSection items={footerDataMobileItems} className={s.footerSectionMobile} />
+      <div id="footer_nav" />
     </Container>
   )
 }

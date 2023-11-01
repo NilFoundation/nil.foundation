@@ -130,7 +130,7 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
           <LastSection withBackground />
         </div>
       </div>
-      <FooterAnimationSection className={s.footerSection} />
+      <div id="footer_nav" />
     </Container>
   )
 }

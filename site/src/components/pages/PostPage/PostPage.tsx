@@ -59,7 +59,7 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
   ]
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation className={s.sideNavigation} title={<ArrowButton />} titleAnimation={false}>
         <div className={s.social}>
           <p className={s.paragraph}>Share this post</p>
@@ -124,13 +124,6 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
           </div>
         </div>
       </div>
-      <div className={s.lastSection}>
-        <div className={s.lastSectionWrapper}>
-          <WhiteRectangle />
-          <LastSection withBackground />
-        </div>
-      </div>
-      <div id="footer_nav" />
     </Container>
   )
 }

@@ -8,15 +8,16 @@ type Props = {
   marginTop: number
 }
 
-const getCalcValue = (size: number) => {
-  return `calc(((${size} / var(--screen-size)) * 100) * 1vw)`
-}
-
 const WhiteRectangleLine = ({ data, marginTop }: Props) => {
   return (
-    <div style={{ marginTop }} className={s.root}>
+    <div style={{ '--margin-top': marginTop } as React.CSSProperties} className={s.root}>
       {data.map((item, index) => (
-        <div style={{ marginTop: getCalcValue(item) }} key={index} className={s.rectangle}>
+        <div
+          style={{ '--line-margin': item } as React.CSSProperties}
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+          key={index}
+          className={s.rectangle}
+        >
           <WhiteRectangle />
         </div>
       ))}

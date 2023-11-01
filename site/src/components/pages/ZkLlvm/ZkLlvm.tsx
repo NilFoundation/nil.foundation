@@ -19,11 +19,19 @@ type ZkLlvmProps = {
   data: typeof zkllvmPageData
 }
 
+const whiteRectangleLineMarginTop = 132
+
+const whiteRectangleLineMobileMarginTop = 62
+
+const whiteRectangleLineData = [176, 176, 214, 0]
+
+const whiteRectangleLineMobileData = [0]
+
 const ZkLlvm = ({ data }: ZkLlvmProps) => {
   const { isMobile } = useViewport()
 
   return (
-    <Container>
+    <Container id="footer_nav">
       <Intro />
       <div className={s.wrapper}>
         <div className={s.content}>
@@ -37,8 +45,10 @@ const ZkLlvm = ({ data }: ZkLlvmProps) => {
             rightFooterClassName={s.aboutRightFooter}
             rightHeaderClassName={s.aboutRightHeader}
           />
-          <WhiteRectangleLine data={isMobile ? [0] : [176, 176, 214, 0]} marginTop={isMobile ? 62 : 132} />
-          <div id="footer_nav" />
+          <WhiteRectangleLine
+            data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+            marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+          />
         </div>
       </div>
     </Container>

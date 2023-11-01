@@ -17,7 +17,7 @@ type GlossaryProps = {
 
 const Glossary = ({ data }: GlossaryProps) => {
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation title="Glossary" className={s.sideNavigation} titleAnimation={false} />
       <div className={s.root}>
         <div className={s.pageContent}>
@@ -54,7 +54,6 @@ const Glossary = ({ data }: GlossaryProps) => {
         </div>
       </div>
       <FooterAnimationSection items={footerDataMobileItems} className={s.footerSectionMobile} />
-      <div id="footer_nav" />
     </Container>
   )
 }

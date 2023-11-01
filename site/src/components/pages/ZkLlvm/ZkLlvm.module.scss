@@ -50,6 +50,14 @@
   &:last-of-type {
     margin-top: size(313);
   }
+
+  @include mobile {
+    margin-top: 0;
+
+    &:last-of-type {
+      margin-top: 0;
+    }
+  }
 }
 
 .sideNavigation {

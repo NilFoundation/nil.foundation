@@ -17,11 +17,19 @@ type AboutProps = {
   data: typeof aboutPageData
 }
 
+const whiteRectangleLineMarginTop = 142
+
+const whiteRectangleLineMobileMarginTop = 60
+
+const whiteRectangleLineMobileData = [0]
+
+const whiteRectangleLineData = [142, 142, 168, 0]
+
 const About = ({ data }: AboutProps) => {
   const { isMobile } = useViewport()
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation className={s.sideNavigation} title="About" titleAnimation={false} />
       <div className={s.root}>
         <div className={s.content}>
@@ -31,12 +39,12 @@ const About = ({ data }: AboutProps) => {
           <OurTeam data={data.ourTeam} />
           <JoinNil {...getJoinSectionProps(data)} />
 
-          <WhiteRectangleLine marginTop={isMobile ? 60 : 142} data={isMobile ? [0] : [142, 142, 168, 0]} />
-          <div id="footer_nav" />
+          <WhiteRectangleLine
+            marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+            data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+          />
         </div>
       </div>
-
-      {/* <FooterAnimationSection className={s.footerSection} /> */}
     </Container>
   )
 }

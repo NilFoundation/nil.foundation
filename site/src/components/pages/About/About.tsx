@@ -17,6 +17,14 @@ type AboutProps = {
   data: typeof aboutPageData
 }
 
+const whiteRectangleLineMarginTop = 142
+
+const whiteRectangleLineMobileMarginTop = 60
+
+const whiteRectangleLineMobileData = [0]
+
+const whiteRectangleLineData = [142, 142, 168, 0]
+
 const About = ({ data }: AboutProps) => {
   const { isMobile } = useViewport()
 
@@ -31,7 +39,10 @@ const About = ({ data }: AboutProps) => {
           <OurTeam data={data.ourTeam} />
           <JoinNil {...getJoinSectionProps(data)} />
 
-          <WhiteRectangleLine marginTop={isMobile ? 60 : 142} data={isMobile ? [0] : [142, 142, 168, 0]} />
+          <WhiteRectangleLine
+            marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+            data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+          />
           <div id="footer_nav" />
         </div>
       </div>

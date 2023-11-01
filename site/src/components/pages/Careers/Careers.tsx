@@ -18,6 +18,14 @@ type CareersProps = {
   data: typeof careersPageData
 }
 
+const whiteRectangleLineMarginTop = 224
+
+const whiteRectangleLineMobileMarginTop = 60
+
+const whiteRectangleLineData = [0, 0, 96, 66]
+
+const whiteRectangleLineMobileData = [0]
+
 const Careers = ({ data }: CareersProps) => {
   const { isMobile } = useViewport()
 
@@ -29,7 +37,10 @@ const Careers = ({ data }: CareersProps) => {
           <Intro data={data.intro} />
           <JoinUs data={data.joinUs} className={s.joinUs} />
           <JoinSection {...getJoinSectionProps(data)} />
-          <WhiteRectangleLine marginTop={isMobile ? 60 : 224} data={isMobile ? [0] : [0, 0, 96, 66]} />
+          <WhiteRectangleLine
+            marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+            data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+          />
           <div id="footer_nav" />
         </div>
       </div>

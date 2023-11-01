@@ -5,7 +5,7 @@
 .root {
   display: flex;
 
-  margin-top: var(--margin-top);
+  margin-top: size(var(--margin-top));
 }
 
 .rectangle {

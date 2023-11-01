@@ -18,6 +18,14 @@ type HomeProps = {
   data: typeof homePageData
 }
 
+const whiteRectangleLineMarginTop = 123
+
+const whiteRectangleLineMobileMarginTop = 62
+
+const whiteRectangleLineData = [154, 154, 184, 0]
+
+const whiteRectangleLineMobileData = [0]
+
 const Home = ({ data }: HomeProps) => {
   const { isMobile } = useViewport()
 
@@ -32,7 +40,10 @@ const Home = ({ data }: HomeProps) => {
           <FullCycle data={data.fullCycle} />
           <JoinNil data={data.joinNil} withMargin />
           <About data={data.about} />
-          <WhiteRectangleLine data={isMobile ? [0] : [154, 154, 184, 0]} marginTop={isMobile ? 62 : 123} />
+          <WhiteRectangleLine
+            data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+            marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+          />
           <div id="footer_nav" />
         </div>
       </div>

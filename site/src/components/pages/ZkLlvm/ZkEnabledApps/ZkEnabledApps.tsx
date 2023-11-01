@@ -27,17 +27,9 @@ const ZkEnabledApps = ({ className, data: { title, content } }: ZkEnabledAppsPro
       </div>
       <div className={s.right}>
         {!isMobile && <WhiteRectangle />}
-        <div>
-          {content.map((el) => (
-            <BenefitsCard
-              key={el.title}
-              className={s.box}
-              title={el.title}
-              icon={el.icon}
-              description={el.description}
-            />
-          ))}
-        </div>
+        {content.map((el) => (
+          <BenefitsCard key={el.title} className={s.box} title={el.title} icon={el.icon} description={el.description} />
+        ))}
         <WhiteRectangle />
       </div>
     </div>

@@ -4,9 +4,13 @@
 
 .root {
   display: flex;
+
+  margin-top: var(--margin-top);
 }
 
 .rectangle {
   flex-grow: 1;
   background-color: $gray900;
+
+  margin-top: size(var(--line-margin));
 }

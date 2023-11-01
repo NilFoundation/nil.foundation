@@ -37,7 +37,7 @@
 
   @include mobile {
     padding: 0 size(10) size(10);
-    margin-top: size(-20);
+    margin-top: 0; // Need approve with new paddings and web button
   }
 }
 
@@ -47,9 +47,10 @@
 }
 
 .box1 {
-  margin-top: size(258);
+  margin-top: size(265);
+  height: size(325);
 }
 
 .box2 {
-  margin-top: size(564);
+  margin-top: size(560);
 }

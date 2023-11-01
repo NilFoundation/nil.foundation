@@ -45,7 +45,7 @@
 
   @include mobile {
     margin-top: 0;
-    padding-top: unset;
+    padding-top: size($spacing48);
   }
 }
 

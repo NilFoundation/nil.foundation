@@ -52,27 +52,27 @@
 
 .title {
   @include heading-01;
-  margin-bottom: size($spacing32);
-
-  @include mobile {
-    margin-bottom: size($spacing48);
-  }
 }
 
 .description {
   width: 100%;
-  //margin-top: size(64);
+  margin-top: size($spacing32);
   word-break: break-word;
 
   @include paragraph;
 
   @include mobile {
-    max-width: 50%;
+    width: 50%;
+    margin-top: size($spacing48);
   }
 }
 
 .icons {
   display: flex;
   flex-wrap: wrap;
-  gap: size(8);
+  gap: size($spacing8);
+
+  @include mobile {
+    margin-top: size($spacing48);
+  }
 }

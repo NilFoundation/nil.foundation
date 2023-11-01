@@ -78,20 +78,16 @@ export const zkllvmPageData = {
   },
   fullCycle: {
     title: 'Full cycle solution for creating zk-enabled Ethereum apps',
-    description: `In tandem with Proof Market, our decentralized marketplace for zkProof generation, zkLLVM provides end-to-end support for your application's lifecycle.`,
+    description: `zkLLVM circuit compiler helps to define proof statements with less effort, reducing implementation time and enhancing your Proof Market experience.`,
     list: [
       {
-        title: 'Fast-track proof generation setup',
-        description:
-          '=nil; toolchain establishes quick and robust proof generation pipeline, reducing time to market for zk-enabled apps.',
+        title: 'High-quality circuits without the need to learn custom DSLS',
       },
       {
-        title: 'Cost-effective decentralized proof generation',
-        description: `Take advantage of an efficient decentralized proof generation process, reducing each proof's operational costs with zkLLVM circuits.`,
+        title: 'Direct circuit compilation from C++, Rust, or other mainstream languages',
       },
       {
-        title: 'Incentives for circuit developers',
-        description: 'Developers get rewards for adding new circuits that gain demand.',
+        title: 'Seamless integration with Proof Market for a smooth proof generation process',
       },
     ],
     footer: {

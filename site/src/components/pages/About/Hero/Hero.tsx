@@ -7,16 +7,22 @@ import SocialButton from 'components/SocialButton'
 
 import s from './Hero.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
+import { useViewport } from 'hooks/useViewport'
 
 type HeroProps = {
   className?: string
   data: typeof aboutPageData.hero
 }
 
-const Hero = ({ className, data: { title, description, info, content, future, footer } }: HeroProps) => (
+const Hero = ({ className, data: { title, description, info, content, future, footer } }: HeroProps) => {
+  const {isMobile} = useViewport()
+  return (
   <div className={cx(s.root, className)}>
     <div className={s.left}>
-      <HeadingSection title={title} description={description} />
+      <HeadingSection className={s.heading} title={title} description={isMobile ? description : null}/>
+        <div className={s.heroDescription}>
+          <p>{description}</p>
+        </div>
       <div className={s.box}>
         <WhiteRectangle className={s.line} />
         <div className={s.info}>
@@ -58,7 +64,7 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <p className={s.inTouch}>Stay in touch with our news</p>
             <div className={s.socials}>
               {footer.socials.map((el) => (
-                <SocialButton key={el.icon} icon={el.icon} href={el.link} />
+                <SocialButton className={s.socialButton} key={el.icon} icon={el.icon} href={el.link} />
               ))}
             </div>
           </div>
@@ -67,6 +73,6 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
       </div>
     </div>
   </div>
-)
+)}
 
 export default Hero

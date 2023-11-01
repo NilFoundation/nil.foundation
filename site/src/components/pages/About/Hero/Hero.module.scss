@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -12,6 +13,10 @@
   }
 }
 
+.heading {
+  min-height: unset;
+}
+
 .left {
   display: flex;
   flex-direction: column;
@@ -20,6 +25,21 @@
   @include mobile {
     width: 100%;
   }
+}
+
+.heroDescription {
+  padding: 0 size($spacing32) size($spacing32);
+  background-color: $gray900;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.heroDescription p {
+  @include paragraph;
+  max-width: size(247);
+  background-color: $gray900;
 }
 
 .box {
@@ -77,6 +97,14 @@
   }
 }
 
+.descriptionMobile {
+  display: none;
+
+  @include mobile {
+    display: inline-block;
+    margin-right: size(10);
+  }
+}
 .right {
   display: grid;
   width: 50%;
@@ -124,7 +152,7 @@
   display: grid;
   background-color: $gray900;
   grid-column: span 2;
-  gap: size(60);
+  gap: size($spacing64);
 
   &:after {
     content: '';
@@ -141,13 +169,13 @@
   }
 
   @include mobile {
-    gap: size(20);
+    gap: size($spacing24);
   }
 }
 
 .card {
   display: grid;
-  padding: size(30);
+  padding: size($spacing32);
   grid-template-columns: 1fr 1fr;
 
   &.grey {
@@ -155,7 +183,7 @@
   }
 
   @include mobile {
-    padding: size(30) size(10);
+    padding: size($spacing32) size($spacing12);
   }
 }
 
@@ -166,9 +194,10 @@
 .desc {
   p {
     @include paragraph;
+    max-width: size(228);
 
     &:not(:last-of-type) {
-      margin-bottom: size(20);
+      margin-bottom: size($spacing32);
     }
   }
 }
@@ -185,13 +214,13 @@
 .footerWrapper {
   display: flex;
   align-items: center;
-  padding: size(30);
-  gap: size(61);
+  padding: size($spacing32);
+  gap: size($spacing32);
 
   @include mobile {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: size(30) size(10);
+    padding: size($spacing32) size($spacing12);
     gap: size(0);
   }
 }
@@ -201,8 +230,16 @@
   gap: size(10);
 }
 
+.socialButton {
+  @include mobile {
+    width: size(40);
+    height: size(40);
+    padding: size($spacing8);
+  }
+}
+
 .inTouch {
-  width: size(181);
+  width: size(190);
 
   @include heading-03;
 

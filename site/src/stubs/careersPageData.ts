@@ -1,13 +1,12 @@
 export const careersPageData = {
   intro: {
-    title: 'Get to the forefront of zero-knowledge development',
+    title: 'Work at the forefront of zero-knowledge development',
     description:
-      'We are a global team of professionals working on research and development in zero-knowledge cryptography and trustless data access.',
-    text: 'Our products are built with a complex tech stack and fueled by advanced cryptography to facilitate the adoption of zk technology.',
+      'Be it from our Cyprus office, from home, or fully remote.',
   },
   joinUs: {
     title:
-      'Join us to contribute to our cutting-edge toolchain, enabling secure and cost-effective implementation of trustless data management.',
+      'Contribute to our cutting edge toolchain',
     cards: [
       {
         // TODO: add blog link

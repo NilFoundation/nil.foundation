@@ -12,6 +12,7 @@
   @include mobile {
     overflow: hidden;
     flex-wrap: wrap;
+    margin-top: size(60);
   }
 }
 

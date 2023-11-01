@@ -46,7 +46,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
   }, [])
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <BlogNavigation activeTag={activeTag} activeCategory={activeCategory} {...data} />
       <div className={s.root}>
         <div className={s.inner}>
@@ -111,7 +111,6 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
             items={isMobile ? blogsPageFooterMobileItemData : blogsPageFooterItemData}
             className={s.footerSection}
           />
-          <div id="footer_nav" />
         </div>
       </div>
     </Container>

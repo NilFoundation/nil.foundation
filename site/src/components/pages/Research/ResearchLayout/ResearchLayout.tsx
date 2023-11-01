@@ -34,7 +34,7 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
   }
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation title="Research" className={s.sideNavigation} titleAnimation={false}>
         <TagList tags={tags} activeTagSlug={activeTagSlug} onTagClick={onTagClickHandler} />
       </SideNavigation>
@@ -61,7 +61,6 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
         items={isMobile ? footerDataMobileItems : footerDataItems}
         className={s.footerSectionMobile}
       />
-      <div id="footer_nav" />
     </Container>
   )
 }

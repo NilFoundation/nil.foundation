@@ -29,7 +29,7 @@ const About = ({ data }: AboutProps) => {
   const { isMobile } = useViewport()
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation className={s.sideNavigation} title="About" titleAnimation={false} />
       <div className={s.root}>
         <div className={s.content}>
@@ -43,11 +43,8 @@ const About = ({ data }: AboutProps) => {
             marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
             data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
           />
-          <div id="footer_nav" />
         </div>
       </div>
-
-      {/* <FooterAnimationSection className={s.footerSection} /> */}
     </Container>
   )
 }

@@ -31,7 +31,7 @@ const ZkLlvm = ({ data }: ZkLlvmProps) => {
   const { isMobile } = useViewport()
 
   return (
-    <Container>
+    <Container id="footer_nav">
       <Intro />
       <div className={s.wrapper}>
         <div className={s.content}>
@@ -49,7 +49,6 @@ const ZkLlvm = ({ data }: ZkLlvmProps) => {
             data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
             marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
           />
-          <div id="footer_nav" />
         </div>
       </div>
     </Container>

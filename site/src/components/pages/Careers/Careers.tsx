@@ -41,7 +41,6 @@ const Careers = ({ data }: CareersProps) => {
             marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
             data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
           />
-          <div id="footer_nav" />
         </div>
       </div>
     </Container>

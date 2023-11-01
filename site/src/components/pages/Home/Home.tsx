@@ -30,7 +30,7 @@ const Home = ({ data }: HomeProps) => {
   const { isMobile } = useViewport()
 
   return (
-    <Container className={s.root}>
+    <Container className={s.root} id="footer_nav">
       <Intro />
       <div className={s.wrapper}>
         <div className={s.content}>
@@ -44,7 +44,6 @@ const Home = ({ data }: HomeProps) => {
             data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
             marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
           />
-          <div id="footer_nav" />
         </div>
       </div>
     </Container>

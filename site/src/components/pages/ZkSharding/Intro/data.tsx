@@ -37,16 +37,6 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     ySourceValue: '-57%',
     yTransformValue: '-80%',
   },
-  // {
-  //   id: 'z6',
-  //   ySourceValue: '-48%',
-  //   yTransformValue: '-99%',
-  // },
-  // {
-  //   id: 'z7',
-  //   ySourceValue: '-86%',
-  //   yTransformValue: '-99%',
-  // },
   {
     id: 'z8',
     ySourceValue: '36%',
@@ -77,18 +67,6 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
-  // {
-  //   id: 'z13',
-  //   ySourceValue: prefersReduceMotion ? '0%' : '4%',
-  //   yTransformValue: '20%',
-  //   alignment: ANIMATION_CARD_ALIGNMENT.bottom,
-  // },
-  // {
-  //   id: 'z14',
-  //   ySourceValue: prefersReduceMotion ? '0%' : '20%',
-  //   yTransformValue: '20%',
-  //   alignment: ANIMATION_CARD_ALIGNMENT.bottom,
-  // },
 ]
 
 export const animatedItemMobileList = [

@@ -164,14 +164,10 @@
 }
 
 .button {
-  // padding-top: size(24);
-  // padding-bottom: size(24);
   background-color: $gray900;
 
   @include mobile {
-    letter-spacing: 1px;
-    // padding-top: size(58);
-    // padding-bottom: size(10);
+    letter-spacing: size(1);
   }
 }
 

@@ -2,13 +2,14 @@
 @use '~styles/colors' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
 }
 
 .sideNavigation {
-  left: size(40);
+  left: size($spacing48);
 
   @include mobile {
     display: none;
@@ -33,12 +34,12 @@
 .mobileHead {
   position: relative;
   z-index: 3;
-  margin-top: size(20);
+  margin-top: size($spacing32);
 
   @include mobile {
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 size(10);
+    padding: 0 size($spacing12);
     z-index: 0;
   }
 }
@@ -54,6 +55,7 @@
   @include mobile {
     width: 100%;
     display: inline-flex;
+    padding: size($spacing12) 0;
   }
 }
 
@@ -61,27 +63,35 @@
   transform: rotate(270deg);
   width: size(18);
   height: size(14);
-  margin-right: size(6);
+  margin-right: size($spacing8);
 }
 
 .social {
-  margin-bottom: size(24);
+  margin-bottom: size($spacing24);
+  padding: size($spacing24) 0;
 
   @include mobile {
-    margin-bottom: size(20);
+    margin-bottom: unset;
   }
 }
 
 .socialLink {
   width: size(60);
   height: size(60);
-  padding: size(11);
+  padding: size($spacing12);
+  margin-top: size($spacing12);
 
   &:not(:last-child) {
-    margin-right: size(12);
+    margin-right: size($spacing12);
+
+    @include mobile {
+      margin-right: size($spacing8);
+    }
   }
 
-  margin-top: size(12);
+  @include mobile {
+    margin-top: size($spacing24);
+  }
 }
 
 .paragraph {
@@ -89,9 +99,8 @@
 }
 
 .tag {
-  margin-right: size(5);
-
   @include sm-paragraph;
+  margin-right: size($spacing16);
 
   @include mobile {
     margin-right: 0;
@@ -109,7 +118,7 @@
 }
 
 .head {
-  padding: 0 size(30) size(30);
+  padding: size($spacing32);
 
   @include mobile {
     padding: 0;
@@ -118,7 +127,7 @@
 
 .wrapper {
   @include mobile {
-    padding: 0 size(10);
+    padding: 0 size($spacing12);
   }
 }
 
@@ -129,17 +138,19 @@
 
 .type {
   @include paragraph;
-
-  margin-right: size(10);
+  margin-right: size($spacing16);
 
   @include mobile {
-    margin-right: 0;
     margin-top: size(20);
   }
 }
 
 .marginBlock {
-  margin-bottom: size(20);
+  margin-bottom: size($spacing32);
+
+  @include mobile {
+    margin-bottom: size($spacing24);
+  }
 }
 
 .title {
@@ -147,37 +158,9 @@
 }
 
 .blogTitle {
-  width: size(785);
-
   @include mobile {
     width: 100%;
-    margin-bottom: size(70);
-  }
-}
-
-.otherBlogsTitle {
-  padding: size(30);
-
-  @include mobile {
-    padding: size(30) 0;
-  }
-}
-
-.moreBlogsWrapper {
-  background-color: $gray900;
-
-  padding-bottom: 20px;
-
-  @include mobile {
-    padding: 0 size(10);
-  }
-}
-
-.joinSection {
-  margin-bottom: size(180);
-
-  @include mobile {
-    margin-bottom: size(60);
+    margin-bottom: size($spacing24);
   }
 }
 
@@ -192,24 +175,16 @@
 .subtitle {
   @include heading-03;
 
-  width: size(785);
+  width: size(482);
 
   @include mobile {
     width: 100%;
-    margin-bottom: size(70);
+    padding-bottom: size($spacing32);
   }
 }
 
 .author {
-  margin-right: size(10);
-}
-
-.blog {
-  margin: 0;
-
-  &:not(:last-child) {
-    margin-bottom: size(20);
-  }
+  margin-right: size($spacing12);
 }
 
 .moreSection {
@@ -224,48 +199,43 @@
 
   @include mobile {
     flex-wrap: wrap;
-    gap: size(8);
-    margin-top: size(20);
+    gap: size($spacing8);
+    margin-top: size($spacing24);
   }
 }
 
 .types {
-  @include mobile {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }
 
 .main {
   width: size(816);
-  padding: 0 size(30);
+  padding: 0 size($spacing32);
 
   @include mobile {
     width: 100%;
-    padding: 0 size(10);
+    padding: 0 size($spacing12);
   }
 
   h2 {
-    margin-bottom: size(30);
-
+    margin-bottom: size($spacing32);
     @include heading-02;
   }
 
   h3 {
-    margin-bottom: size(30);
-
+    margin-bottom: size($spacing32);
     @include heading-03;
   }
 
   h4 {
+    margin-bottom: size($spacing32);
     @include heading-04;
   }
 
   pre {
     overflow-x: scroll;
     overflow-y: hidden;
-    padding: size(10);
-    margin: 0 0 size(30) 0;
+    padding: size($spacing12);
+    margin: 0 0 size($spacing32) 0;
     border: size(1) solid $secondary;
     border-radius: size(2);
     background-color: $fullBlack;
@@ -279,7 +249,7 @@
     position: relative;
     width: max-content;
     cursor: pointer;
-    margin-bottom: size(16);
+    margin-bottom: size($spacing16);
     transition: opacity 0.3s ease;
 
     @include p-article;
@@ -302,7 +272,7 @@
   }
 
   p {
-    margin-bottom: size(30);
+    margin-bottom: size($spacing32);
     color: $secondary;
 
     @include p-article;
@@ -320,10 +290,14 @@
         white-space: break-spaces;
       }
     }
+
+    @include mobile {
+      margin-bottom: size($spacing24);
+    }
   }
 
   li {
-    margin: 0 0 size(30) size(20);
+    margin: 0 0 size($spacing32) size($spacing24);
     color: $secondary;
 
     @include p-article;
@@ -336,6 +310,10 @@
       &::after {
         content: '';
       }
+    }
+
+    @include mobile {
+      margin: 0 0 size($spacing24) size($spacing24);
     }
   }
 
@@ -352,7 +330,7 @@
   }
 
   img {
-    margin-bottom: size(5);
+    margin-bottom: size($spacing4);
     width: 100%;
   }
 
@@ -364,15 +342,16 @@
   }
 
   blockquote {
-    border-left: size(4) solid $gray-50;
+    border-left: size(4) solid $white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: size(10) 0 size(10) size(20);
-    margin-bottom: size(30);
+    padding: 0 0 0 size($spacing24);
+    margin-bottom: size($spacing32);
 
     p {
       margin-bottom: 0;
+      color: $white;
 
       &:not(:last-child) {
         margin-bottom: size(30);
@@ -381,6 +360,9 @@
       @include mobile {
         word-wrap: break-word;
       }
+    }
+    @include mobile {
+      margin-bottom: size($spacing24);
     }
   }
 }

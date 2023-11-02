@@ -63,7 +63,8 @@
   padding: size($spacing32) size($spacing32) size($spacing64 + 3);
 
   @include mobile {
-    padding: size($spacing32) size($spacing16) size($spacing32 + 3);
+    padding: size($spacing32 + 8) size($spacing16) size($spacing32 + 3)
+      size($spacing16 - 2);
   }
 }
 
@@ -177,5 +178,37 @@
 
   & > div:nth-child(2) {
     margin-top: size(30);
+  }
+}
+
+.image {
+  flex-grow: 1;
+
+  @include mobile {
+    margin-top: size(13);
+  }
+}
+
+.imageBlock {
+  display: flex;
+
+  gap: size(16);
+
+  padding: size(32) size(18);
+
+  background-color: $gray900;
+
+  @include mobile {
+    padding: size(11) size(14) size(11) size(11);
+    gap: size(10);
+  }
+}
+
+.icon {
+  flex: 0 0 size(80);
+
+  @include mobile {
+    width: size(54);
+    flex: 0 0 size(54);
   }
 }

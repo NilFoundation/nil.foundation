@@ -8,13 +8,15 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import cx from 'classnames'
 import { useViewport } from 'hooks/useViewport'
 import { WebButton } from 'components/WebButton'
+import ShieldImageSvg from './assets/ShieldImageSvg'
+import Icon from 'components/Icon'
 
 type Props = {
   className?: string
   data: typeof zkShardingPageData.more
 }
 
-const More = ({ data: { title, description, content, contentFooter, footer }, className }: Props) => {
+const More = ({ data: { title, description, contentFooter, footer }, className }: Props) => {
   const { isMobile } = useViewport()
 
   return (
@@ -27,15 +29,11 @@ const More = ({ data: { title, description, content, contentFooter, footer }, cl
 
       <div className={s.right}>
         {!isMobile && <WhiteRectangle />}
-        {/* <div className={s.content}>
-						{content.map((el) => (
-							<div className={s.box} key={el.title}>
-								<Icon name={el.icon} className={s.icon} />
-								<span className={s.title}>{el.title}</span>
-								<p className={s.description}>{el.description}</p>
-							</div>
-						))}
-					</div> */}
+
+        <div className={s.imageBlock}>
+          <Icon className={s.icon} name="shield" />
+          <ShieldImageSvg className={s.image} />
+        </div>
 
         <div className={s.contentFooterWrapper}>
           <p className={s.contentFooter}>{contentFooter}</p>

@@ -6,7 +6,7 @@ import Intro from './Intro'
 import s from './ZkSharding.module.scss'
 import Hero from './Hero'
 import JoinNil from './JoinNil'
-import About from 'pages/Home/About'
+import About from './About'
 import WhiteRectangleLine from 'components/WhiteRectangleLine'
 import { useViewport } from 'hooks/useViewport'
 import Secure from './Secure'
@@ -39,11 +39,7 @@ const ZkSharding = ({ data }: Props) => {
           <Secure data={data.secure} />
           <Cherries data={data.cherries} />
           <JoinNil data={data.joinNil} className={s.joinNilRoot} boxClassName={s.JoinNinBox} />
-          <About
-            data={data.about}
-            rightDescriptionClassName={s.aboutDescription}
-            rightHeaderClassName={s.aboutHeader}
-          />
+          <About data={data.about} />
           <WhiteRectangleLine
             data={isMobile ? mobileFooterData : footerData}
             marginTop={isMobile ? mobileMarginTop : marginTop}

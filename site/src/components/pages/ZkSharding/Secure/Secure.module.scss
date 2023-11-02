@@ -159,7 +159,7 @@
   background-color: $gray900;
 
   @include mobile {
-    padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24);
+    padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
   }
 }
 
@@ -169,6 +169,7 @@
   background-color: $gray900;
 
   @include mobile {
+    letter-spacing: 1px;
     // padding-top: size(58);
     // padding-bottom: size(10);
   }

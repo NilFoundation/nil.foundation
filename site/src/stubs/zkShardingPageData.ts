@@ -17,11 +17,6 @@ export const zkShardingPageData = {
     title: 'More than just another zkRollup',
     description:
       'zkSharding facilitates scalable transaction processing and data availability, all without fragmenting liquidity or economic security.',
-    content: [
-      {
-        icon: 'shield',
-      },
-    ],
 
     contentFooter:
       'Separate decentralized shards compose a single execution layer. The main shard at the top validates transactions across all shards and proves them to Ethereum.',

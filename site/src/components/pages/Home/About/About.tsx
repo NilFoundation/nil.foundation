@@ -8,7 +8,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './About.module.scss'
 import { homePageData } from 'stubs/homePageData'
-import ArrowButton from 'components/ArrowButton'
+import { WebButton } from 'components/WebButton'
 
 type AboutProps = {
   className?: string
@@ -40,7 +40,11 @@ const About = ({ className, rightHeaderClassName, data: { title, social, descrip
         <div className={s.description}>{description}</div>
         <div className={s.rightFooter}>
           <div>
-            <ArrowButton className={s.link} text="Learn more" href="https://proof.market/#/market/account_mina" />
+            <div className={s.buttonWrapper}>
+              <WebButton className={s.link} href="https://proof.market/#/market/account_mina">
+                Learn more
+              </WebButton>
+            </div>
             <WhiteRectangle />
           </div>
           <div>

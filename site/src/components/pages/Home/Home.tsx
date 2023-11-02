@@ -22,7 +22,7 @@ const whiteRectangleLineMarginTop = 123
 
 const whiteRectangleLineMobileMarginTop = 62
 
-const whiteRectangleLineData = [154, 154, 184, 0]
+const whiteRectangleLineData = [184, 184, 214, 0]
 
 const whiteRectangleLineMobileData = [0]
 

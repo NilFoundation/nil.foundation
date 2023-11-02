@@ -2,6 +2,7 @@
 @import 'src/styles/helpers';
 @import 'src/styles/colors';
 @import 'src/styles/mixins';
+@import 'src/styles/paddings';
 
 .container {
   position: relative;
@@ -11,8 +12,9 @@
 
   @include mobile {
     height: calc(100vh - #{size(30)});
-    padding-top: 0;
+    margin-top: size($spacing24 + 20);
     padding-bottom: size(20);
+
     margin-bottom: 0;
     box-sizing: content-box;
   }
@@ -20,7 +22,7 @@
 
 .animatedContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
   width: 100%;
   margin-left: auto;
 
@@ -32,9 +34,14 @@
 
 .description {
   position: absolute;
-  left: size(30);
-  bottom: min(calc(#{size(24)} + 4vh), size(54));
-  width: size(226);
+  bottom: min(calc(#{size($spacing32 + 10)} + 4vh), size($spacing32 + 38));
+  width: 100%;
+
+  padding: 0 size($spacing32);
+
+  p {
+    @include heading-04;
+  }
 
   @include mobile {
     display: none;
@@ -47,10 +54,10 @@
   @include mobile {
     display: block;
     position: absolute;
-    top: size(4);
-    right: size(4);
+    top: size(5);
+    right: size(6);
     left: unset;
-    width: size(175);
+    width: size(169);
   }
 }
 
@@ -60,16 +67,20 @@
   }
 }
 
+.buttonWrapper {
+  padding: 0 size($spacing16) size($spacing24 + 5);
+}
+
+.link {
+  margin-bottom: size(10);
+}
+
 .animationWidgetMobile {
   display: none;
 
   @include mobile {
     display: grid;
   }
-}
-
-.link {
-  margin-bottom: size(10);
 }
 
 .underPatternLine {

@@ -14,10 +14,16 @@ type AboutProps = {
   className?: string
   rightHeaderClassName?: string
   rightFooterClassName?: string
+  rightDescriptionClassName?: string
   data: typeof homePageData.about
 }
 
-const About = ({ className, rightHeaderClassName, data: { title, social, description } }: AboutProps) => {
+const About = ({
+  className,
+  rightHeaderClassName,
+  rightDescriptionClassName,
+  data: { title, social, description },
+}: AboutProps) => {
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
@@ -37,7 +43,7 @@ const About = ({ className, rightHeaderClassName, data: { title, social, descrip
             </div>
           </div>
         )}
-        <div className={s.description}>{description}</div>
+        <div className={cx(s.description, rightDescriptionClassName)}>{description}</div>
         <div className={s.rightFooter}>
           <div>
             <ArrowButton className={s.link} text="Learn more" href="https://proof.market/#/market/account_mina" />

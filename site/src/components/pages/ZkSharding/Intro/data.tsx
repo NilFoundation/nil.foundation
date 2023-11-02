@@ -7,17 +7,17 @@ import { WebButton } from 'components/WebButton'
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
     id: 'z1',
-    ySourceValue: '-32%',
+    ySourceValue: '-36%',
     yTransformValue: '-99%',
   },
   {
     id: 'z2',
-    ySourceValue: '-12%',
+    ySourceValue: '-48%',
     yTransformValue: '-115%',
   },
   {
     id: 'z3',
-    ySourceValue: '-64%',
+    ySourceValue: '-52%',
     yTransformValue: '-99%',
     children: (isCompleted: boolean) => (
       <IntroDescription
@@ -29,94 +29,96 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   },
   {
     id: 'z4',
-    ySourceValue: '-28%',
+    ySourceValue: '-41%',
     yTransformValue: '-99%',
   },
   {
     id: 'z5',
-    ySourceValue: '-20%',
+    ySourceValue: '-57%',
     yTransformValue: '-80%',
   },
-  {
-    id: 'z6',
-    ySourceValue: '-48%',
-    yTransformValue: '-99%',
-  },
-  {
-    id: 'z7',
-    ySourceValue: '-86%',
-    yTransformValue: '-99%',
-  },
+  // {
+  //   id: 'z6',
+  //   ySourceValue: '-48%',
+  //   yTransformValue: '-99%',
+  // },
+  // {
+  //   id: 'z7',
+  //   ySourceValue: '-86%',
+  //   yTransformValue: '-99%',
+  // },
   {
     id: 'z8',
-    ySourceValue: prefersReduceMotion ? '0%' : '8%',
+    ySourceValue: '36%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z9',
-    ySourceValue: prefersReduceMotion ? '0%' : '18%',
+    ySourceValue: '36%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z10',
-    ySourceValue: '0%',
+    ySourceValue: '36%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z11',
-    ySourceValue: prefersReduceMotion ? '0%' : '9%',
+    ySourceValue: '36%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z12',
-    ySourceValue: prefersReduceMotion ? '0%' : '15%',
+    ySourceValue: '36%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
-  {
-    id: 'z13',
-    ySourceValue: prefersReduceMotion ? '0%' : '4%',
-    yTransformValue: '20%',
-    alignment: ANIMATION_CARD_ALIGNMENT.bottom,
-  },
-  {
-    id: 'z14',
-    ySourceValue: prefersReduceMotion ? '0%' : '20%',
-    yTransformValue: '20%',
-    alignment: ANIMATION_CARD_ALIGNMENT.bottom,
-  },
+  // {
+  //   id: 'z13',
+  //   ySourceValue: prefersReduceMotion ? '0%' : '4%',
+  //   yTransformValue: '20%',
+  //   alignment: ANIMATION_CARD_ALIGNMENT.bottom,
+  // },
+  // {
+  //   id: 'z14',
+  //   ySourceValue: prefersReduceMotion ? '0%' : '20%',
+  //   yTransformValue: '20%',
+  //   alignment: ANIMATION_CARD_ALIGNMENT.bottom,
+  // },
 ]
 
 export const animatedItemMobileList = [
   {
     id: 'm1',
-    ySourceValue: '-30%',
+    ySourceValue: '-45%',
     children: (
-      <WebButton className={s.link} href="https://github.com/NilFoundation/zkllvm">
-        Discover zkLLVM
-      </WebButton>
+      <div className={s.buttonWrapper}>
+        <WebButton className={s.link} size="l" href="https://github.com/NilFoundation/zkllvm">
+          Explore =nil;
+        </WebButton>
+      </div>
     ),
   },
   {
     id: 'm2',
-    ySourceValue: '-60%',
+    ySourceValue: '-84%',
     yTransformValue: '-50%',
     yTransformValueList: [
       { value: '-50%', duration: 0.8 },
-      { value: '-92%', duration: 0.8 },
+      { value: '-84%', duration: 0.8 },
     ],
   },
   {
     id: 'm3',
-    ySourceValue: '-40%',
+    ySourceValue: '-42%',
     yTransformValue: '-90%',
     yTransformValueList: [
       { value: '-90%', duration: 0.8 },
-      { value: '-65%', duration: 0.8 },
+      { value: '-42%', duration: 0.8 },
     ],
   },
 ]

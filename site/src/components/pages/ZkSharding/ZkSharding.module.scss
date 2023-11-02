@@ -1,6 +1,7 @@
 @use '~styles/mixins' as *;
 @use '~styles/helpers' as *;
 @use '~styles/colors' as *;
+@use '~styles/typography' as *;
 @use '~styles/paddings' as *;
 
 .wrapper {
@@ -9,15 +10,38 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  margin-top: size($spacing96);
+  margin-top: size($spacing96 + 97);
 
   @include mobile {
+    margin-top: size(6);
     grid-template-columns: 1fr;
   }
+}
+
+.joinNilRoot {
+  margin-bottom: size(108);
 }
 
 .content {
   position: relative;
   background: url('/icons/dots.svg'), repeat;
   grid-column: span 4 / 6;
+}
+
+.aboutDescription {
+  @include heading-04;
+}
+
+.aboutHeader {
+  & > div {
+    &:nth-child(1) {
+      margin-top: size(32);
+    }
+    &:nth-child(2) {
+      margin-top: size(110);
+    }
+  }
+}
+
+.JoinNinBox {
 }

@@ -8,12 +8,12 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  padding-bottom: size(182);
+  padding-bottom: size(91);
   z-index: 2;
 
   @include mobile {
     flex-direction: column;
-    padding-bottom: size(60);
+    padding-bottom: size(70);
     margin-top: 0;
   }
 }
@@ -66,7 +66,10 @@
   @include mobile {
     display: flex;
     align-items: flex-start;
-    padding: size(40) size(10) 0;
+
+    gap: size($spacing16);
+
+    padding: size($spacing48 - 5) size($spacing12) size($spacing24 + 6);
 
     p {
       width: 100%;
@@ -92,10 +95,18 @@
 .lottieWrapper {
   width: 100%;
   height: size(710);
-  background-color: $gray900;
 
   @include mobile {
     height: size(470);
+  }
+}
+
+.contentWrapper {
+  padding-bottom: size($spacing64);
+  background-color: $gray900;
+
+  @include mobile {
+    padding-bottom: size(49);
   }
 }
 
@@ -112,5 +123,5 @@
 }
 
 .buttonWrapper {
-  padding: 0 size($spacing16) size($spacing24);
+  padding: size($spacing12) size($spacing16) size($spacing24 + $spacing12 + 4);
 }

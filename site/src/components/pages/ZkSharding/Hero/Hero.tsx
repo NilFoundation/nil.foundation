@@ -3,13 +3,12 @@ import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
 import lottie, { AnimationItem } from 'lottie-web'
 
-import * as animationData from 'lottie/zklm.json'
+import * as animationData from 'lottie/zkSharding.json'
 
 import { useViewport } from 'hooks/useViewport'
 
 import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
-import ListItem from 'components/ListItem'
 
 import s from './Hero.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
@@ -52,12 +51,14 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
             <p>{description}</p>
             <p>{info}</p>
           </div>
-          <WhiteRectangle />
+          {!isMobile && <WhiteRectangle />}
         </div>
       </div>
 
       <div className={s.right}>
-        <div className={s.lottieWrapper} ref={lottieRef} />
+        <div className={s.contentWrapper}>
+          <div className={s.lottieWrapper} ref={lottieRef} />
+        </div>
         <div className={s.rightFooter}>
           <div className={s.footerLeftBox}>
             <div className={s.buttonWrapper}>

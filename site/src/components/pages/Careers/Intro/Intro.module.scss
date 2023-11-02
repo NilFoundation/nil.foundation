@@ -10,6 +10,7 @@
 
 .head {
   min-height: unset;
+
   @include mobile {
     width: 100%;
     padding: size($spacing24) size($spacing12);
@@ -53,18 +54,6 @@
   @include paragraph;
   max-width: size(219);
   background-color: $gray900;
-}
-
-.text {
-  background-color: $gray900;
-  padding: 0 size(30) size(30);
-
-  @include paragraph;
-
-  @include mobile {
-    padding: 0 size(10) size(10);
-    margin-top: size(-20);
-  }
 }
 
 .box {

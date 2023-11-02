@@ -2,10 +2,11 @@
 @use '~styles/colors' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   border: size(1) solid $gray-50;
-  padding: size(10);
+  padding: size($spacing4) size($spacing8);
   transition: color 0.3s, background-color 0.3s;
 
   @include sm-paragraph;

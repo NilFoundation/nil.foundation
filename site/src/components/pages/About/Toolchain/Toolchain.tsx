@@ -6,7 +6,6 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import LinkCard from 'components/LinkCard'
-import ListItem from 'components/ListItem'
 
 import s from './Toolchain.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'

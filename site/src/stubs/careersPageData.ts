@@ -1,12 +1,10 @@
 export const careersPageData = {
   intro: {
     title: 'Work at the forefront of zero-knowledge development',
-    description:
-      'Be it from our Cyprus office, from home, or fully remote.',
+    description: 'Be it from our Cyprus office, from home, or fully remote.',
   },
   joinUs: {
-    title:
-      'Contribute to our cutting edge toolchain',
+    title: 'Contribute to our cutting edge toolchain',
     cards: [
       {
         // TODO: add blog link

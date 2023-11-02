@@ -25,7 +25,7 @@
     background-color: $gray-50;
 
     @include mobile {
-      margin: size(4) size(10) 0 0;
+      margin: size($spacing4) size($spacing8) 0 0;
     }
   }
 
@@ -33,12 +33,12 @@
 }
 
 .description {
-  margin: size(8) 0 0 size(28);
+  margin: size($spacing8) 0 0 size($spacing24);
   color: $grey;
 
   @include sm-paragraph;
 
   @include mobile {
-    margin: size(8) 0 0 size(18);
+    margin: size($spacing8) 0 0 size($spacing16);
   }
 }

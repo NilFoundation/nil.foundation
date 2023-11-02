@@ -64,14 +64,3 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-.button {
-  padding-top: size(104);
-  padding-bottom: size(24);
-  background-color: $gray900;
-
-  @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(10);
-  }
-}

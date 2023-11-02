@@ -66,12 +66,3 @@
     padding: size($spacing24) size($spacing12);
   }
 }
-
-.text {
-  max-width: size(202);
-  padding: size(30) 0;
-
-  @include mobile {
-    padding: size(20) 0;
-  }
-}

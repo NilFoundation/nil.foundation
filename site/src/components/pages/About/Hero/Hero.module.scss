@@ -84,7 +84,7 @@
   }
 
   p {
-    padding: size(30);
+    padding: size($spacing32);
     background-color: $gray900;
 
     @include paragraph;
@@ -92,7 +92,7 @@
 
   @include mobile {
     p {
-      padding: size(10);
+      padding: size($spacing12);
     }
   }
 }
@@ -102,7 +102,7 @@
 
   @include mobile {
     display: inline-block;
-    margin-right: size(10);
+    margin-right: size($spacing12);
   }
 }
 .right {
@@ -221,13 +221,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: size($spacing32) size($spacing12);
-    gap: size(0);
+    gap: unset;
   }
 }
 
 .socials {
   display: flex;
-  gap: size(10);
+  gap: size($spacing12);
 }
 
 .socialButton {

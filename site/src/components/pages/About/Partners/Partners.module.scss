@@ -31,7 +31,7 @@
   margin-top: size(180);
 
   @include mobile {
-    margin-top: 0;
+    margin-top: unset;
   }
 }
 
@@ -49,7 +49,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0 size($spacing32);
-  grid-gap: 10px;
+  grid-gap: size($spacing12);
 
   @include mobile {
     padding: 0 size($spacing12);

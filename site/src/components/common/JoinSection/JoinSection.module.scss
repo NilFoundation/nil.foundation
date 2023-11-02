@@ -12,7 +12,6 @@
   @include mobile {
     overflow: hidden;
     flex-wrap: wrap;
-    margin-top: size(60);
   }
 }
 
@@ -32,7 +31,6 @@
 
 .headingWrapper {
   width: size(544);
-  padding-bottom: size(30);
   margin-bottom: -1px;
   background-color: $gray900;
 

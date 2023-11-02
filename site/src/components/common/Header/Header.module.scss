@@ -62,7 +62,7 @@
   .square {
     width: size(8);
     height: size(8);
-    margin-right: size(22);
+    margin-right: size($spacing12);
     background-color: transparent;
     transition: background-color 0.3s ease;
   }

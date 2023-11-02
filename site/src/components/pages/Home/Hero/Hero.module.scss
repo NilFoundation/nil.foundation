@@ -44,7 +44,7 @@
 .right {
   display: flex;
   flex-direction: column;
-  padding-top: size(30);
+  padding-top: size($spacing32);
   background-color: $gray900;
 
   @include mobile {

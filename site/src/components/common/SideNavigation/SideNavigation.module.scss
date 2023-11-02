@@ -74,10 +74,10 @@
 .link {
   @include paragraph;
   padding-left: 0;
-  margin-bottom: size(24);
+  margin-bottom: size($spacing24);
 
   @include mobile {
-    padding-left: size(10);
+    padding-left: size($spacing12);
   }
 }
 

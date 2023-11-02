@@ -68,11 +68,11 @@
 
 .button {
   padding-top: size(104);
-  padding-bottom: size(24);
+  padding-bottom: size($spacing24);
   background-color: $gray900;
 
   @include mobile {
     padding-top: size(58);
-    padding-bottom: size(10);
+    padding-bottom: size($spacing12);
   }
 }

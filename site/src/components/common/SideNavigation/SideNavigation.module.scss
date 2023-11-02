@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: size(272);
-  height: 100vh;
+  height: 98.5vh;
   z-index: 2;
 
   @include mobile {
@@ -62,7 +62,7 @@
 }
 
 .linkWrapper {
-  width: size(272);
+  width: size(270);
   margin-bottom: size(30);
   background-color: $gray900;
 

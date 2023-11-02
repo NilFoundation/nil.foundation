@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
 @use '~styles/colors' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
@@ -9,7 +10,6 @@
 
 .root {
   display: grid;
-  margin-top: size(30);
   grid-template-columns: 1fr 4fr;
 
   @include mobile {
@@ -19,8 +19,7 @@
 }
 
 .sideNavigation {
-  left: size(40);
-
+  left: size($spacing48);
   @include mobile {
     display: none;
   }
@@ -35,8 +34,8 @@
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding-top: size(30);
-  padding-bottom: size(24);
+  padding-top: size($spacing32);
+  padding-bottom: size($spacing24);
 }
 
 .buttonsWrapper {
@@ -45,7 +44,7 @@
 
   @include mobile {
     flex-direction: row;
-    margin-bottom: size(20);
+    margin-bottom: size($spacing24);
     width: max-content;
   }
 }
@@ -55,7 +54,7 @@
   color: $grey;
 
   &:not(:last-child) {
-    margin-bottom: size(16);
+    margin-bottom: size($spacing16);
   }
 
   @include heading-03;
@@ -67,7 +66,7 @@
   @include mobile {
     &:not(:last-child) {
       margin-bottom: 0;
-      margin-right: size(30);
+      margin-right: size($spacing24);
     }
   }
 }
@@ -85,8 +84,8 @@
   margin-top: size(50);
 
   @include mobile {
-    margin-top: size(60);
-    padding-left: size(10);
+    margin-top: size($spacing48);
+    padding-left: size($spacing12);
   }
 }
 
@@ -101,13 +100,14 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: size(55);
-  gap: size(8);
+  margin-bottom: size($spacing64);
+  gap: size($spacing16);
 
   @include mobile {
-    gap: size(10);
+    gap: size($spacing16);
     flex-wrap: nowrap;
     width: max-content;
+    margin-top: size($spacing24);
     margin-bottom: 0;
   }
 }
@@ -127,11 +127,10 @@
 .content {
   display: flex;
   flex-direction: column;
-
-  padding-bottom: 20px;
+  padding-bottom: size($spacing32);
 
   @include mobile {
-    padding: 0 size(10);
+    padding: 0 size($spacing12) size($spacing24);
     width: 100%;
   }
 }
@@ -142,42 +141,39 @@
 
 .pageHead {
   display: flex;
-  margin-bottom: size(80);
+  margin-bottom: size($spacing96);
 
   @include mobile {
     flex-direction: column;
-    margin-bottom: size(30);
+    margin-bottom: size($spacing24);
   }
 }
 
 .headItem {
   width: 50%;
-  padding: size(30);
+  padding: size($spacing32);
 
   @include mobile {
     width: 100%;
-    padding: 0 size(10);
+    padding: 0 size($spacing12) size($spacing12);
   }
 }
 
 .pageTitle {
   @include heading-01;
+  padding: size($spacing32);
 
   @include mobile {
-    padding: size(20) size(10);
+    padding: size($spacing24) size($spacing12);
   }
 }
 
 .pageDescription {
   @include heading-03;
-
-  @include mobile {
-    padding-bottom: size(10);
-  }
 }
 
 .featurePost {
-  margin-bottom: size(30);
+  margin-bottom: size($spacing32);
 }
 
 .lastSectionRectangle {

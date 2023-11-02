@@ -30,7 +30,7 @@ const Intro = ({ className, data: { title, description } }: IntroProps) => {
           <WhiteRectangle />
           <div>
             <div className={s.linkContainer}>
-              <WebButton className={s.link} size='l'>See open positions</WebButton>
+              <WebButton className={s.link} size='l' href='/careers/jobs'>See open positions</WebButton>
             </div>
             <WhiteRectangle />
           </div>

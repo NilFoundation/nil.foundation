@@ -2,6 +2,7 @@
 @import 'styles/helpers';
 @import 'styles/colors';
 @import 'styles/mixins';
+@import 'styles/paddings';
 
 .container {
   position: relative;
@@ -12,7 +13,7 @@
 }
 
 .sideNavigation {
-  left: size(40);
+  left: size($spacing48);
   overflow: hidden;
 
   aside {

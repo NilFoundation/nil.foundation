@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -48,29 +49,18 @@
 }
 
 .description {
-  padding: size(30) size(160) size(60) size(30);
+  padding: size($spacing32) size($spacing32) size($spacing64);
   background-color: $gray900;
 
   @include heading-03;
 
   @include mobile {
     margin-bottom: 0;
-    padding: size(60) size(10) size(20);
+    padding: size(72) size($spacing12) size($spacing24);
   }
 }
 
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.button {
-  padding-top: size(104);
-  padding-bottom: size(24);
-  background-color: $gray900;
-
-  @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(10);
-  }
 }

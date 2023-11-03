@@ -2,6 +2,7 @@
 @use '~styles/colors' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   width: 100%;
@@ -9,17 +10,17 @@
   color: $grey;
 
   @media (orientation: landscape) {
-    margin-bottom: size(30);
+    margin-bottom: size($spacing32);
   }
 }
 
 .text {
-  padding: size(30);
+  padding: size($spacing32);
 
   @include heading-01;
 
   @include mobile {
-    padding: size(20);
+    padding: size($spacing24);
 
     @include heading-02;
   }

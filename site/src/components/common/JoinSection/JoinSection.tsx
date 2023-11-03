@@ -19,7 +19,7 @@ function JoinSection({ title, leftText, rightText, social, className }: InferPro
       </div>
       <div className={s.contentWrapperRight}>
         <WhiteRectangle className={s.line} />
-        <p className={s.text}>{rightText}</p>
+        <p className={classNames(s.text, s.textRight)}>{rightText}</p>
         <WhiteRectangle className={s.lineMobile} />
       </div>
     </section>

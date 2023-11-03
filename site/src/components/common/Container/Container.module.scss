@@ -1,8 +1,9 @@
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
-  padding: 0 size(48);
+  padding: 0 size($spacing48);
 
   @include mobile {
     padding: 0;

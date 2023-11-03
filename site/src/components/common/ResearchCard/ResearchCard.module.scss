@@ -33,7 +33,7 @@
 
   p {
     &:not(:last-child) {
-      margin-right: size(10);
+      margin-right: size($spacing12);
     }
 
     @include sm-paragraph;
@@ -57,6 +57,6 @@
   border: size(1) solid $grey;
 
   &:not(:last-child) {
-    margin-right: size(10);
+    margin-right: size($spacing16);
   }
 }

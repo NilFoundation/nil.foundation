@@ -1,5 +1,4 @@
 import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
-import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
 import { WebButton } from 'components/WebButton'

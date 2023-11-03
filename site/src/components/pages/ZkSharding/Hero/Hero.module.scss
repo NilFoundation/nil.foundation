@@ -55,12 +55,16 @@
   display: flex;
   gap: size($spacing64 - 1);
 
-  padding: size(7) size($spacing32) size($spacing32 + 3);
+  padding: size(7) size($spacing32) size($spacing32 + 3) size($spacing32 - 1);
 
   p {
     flex-basis: 50%;
 
     @include paragraph;
+
+    &:nth-child(2) {
+      padding-left: size(4);
+    }
   }
 
   @include mobile {

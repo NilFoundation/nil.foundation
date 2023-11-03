@@ -44,9 +44,12 @@
 }
 
 .content {
+  margin-top: size(-4);
+
   background-color: $gray900;
 
   @include mobile {
+    margin-top: 0;
     padding-top: size($spacing48 + 1);
   }
 }

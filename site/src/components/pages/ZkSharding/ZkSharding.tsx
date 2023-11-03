@@ -17,9 +17,14 @@ type Props = {
   data: typeof zkShardingPageData
 }
 
-const mobileFooterData = [0]
+const mobileFooterData = [{ id: 1, margin: 0 }]
 
-const footerData = [184, 184, 214, 0]
+const footerData = [
+  { id: 1, margin: 184 },
+  { id: 2, margin: 184 },
+  { id: 3, margin: 214 },
+  { id: 4, margin: 0 },
+]
 
 const mobileMarginTop = 62
 

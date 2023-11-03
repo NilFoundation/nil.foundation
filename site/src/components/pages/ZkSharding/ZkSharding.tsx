@@ -46,6 +46,7 @@ const ZkSharding = ({ data }: Props) => {
           <JoinNil data={data.joinNil} className={s.joinNilRoot} boxClassName={s.JoinNinBox} />
           <About data={data.about} />
           <WhiteRectangleLine
+            className={s.whiteRectangleLine}
             data={isMobile ? mobileFooterData : footerData}
             marginTop={isMobile ? mobileMarginTop : marginTop}
           />

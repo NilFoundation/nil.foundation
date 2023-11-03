@@ -32,9 +32,13 @@ const Toolchain = ({ className, data: { title, description, content } }: Toolcha
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {content.map((el) => (
-            <div className={s.box} key={el.title}>
-              <LinkCard className={s.linkCard} title={el.title} description={el.description} linkTo={el.link} />
-            </div>
+            <LinkCard
+              key={el.id}
+              className={s.linkCard}
+              title={el.title}
+              description={el.description}
+              linkTo={el.link}
+            />
           ))}
         </div>
         <WhiteRectangle />

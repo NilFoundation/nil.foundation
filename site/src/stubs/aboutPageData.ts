@@ -79,8 +79,10 @@ export const aboutPageData = {
       'Implementing zero-knowledge technology into products development and data management is now transparent and cost-effective.',
     content: [
       {
+        id: 1,
         title: '`DROP DATABASE *',
-        description: 'Trustless cloud computing and data management',
+        description:
+          'Trustless cloud computing and data management. Layer protocol allowing decentralized operation of Proof Market or any other application',
         link: '/blog/post/database-management-system',
         list: [
           {
@@ -89,8 +91,10 @@ export const aboutPageData = {
         ],
       },
       {
+        id: 2,
         title: 'Proof Market',
-        description: 'Decentralized marketplace for zero-knowledge proofs',
+        description:
+          'Decentralized marketplace for zero-knowledge proofs. Automatic generation of high-performance circuits for multiple protocols',
         link: 'https://github.com/NilFoundation/proof-market-toolchain',
         list: [
           {
@@ -99,8 +103,10 @@ export const aboutPageData = {
         ],
       },
       {
+        id: 3,
         title: 'zkLLVM',
-        description: 'Circuit compiler from C++, Rust, or other mainstream languages',
+        description:
+          'Circuit compiler from C++, Rust, or other mainstream languages. Outsourcing zkProof generation to optimize time & cost of zk implementation',
         link: 'https://github.com/NilFoundation/zkllvm',
         list: [
           {
@@ -109,9 +115,10 @@ export const aboutPageData = {
         ],
       },
       {
+        id: 4,
         title: 'Placeholder & Crypto3 suite',
         description:
-          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
+          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping. Tech & research baseline to enable high performance circuit definition',
         link: 'https://github.com/NilFoundation/crypto3',
         list: [
           {

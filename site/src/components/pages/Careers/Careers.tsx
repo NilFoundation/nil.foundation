@@ -22,9 +22,14 @@ const whiteRectangleLineMarginTop = 224
 
 const whiteRectangleLineMobileMarginTop = 60
 
-const whiteRectangleLineData = [0, 0, 96, 66]
+const whiteRectangleLineData = [
+  { id: 1, margin: 0 },
+  { id: 2, margin: 0 },
+  { id: 3, margin: 96 },
+  { id: 4, margin: 66 },
+]
 
-const whiteRectangleLineMobileData = [0]
+const whiteRectangleLineMobileData = [{ id: 1, margin: 0 }]
 
 const Careers = ({ data }: CareersProps) => {
   const { isMobile } = useViewport()

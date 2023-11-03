@@ -46,7 +46,7 @@
   @include mobile {
     position: static;
     min-height: auto;
-    padding: size(10) size(10);
+    padding: size($spacing24) size($spacing12);
   }
 }
 
@@ -56,24 +56,23 @@
 
 .description {
   width: 100%;
-  max-width: size(241);
-  margin-top: size(64);
+  margin-top: size($spacing32);
   word-break: break-word;
 
   @include paragraph;
 
   @include mobile {
-    max-width: 50%;
-    margin-top: size(40);
+    width: 50%;
+    margin-top: size($spacing48);
   }
 }
 
 .icons {
   display: flex;
   flex-wrap: wrap;
-  gap: size(8);
+  gap: size($spacing8);
 
   @include mobile {
-    margin-top: size(60);
+    margin-top: size($spacing48);
   }
 }

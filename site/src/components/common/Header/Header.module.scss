@@ -13,18 +13,19 @@
 
   @include mobile {
     width: 100vw;
+    height: size(25);
   }
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: size(262) size(480) 1fr;
-  padding: size(6) size(12);
+  padding: size(14) size($spacing16);
   background-color: $gray-50;
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
-    padding: size(5) size(10);
+    padding: size(3) size($spacing12);
   }
 }
 
@@ -45,11 +46,9 @@
 
 .box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  gap: size(28);
-  margin-left: size(30);
-  margin-right: size(29);
+  gap: size($spacing24);
 
   @include mobile {
     display: none;
@@ -60,6 +59,7 @@
   display: flex;
   align-items: center;
   transition: color 0.3s ease;
+  font-size: size(18);
 
   @include mobile {
     display: none;
@@ -68,7 +68,7 @@
   .square {
     width: size(8);
     height: size(8);
-    margin-right: size(22);
+    margin-right: size($spacing12);
     background-color: transparent;
     transition: background-color 0.3s ease;
   }

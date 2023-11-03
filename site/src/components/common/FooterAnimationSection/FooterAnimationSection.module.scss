@@ -1,6 +1,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
 @use '~styles/colors' as *;
+@use '~styles/paddings' as *;
 
 .container {
   padding: 0;
@@ -24,8 +25,9 @@
 
 .webButton {
   width: 100%;
+  margin-bottom: size($spacing24);
 
   @include mobile {
-    margin-bottom: size(10);
+    margin-bottom: size($spacing12);
   }
 }

@@ -44,14 +44,6 @@ function BurgerMenu({ isOpen }: InferProps<typeof BurgerMenu.propTypes>) {
           </div>
           <WhiteRectangle className={s.box1} />
         </div>
-        <div className={s.left}>
-          <div className={s.box2}>
-            <WhiteRectangle />
-          </div>
-          <div className={s.box3}>
-            <WhiteRectangle />
-          </div>
-        </div>
       </div>
     </div>
   )

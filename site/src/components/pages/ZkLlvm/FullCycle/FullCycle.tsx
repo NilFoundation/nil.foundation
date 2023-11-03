@@ -36,7 +36,7 @@ function FullCycle({ className, data }: FullCycleProps) {
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={i} // eslint-disable-line
             >
-              <ListItem className={s.item} key={el.title} title={el.title} description={el.description} />
+              <ListItem className={s.item} key={el.title} title={el.title} />
             </div>
           ))}
         </div>

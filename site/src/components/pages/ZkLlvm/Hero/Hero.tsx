@@ -45,7 +45,10 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
-        <HeadingSection className={s.heading} title={title} description={description} />
+        <HeadingSection className={s.heading} title={title} />
+        <div className={s.heroDescription}>
+          <p>{description}</p>
+        </div>
         <div className={s.box}>
           {!isMobile && <WhiteRectangle className={s.line} />}
           <div className={s.info}>

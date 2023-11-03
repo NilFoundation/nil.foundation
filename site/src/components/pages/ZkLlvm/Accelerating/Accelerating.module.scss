@@ -38,46 +38,40 @@
   display: flex;
   flex-wrap: wrap;
   background-color: $gray900;
+  padding-bottom: size($spacing64);
 
   @include mobile {
-    padding-top: size(40);
+    padding-bottom: size($spacing12);
+    padding-top: size($spacing48);
   }
 }
 
 .box {
-  padding: size(30);
+  padding: size($spacing32);
   width: 50%;
-
-  &:not(:last-of-type) {
-    margin-bottom: size(20);
-  }
 
   @include paragraph;
 
   @include mobile {
-    padding: size(20) size(10);
-
-    &:not(:last-of-type) {
-      margin-bottom: size(10);
-    }
+    padding: size($spacing12);
   }
 }
 
 .icon {
   width: size(80);
   height: size(80);
-  margin-bottom: size(40);
+  margin-bottom: size($spacing48);
 
   @include mobile {
-    margin-bottom: size(32);
+    margin-bottom: size($spacing16);
   }
 }
 
 .title {
   width: min-content;
-  margin-bottom: size(8);
+  margin-bottom: size($spacing8);
   padding: 0;
-  gap: size(8);
+  gap: size($spacing8);
   position: relative;
   display: flex;
   justify-content: space-between;

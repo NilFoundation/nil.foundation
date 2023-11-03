@@ -1,17 +1,17 @@
-@import 'src/styles/typography';
-@import 'src/styles/helpers';
-@import 'src/styles/colors';
-@import 'src/styles/mixins';
-@import 'src/styles/paddings';
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
 
   @include mobile {
     overflow: hidden;
+    flex-wrap: wrap;
   }
 }
 
@@ -31,21 +31,20 @@
 
 .headingWrapper {
   width: size(544);
-  padding-bottom: size(30);
   margin-bottom: -1px;
 
   @include mobile {
     width: 100%;
     background-color: $gray900;
-    padding-bottom: size(70);
+    padding-bottom: size(60);
   }
 }
 
 .heading {
-  padding: size(30);
+  padding: size($spacing32);
 
   @include mobile {
-    padding: size(20) size(10);
+    padding: size($spacing24) size($spacing12);
   }
 }
 
@@ -106,12 +105,20 @@
 }
 
 .text {
-  padding: size(30);
+  padding: size($spacing32);
 
   @include paragraph;
 
   @include mobile {
-    padding: size(10);
+    padding: size($spacing12);
+  }
+}
+
+.textRight {
+  max-width: size(260);
+
+  @include mobile {
+    max-width: unset;
   }
 }
 

@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -20,6 +21,29 @@
 
   @include mobile {
     width: 100%;
+  }
+}
+
+.heading {
+  min-height: unset;
+}
+
+.heroDescription {
+  padding: 0 size($spacing32) size($spacing32);
+  background-color: $gray900;
+
+  @include mobile {
+    padding: size($spacing24) size($spacing12);
+  }
+}
+
+.heroDescription p {
+  @include paragraph;
+  max-width: size(200);
+  background-color: $gray900;
+
+  @include mobile {
+    max-width: 50%;
   }
 }
 
@@ -44,7 +68,15 @@
 
   @include mobile {
     margin-top: 0;
-    padding-top: size(40);
+    padding-top: unset;
+  }
+}
+
+.content {
+  padding: size($spacing32) size($spacing32) 0;
+
+  @include mobile {
+    padding: size($spacing24) size($spacing12);
   }
 }
 

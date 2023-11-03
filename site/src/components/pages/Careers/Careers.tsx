@@ -7,8 +7,6 @@ import FooterAnimationSection from 'components/FooterAnimationSection'
 import JoinSection, { getJoinSectionProps } from 'components/JoinSection'
 import Intro from './Intro'
 import JoinUs from './JoinUs'
-import Jobs from './Jobs'
-
 import s from './Careers.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 import WhiteRectangleLine from 'components/WhiteRectangleLine'

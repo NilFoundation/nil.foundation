@@ -21,19 +21,43 @@
   position: relative;
   background: url('/icons/dots.svg'), repeat;
   grid-column: span 4 / 6;
+}
 
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 4;
-    width: calc(100% - 2px);
-    height: size(10);
-    background-color: $gray900;
+.joinNil {
+  margin-bottom: size(149);
+}
 
-    @include mobile {
-      display: none;
+.aboutRightFooter {
+  & > div {
+    &:nth-child(1) {
+      // margin-top: size(30);
+    }
+  }
+}
+
+.aboutRightHeader {
+  & > div {
+    &:nth-child(1) {
+      margin-top: size(39);
+    }
+    &:nth-child(2) {
+      margin-top: size(69);
+    }
+  }
+}
+
+.joinNilBox {
+  margin-top: size(283);
+
+  &:last-of-type {
+    margin-top: size(313);
+  }
+
+  @include mobile {
+    margin-top: 0;
+
+    &:last-of-type {
+      margin-top: 0;
     }
   }
 }

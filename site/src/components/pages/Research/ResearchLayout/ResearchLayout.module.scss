@@ -113,12 +113,6 @@
   display: flex;
 }
 
-.footerSection {
-  @include mobile {
-    display: none;
-  }
-}
-
 .lastSection {
   display: none;
 
@@ -132,4 +126,30 @@
   width: calc(100% + 4px);
   margin-left: -2px;
   margin-right: -2px;
+}
+
+.footerSection {
+  article {
+    height: size(492);
+
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.footerSectionMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+
+  article {
+    height: size(100);
+
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

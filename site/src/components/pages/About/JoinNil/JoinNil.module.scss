@@ -1,17 +1,17 @@
-@use '~styles/colors' as *;
-@use '~styles/helpers' as *;
-@use '~styles/typography' as *;
-@use '~styles/mixins' as *;
-@use '~styles/paddings' as *;
+@import 'src/styles/typography';
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
 
 .container {
   position: relative;
   display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
   width: 100%;
 
   @include mobile {
     overflow: hidden;
-    flex-wrap: wrap;
   }
 }
 
@@ -22,7 +22,7 @@
 }
 
 .lineMobile {
-  display: none;
+  display: block;
 
   @include mobile {
     display: block;
@@ -32,27 +32,27 @@
 .headingWrapper {
   width: size(544);
   margin-bottom: -1px;
+  background-color: $gray900;
 
   @include mobile {
     width: 100%;
-    background-color: $gray900;
-    padding-bottom: size(60);
+    padding-bottom: size(70);
   }
 }
 
 .heading {
-  padding: size($spacing32);
+  padding: size(30);
 
   @include mobile {
-    padding: size($spacing24) size($spacing12);
+    padding: size(20) size(10);
   }
 }
 
 .contentWrapper {
   position: relative;
   width: size(272);
-  margin-bottom: auto;
   background-color: $gray900;
+  margin-bottom: -1px;
 
   &:after {
     content: '';
@@ -77,55 +77,30 @@
 
 .contentWrapperLeft {
   composes: contentWrapper;
-  margin-top: size(206);
-
-  & > .text {
-    margin-bottom: size(64);
-
-    @include mobile {
-      margin-bottom: size(4);
-    }
-  }
+  margin-top: size(2);
 
   @include mobile {
-    padding-bottom: 0;
     margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
 .contentWrapperRight {
   composes: contentWrapper;
-  margin-top: size(236);
+  margin-top: size(92);
 
   @include mobile {
     margin-top: 0;
     padding-top: size(50);
-    margin-bottom: auto;
+    margin-bottom: 0;
   }
 }
 
 .text {
-  padding: size($spacing32);
-
   @include paragraph;
+  padding: size(30);
 
   @include mobile {
-    padding: size($spacing12);
-  }
-}
-
-.textRight {
-  max-width: size(260);
-
-  @include mobile {
-    max-width: unset;
-  }
-}
-
-.bottomLine {
-  margin-top: size($spacing24);
-
-  @include mobile {
-    margin-top: 0;
+    padding: size(10);
   }
 }

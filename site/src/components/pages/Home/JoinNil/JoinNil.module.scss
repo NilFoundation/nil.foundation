@@ -41,7 +41,7 @@
 .box {
   position: relative;
   width: 50%;
-  margin-top: size(180);
+  margin-top: size(275);
   background-color: $gray900;
 
   &:after {
@@ -59,7 +59,7 @@
   }
 
   &:last-of-type {
-    margin-top: size(270);
+    margin-top: size(305);
   }
 
   @include mobile {

@@ -7,15 +7,15 @@ import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 import BenefitsCard from 'components/BenefitsCard'
 
-import s from './ZkProof.module.scss'
+import s from './ZkEnabledApps.module.scss'
 import { homePageData } from 'stubs/homePageData'
 
-type ZkProofProps = {
+type ZkEnabledAppsProps = {
   className?: string
   data: typeof homePageData.zkProof
 }
 
-const ZkProof = ({ className, data: { title, content } }: ZkProofProps) => {
+const ZkEnabledApps = ({ className, data: { title, content } }: ZkEnabledAppsProps) => {
   const { isMobile } = useViewport()
 
   return (
@@ -26,31 +26,14 @@ const ZkProof = ({ className, data: { title, content } }: ZkProofProps) => {
         {!isMobile && <WhiteRectangle />}
       </div>
       <div className={s.right}>
-        {!isMobile && (
-          <div className={s.rightHeader}>
-            <div>
-              <WhiteRectangle />
-            </div>
-            <div>
-              <WhiteRectangle />
-            </div>
-          </div>
-        )}
-        <div className={s.content}>
-          {content.map((el) => (
-            <BenefitsCard
-              key={el.title}
-              className={s.box}
-              title={el.title}
-              icon={el.icon}
-              description={el.description}
-            />
-          ))}
-        </div>
+        {!isMobile && <WhiteRectangle />}
+        {content.map((el) => (
+          <BenefitsCard key={el.title} className={s.box} title={el.title} icon={el.icon} description={el.description} />
+        ))}
         <WhiteRectangle />
       </div>
     </div>
   )
 }
 
-export default ZkProof
+export default ZkEnabledApps

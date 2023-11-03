@@ -18,6 +18,14 @@
   }
 }
 
+.joinUs {
+  margin-bottom: size(164);
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
+}
+
 .sideNavigation {
   left: size($spacing48);
 

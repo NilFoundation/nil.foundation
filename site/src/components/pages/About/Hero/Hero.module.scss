@@ -91,6 +91,8 @@
   }
 
   @include mobile {
+    margin-top: size(-70);
+
     p {
       padding: size($spacing12);
     }

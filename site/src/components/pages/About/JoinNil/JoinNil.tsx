@@ -3,9 +3,9 @@ import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
-import s from './JoinSection.module.scss'
+import s from './JoinNil.module.scss'
 
-function JoinSection({ title, leftText, rightText, social, className }: InferProps<typeof JoinSection.propTypes>) {
+function JoinNil({ title, leftText, rightText, social, className }: InferProps<typeof JoinNil.propTypes>) {
   return (
     <section className={classNames(s.container, className)}>
       <div className={s.headingWrapper}>
@@ -16,19 +16,18 @@ function JoinSection({ title, leftText, rightText, social, className }: InferPro
       <div className={s.contentWrapperLeft}>
         <WhiteRectangle className={s.line} />
         <p className={s.text}>{leftText}</p>
-        <WhiteRectangle className={s.bottomLine} />
+        <WhiteRectangle className={s.lineMobile} />
       </div>
       <div className={s.contentWrapperRight}>
         <WhiteRectangle className={s.line} />
-        <p className={classNames(s.text, s.textRight)}>{rightText}</p>
-        <WhiteRectangle className={s.bottomLine} />
-        {/* <WhiteRectangle className={s.lineMobile} /> */}
+        <p className={s.text}>{rightText}</p>
+        <WhiteRectangle className={s.lineMobile} />
       </div>
     </section>
   )
 }
 
-JoinSection.propTypes = {
+JoinNil.propTypes = {
   title: PropTypes.string.isRequired,
   leftText: PropTypes.string,
   rightText: PropTypes.string,
@@ -36,4 +35,4 @@ JoinSection.propTypes = {
   className: PropTypes.string,
 }
 
-export default JoinSection
+export default JoinNil

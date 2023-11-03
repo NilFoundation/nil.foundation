@@ -7,7 +7,7 @@
 .root {
   display: flex;
   align-items: flex-start;
-  margin-top: size(114);
+  margin-top: size(55);
 
   @include mobile {
     flex-direction: column;
@@ -49,7 +49,7 @@
 
 .right {
   position: relative;
-  margin-top: size(180);
+  margin-top: size(240);
   background-color: $gray900;
 
   &:after {

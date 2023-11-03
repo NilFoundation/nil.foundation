@@ -2,6 +2,7 @@
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
 @use '~styles/colors' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: fixed;
@@ -10,7 +11,7 @@
   height: get-real-vh(100);
   width: 100%;
   z-index: -1;
-  background-color: $gray900;
+  background-color: $gray-50;
   justify-content: space-between;
   transform: translateY(calc(-150% - size(30)));
   transition: transform 1s ease;
@@ -33,12 +34,12 @@
 }
 
 .head {
-  padding: size(40) size(30);
+  padding: size($spacing48) 0 size($spacing48) size($spacing32);
 }
 
 .mainLink {
   &:not(:last-child) {
-    margin-bottom: size(15);
+    margin-bottom: size($spacing24);
   }
 
   @include heading-02;
@@ -53,64 +54,29 @@
 
 .activeLink {
   position: relative;
-  color: $white;
+  color: $gray900;
 
   &::before {
     position: absolute;
     display: block;
     flex-shrink: 0;
     top: 30%;
-    left: size(-20);
+    left: size(-$spacing24);
     width: size(8);
     height: size(8);
     content: '';
-    background-color: $white;
+    background-color: $gray900;
   }
-}
-
-.activeMainLink {
-  &::before {
-    display: none;
-    color: $white;
-  }
-}
-
-.content {
-  background: url('/icons/dots.svg'), repeat;
-
-  display: flex;
 }
 
 .right {
-  padding: 0 size(53) size(20) size(30);
-  background-color: $gray900;
+  padding: 0 size($spacing12) size($spacing32);
 }
 
 .link {
   &:not(:last-child) {
-    margin-bottom: size(16);
+    margin-bottom: size($spacing24);
   }
 
-  @include paragraph;
-}
-
-.box1 {
-  margin-bottom: size(100);
-}
-
-.box2 {
-  width: 70%;
-}
-
-.box3 {
-  width: 30%;
-  height: 45%;
-  background: $gray900;
-  display: flex;
-  align-items: flex-end;
-}
-
-.left {
-  width: 100%;
-  display: flex;
+  @include button-small;
 }

@@ -2,18 +2,19 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: size(30);
+  padding: size($spacing32);
   cursor: pointer;
 
   @include heading-03;
 
   @include mobile {
-    padding: size(23) size(10);
+    padding: size($spacing16) size($spacing12);
   }
 }
 

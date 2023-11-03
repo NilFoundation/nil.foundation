@@ -17,18 +17,18 @@
 .head {
   display: flex;
   flex-direction: column;
-  padding: size(53) size(40) size(25);
-  gap: size(13);
+  padding: size($spacing96) size($spacing48) size($spacing24);
+  gap: size($spacing12);
 
   svg {
     height: size(180);
   }
 
   @include mobile {
-    padding: 0 0 size(20);
+    padding: 0 0 size($spacing24);
 
     svg {
-      padding: 0 size(10);
+      padding: 0 size($spacing12);
       height: size(50);
     }
   }
@@ -36,13 +36,13 @@
 
 .wrapper {
   @include mobile {
-    padding: 0 size(10);
+    padding: 0 size($spacing12);
   }
 }
 
 .center {
   display: grid;
-  padding-bottom: size(48);
+  padding-bottom: size($spacing48);
   grid-template-columns: repeat(5, 1fr);
 
   @include mobile {
@@ -52,16 +52,15 @@
 
 .linksWrapper {
   &:not(:last-of-type) {
-    margin-bottom: size(20);
+    margin-bottom: size($spacing24);
   }
 
   .item {
-    margin-bottom: size(8);
-    transition: opacity 0.3s ease;
+    margin-bottom: size($spacing8);
 
     @include button-small;
-
     color: $buttonGray50;
+    transition: opacity 0.3s ease;
 
     @include hover {
       opacity: 0.5;
@@ -71,13 +70,13 @@
 
   @include mobile {
     &:not(:last-of-type) {
-      margin-bottom: size(66);
+      margin-bottom: size($spacing24);
     }
   }
 }
 
 .title {
-  margin-bottom: size(15);
+  margin-bottom: size($spacing12);
   color: $secondary;
 }
 
@@ -87,13 +86,13 @@
 
 .socialWrapper {
   &:not(:last-of-type) {
-    margin-bottom: size(24);
+    margin-bottom: size($spacing24);
   }
 }
 
 .icons {
   display: flex;
-  gap: size(10);
+  gap: size($spacing12);
 
   @include mobile {
     flex-wrap: wrap;
@@ -104,14 +103,20 @@
   grid-column: span 2;
 
   @include mobile {
-    margin-top: size(40);
+    margin-top: size($spacing32);
   }
 }
 
 .addressWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: size(10);
+  gap: size($spacing32);
+
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    gap: size($spacing16);
+  }
 }
 
 .place {
@@ -121,19 +126,17 @@
 
   @include mobile {
     width: 100%;
-    max-width: size(164);
   }
 }
 
 .bottom {
   position: relative;
   display: grid;
-  margin-bottom: size(30);
   grid-template-columns: repeat(5, 1fr);
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: size(20);
+    margin-bottom: size($spacing12);
   }
 }
 
@@ -143,7 +146,7 @@
   letter-spacing: size(-0.1);
 
   @include mobile {
-    margin-bottom: size(15);
+    margin-bottom: size($spacing16);
   }
 }
 
@@ -167,8 +170,8 @@
 
   @include mobile {
     top: unset;
-    bottom: size(20);
-    right: size(18);
+    bottom: 0;
+    right: 0;
     width: size(18);
     height: size(18);
   }

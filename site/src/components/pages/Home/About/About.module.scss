@@ -66,10 +66,6 @@
 .rightFooter {
   display: flex;
 
-  // & > div:nth-child(1) {
-  //   padding-top: size(30);
-  // }
-
   & > div {
     flex-basis: 50%;
     height: 100%;
@@ -82,14 +78,14 @@
 }
 
 .description {
-  padding: size($spacing32) size($spacing32) size($spacing64) size($spacing32);
+  padding: size($spacing32) size($spacing32) size($spacing64);
   background-color: $gray900;
 
   @include heading-03;
 
   @include mobile {
     margin-bottom: 0;
-    padding: size(60) size(10) size(20);
+    padding: size($spacing24 + $spacing48) size($spacing12) size($spacing24);
   }
 }
 

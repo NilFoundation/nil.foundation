@@ -1,6 +1,7 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -17,8 +18,11 @@
 .content {
   background-color: $gray900;
 
+  padding-bottom: size($spacing64);
+
   @include mobile {
-    padding-top: size(73);
+    padding-bottom: 0;
+    padding-top: size($spacing48);
   }
 }
 
@@ -72,11 +76,11 @@
 }
 
 .box {
-  &:not(:last-of-type) {
-    margin-bottom: size(60);
+  &:not(:last-child) {
+    margin-bottom: size($spacing64);
+  }
 
-    @include mobile {
-      margin-bottom: size(20);
-    }
+  @include mobile {
+    margin-bottom: unset;
   }
 }

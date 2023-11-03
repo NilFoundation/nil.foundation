@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
 @use '~styles/typography' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -34,9 +35,9 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  padding: size(30) size(30) size(46);
+  padding: size($spacing32) size($spacing32) size($spacing64);
   background-color: $gray900;
-  gap: size(36);
+  gap: size($spacing32);
 
   &:after {
     content: '';
@@ -55,8 +56,8 @@
   @include mobile {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: size(60) size(10) size(20);
-    gap: size(10);
+    padding: size($spacing48) size($spacing12) size($spacing64);
+    gap: size($spacing12);
   }
 }
 

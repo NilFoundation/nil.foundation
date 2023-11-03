@@ -66,9 +66,9 @@
 .rightFooter {
   display: flex;
 
-  & > div:nth-child(1) {
-    padding-top: size(30);
-  }
+  // & > div:nth-child(1) {
+  //   padding-top: size(30);
+  // }
 
   & > div {
     flex-basis: 50%;
@@ -96,6 +96,10 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.buttonWrapper {
+  padding: size($spacing16 + $spacing12) size($spacing16) size($spacing16);
 }
 
 .button {

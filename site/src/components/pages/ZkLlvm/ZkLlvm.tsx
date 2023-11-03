@@ -23,9 +23,14 @@ const whiteRectangleLineMarginTop = 132
 
 const whiteRectangleLineMobileMarginTop = 62
 
-const whiteRectangleLineData = [176, 176, 214, 0]
+const whiteRectangleLineData = [
+  { id: 1, margin: 176 },
+  { id: 2, margin: 176 },
+  { id: 3, margin: 214 },
+  { id: 4, margin: 0 },
+]
 
-const whiteRectangleLineMobileData = [0]
+const whiteRectangleLineMobileData = [{ id: 1, margin: 0 }]
 
 const ZkLlvm = ({ data }: ZkLlvmProps) => {
   const { isMobile } = useViewport()

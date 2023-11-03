@@ -6,7 +6,6 @@ import { useViewport } from 'hooks/useViewport'
 
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
-import Button from 'components/ArrowButton'
 import Icon from 'components/Icon'
 
 import s from './Secure.module.scss'

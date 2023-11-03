@@ -80,6 +80,8 @@
 
   @include mobile {
     display: grid;
+
+    grid-template-rows: 35% 65%;
   }
 }
 

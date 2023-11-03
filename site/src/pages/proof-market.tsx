@@ -1,15 +1,15 @@
 import MetaLayout from 'components/MetaLayout'
 import { REVALIDATE } from 'constants/common'
 import { InferGetStaticPropsType } from 'next'
-import ZkSharding from 'pages/ZkSharding'
+import Home from 'pages/Home'
 import React from 'react'
 import { getSiteConfig } from 'src/strapi'
-import { seoData, zkShardingPageData } from 'stubs/zkShardingPageData'
+import { homePageData, seoData } from 'stubs/homePageData'
 
-const ZkShardingPage = ({ seo, data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const ProofMarketPage = ({ seo, data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <MetaLayout seo={seo}>
-      <ZkSharding data={data} />
+      <Home data={data} />
     </MetaLayout>
   )
 }
@@ -17,9 +17,9 @@ const ZkShardingPage = ({ seo, data }: InferGetStaticPropsType<typeof getStaticP
 export async function getStaticProps() {
   const config = await getSiteConfig()
   return {
-    props: { data: zkShardingPageData, seo: seoData, config },
+    props: { data: homePageData, seo: seoData, config },
     revalidate: REVALIDATE,
   }
 }
 
-export default ZkShardingPage
+export default ProofMarketPage

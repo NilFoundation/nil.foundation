@@ -117,9 +117,11 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
             <WhiteRectangle />
             <div className={s.moreBlogsWrapper}>
               <h1 className={cx(s.title, s.otherBlogsTitle)}>Read other articles</h1>
-              {recommendedPosts?.map((item) => (
-                <PostCard key={item.id} className={s.blog} post={{ ...item, isFeature: false }} />
-              ))}
+              <div className={s.recommendedWrapper}>
+                {recommendedPosts?.map((item) => (
+                  <PostCard key={item.id} className={s.blog} post={{ ...item, isFeature: false }} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

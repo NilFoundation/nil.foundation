@@ -125,7 +125,7 @@ export const aboutPageData = {
   partners: {
     title: 'Partners',
     content: [
-            {
+      {
         title: 'Partners',
         logos: [
           {

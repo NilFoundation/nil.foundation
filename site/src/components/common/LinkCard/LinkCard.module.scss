@@ -2,35 +2,18 @@
 @use '~styles/colors' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
   display: block;
-  width: size(272);
-  padding: size(30);
+  padding: size($spacing32);
 
-  @include hover {
-    .title {
-      color: $grey;
-    }
-
-    .arrow {
-      path {
-        fill: $grey;
-      }
-    }
-  }
-
-  &:disabled {
-    .title {
-      color: $grey;
-    }
-
-    .arrow {
-      path {
-        fill: $grey;
-      }
-    }
+  svg {
+    width: size(14);
+    height: size(14);
+    top: size(31);
+    right: size(34);
   }
 
   @include mobile {
@@ -40,10 +23,12 @@
 }
 
 .title {
-  margin-bottom: size(40);
+  margin-bottom: size($spacing16);
   transition: color 0.3s;
 
-  @include heading-02;
+  color: $gray-50;
+
+  @include heading-03;
 
   @include mobile {
     margin-bottom: size(15);
@@ -51,8 +36,6 @@
 }
 
 .description {
-  color: $grey;
-
   @include paragraph;
 }
 

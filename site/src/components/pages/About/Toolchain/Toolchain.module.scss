@@ -45,7 +45,7 @@
 
   @include mobile {
     margin-top: 0;
-    padding-top: size(40);
+    padding-top: size($spacing48 + $spacing24 - 11);
   }
 }
 
@@ -66,18 +66,6 @@
 .linkCard {
   @include mobile {
     width: 100%;
-    padding: size(20) 0;
-  }
-}
-
-.listItem {
-  max-width: size(202);
-  padding: size(30) 0;
-
-  @include mobile {
-    width: 100%;
-    max-width: size(162);
-    padding: size(20) 0;
   }
 }
 
@@ -86,4 +74,12 @@
   flex-direction: column;
 
   gap: size($spacing32);
+
+  padding: size($spacing32) 0 size($spacing32) size($spacing32);
+
+  align-items: stretch;
+
+  @include mobile {
+    padding: 0 size($spacing12);
+  }
 }

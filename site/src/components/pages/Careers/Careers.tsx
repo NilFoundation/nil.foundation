@@ -30,7 +30,7 @@ const Careers = ({ data }: CareersProps) => {
   const { isMobile } = useViewport()
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation className={s.sideNavigation} title="Careers" titleAnimation={false} />
       <div className={s.root}>
         <div className={s.content}>

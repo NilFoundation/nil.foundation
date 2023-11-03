@@ -125,21 +125,7 @@ export const aboutPageData = {
   partners: {
     title: 'Partners',
     content: [
-      {
-        title: 'Grants',
-        logos: [
-          {
-            url: '/images/partners/8.svg',
-          },
-          {
-            url: '/images/partners/mina.png',
-          },
-          {
-            url: '/images/partners/solana.png',
-          },
-        ],
-      },
-      {
+            {
         title: 'Partners',
         logos: [
           {
@@ -171,6 +157,20 @@ export const aboutPageData = {
           },
           {
             url: '/images/partners/fabric_logo.svg',
+          },
+        ],
+      },
+      {
+        title: 'Grants',
+        logos: [
+          {
+            url: '/images/partners/8.svg',
+          },
+          {
+            url: '/images/partners/mina.png',
+          },
+          {
+            url: '/images/partners/solana.png',
           },
         ],
       },

@@ -60,7 +60,7 @@
 
 .contentFooterWrapper {
   background-color: $gray900;
-  padding: size($spacing32) size($spacing32) size($spacing64 + 3);
+  padding: size($spacing32 - 2) size($spacing32) size($spacing64 + 3);
 
   @include mobile {
     padding: size($spacing32 + 8) size($spacing16) size($spacing32 + 3)
@@ -194,7 +194,7 @@
 
   gap: size(16);
 
-  padding: size(32) size(18);
+  padding: size(32) size(22) size(32) size(18);
 
   background-color: $gray900;
 

@@ -53,9 +53,9 @@
 .info {
   background-color: $gray900;
   display: flex;
-  gap: size($spacing64);
+  gap: size($spacing64 - 1);
 
-  padding: 0 size($spacing32) size($spacing32);
+  padding: size(7) size($spacing32) size($spacing32 + 3);
 
   p {
     flex-basis: 50%;
@@ -102,7 +102,7 @@
 }
 
 .contentWrapper {
-  padding-bottom: size($spacing64);
+  padding: size(10) 0 size($spacing64);
   background-color: $gray900;
 
   @include mobile {

@@ -30,7 +30,6 @@ const OurTeam = ({ className, data: { title, description, button } }: OurTeamPro
         {!isMobile && <WhiteRectangle />}
         <p className={s.title}>{description}</p>
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
               <WebButton className={s.button} href={button.link}>
@@ -39,6 +38,7 @@ const OurTeam = ({ className, data: { title, description, button } }: OurTeamPro
             </div>
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

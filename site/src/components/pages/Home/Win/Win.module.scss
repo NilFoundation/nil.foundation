@@ -2,13 +2,18 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
   align-items: flex-start;
 
+  margin-bottom: size(178);
+
   @include mobile {
     flex-direction: column;
+
+    margin-bottom: 0;
   }
 }
 
@@ -22,7 +27,7 @@
 }
 
 .right {
-  margin-top: size(150);
+  margin-top: size(181);
 
   @include mobile {
     margin-top: 0;
@@ -48,43 +53,54 @@
   }
 
   @include mobile {
-    padding-top: size(40);
+    padding-top: size($spacing24);
   }
 }
 
 .box {
-  padding: size(30);
+  padding: size($spacing32);
 
   &:not(:last-of-type) {
-    margin-bottom: size(20);
+    margin-bottom: size($spacing16);
+
+    @include mobile {
+      margin-bottom: unset;
+    }
+  }
+
+  &:last-of-type {
+    padding: 0 size($spacing32) size($spacing32);
+
+    @include mobile {
+      padding: size($spacing24) size($spacing12);
+    }
   }
 
   @include mobile {
-    padding: size(20) size(10);
+    padding: size($spacing24) size($spacing12);
   }
 }
 
 .title {
-  width: size(358);
-  margin-bottom: size(80);
+  margin-bottom: size($spacing24);
 
   @include heading-03;
 
   @include mobile {
     max-width: size(291);
-    margin-bottom: size(40);
+    margin-bottom: size($spacing24);
   }
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: size(36);
+  gap: size($spacing32);
 
   @include mobile {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: size(20);
+    gap: size($spacing24);
   }
 }
 
@@ -100,11 +116,6 @@
 }
 
 .buttonBlock {
-  padding: size(104) size(16) size(44);
+  padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
   background-color: $gray900;
-
-  @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(40);
-  }
 }

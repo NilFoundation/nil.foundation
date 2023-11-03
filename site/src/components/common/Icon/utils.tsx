@@ -19,10 +19,8 @@ import Oracles from './icons/Oracles'
 import Rollup from './icons/Rollup'
 import Cross from './icons/Cross'
 import Squares from './icons/Squares'
-import { SvgIconComponent } from './SvgIconComponent'
-
-// off DevPortal icon
 import DevPortal from './icons/DevPortal'
+import { SvgIconComponent } from './SvgIconComponent'
 
 export const getIcon = (name: string): SvgIconComponent | null => {
   switch (name) {

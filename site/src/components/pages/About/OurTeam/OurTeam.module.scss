@@ -2,10 +2,11 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: grid;
-  margin-bottom: size(186);
+  margin-bottom: size(319);
   grid-template-columns: 1fr 1fr;
 
   @include mobile {
@@ -22,11 +23,15 @@
 
 .left {
   max-height: size(480);
+  margin-top: size(48);
+
+  @include mobile {
+    margin-top: 0;
+  }
 }
 
 .right {
   position: relative;
-  margin-top: size(180);
 
   &:after {
     content: '';
@@ -48,8 +53,7 @@
 }
 
 .title {
-  min-height: size(240);
-  padding: size(30) size(162) size(120) size(30);
+  padding: size($spacing32) size(150) size(131) size($spacing32);
   background-color: $gray900;
   word-break: break-word;
 
@@ -57,13 +61,17 @@
 
   @include mobile {
     min-height: auto;
-    padding: size(60) size(10) size(10);
+    padding: size(72) size($spacing12) size($spacing24);
   }
 }
 
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @include mobile {
+    direction: rtl;
+  }
 }
 
 .buttonBlock {
@@ -72,6 +80,6 @@
 
   @include mobile {
     padding-top: size(58);
-    padding-bottom: size(40);
+    padding-bottom: size($spacing12);
   }
 }

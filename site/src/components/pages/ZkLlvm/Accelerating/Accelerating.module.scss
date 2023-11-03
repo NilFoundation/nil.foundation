@@ -2,13 +2,18 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
   align-items: flex-start;
 
+  margin-bottom: size(30);
+
   @include mobile {
     flex-direction: column;
+
+    margin-bottom: 0;
   }
 }
 
@@ -22,7 +27,7 @@
 }
 
 .right {
-  margin-top: size(150);
+  margin-top: size(228);
 
   @include mobile {
     margin-top: 0;
@@ -33,46 +38,40 @@
   display: flex;
   flex-wrap: wrap;
   background-color: $gray900;
+  padding-bottom: size($spacing64);
 
   @include mobile {
-    padding-top: size(40);
+    padding-bottom: size($spacing12);
+    padding-top: size($spacing48);
   }
 }
 
 .box {
-  padding: size(30);
+  padding: size($spacing32);
   width: 50%;
-
-  &:not(:last-of-type) {
-    margin-bottom: size(20);
-  }
 
   @include paragraph;
 
   @include mobile {
-    padding: size(20) size(10);
-
-    &:not(:last-of-type) {
-      margin-bottom: size(10);
-    }
+    padding: size($spacing12);
   }
 }
 
 .icon {
   width: size(80);
   height: size(80);
-  margin-bottom: size(40);
+  margin-bottom: size($spacing48);
 
   @include mobile {
-    margin-bottom: size(32);
+    margin-bottom: size($spacing16);
   }
 }
 
 .title {
   width: min-content;
-  margin-bottom: size(8);
+  margin-bottom: size($spacing8);
   padding: 0;
-  gap: size(8);
+  gap: size($spacing8);
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -96,11 +95,6 @@
 }
 
 .buttonBlock {
-  padding: size(104) size(16) size(44);
+  padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
   background-color: $gray900;
-
-  @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(40);
-  }
 }

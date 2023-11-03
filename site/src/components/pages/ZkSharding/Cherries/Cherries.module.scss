@@ -1,0 +1,160 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  margin-bottom: size(77);
+
+  @include mobile {
+    flex-direction: column;
+
+    margin-bottom: size(60);
+  }
+}
+
+.left {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+.left,
+.right {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  flex-basis: size(534);
+
+  margin-top: size(92);
+
+  @include mobile {
+    flex-basis: unset;
+
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.content {
+  margin-top: size(-4);
+
+  background-color: $gray900;
+
+  @include mobile {
+    margin-top: 0;
+    padding-top: size($spacing48 + 1);
+  }
+}
+
+.box {
+  display: flex;
+
+  gap: size($spacing32);
+
+  padding: size($spacing32);
+
+  &:not(:last-of-type) {
+    margin-bottom: size($spacing64);
+  }
+
+  @include paragraph;
+
+  @include mobile {
+    padding: size($spacing24) size($spacing12);
+
+    gap: size($spacing16);
+
+    &:not(:first-of-type) {
+      padding: size($spacing32) size($spacing16);
+
+      gap: size($spacing32);
+
+      .description {
+        padding: 0;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: size($spacing48);
+    }
+  }
+}
+
+.title {
+  @include heading-03;
+
+  flex-basis: size(219);
+
+  flex-shrink: 0;
+
+  @include mobile {
+    flex-basis: 50%;
+
+    flex-shrink: initial;
+  }
+}
+
+.description {
+  color: $grey;
+
+  @include mobile {
+    flex-basis: 50%;
+
+    padding: 0 size($spacing12);
+  }
+}
+
+.heading {
+  min-height: unset;
+
+  padding-top: size(calc($spacing32 - 10));
+
+  padding-bottom: size(calc($spacing32 + 4));
+
+  p {
+    @include heading-04;
+
+    margin-top: size($spacing32 + 6);
+
+    max-width: initial;
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
+
+    p {
+      margin-top: size($spacing48 + 4);
+    }
+  }
+}
+
+.rightHeader {
+  display: flex;
+
+  & > div {
+    flex-basis: 50%;
+    background-color: $gray900;
+  }
+
+  & > div:nth-child(2) {
+    margin-top: size(30);
+  }
+}
+
+.lineWrapper {
+  padding-top: size(4);
+
+  @include mobile {
+    padding-top: size(2);
+  }
+}

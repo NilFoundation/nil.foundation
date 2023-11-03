@@ -39,7 +39,6 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
           ))}
         </div>
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
               <WebButton className={s.button} href={footer.link}>
@@ -48,6 +47,7 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
             </div>
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

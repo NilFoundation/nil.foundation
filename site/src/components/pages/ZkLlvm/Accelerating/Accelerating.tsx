@@ -42,7 +42,6 @@ const Accelerating = ({ className, data: { title, description, content, footer }
         </div>
 
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
             <div className={s.buttonBlock}>
               <WebButton className={s.button} href={footer.link}>
@@ -51,6 +50,7 @@ const Accelerating = ({ className, data: { title, description, content, footer }
             </div>
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

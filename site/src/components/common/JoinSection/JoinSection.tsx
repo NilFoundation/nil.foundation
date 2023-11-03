@@ -11,16 +11,18 @@ function JoinSection({ title, leftText, rightText, social, className }: InferPro
       <div className={s.headingWrapper}>
         <WhiteRectangle />
         <HeadingSection title={title} socials={social} className={s.heading} />
+        <WhiteRectangle className={s.line} />
       </div>
       <div className={s.contentWrapperLeft}>
         <WhiteRectangle className={s.line} />
         <p className={s.text}>{leftText}</p>
-        <WhiteRectangle className={s.lineMobile} />
+        <WhiteRectangle className={s.bottomLine} />
       </div>
       <div className={s.contentWrapperRight}>
         <WhiteRectangle className={s.line} />
-        <p className={s.text}>{rightText}</p>
-        <WhiteRectangle className={s.lineMobile} />
+        <p className={classNames(s.text, s.textRight)}>{rightText}</p>
+        <WhiteRectangle className={s.bottomLine} />
+        {/* <WhiteRectangle className={s.lineMobile} /> */}
       </div>
     </section>
   )

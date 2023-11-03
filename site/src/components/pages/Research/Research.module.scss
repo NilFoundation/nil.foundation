@@ -12,12 +12,12 @@
   grid-template-columns: 1fr 1fr;
   gap: size($spacing32);
   padding: 0;
-  margin-bottom: size(40);
+  margin-bottom: size($spacing32);
 
   @include mobile {
     grid-template-columns: 100%;
-    gap: size(20);
-    margin-top: size(20);
+    gap: size($spacing24);
+    margin-bottom: size($spacing24);
   }
 }
 

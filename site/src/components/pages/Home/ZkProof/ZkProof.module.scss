@@ -1,11 +1,12 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
   align-items: flex-start;
-  margin-bottom: size(237);
+  margin-bottom: size(74);
 
   @include mobile {
     flex-direction: column;
@@ -14,19 +15,33 @@
   }
 }
 
+.content {
+  background-color: $gray900;
+
+  padding-bottom: size($spacing64);
+
+  @include mobile {
+    padding-bottom: 0;
+    padding-top: size($spacing48);
+  }
+}
+
 .left,
 .right {
   width: 50%;
-  background-color: $gray900;
 
   @include mobile {
     width: 100%;
   }
 }
 
+.left {
+  background-color: $gray900;
+}
+
 .right {
   position: relative;
-  margin-top: size(198);
+  margin-top: size(97);
 
   &:after {
     content: '';
@@ -44,16 +59,28 @@
 
   @include mobile {
     margin-top: 0;
-    padding-top: size(40);
+  }
+}
+
+.rightHeader {
+  display: flex;
+
+  & > div {
+    flex-basis: 50%;
+    background-color: $gray900;
+  }
+
+  & > div:first-child {
+    margin-top: size(30);
   }
 }
 
 .box {
-  &:not(:last-of-type) {
-    margin-bottom: size(60);
+  &:not(:last-child) {
+    margin-bottom: size($spacing64);
+  }
 
-    @include mobile {
-      margin-bottom: size(20);
-    }
+  @include mobile {
+    margin-bottom: unset;
   }
 }

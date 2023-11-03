@@ -2,12 +2,13 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
   display: flex;
   align-items: flex-start;
-  padding-bottom: size(182);
+  padding-bottom: size(162);
   z-index: 2;
 
   @include mobile {
@@ -18,7 +19,11 @@
 }
 
 .heading {
+  min-height: size(326);
+  padding-bottom: 0;
   @include mobile {
+    min-height: unset;
+
     p {
       display: none;
     }
@@ -45,6 +50,21 @@
   width: 100%;
 }
 
+.heroDescription {
+  padding: 0 size($spacing32) size($spacing32);
+  background-color: $gray900;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.heroDescription p {
+  @include paragraph;
+  max-width: size(200);
+  background-color: $gray900;
+}
+
 .line {
   width: 50%;
 }
@@ -60,7 +80,7 @@
   @include mobile {
     display: flex;
     align-items: flex-start;
-    padding: size(40) size(10) 0;
+    padding: size($spacing48) size($spacing12) 0;
 
     p {
       width: 100%;
@@ -81,11 +101,11 @@
 .right {
   display: flex;
   flex-direction: column;
-  padding-top: size(30);
+  padding-top: size($spacing32);
   background-color: $gray900;
 
   @include mobile {
-    padding-top: size(30);
+    padding-top: size($spacing32);
   }
 }
 
@@ -99,17 +119,18 @@
 }
 
 .list {
-  padding: size(30);
+  padding: size($spacing32);
   display: flex;
   flex-wrap: wrap;
-  gap: size(36);
-  margin-bottom: size(30);
+  gap: size($spacing32);
+  margin-bottom: size($spacing32);
 
   @include mobile {
-    padding: size(45) size(10) size(20);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: size(10);
+    padding: size($spacing48) size($spacing12) size($spacing24);
+    margin-bottom: size($spacing24);
   }
 }
 

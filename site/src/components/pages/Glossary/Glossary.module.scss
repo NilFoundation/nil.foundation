@@ -147,23 +147,28 @@
   }
 }
 
-.lastSection {
+.footerSection {
+  article {
+    height: size(492);
+
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.footerSectionMobile {
   display: none;
 
   @include mobile {
     display: block;
-    overflow: hidden;
   }
-}
 
-.lastSectionWrapper {
-  width: calc(100% + 4px);
-  margin-left: -2px;
-  margin-right: -2px;
-}
+  article {
+    height: size(100);
 
-.footerSection {
-  @include mobile {
-    display: none;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

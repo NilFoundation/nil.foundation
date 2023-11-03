@@ -22,7 +22,7 @@ import Squares from './icons/Squares'
 import { SvgIconComponent } from './SvgIconComponent'
 
 // off DevPortal icon
-// import DevPortal from './icons/DevPortal';
+import DevPortal from './icons/DevPortal'
 
 export const getIcon = (name: string): SvgIconComponent | null => {
   switch (name) {
@@ -47,8 +47,8 @@ export const getIcon = (name: string): SvgIconComponent | null => {
     case 'discord':
       return Discord
 
-    // case 'dev-portal':
-    //   return DevPortal;
+    case 'dev-portal':
+      return DevPortal
 
     case 'arrow-up':
       return ArrowUp

@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
@@ -9,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 size(24);
+  padding: 0 size($spacing24);
   transition: color 0.3s ease;
 
   &:before {
@@ -33,7 +34,7 @@
   @include button;
 
   @include mobile {
-    padding: 0 size(10);
+    padding: 0 size($spacing12);
   }
 }
 

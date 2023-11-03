@@ -5,10 +5,10 @@ import { useViewport } from 'hooks/useViewport'
 
 import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
-import Button from 'components/ArrowButton'
 
 import s from './Jobs.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
+import { WebButton } from 'components/WebButton'
 
 type JobsProps = {
   className?: string
@@ -38,7 +38,11 @@ const Jobs = ({ className, data: { title, description, button }, isSkillsSection
         <div className={s.footer}>
           <WhiteRectangle />
           <div>
-            <Button className={s.button} text={button.text} href={button.link} />
+            <div className={s.buttonBlock}>
+              <WebButton className={s.button} size="l" href={button.link}>
+                {button.text}
+              </WebButton>
+            </div>
             <WhiteRectangle />
           </div>
         </div>

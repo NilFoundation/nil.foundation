@@ -4,11 +4,11 @@ import PropTypes, { InferProps } from 'prop-types'
 import classNames from 'classnames'
 import { useViewport } from 'hooks/useViewport'
 import RevealText from 'components/RevealText'
-import ArrowButton from 'components/ArrowButton'
 import WhiteRectangle from 'components/WhiteRectangle'
 import { useSideNavigationTimeline } from 'components/SideNavigation/useSideNavigationTimeline'
 import s from './SideNavigation.module.scss'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
+import { WebButton } from 'components/WebButton'
 
 function SideNavigation({
   title,
@@ -89,7 +89,13 @@ function SideNavigation({
       </div>
       <div className={s.linkWrapper}>
         {children}
-        {linkText && <ArrowButton href={link!} className={s.link} text={linkText} />}
+        {linkText && (
+          <div className={s.buttonBlock}>
+            <WebButton className={s.link} size="l" href={link!}>
+              {linkText}
+            </WebButton>
+          </div>
+        )}
         <WhiteRectangle className={s.bottomLine} />
       </div>
     </aside>

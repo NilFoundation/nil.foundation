@@ -7,8 +7,6 @@ import FooterAnimationSection from 'components/FooterAnimationSection'
 import JoinSection, { getJoinSectionProps } from 'components/JoinSection'
 import Intro from './Intro'
 import JoinUs from './JoinUs'
-import Jobs from './Jobs'
-
 import s from './Careers.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 
@@ -24,7 +22,6 @@ const Careers = ({ data }: CareersProps) => {
         <div className={s.content}>
           <Intro data={data.intro} />
           <JoinUs data={data.joinUs} />
-          <Jobs data={data.jobs} />
           <JoinSection {...getJoinSectionProps(data)} />
         </div>
       </div>

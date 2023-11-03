@@ -1,7 +1,8 @@
-@import 'src/styles/typography';
-@import 'src/styles/helpers';
-@import 'src/styles/colors';
-@import 'src/styles/mixins';
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/typography' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
@@ -32,8 +33,8 @@
 
 .description {
   position: absolute;
-  left: size(30);
-  bottom: min(calc(#{size(24)} + 4vh), size(54));
+  left: size($spacing32);
+  bottom: min(calc(#{size($spacing24)} + 4vh), size($spacing64));
   width: size(226);
 
   @include mobile {
@@ -47,8 +48,8 @@
   @include mobile {
     display: block;
     position: absolute;
-    top: size(4);
-    right: size(4);
+    top: size($spacing24);
+    right: size($spacing8);
     left: unset;
     width: size(175);
   }
@@ -69,7 +70,8 @@
 }
 
 .link {
-  margin-bottom: size(10);
+  padding: 0 size(16);
+  margin-bottom: size(28);
 }
 
 .underPatternLine {

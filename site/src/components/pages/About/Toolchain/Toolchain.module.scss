@@ -24,6 +24,29 @@
   }
 }
 
+.heading {
+  min-height: unset;
+}
+
+.heroDescription {
+  padding: 0 size($spacing32) size($spacing32);
+  background-color: $gray900;
+
+  @include mobile {
+    padding: size($spacing24) size($spacing12);
+  }
+}
+
+.heroDescription p {
+  @include paragraph;
+  max-width: size(200);
+  background-color: $gray900;
+
+  @include mobile {
+    max-width: 50%;
+  }
+}
+
 .right {
   position: relative;
   margin-top: size(180);
@@ -45,7 +68,7 @@
 
   @include mobile {
     margin-top: 0;
-    padding-top: size($spacing48 + $spacing24 - 11);
+    padding-top: size($spacing48 - 1);
   }
 }
 
@@ -80,6 +103,8 @@
   align-items: stretch;
 
   @include mobile {
-    padding: 0 size($spacing12);
+    gap: size($spacing24);
+
+    padding: 0 size($spacing12) size($spacing24);
   }
 }

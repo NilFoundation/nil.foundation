@@ -14,6 +14,11 @@
     height: size(14);
     top: size(31);
     right: size(34);
+
+    @include mobile {
+      top: size(30);
+      right: size(26);
+    }
   }
 
   @include mobile {
@@ -31,7 +36,7 @@
   @include heading-03;
 
   @include mobile {
-    margin-bottom: size(15);
+    width: size(230);
   }
 }
 

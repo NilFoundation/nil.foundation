@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
 @use '~styles/colors' as *;
+@use '~styles/paddings' as *;
 
 .root {
   position: relative;
@@ -17,7 +18,7 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: size(-4);
+    bottom: size(-$spacing4);
     left: 0;
     width: 100%;
     height: 2px;

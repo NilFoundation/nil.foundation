@@ -66,9 +66,8 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.button {
-  padding-top: size(104);
-  padding-bottom: size($spacing24);
+.buttonBlock {
+  padding: size(104) size(16) size(32);
   background-color: $gray900;
 
   @include mobile {

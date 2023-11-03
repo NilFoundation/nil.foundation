@@ -91,7 +91,7 @@ export const zkllvmPageData = {
       },
     ],
     footer: {
-      text: 'Discover Proof Market',
+      text: 'Discover zkLLVM',
       link: '/',
     },
   },

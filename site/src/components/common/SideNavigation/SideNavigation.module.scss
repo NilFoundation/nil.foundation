@@ -60,6 +60,13 @@
     width: 100%;
   }
 }
+.buttonBlock {
+  padding-right: size($spacing16);
+
+  @include mobile {
+    padding: 0 size($spacing16) size($spacing32);
+  }
+}
 
 .linkWrapper {
   width: size(270);

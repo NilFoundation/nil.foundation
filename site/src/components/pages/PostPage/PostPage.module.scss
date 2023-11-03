@@ -387,3 +387,10 @@
   margin-left: -2px;
   margin-right: -2px;
 }
+
+.recommendedWrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: size(20);
+}

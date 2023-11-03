@@ -1,10 +1,12 @@
 export const careersPageData = {
   intro: {
     title: 'Work at the forefront of zero-knowledge development',
-    description: 'Be it from our Cyprus office, from home, or fully remote.',
+    description:
+      'Be it from our Cyprus office, from home, or fully remote.',
   },
   joinUs: {
-    title: 'Contribute to our cutting edge toolchain',
+    title:
+      'Contribute to our cutting edge toolchain',
     cards: [
       {
         // TODO: add blog link
@@ -59,7 +61,7 @@ export const careersPageData = {
     content: {
       left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
       right:
-        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on decentralized proof generation.',
+        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on creating zk-enabled apps.',
     },
   },
 }

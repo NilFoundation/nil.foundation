@@ -104,3 +104,11 @@
     padding: size($spacing12);
   }
 }
+
+.textRight {
+  max-width: size(260);
+
+  @include mobile {
+    max-width: unset;
+  }
+}

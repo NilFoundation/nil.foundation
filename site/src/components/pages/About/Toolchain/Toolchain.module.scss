@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -78,4 +79,11 @@
     max-width: size(162);
     padding: size(20) 0;
   }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  gap: size($spacing32);
 }

@@ -6,10 +6,11 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import LinkCard from 'components/LinkCard'
-import ListItem from 'components/ListItem'
+// import ListItem from 'components/ListItem'
 
 import s from './Toolchain.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
+import { Card } from 'components/Card'
 
 type ToolchainProps = {
   className?: string
@@ -30,13 +31,15 @@ const Toolchain = ({ className, data: { title, description, content } }: Toolcha
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {content.map((el) => (
-            <div className={s.box} key={el.title}>
-              <LinkCard className={s.linkCard} title={el.title} description={el.description} linkTo={el.link} />
-              {el.list.map((item) => (
-                <ListItem className={s.listItem} key={el.title} title={item.title} />
-              ))}
-            </div>
+            <LinkCard
+              key={el.id}
+              className={s.linkCard}
+              title={el.title}
+              description={el.description}
+              linkTo={el.link}
+            />
           ))}
+          {/* ))} */}
         </div>
         <WhiteRectangle />
       </div>

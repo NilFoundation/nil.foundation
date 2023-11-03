@@ -126,41 +126,6 @@ export const aboutPageData = {
     title: 'Partners',
     content: [
       {
-        title: 'Investment partners',
-        logos: [
-          {
-            url: '/images/partners/starkware.png',
-          },
-          {
-            url: '/images/partners/mina.png',
-          },
-          {
-            url: '/images/partners/polychain.png',
-          },
-          {
-            url: '/images/partners/bcap.png',
-          },
-          {
-            url: '/images/partners/hasu.jpg',
-          },
-          {
-            url: '/images/partners/dao5.png',
-          },
-          {
-            url: '/images/partners/mirana.png',
-          },
-          {
-            url: '/images/partners/iosg.png',
-          },
-          {
-            url: '/images/partners/p2p_logo.png',
-          },
-          {
-            url: '/images/partners/fabric_logo.svg',
-          },
-        ],
-      },
-      {
         title: 'Grants',
         logos: [
           {

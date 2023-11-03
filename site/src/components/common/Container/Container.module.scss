@@ -2,7 +2,7 @@
 @use '~styles/mixins' as *;
 
 .root {
-  padding: 0 size(40);
+  padding: 0 size(48);
 
   @include mobile {
     padding: 0;

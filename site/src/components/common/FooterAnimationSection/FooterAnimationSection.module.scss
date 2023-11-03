@@ -7,8 +7,8 @@
 }
 
 .animatedContainer {
-  height: size(600);
   display: grid;
+  height: size(600);
   grid-template-columns: repeat(5, 1fr);
 
   @include mobile {
@@ -17,9 +17,13 @@
   }
 }
 
-.arrowButton {
+.buttonBlock {
+  padding: 0 size(16);
+  margin-bottom: size(28);
+}
+
+.webButton {
   width: 100%;
-  margin-bottom: size(24);
 
   @include mobile {
     margin-bottom: size(10);

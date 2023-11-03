@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -99,13 +100,7 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.button {
-  padding-top: size(24);
-  padding-bottom: size(24);
+.buttonBlock {
+  padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
   background-color: $gray900;
-
-  @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(10);
-  }
 }

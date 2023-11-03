@@ -70,14 +70,9 @@
   }
 }
 
-.link {
-  @include paragraph;
-  padding-left: 0;
-  margin-bottom: size(24);
-
-  @include mobile {
-    padding-left: size(10);
-  }
+.buttonBlock {
+  padding-right: size(16);
+  margin-bottom: size(36);
 }
 
 .bottomLine {

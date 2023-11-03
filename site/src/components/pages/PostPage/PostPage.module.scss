@@ -206,10 +206,6 @@
 
 .blog {
   margin: 0;
-
-  &:not(:last-child) {
-    margin-bottom: size(20);
-  }
 }
 
 .moreSection {
@@ -404,4 +400,11 @@
   width: calc(100% + 4px);
   margin-left: -2px;
   margin-right: -2px;
+}
+
+.recommendedWrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: size(20);
 }

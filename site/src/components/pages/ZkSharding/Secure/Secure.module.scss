@@ -1,0 +1,186 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  margin-bottom: size(110);
+
+  @include mobile {
+    flex-direction: column;
+
+    margin-bottom: size(70);
+  }
+}
+
+.left {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+.left,
+.right {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  flex-basis: size(534);
+  margin-top: size(30);
+
+  @include mobile {
+    flex-basis: unset;
+
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: size(275) size(258);
+  flex-wrap: wrap;
+  background-color: $gray900;
+
+  padding-bottom: size($spacing32 + 3);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+
+    padding-top: size($spacing48 + 1);
+
+    padding-bottom: size($spacing48 + 3);
+  }
+}
+
+.box {
+  padding: size($spacing32);
+
+  @include paragraph;
+
+  @include mobile {
+    display: flex;
+
+    gap: size(16);
+
+    & > div {
+      flex-basis: size(160);
+    }
+
+    padding: size($spacing24) size($spacing12);
+
+    &:not(:last-of-type) {
+      margin-bottom: size($spacing48);
+    }
+  }
+}
+
+.textWrapper {
+  @include mobile {
+    padding: 0 size($spacing12);
+  }
+}
+
+.icon {
+  width: size(80);
+  height: size(80);
+  margin-bottom: size($spacing48 - 3);
+
+  @include mobile {
+    flex-shrink: 0;
+    margin-bottom: size(32);
+    margin-top: size(3);
+  }
+}
+
+.title {
+  margin-bottom: size($spacing8);
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.description {
+  color: $grey;
+}
+
+.heading {
+  min-height: unset;
+
+  padding-top: size(calc($spacing32 - 10));
+
+  padding-bottom: size(calc($spacing32 + 4));
+
+  p {
+    @include heading-04;
+
+    margin-top: size($spacing64 + 6);
+
+    max-width: initial;
+  }
+
+  @include mobile {
+    padding: size(calc($spacing24 - 8)) size($spacing12) size($spacing24);
+
+    h2 {
+      width: size(284);
+    }
+
+    p {
+      margin-top: size($spacing48 + 4);
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: size(30);
+  gap: size(36);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.buttonWrapper {
+  padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
+
+  background-color: $gray900;
+
+  @include mobile {
+    padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
+  }
+}
+
+.button {
+  background-color: $gray900;
+
+  @include mobile {
+    letter-spacing: size(1);
+  }
+}
+
+.rightHeader {
+  display: flex;
+
+  & > div {
+    flex-basis: 50%;
+    background-color: $gray900;
+  }
+
+  & > div:nth-child(2) {
+    margin-top: size(30);
+  }
+}

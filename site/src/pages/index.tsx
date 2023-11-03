@@ -1,16 +1,16 @@
 import { REVALIDATE } from 'constants/index'
 
-import Home from 'pages/Home'
+import ZkSharding from 'pages/ZkSharding'
 import MetaLayout from 'components/MetaLayout'
 
-import { homePageData, seoData } from 'stubs/homePageData'
 import { getSiteConfig } from 'src/strapi/getSiteConfig'
 import { InferGetStaticPropsType } from 'next'
+import { zkShardingPageData, seoData } from 'stubs/zkShardingPageData'
 
 const HomePage = ({ data, seo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <MetaLayout seo={seo}>
-      <Home data={data} />
+      <ZkSharding data={data} />
     </MetaLayout>
   )
 }
@@ -19,7 +19,7 @@ export async function getStaticProps() {
   const config = await getSiteConfig()
   return {
     props: {
-      data: homePageData,
+      data: zkShardingPageData,
       seo: seoData,
       config: config,
     },

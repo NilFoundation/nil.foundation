@@ -1,0 +1,98 @@
+@import 'src/styles/typography';
+@import 'src/styles/helpers';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+@import 'src/styles/paddings';
+
+.container {
+  position: relative;
+  background-color: $gray900;
+  height: 130vh;
+  margin-bottom: -10vh;
+
+  @include mobile {
+    height: calc(100vh - #{size(30)});
+    margin-top: size($spacing24 + 20);
+    padding-bottom: size(20);
+
+    margin-bottom: 0;
+    box-sizing: content-box;
+  }
+}
+
+.animatedContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
+  width: 100%;
+  margin-left: auto;
+
+  @include mobile {
+    grid-template-columns: 3fr 2fr 1fr;
+    height: 100%;
+  }
+}
+
+.description {
+  position: absolute;
+  bottom: min(calc(#{size($spacing32 + 10)} + 4vh), size($spacing32 + 38));
+  width: 100%;
+
+  padding: 0 size($spacing32);
+
+  p {
+    @include heading-04;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.descriptionMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: absolute;
+    top: size(5);
+    right: size(6);
+    left: unset;
+    width: size(169);
+  }
+}
+
+.animationWidget {
+  @include mobile {
+    display: none;
+  }
+}
+
+.buttonWrapper {
+  padding: 0 size($spacing16) size($spacing24 + 5);
+}
+
+.link {
+  margin-bottom: size(10);
+}
+
+.animationWidgetMobile {
+  display: none;
+
+  @include mobile {
+    display: grid;
+
+    grid-template-rows: 35% 65%;
+  }
+}
+
+.underPatternLine {
+  display: none;
+
+  @include mobile {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+}

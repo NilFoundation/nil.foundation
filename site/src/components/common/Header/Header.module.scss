@@ -19,7 +19,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: size(262) repeat(2, size(270)) 1fr;
+  grid-template-columns: size(262) size(480) 1fr;
   padding: size(14) size($spacing16);
   background-color: $gray-50;
 
@@ -27,6 +27,12 @@
     grid-template-columns: repeat(2, 1fr);
     padding: size(3) size($spacing12);
   }
+}
+
+.mainWrapper {
+  display: flex;
+
+  gap: size($spacing24);
 }
 
 .logo {

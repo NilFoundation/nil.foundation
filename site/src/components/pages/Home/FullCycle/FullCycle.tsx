@@ -32,7 +32,6 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
           {list.map((el, i) => (
             <div
               className={s.list}
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={i} // eslint-disable-line
             >
               <ListItem className={s.item} key={el.title} title={el.title} />

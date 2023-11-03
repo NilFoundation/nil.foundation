@@ -19,7 +19,6 @@
 
 .left {
   flex-basis: size(551);
-  flex-shrink: 0;
 
   @include mobile {
     flex-basis: unset;
@@ -34,10 +33,12 @@
 }
 
 .right {
-  width: 50%;
+  flex-basis: size(534);
   margin-top: size(30);
 
   @include mobile {
+    flex-basis: unset;
+
     width: 100%;
     margin-top: 0;
   }
@@ -45,11 +46,11 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: size(275) size(258);
   flex-wrap: wrap;
   background-color: $gray900;
 
-  padding-bottom: size($spacing32);
+  padding-bottom: size($spacing32 + 3);
 
   @include mobile {
     grid-template-columns: 1fr;
@@ -71,7 +72,7 @@
     gap: size(16);
 
     & > div {
-      width: 50%;
+      flex-basis: size(160);
     }
 
     padding: size($spacing24) size($spacing12);

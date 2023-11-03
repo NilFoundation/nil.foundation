@@ -12,12 +12,7 @@ const WhiteRectangleLine = ({ data, marginTop }: Props) => {
   return (
     <div style={{ '--margin-top': marginTop } as React.CSSProperties} className={s.root}>
       {data.map((item, index) => (
-        <div
-          style={{ '--line-margin': item } as React.CSSProperties}
-          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-          key={index}
-          className={s.rectangle}
-        >
+        <div style={{ '--line-margin': item } as React.CSSProperties} key={index} className={s.rectangle}>
           <WhiteRectangle />
         </div>
       ))}

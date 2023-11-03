@@ -21,7 +21,6 @@
 
 .left {
   flex-basis: size(551);
-  flex-shrink: 0;
 
   @include mobile {
     flex-basis: unset;
@@ -36,10 +35,13 @@
 }
 
 .right {
-  width: 50%;
+  flex-basis: size(534);
+
   margin-top: size(130);
 
   @include mobile {
+    flex-basis: unset;
+
     width: 100%;
     margin-top: 0;
   }
@@ -60,11 +62,11 @@
 
 .contentFooterWrapper {
   background-color: $gray900;
-  padding: size($spacing32 - 2) size($spacing32) size($spacing64 + 3);
+  padding: size($spacing32 - 4) size($spacing32) size($spacing64 + 3);
 
   @include mobile {
     padding: size($spacing32 + 8) size($spacing16) size($spacing32 + 3)
-      size($spacing16 - 2);
+      size($spacing16);
   }
 }
 
@@ -129,7 +131,9 @@
   }
 
   @include mobile {
-    padding-top: size(calc($spacing32 - 17));
+    padding-top: size($spacing32 - 16);
+
+    padding-left: size($spacing12 - 1);
 
     p {
       margin-top: size($spacing48 + 3);
@@ -194,12 +198,12 @@
 
   gap: size(16);
 
-  padding: size(32) size(22) size(32) size(18);
+  padding: size(32) size(18) size(32) size(18);
 
   background-color: $gray900;
 
   @include mobile {
-    padding: size(11) size(14) size(11) size(11);
+    padding: size(10) size(12) size(11) size(13);
     gap: size(10);
   }
 }

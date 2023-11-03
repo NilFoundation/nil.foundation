@@ -10,9 +10,10 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  margin-top: size($spacing96 + 97);
+  margin-top: size($spacing96 + 96);
 
   @include mobile {
+    margin-top: size($spacing24);
     grid-template-columns: 1fr;
   }
 }

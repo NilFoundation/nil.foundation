@@ -41,7 +41,7 @@ export const zkShardingPageData = {
       },
       {
         icon: 'oracles',
-        title: 'Decentralized from day 1',
+        title: 'Decentralized from day\u00A01',
         description:
           "From its launch, =nil; will be decentralized to ensure censorship resistance. As the number of nodes involved increases, Ethereum's maximal throughput scales linearly.",
         link: '/',

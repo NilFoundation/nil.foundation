@@ -17,14 +17,22 @@
 
 .left,
 .right {
-  width: 50%;
-
   @include mobile {
     width: 100%;
   }
 }
 
+.left {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
 .right {
+  flex-basis: size(534);
+
   position: relative;
 
   &:after {
@@ -42,6 +50,8 @@
   }
 
   @include mobile {
+    flex-basis: unset;
+
     margin-top: 0;
   }
 }
@@ -50,21 +60,22 @@
   display: flex;
 
   & > div:nth-child(1) {
+    flex-basis: size(276);
     margin-top: size(32);
   }
 
   & > div:nth-child(2) {
+    flex-basis: size(258);
     margin-top: size(110);
   }
 
   & > div {
-    flex-basis: 50%;
     background-color: $gray900;
   }
 }
 
 .buttonWrapper {
-  padding: 0 size($spacing16) size($spacing16);
+  padding: 0 size($spacing16 + 6) size($spacing16) size($spacing16);
 
   @include mobile {
     padding: 0 size($spacing16) size($spacing12 + 8);
@@ -74,18 +85,28 @@
 .rightFooter {
   display: flex;
 
-  & > div:nth-child(1) {
-    padding-top: size($spacing12 + $spacing16);
-
-    @include mobile {
-      padding-top: size($spacing12 + $spacing16);
-    }
-  }
-
   & > div {
-    flex-basis: 50%;
     height: 100%;
     background-color: $gray900;
+
+    &:nth-child(1) {
+      flex-basis: size(275);
+
+      padding-top: size($spacing12 + $spacing16);
+
+      @include mobile {
+        padding-top: size($spacing12 + $spacing16);
+        flex-basis: 50%;
+      }
+    }
+
+    &:nth-child(2) {
+      flex-basis: size(258);
+
+      @include mobile {
+        flex-basis: 50%;
+      }
+    }
   }
 }
 

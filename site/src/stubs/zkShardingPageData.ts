@@ -51,14 +51,14 @@ export const zkShardingPageData = {
       },
       {
         icon: 'lock',
-        title: 'Secured by restaking',
+        title: 'Secured by Ethereum',
         description:
-          "Utilizing Ethereum staking pool’s (e.g. Lido)  and applications’ TVL, we've established robust economic liveness security. This guarantees protocol state liveness and fortifies the safety of the underlying liquidity.",
+          "Utilizing Ethereum liquidity and TVL, =nil; establishes robust data and liveness security. This guarantees cluster availability and fortifies the safety of the underlying liquidity.",
         link: '/',
       },
     ],
     footer: {
-      text: 'See the specification',
+      text: 'See the overview',
       link: 'https://docs.nil.foundation/zkllvm',
     },
   },

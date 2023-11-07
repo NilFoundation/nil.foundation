@@ -31,6 +31,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
           },
         },
       },
+      sort: ['date:desc'],
     }),
     getTags({
       filters: {

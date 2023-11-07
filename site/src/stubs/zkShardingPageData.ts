@@ -53,7 +53,7 @@ export const zkShardingPageData = {
         icon: 'lock',
         title: 'Secured by Ethereum',
         description:
-          "Utilizing Ethereum liquidity and TVL, =nil; establishes robust data and liveness security. This guarantees cluster availability and fortifies the safety of the underlying liquidity.",
+          'Utilizing Ethereum liquidity and TVL, =nil; establishes robust data and liveness security. This guarantees cluster availability and fortifies the safety of the underlying liquidity.',
         link: '/',
       },
     ],

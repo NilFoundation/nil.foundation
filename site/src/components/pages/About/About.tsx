@@ -35,7 +35,7 @@ const About = ({ data }: AboutProps) => {
 
   return (
     <Container className={s.container} id="footer_nav">
-      <SideNavigation className={s.sideNavigation} title="About" titleAnimation={false} />
+      <SideNavigation className={s.sideNavigation} title="About us" titleAnimation={false} />
       <div className={s.root}>
         <div className={s.content}>
           <Hero data={data.hero} />

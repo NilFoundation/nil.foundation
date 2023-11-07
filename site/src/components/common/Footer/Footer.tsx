@@ -26,7 +26,6 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
   return (
     <div className={cx(s.root, className)}>
       <div className={s.head}>
-        {isMobile && <WhiteRectangle />}
         <Icon name="logo" />
         <WhiteRectangle />
       </div>

@@ -31,6 +31,12 @@
   }
 }
 
+@mixin heading3NoMobile {
+  font-size: size(32);
+  line-height: size(40);
+  letter-spacing: size(-0.96);
+}
+
 @mixin heading-04 {
   font-size: size(24);
   line-height: size(32);
@@ -65,8 +71,8 @@
   @include glob-font-style;
 
   @include mobile {
-    font-size: size(15);
-    line-height: size(18);
+    font-size: size(16);
+    line-height: size(22);
   }
 }
 

@@ -5,7 +5,8 @@ export const stub = {
     {
       title: 'Products',
       links: [
-        { name: 'Proof Market ', link: '/' },
+        { name: 'zkSharding', link: '/' },
+        { name: 'Proof Market ', link: '/proof-market' },
         { name: 'zkLLVM Compiler', link: '/zkLLVM' },
       ],
     },
@@ -19,7 +20,7 @@ export const stub = {
           name: 'Documentation',
           link: 'https://docs.nil.foundation/',
         },
-        { name: 'About', link: '/about' },
+        { name: 'About us', link: '/about' },
         // TODO: return after create this page
         // { name: 'Glossary', link: '/glossary' },
       ],
@@ -32,8 +33,7 @@ export const stub = {
         { icon: 'discord', link: socialLinks.discord },
         { icon: 'github', link: socialLinks.github },
         { icon: 'telegram', link: socialLinks.telegram },
-        // TODO: add link for dev-portal
-        // { icon: 'dev-portal', link: '/' },
+        { icon: 'dev-portal', link: socialLinks.devPortal },
       ],
     },
     {

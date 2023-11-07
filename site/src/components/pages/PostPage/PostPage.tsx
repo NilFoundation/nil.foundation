@@ -35,7 +35,7 @@ type PostPageProps = {
 const ArrowButton = ({ className }: ArrowButtonProps) => (
   <Button href="/blog" className={cx(s.centerItems, className)}>
     <Icon name="arrow-up" className={s.arrow} />
-    <p className={s.paragraph}>Blog</p>
+    <p className={s.paragraph}>Back to Blog</p>
   </Button>
 )
 
@@ -59,7 +59,7 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
   ]
 
   return (
-    <Container className={s.container}>
+    <Container className={s.container} id="footer_nav">
       <SideNavigation className={s.sideNavigation} title={<ArrowButton />} titleAnimation={false}>
         <div className={s.social}>
           <p className={s.paragraph}>Share this post</p>
@@ -111,26 +111,8 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
             </div>
           </div>
           <div className={cx(s.main, s.content)} dangerouslySetInnerHTML={{ __html: post.content }} />
-          <div className={s.moreSection}>
-            <WhiteRectangle className={s.whiteRecatngle} />
-            <JoinNil data={content.joinNil} className={s.joinSection} />
-            <WhiteRectangle />
-            <div className={s.moreBlogsWrapper}>
-              <h1 className={cx(s.title, s.otherBlogsTitle)}>Read other articles</h1>
-              {recommendedPosts?.map((item) => (
-                <PostCard key={item.id} className={s.blog} post={{ ...item, isFeature: false }} />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
-      <div className={s.lastSection}>
-        <div className={s.lastSectionWrapper}>
-          <WhiteRectangle />
-          <LastSection withBackground />
-        </div>
-      </div>
-      <FooterAnimationSection className={s.footerSection} />
     </Container>
   )
 }

@@ -1,0 +1,141 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: size(91);
+  z-index: 2;
+
+  @include mobile {
+    flex-direction: column;
+    padding-bottom: size(70);
+    margin-top: 0;
+  }
+}
+
+.heading {
+  min-height: unset;
+
+  @include mobile {
+    padding-left: size($spacing12);
+
+    p {
+      display: none;
+    }
+  }
+}
+
+.left,
+.right {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.right {
+  flex-basis: size(534);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+.box {
+  width: 100%;
+}
+
+.line {
+  width: 50%;
+}
+
+.info {
+  background-color: $gray900;
+  display: flex;
+  gap: size($spacing64 - 1);
+
+  padding: size(7) size($spacing32) size($spacing32 + 3) size($spacing32);
+
+  p {
+    flex-basis: 50%;
+
+    @include paragraph;
+  }
+
+  @include mobile {
+    display: flex;
+    align-items: flex-start;
+
+    gap: size($spacing16);
+
+    padding: size($spacing48 - 5) size($spacing12) size($spacing24 + 6);
+
+    p {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.descriptionMobile {
+  display: none;
+
+  @include mobile {
+    display: inline-block;
+    margin-right: size(10);
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.lottieWrapper {
+  width: 100%;
+  height: size(710);
+
+  @include mobile {
+    height: size(470);
+  }
+}
+
+.contentWrapper {
+  padding: size(10) 0 size($spacing64);
+  background-color: $gray900;
+
+  @include mobile {
+    padding: 0 0 size(49);
+  }
+}
+
+.rightFooter {
+  display: flex;
+
+  & > * {
+    flex-basis: 50%;
+  }
+}
+
+.footerLeftBox {
+  background-color: $gray900;
+}
+
+.buttonWrapper {
+  padding: size($spacing12) size($spacing16) size($spacing24 + $spacing12 + 4);
+}

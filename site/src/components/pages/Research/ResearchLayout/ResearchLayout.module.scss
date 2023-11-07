@@ -2,35 +2,32 @@
 @import 'styles/helpers';
 @import 'styles/colors';
 @import 'styles/mixins';
+@import 'styles/paddings';
 
 .container {
   position: relative;
 
   .sideNavigation {
-    left: size(40);
-  }
-}
-
-.sideNavigation {
-  left: size(40);
-  overflow: hidden;
-
-  aside {
+    left: size($spacing48);
     overflow: hidden;
-  }
 
-  @include mobile {
-    display: none;
+    aside {
+      overflow: hidden;
+    }
+
+    @include mobile {
+      display: none;
+    }
   }
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  padding-top: size(30);
+  padding-top: size($spacing32);
 
   @include mobile {
-    padding: size(20) size(10) 0;
+    padding: size($spacing24) size($spacing12) 0;
     display: flex;
     flex-direction: column;
     min-height: unset;
@@ -49,17 +46,18 @@
 .titleWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: size(20);
+  margin-bottom: size($spacing48);
 
   @include mobile {
     grid-template-columns: 100%;
-    grid-row-gap: size(20);
+    grid-row-gap: size($spacing24);
+    padding-bottom: size($spacing12);
   }
 }
 
 .title {
   @include heading-01;
-  padding: 0 size(30) size(30);
+  padding: 0 size($spacing32) size($spacing32);
 
   @include mobile {
     padding: 0;
@@ -69,7 +67,7 @@
 
 .description {
   @include heading-03;
-  padding: 0 size(30) size(30);
+  padding: 0 size($spacing32) size($spacing32);
 
   @include mobile {
     padding: 0;
@@ -87,10 +85,9 @@
   @include mobile {
     display: block;
     position: sticky;
-    top: size(20);
     width: 100%;
     overflow: auto;
-    margin-bottom: size(20);
+    margin-bottom: size($spacing24);
     background-color: $gray900;
     z-index: 2;
   }
@@ -99,30 +96,21 @@
 .tagList {
   display: flex;
   flex-wrap: wrap;
-  grid-gap: size(8);
+  grid-gap: size($spacing16);
   width: 100%;
   padding: 0;
-  margin-bottom: size(24);
+  margin-bottom: size($spacing24);
 
   @include mobile {
-    grid-gap: size(10);
     flex-wrap: nowrap;
     overflow-x: auto;
     margin-bottom: 0;
-    padding-top: size(20);
-    padding-bottom: size(10);
     background-color: $gray900;
   }
 }
 
 .tabItem {
   display: flex;
-}
-
-.footerSection {
-  @include mobile {
-    display: none;
-  }
 }
 
 .lastSection {
@@ -138,4 +126,30 @@
   width: calc(100% + 4px);
   margin-left: -2px;
   margin-right: -2px;
+}
+
+.footerSection {
+  article {
+    height: size(492);
+
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.footerSectionMobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+
+  article {
+    height: size(100);
+
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

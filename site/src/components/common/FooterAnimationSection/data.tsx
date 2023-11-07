@@ -1,6 +1,6 @@
 import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
-import ArrowButton from 'components/ArrowButton'
 import s from './FooterAnimationSection.module.scss'
+import { WebButton } from 'components/WebButton'
 
 type AnimationGetter = (
   text?: string,
@@ -36,7 +36,13 @@ export const getAnimatedItemList: AnimationGetter = (text, href, prefersReducedM
       id: '5',
       ySourceValue: '-42%',
       yTransformValue: '-50%',
-      children: text && <ArrowButton className={s.arrowButton} text={text} href={href} onClick={onClick} />,
+      children: text && (
+        <div className={s.buttonBlock}>
+          <WebButton className={s.webButton} href={href} onClick={onClick}>
+            {text}
+          </WebButton>
+        </div>
+      ),
     },
     {
       id: '6',
@@ -52,7 +58,7 @@ export const getAnimatedItemList: AnimationGetter = (text, href, prefersReducedM
     },
     {
       id: '8',
-      ySourceValue: prefersReducedMotion ? '90%' : '94%',
+      ySourceValue: '90%',
       yTransformValue: '85%',
       alignment: ANIMATION_CARD_ALIGNMENT.bottom,
     },
@@ -79,7 +85,13 @@ export const getAnimatedItemMobileList: AnimationGetter = (text, href, prefersRe
     {
       id: 'm2',
       ySourceValue: '0%',
-      children: text && <ArrowButton className={s.arrowButton} text={text} href={href} onClick={onClick} />,
+      children: text && (
+        <div className={s.buttonBlock}>
+          <WebButton className={s.webButton} href={href} onClick={onClick}>
+            {text}
+          </WebButton>
+        </div>
+      ),
     },
     {
       id: 'm3',

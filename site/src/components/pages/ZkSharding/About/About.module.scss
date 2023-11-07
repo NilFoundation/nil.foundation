@@ -1,0 +1,157 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: size(-1);
+
+  @include mobile {
+    margin-bottom: unset;
+    flex-direction: column;
+  }
+}
+
+.left,
+.right {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.left {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+.right {
+  flex-basis: size(534);
+
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $gray900;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    flex-basis: unset;
+
+    margin-top: 0;
+  }
+}
+
+.rightHeader {
+  display: flex;
+
+  & > div:nth-child(1) {
+    flex-basis: size(276);
+    margin-top: size(32);
+  }
+
+  & > div:nth-child(2) {
+    flex-basis: size(258);
+    margin-top: size(110);
+  }
+
+  & > div {
+    background-color: $gray900;
+  }
+}
+
+.buttonWrapper {
+  padding: 0 size($spacing16 + 6) size($spacing16) size($spacing16);
+
+  @include mobile {
+    padding: 0 size($spacing16) size($spacing12 + 8);
+  }
+}
+
+.rightFooter {
+  display: flex;
+
+  & > div {
+    height: 100%;
+    background-color: $gray900;
+
+    &:nth-child(1) {
+      flex-basis: size(275);
+
+      padding-top: size($spacing12 + $spacing16);
+
+      @include mobile {
+        padding-top: size($spacing12 + $spacing16);
+        flex-basis: 50%;
+      }
+    }
+
+    &:nth-child(2) {
+      flex-basis: size(258);
+
+      @include mobile {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+.link {
+  margin-bottom: size($spacing16);
+
+  @include mobile {
+    margin-bottom: size($spacing12);
+  }
+}
+
+.heading {
+  padding: size($spacing32 - 10) size($spacing32) size($spacing32);
+
+  @include mobile {
+    padding: size($spacing24 - 7) size($spacing12) size($spacing24);
+  }
+}
+
+.description {
+  padding: size($spacing32 - 4) size($spacing32) size($spacing64 + 4)
+    size($spacing32);
+  background-color: $gray900;
+
+  @include heading-04;
+
+  @include mobile {
+    margin-bottom: 0;
+    padding: size($spacing24 + $spacing48 - 3) size($spacing12)
+      size($spacing24 + 4);
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding-top: size(104);
+  padding-bottom: size(24);
+  background-color: $gray900;
+
+  @include mobile {
+    padding-top: size(58);
+    padding-bottom: size(10);
+  }
+}

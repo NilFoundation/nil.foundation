@@ -1,0 +1,120 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  @include mobile {
+    flex-direction: column;
+    margin-bottom: size(60);
+  }
+}
+
+.left {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+    width: 100%;
+  }
+}
+
+.head {
+  padding-top: size($spacing32 - 9);
+
+  @include mobile {
+    padding: size($spacing24 - 7) size($spacing12)
+      size($spacing48 + $spacing24 - 3);
+  }
+}
+
+.right {
+  display: flex;
+  align-items: flex-start;
+
+  flex-basis: size(534);
+
+  @include mobile {
+    flex-basis: unset;
+
+    width: 100%;
+  }
+}
+
+.box {
+  position: relative;
+
+  flex-basis: size(276);
+
+  margin-top: size(206);
+
+  background-color: $gray900;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $gray900;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:last-of-type {
+    flex-basis: size(258);
+
+    margin-top: size(306);
+  }
+
+  @include mobile {
+    margin-top: 0;
+    padding-top: size($spacing24);
+
+    flex-basis: 50%;
+
+    &:last-of-type {
+      margin-top: 0;
+
+      flex-basis: 50%;
+
+      padding-top: size($spacing24);
+    }
+  }
+}
+
+.text {
+  padding: size($spacing32 - 2) size($spacing32) size($spacing32 + 2);
+
+  @include paragraph;
+
+  @include mobile {
+    margin-bottom: unset;
+    padding: size(0) size($spacing12) size($spacing12 + 2);
+    margin-bottom: 0px;
+    height: initial;
+  }
+
+  &.bigPadding {
+    padding-bottom: size($spacing32 + 88);
+
+    @include mobile {
+      padding-bottom: size($spacing12 + 2);
+    }
+  }
+}
+
+.space {
+  margin-bottom: size(200);
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
+}

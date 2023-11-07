@@ -7,11 +7,11 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 // import ListItem from 'components/ListItem';
-import Button from 'components/ArrowButton'
 import Icon from 'components/Icon'
 
 import s from './Accelerating.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
+import { WebButton } from 'components/WebButton'
 
 type AcceleratingProps = {
   className?: string
@@ -42,11 +42,15 @@ const Accelerating = ({ className, data: { title, description, content, footer }
         </div>
 
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
-            <Button className={s.button} text={footer.text} href={footer.link} />
+            <div className={s.buttonBlock}>
+              <WebButton className={s.button} href={footer.link}>
+                {footer.text}
+              </WebButton>
+            </div>
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

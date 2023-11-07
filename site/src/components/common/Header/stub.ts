@@ -1,6 +1,7 @@
 export const links = {
   main: [
-    { name: 'Proof Market ', link: '/' },
+    { name: 'zkSharding', link: '/' },
+    { name: 'Proof Market ', link: '/proof-market' },
     { name: 'zkLLVM Compiler', link: '/zkLLVM' },
   ],
   other: [
@@ -10,7 +11,7 @@ export const links = {
       link: 'https://docs.nil.foundation/',
     },
     { name: 'Research', link: '/research' },
-    { name: 'About', link: '/about' },
+    { name: 'About us', link: '/about' },
     { name: 'Careers', link: '/careers' },
   ],
 }

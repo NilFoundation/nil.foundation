@@ -1,6 +1,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
@@ -17,8 +18,16 @@
   }
 }
 
+.joinUs {
+  margin-bottom: size(164);
+
+  @include mobile {
+    margin-bottom: size(60);
+  }
+}
+
 .sideNavigation {
-  left: size(40);
+  left: size($spacing48);
 
   @include mobile {
     display: none;

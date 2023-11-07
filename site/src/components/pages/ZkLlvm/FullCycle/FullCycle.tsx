@@ -6,10 +6,10 @@ import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import ListItem from 'components/ListItem'
-import Button from 'components/ArrowButton'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
 import s from './FullCycle.module.scss'
+import { WebButton } from 'components/WebButton'
 
 type FullCycleProps = {
   className?: string
@@ -33,18 +33,23 @@ function FullCycle({ className, data }: FullCycleProps) {
           {list.map((el, i) => (
             <div
               className={s.list}
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={i} // eslint-disable-line
             >
-              <ListItem className={s.item} key={el.title} title={el.title} description={el.description} />
+              <ListItem className={s.item} key={el.title} title={el.title} />
             </div>
           ))}
         </div>
         <div className={s.footer}>
-          <WhiteRectangle />
           <div>
-            <Button className={s.button} text={footer.text} href={footer.link} />
+            <div className={s.buttonBlock}>
+              <WebButton className={s.button} href={footer.link}>
+                {footer.text}
+              </WebButton>
+            </div>
             <WhiteRectangle />
           </div>
+          <WhiteRectangle />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
-import ArrowButton from 'components/ArrowButton'
 import { IntroDescription } from 'components/IntroAnimation'
 import s from './Intro.module.scss'
+import { WebButton } from 'components/WebButton'
 
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
@@ -50,37 +50,37 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   },
   {
     id: '7',
-    ySourceValue: prefersReduceMotion ? '0%' : '10%',
+    ySourceValue: prefersReduceMotion ? '0%' : '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '8',
-    ySourceValue: prefersReduceMotion ? '0%' : '18%',
+    ySourceValue: prefersReduceMotion ? '0%' : '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '9',
-    ySourceValue: '0%',
+    ySourceValue: '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '10',
-    ySourceValue: prefersReduceMotion ? '0%' : '12%',
+    ySourceValue: prefersReduceMotion ? '0%' : '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '11',
-    ySourceValue: prefersReduceMotion ? '0%' : '5%',
+    ySourceValue: prefersReduceMotion ? '0%' : '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '12',
-    ySourceValue: prefersReduceMotion ? '0%' : '10%',
+    ySourceValue: prefersReduceMotion ? '0%' : '20%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
@@ -91,22 +91,26 @@ export const animatedItemMobileList = [
     id: 'm1',
     ySourceValue: '-30%',
     children: (
-      <ArrowButton className={s.link} text="Go to Proof Market" href="https://proof.market/#/market/account_mina" />
+      <div className={s.link}>
+        <WebButton size="l" href="https://proof.market/#/market/account_mina">
+          Go to Proof Market
+        </WebButton>
+      </div>
     ),
   },
   {
     id: 'm2',
-    ySourceValue: '-90%',
+    ySourceValue: '-71%',
     yTransformValue: '-60%',
   },
   {
     id: 'm3',
-    ySourceValue: '-65%',
+    ySourceValue: '-63%',
     yTransformValue: '-90%',
   },
   {
     id: 'm4',
-    ySourceValue: '-30%',
+    ySourceValue: '-27%',
     yTransformValue: '-50%',
   },
 ]

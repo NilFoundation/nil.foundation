@@ -2,6 +2,7 @@
 @use '~styles/helpers' as *;
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
@@ -19,12 +20,12 @@
     flex-shrink: 0;
     width: size(8);
     height: size(8);
-    margin: size(4) size(20) 0 0;
+    margin: size(4) size($spacing16) 0 0;
     content: '';
     background-color: $gray-50;
 
     @include mobile {
-      margin: size(4) size(10) 0 0;
+      margin: size($spacing4) size($spacing8) 0 0;
     }
   }
 
@@ -32,12 +33,12 @@
 }
 
 .description {
-  margin: size(8) 0 0 size(28);
+  margin: size($spacing8) 0 0 size($spacing24);
   color: $grey;
 
   @include sm-paragraph;
 
   @include mobile {
-    margin: size(8) 0 0 size(18);
+    margin: size($spacing8) 0 0 size($spacing16);
   }
 }

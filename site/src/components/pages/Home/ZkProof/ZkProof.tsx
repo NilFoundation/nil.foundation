@@ -26,8 +26,17 @@ const ZkProof = ({ className, data: { title, content } }: ZkProofProps) => {
         {!isMobile && <WhiteRectangle />}
       </div>
       <div className={s.right}>
-        {!isMobile && <WhiteRectangle />}
-        <div>
+        {!isMobile && (
+          <div className={s.rightHeader}>
+            <div>
+              <WhiteRectangle />
+            </div>
+            <div>
+              <WhiteRectangle />
+            </div>
+          </div>
+        )}
+        <div className={s.content}>
           {content.map((el) => (
             <BenefitsCard
               key={el.title}

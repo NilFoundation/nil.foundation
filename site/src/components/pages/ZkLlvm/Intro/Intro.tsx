@@ -15,7 +15,7 @@ const IntroAnimationWidget = ({
 >) => (
   <IntroAnimation
     {...props}
-    navigationTitle="Effortless high-performance circuit definition"
+    navigationTitle="Effortless high- performance circuit definition"
     navigationLinkText="Discover zkLLVM"
     navigationLink="https://github.com/NilFoundation/zkllvm"
     animatedContainerClassName={s.animatedContainer}

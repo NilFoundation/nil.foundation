@@ -1,13 +1,14 @@
 @use '~styles/typography' as *;
 @use '~styles/mixins' as *;
 @use '~styles/helpers' as *;
+@use '~styles/paddings' as *;
 
 .container {
   position: relative;
 }
 
 .sideNavigation {
-  left: size(40);
+  left: size($spacing48);
 
   @include mobile {
     display: none;

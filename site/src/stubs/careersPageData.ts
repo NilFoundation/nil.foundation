@@ -11,9 +11,9 @@ export const careersPageData = {
       {
         // TODO: add blog link
         linkTo: '/blog/post/database-management-system',
-        title: '`DROP DATABASE *',
+        title: '=nil; zkSharding',
         description:
-          'Trustless cloud computing and data management. Layer protocol allowing decentralized operation of Proof Market or any other application',
+          'A zkRollup that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications.',
         // text: 'Layer protocol allowing decentralized operation of Proof Market or any other application',
       },
       {
@@ -34,7 +34,7 @@ export const careersPageData = {
         linkTo: 'https://github.com/NilFoundation/crypto3',
         title: 'Placeholder & Crypto3 suite',
         description:
-          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping. Tech & research baseline to enable high performance circuit definition',
+          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
         // text: 'Tech & research baseline to enable high performance circuit definition',
       },
     ],

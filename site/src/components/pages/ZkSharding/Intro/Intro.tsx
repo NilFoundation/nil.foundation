@@ -17,7 +17,7 @@ const IntroAnimationWidget = ({
     {...props}
     navigationTitle="zkSharding for Ethereum"
     navigationLinkText="Explore =nil;"
-    navigationLink="https://github.com/NilFoundation/zkllvm"
+    navigationLink="https://explore.nil.foundation/"
     animatedContainerClassName={s.animatedContainer}
   />
 )

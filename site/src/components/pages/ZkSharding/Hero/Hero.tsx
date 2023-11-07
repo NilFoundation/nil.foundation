@@ -62,7 +62,7 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
         <div className={s.rightFooter}>
           <div className={s.footerLeftBox}>
             <div className={s.buttonWrapper}>
-              <WebButton className={s.link} href="">
+              <WebButton className={s.link} href="https://nil.foundation/blog/post/nil_zkSharding">
                 Learn more
               </WebButton>
             </div>

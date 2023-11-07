@@ -1,3 +1,6 @@
+import { about } from './aboutPartData'
+import { joinNil } from './joinPartData'
+
 export const zkShardingPageData = {
   hero: {
     title: 'Scale starting at 60,000 TPS',
@@ -71,37 +74,19 @@ export const zkShardingPageData = {
           'As all shards form integral parts of a singular execution layer, applications on =nil; will benefit from complete composability, free of security compromises or additional zkBridges fees.',
       },
       {
-        title: 'Transparent in-EVM data access',
+        title: 'Transparent Ethereum data access',
         description:
           'A shard within =nil; operates as an Ethereum full node, granting applications trustless read access to all in-EVM data — all at no charge and without the need for migration.',
       },
       {
         title: 'Breaking modularity’s drawbacks',
         description:
-          'With full in-EVM data access and unified liquidity, zkSharding enhances Ethereum capabilities, contrasting the fragmented liquidity and siloed environments caused by modular zkRollups.',
+          'With full in-EVM data access and unified liquidity, zkSharding enhances Ethereum capabilities, contrasting the fragmented liquidity and siloed environments caused by modularity.',
       },
     ],
   },
-
-  joinNil: {
-    title: 'Join =nil; community for expert help',
-    social: 'community',
-    content: {
-      left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
-      right:
-        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on building secure, scalable and composable decentralized applications.',
-    },
-  },
-  about: {
-    title: 'About =nil;',
-    social: 'corporate',
-    description:
-      '=nil; Foundation is a pioneer in zero-knowledge technology dedicated to making zkProofs more accessible for developers.',
-    button: {
-      text: 'Learn more',
-      link: '/about',
-    },
-  },
+  joinNil,
+  about,
 }
 
 export const seoData = {

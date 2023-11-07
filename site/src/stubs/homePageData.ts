@@ -1,3 +1,5 @@
+import { about } from './aboutPartData'
+
 export const homePageData = {
   hero: {
     title: 'Meet Proof Market',
@@ -85,16 +87,7 @@ export const homePageData = {
       },
     },
   },
-  about: {
-    title: 'About =nil;',
-    social: 'corporate',
-    description:
-      '=nil; Foundation is a pioneer in zero-knowledge technology dedicated to making zkProofs more accessible for developers.',
-    button: {
-      text: 'Learn more',
-      link: '/about',
-    },
-  },
+  about,
 }
 
 export const seoData = {

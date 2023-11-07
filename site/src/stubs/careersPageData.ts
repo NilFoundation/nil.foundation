@@ -1,3 +1,5 @@
+import { joinNil } from './joinPartData'
+
 export const careersPageData = {
   intro: {
     title: 'Work at the forefront of zero-knowledge development',
@@ -53,15 +55,7 @@ export const careersPageData = {
       link: '/',
     },
   },
-  joinNil: {
-    title: 'Join =nil; community for expert help',
-    social: 'community',
-    content: {
-      left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
-      right:
-        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on creating zk-enabled apps.',
-    },
-  },
+  joinNil,
 }
 
 export const seoData = {

@@ -826,8 +826,7 @@
     @include fontType(H);
 
     background: $gray900 !important;
-    box-shadow: 0 0 2px 0 rgba(255, 255, 255, 1) !important;
-    
+
     &:last-child {
       margin-bottom: 0 !important;
     }

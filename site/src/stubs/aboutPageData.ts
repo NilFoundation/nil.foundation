@@ -1,4 +1,5 @@
 import { socialLinks } from 'constants/socials'
+import { joinNil } from './joinPartData'
 
 export const aboutPageData = {
   hero: {
@@ -23,7 +24,7 @@ export const aboutPageData = {
         title: '2020',
         description: [
           'First version of Crypto3 suite for essential cryptographic operations released.',
-          'First public `DROP DATABASE * prototype launches.',
+          'First public zkSharding prototype launches.',
         ],
       },
       {
@@ -37,25 +38,21 @@ export const aboutPageData = {
       {
         title: '2022',
         description: [
-          'First public investment round to support the release of Proof Market and zkLLVM, and facilitate `DROP DATABASE * release.',
+          'First public investment round to support the release of Proof Market and zkLLVM, and facilitate zkSharding release.',
         ],
       },
       {
         title: '2023',
         description: [
           'Introduced Lorem Ipsum – Ethereum trustless data oracle to enable widespread zkBridging and secure data access.',
-          '`DROP REPLICA * cluster demo released.',
+          'zkSharding cluster demo released.',
         ],
       },
     ],
     future: [
       {
-        title: 'Q4 2023',
-        description: '`DROP DATABASE * first release',
-      },
-      {
         title: 'Q1 2024',
-        description: '`DROP REPLICA * public deployment release',
+        description: 'zkSharding public deployment release.',
       },
     ],
     footer: {
@@ -80,9 +77,9 @@ export const aboutPageData = {
     content: [
       {
         id: 1,
-        title: '`DROP DATABASE *',
+        title: '=nil; zkSharding',
         description:
-          'Trustless cloud computing and data management. Layer protocol allowing decentralized operation of Proof Market or any other application',
+          'A zkRollup that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications.',
         link: '/blog/post/database-management-system',
         list: [
           {
@@ -118,7 +115,7 @@ export const aboutPageData = {
         id: 4,
         title: 'Placeholder & Crypto3 suite',
         description:
-          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping. Tech & research baseline to enable high performance circuit definition',
+          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
         link: 'https://github.com/NilFoundation/crypto3',
         list: [
           {
@@ -193,15 +190,7 @@ export const aboutPageData = {
     },
   },
 
-  joinNil: {
-    title: 'Join =nil; community for expert help',
-    social: 'community',
-    content: {
-      left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
-      right:
-        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on decentralized proof generation.',
-    },
-  },
+  joinNil,
 }
 
 export const seoData = {

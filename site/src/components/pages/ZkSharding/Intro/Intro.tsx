@@ -36,7 +36,7 @@ const Intro = () => {
               duration={700}
               delay={500}
               isVisible={isVisible}
-              text="=nil; is a zkRollup that uses zkSharding to securely scale Ethereum to 60,000+ TPS, empowering web3 developers to build scalable, secure, and composable applications."
+              text="=nil; is a zkRollup that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications."
             />
           )}
         </IntroAnimationWidget>

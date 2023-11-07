@@ -1,3 +1,6 @@
+import { about } from './aboutPartData'
+import { joinNil } from './joinPartData'
+
 export const zkllvmPageData = {
   hero: {
     title: 'Experience the zkLLVM circuit compiler',
@@ -95,25 +98,8 @@ export const zkllvmPageData = {
       link: '/',
     },
   },
-  joinNil: {
-    title: 'Join =nil; community for expert help',
-    social: 'community',
-    content: {
-      left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
-      right:
-        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on decentralized proof generation.',
-    },
-  },
-  about: {
-    title: 'About =nil;',
-    social: 'corporate',
-    description:
-      '=nil; Foundation is a pioneer in zero-knowledge technology dedicated to making zkProofs more accessible for developers.',
-    button: {
-      text: 'Learn more',
-      link: '/about',
-    },
-  },
+  joinNil,
+  about,
 }
 
 export const seoData = {

@@ -11,7 +11,7 @@ export const links = {
       link: 'https://docs.nil.foundation/',
     },
     { name: 'Research', link: '/research' },
-    { name: 'About', link: '/about' },
+    { name: 'About us', link: '/about' },
     { name: 'Careers', link: '/careers' },
   ],
 }

@@ -26,7 +26,7 @@ export const zkShardingPageData = {
 
     footer: {
       text: 'Learn more',
-      link: 'https://docs.nil.foundation/zkllvm',
+      link: 'https://nil.foundation/blog/post/nil_zkSharding',
     },
   },
 
@@ -59,7 +59,7 @@ export const zkShardingPageData = {
     ],
     footer: {
       text: 'See the overview',
-      link: 'https://docs.nil.foundation/zkllvm',
+      link: 'https://cms.nil.foundation/uploads/zk_Sharding_Manifesto_8286652990.pdf',
     },
   },
 

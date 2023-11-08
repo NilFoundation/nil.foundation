@@ -83,7 +83,7 @@ function IntroAnimation({
 
     setTimeout(() => {
       setChildrenVisible(true)
-    }, 1400)
+    }, 700)
     setTimelineInstance(timeline)
 
     return () => {

@@ -57,14 +57,23 @@
 
   .item {
     margin-bottom: size($spacing8);
-
+    font-family: Inter, sans-serif;
     @include button-small;
+
     color: $buttonGray50;
-    transition: opacity 0.3s ease;
+    transition: color 0.15s ease;
 
     @include hover {
-      opacity: 0.5;
+      color: $gray-200;
       cursor: pointer;
+    }
+
+    &:active {
+      color: $gray-300;
+    }
+
+    &:focus {
+      color: $gray-50;
     }
   }
 

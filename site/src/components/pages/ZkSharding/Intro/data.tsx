@@ -83,19 +83,9 @@ export const animatedItemMobileList = [
   {
     id: 'm2',
     ySourceValue: '-84%',
-    yTransformValue: '-50%',
-    yTransformValueList: [
-      { value: '-50%', duration: 0.8 },
-      { value: '-84%', duration: 0.8 },
-    ],
   },
   {
     id: 'm3',
     ySourceValue: '-42%',
-    yTransformValue: '-90%',
-    yTransformValueList: [
-      { value: '-90%', duration: 0.8 },
-      { value: '-42%', duration: 0.8 },
-    ],
   },
 ]

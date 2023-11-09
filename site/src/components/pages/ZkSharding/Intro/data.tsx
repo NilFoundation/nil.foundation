@@ -74,7 +74,7 @@ export const animatedItemMobileList = [
     ySourceValue: '-45%',
     children: (
       <div className={s.buttonWrapper}>
-        <WebButton className={s.link} size="l" href="https://github.com/NilFoundation/zkllvm">
+        <WebButton className={s.link} size="l" href="https://explore.nil.foundation/">
           Explore =nil;
         </WebButton>
       </div>

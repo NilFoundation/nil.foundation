@@ -20,7 +20,7 @@ export const stub = {
           name: 'Documentation',
           link: 'https://docs.nil.foundation/',
         },
-        { name: 'About', link: '/about' },
+        { name: 'About us', link: '/about' },
         // TODO: return after create this page
         // { name: 'Glossary', link: '/glossary' },
       ],

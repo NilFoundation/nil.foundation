@@ -23,6 +23,7 @@ import { Meta } from 'entities/Meta'
 import { MappedBlog, MappedCategory, MappedTag } from 'src/strapi/types/entities'
 import { Card } from 'components/Card'
 import { blogsPageFooterItemData, blogsPageFooterMobileItemData } from './data'
+import ToggleButton from 'components/ToggleButton'
 
 type BlogsPageProps = {
   data: {
@@ -84,16 +85,9 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                 <div className={s.scrollWrapper}>
                   <div className={s.tags}>
                     {data.tags.map((tag) => (
-                      <TagButton
-                        className={cx({
-                          [s.activeTag]: activeTag === tag.name,
-                        })}
-                        key={tag.slug}
-                        tag={tag.name}
-                        onClick={(tag) => {
-                          router.push(`/blog/tag/${tag}`)
-                        }}
-                      />
+                      <ToggleButton key={tag.slug} isActive={tag.slug === activeTag} href={`/blog/tag/${tag.slug}`}>
+                        {tag.name}
+                      </ToggleButton>
                     ))}
                   </div>
                 </div>

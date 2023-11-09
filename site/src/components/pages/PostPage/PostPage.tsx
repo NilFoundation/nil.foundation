@@ -19,6 +19,7 @@ import s from './PostPage.module.scss'
 import { Post } from 'entities/Post'
 import type { JoinNilBaseData } from 'pages/Home/JoinNil/JoinNilBaseData'
 import { MappedBlog, MappedBlogExtend } from 'src/strapi/types/entities'
+import ToggleButton from 'components/ToggleButton'
 
 type ArrowButtonProps = {
   className?: string
@@ -79,12 +80,9 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
                 {post.category && <p className={s.type}>{post.category.name}</p>}
                 <div className={s.tagsWrapper}>
                   {post.tags?.map((tag) => (
-                    <TagButton
-                      key={tag.slug}
-                      className={s.tag}
-                      tag={tag.name}
-                      onClick={(tag) => router.push(`/blog/tag/${tag}`)}
-                    />
+                    <ToggleButton key={tag?.slug} href={`/blog/tag/${tag.slug}`}>
+                      {tag.name}
+                    </ToggleButton>
                   ))}
                 </div>
               </div>

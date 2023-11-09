@@ -18,6 +18,12 @@ import { AppProps } from 'next/app'
 type ComponentWithLayout = AppProps['Component'] & {
   getLayout?: (page: JSX.Element) => JSX.Element
 }
+;(async () => {
+  if (typeof window !== 'undefined' && window.location.pathname === '/careers/jobs') {
+    // @ts-ignore
+    await import('styles/freshteamWidget.scss')
+  }
+})()
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()

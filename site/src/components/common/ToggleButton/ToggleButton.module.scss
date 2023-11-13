@@ -1,0 +1,58 @@
+@use '~styles/typography' as *;
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  font-family: Inter, sans-serif;
+  font-size: size(12);
+  line-height: size(16);
+  color: $gray-200;
+  font-weight: 500;
+  background: $gray-800;
+  border: size(1) solid transparent;
+  border-radius: size(2);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.size {
+  &-s {
+    padding: size(4) size(8);
+  }
+
+  &-l {
+    padding: size(8) size(12);
+  }
+}
+
+.isActiveStyle {
+  &-active {
+    color: $gray900;
+    background: $gray-50;
+  }
+
+  &-inactive {
+    &:hover:not([disabled]) {
+      color: $gray-100;
+      background: $gray-700;
+    }
+
+    &:focus:not([disabled]) {
+      color: $gray-50;
+      background: $gray-800;
+      border: size(1) solid $gray-50;
+    }
+
+    &:active:not([disabled]) {
+      color: $gray900;
+      background: $gray-50;
+    }
+
+    &:disabled {
+      color: $gray-400;
+      background: $gray-800;
+      cursor: not-allowed;
+    }
+  }
+}

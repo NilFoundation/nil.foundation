@@ -5,7 +5,7 @@ export const stub = {
     {
       title: 'Products',
       links: [
-        { name: 'zkSharding', link: '/' },
+        { name: '=nil;', link: '/' },
         { name: 'Proof Market ', link: '/proof-market' },
         { name: 'zkLLVM Compiler', link: '/zkLLVM' },
       ],

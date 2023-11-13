@@ -18,6 +18,7 @@ function SideNavigation({
   titleAnimation,
   titleLarge,
   className,
+  linkWrapperClassName,
   children,
 }: InferProps<typeof SideNavigation.propTypes>) {
   const titleRef = useRef(null)
@@ -87,7 +88,7 @@ function SideNavigation({
           </RevealText>
         )}
       </div>
-      <div className={s.linkWrapper}>
+      <div className={classNames(s.linkWrapper, linkWrapperClassName)}>
         {children}
         {linkText && (
           <div className={s.buttonBlock}>
@@ -107,6 +108,7 @@ SideNavigation.propTypes = {
   linkText: PropTypes.string,
   link: PropTypes.string,
   className: PropTypes.string,
+  linkWrapperClassName: PropTypes.string,
   isVisible: PropTypes.bool,
   titleAnimation: PropTypes.bool,
   titleLarge: PropTypes.bool,

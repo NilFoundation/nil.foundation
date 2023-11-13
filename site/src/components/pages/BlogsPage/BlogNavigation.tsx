@@ -15,13 +15,25 @@ type BlogNavigationProps = {
   categories?: MappedCategory[]
   tags?: MappedTag[]
   className?: string
+  linkWrapperClassName?: string
 }
 
-function BlogNavigation({ activeCategory, activeTag, categories, tags, className }: BlogNavigationProps) {
+function BlogNavigation({
+  activeCategory,
+  activeTag,
+  categories,
+  tags,
+  className,
+  linkWrapperClassName,
+}: BlogNavigationProps) {
   const router = useRouter()
 
   return (
-    <SideNavigation className={cx(s.sideNavigation, className)} titleAnimation={false}>
+    <SideNavigation
+      className={cx(s.sideNavigation, className)}
+      linkWrapperClassName={s.linkWrapper}
+      titleAnimation={false}
+    >
       <div className={s.sideNavigationInner}>
         <div className={s.buttonsWrapper}>
           <Button
@@ -32,18 +44,17 @@ function BlogNavigation({ activeCategory, activeTag, categories, tags, className
           >
             All
           </Button>
-          {categories &&
-            categories.map((button) => (
-              <Button
-                key={button.slug}
-                onClick={() => router.push(`/blog/category/${button.slug}`)}
-                className={cx(s.filterButtons, {
-                  [s.activeButton]: activeCategory === button.slug,
-                })}
-              >
-                {button.name}
-              </Button>
-            ))}
+          {categories?.map((button) => (
+            <Button
+              key={button.slug}
+              onClick={() => router.push(`/blog/category/${button.slug}`)}
+              className={cx(s.filterButtons, {
+                [s.activeButton]: activeCategory === button.slug,
+              })}
+            >
+              {button.name}
+            </Button>
+          ))}
         </div>
         {tags && (
           <div className={s.tags}>

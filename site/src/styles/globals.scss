@@ -3,7 +3,6 @@
 @use '~styles/mixins' as *;
 @use '~styles/helpers' as *;
 
-@import './freshteamWidget';
 @import './fonts';
 
 :root {
@@ -38,4 +37,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+#freshteam-widget {
+  min-height: 100vh;
+  background-color: $gray900 !important;
 }

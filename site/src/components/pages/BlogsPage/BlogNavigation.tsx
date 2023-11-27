@@ -32,7 +32,7 @@ function BlogNavigation({ activeCategory, activeTag, categories, tags, className
           >
             All
           </Button>
-          {categories &&
+          {!!categories &&
             categories.map((button) => (
               <Button
                 key={button.slug}
@@ -48,7 +48,11 @@ function BlogNavigation({ activeCategory, activeTag, categories, tags, className
         {tags && (
           <div className={s.tags}>
             {tags.map((tag) => (
-              <ToggleButton key={tag.slug} isActive={tag.slug === activeTag} href={`/blog/tag/${tag.slug}`}>
+              <ToggleButton
+                key={tag.slug}
+                isActive={tag.slug === activeTag}
+                href={tag.slug === activeTag ? '/blog' : `/blog/tag/${tag.slug}`}
+              >
                 {tag.name}
               </ToggleButton>
             ))}

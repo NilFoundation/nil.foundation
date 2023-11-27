@@ -4,21 +4,16 @@ import { useRouter } from 'next/router'
 import { useViewport } from 'hooks/useViewport'
 
 import Container from 'components/Container'
-import PostCard from 'components/PostCard'
 import Icon from 'components/Icon'
 import SocialButton from 'components/SocialButton'
 import Button from 'components/Button'
-import TagButton from 'components/TagButton'
-import JoinNil from 'pages/Home/JoinNil'
-import WhiteRectangle from 'components/WhiteRectangle'
 
 import SideNavigation from 'components/SideNavigation'
-import FooterAnimationSection from 'components/FooterAnimationSection'
-import LastSection from 'components/LastSection'
 import s from './PostPage.module.scss'
-import { Post } from 'entities/Post'
+
 import type { JoinNilBaseData } from 'pages/Home/JoinNil/JoinNilBaseData'
 import { MappedBlog, MappedBlogExtend } from 'src/strapi/types/entities'
+import ToggleButton from 'components/ToggleButton'
 
 type ArrowButtonProps = {
   className?: string
@@ -79,12 +74,9 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
                 {post.category && <p className={s.type}>{post.category.name}</p>}
                 <div className={s.tagsWrapper}>
                   {post.tags?.map((tag) => (
-                    <TagButton
-                      key={tag.slug}
-                      className={s.tag}
-                      tag={tag.name}
-                      onClick={(tag) => router.push(`/blog/tag/${tag}`)}
-                    />
+                    <ToggleButton isActive key={tag?.slug} href={`/blog/tag/${tag.slug}`}>
+                      {tag.name}
+                    </ToggleButton>
                   ))}
                 </div>
               </div>

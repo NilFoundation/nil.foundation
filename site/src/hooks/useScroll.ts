@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+
 export const useScroll = () => {
   const scrollToTop = () =>
     new Promise((resolve) => {
@@ -31,12 +33,12 @@ export const useScroll = () => {
     }
   }
 
-  const enableScroll = () => {
+  const enableScroll = useCallback(() => {
     if (typeof window !== 'undefined') {
       document.body.style.overflow = 'inherit'
       document.body.style.marginRight = '0'
     }
-  }
+  }, [])
 
   return { scrollTo, disableScroll, enableScroll, scrollToTop }
 }

@@ -26,6 +26,7 @@ export async function getStaticProps() {
           populate: '*',
         },
       },
+      sort: ['date:desc'],
     }),
     getTags({
       filters: {

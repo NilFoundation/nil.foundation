@@ -47,7 +47,7 @@ const About = ({
         <div className={s.rightFooter}>
           <div>
             <div className={s.buttonWrapper}>
-              <WebButton className={s.link} href="https://proof.market/#/market/account_mina">
+              <WebButton className={s.link} href="https://explore.nil.foundation">
                 Learn more
               </WebButton>
             </div>

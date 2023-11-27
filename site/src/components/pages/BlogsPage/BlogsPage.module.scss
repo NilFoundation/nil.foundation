@@ -75,11 +75,6 @@
   color: $white;
 }
 
-.activeTag {
-  background-color: $white;
-  color: $gray900;
-}
-
 .mobileSortButtons {
   margin-top: size(50);
 
@@ -90,6 +85,7 @@
 }
 
 .scrollWrapper {
+  padding-right: size($spacing12);
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -100,7 +96,7 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: size($spacing64);
+  margin-bottom: size(72);
   gap: size($spacing16);
 
   @include mobile {

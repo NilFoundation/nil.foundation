@@ -17,7 +17,7 @@
 .head {
   display: flex;
   flex-direction: column;
-  padding: size($spacing96) size($spacing48) size($spacing24);
+  padding: size($spacing128) size($spacing48) size($spacing128);
   gap: size($spacing12);
 
   svg {
@@ -42,17 +42,18 @@
 
 .center {
   display: grid;
-  padding-bottom: size($spacing48);
+  padding-bottom: size($spacing64);
   grid-template-columns: repeat(5, 1fr);
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
+    padding-bottom: size($spacing48);
   }
 }
 
 .linksWrapper {
   &:not(:last-of-type) {
-    margin-bottom: size($spacing24);
+    margin-bottom: size($spacing32);
   }
 
   .item {

@@ -42,14 +42,14 @@
 
   gap: size($spacing8);
 
-  margin-bottom: size($spacing32);
+  margin: 0 size($spacing32 + 18) size($spacing32) 0;
 
   p {
     @include sm-paragraph;
   }
 
   @include mobile {
-    margin-bottom: size($spacing16);
+    margin: 0 size($spacing32 + 20) size($spacing16) 0;
   }
 }
 

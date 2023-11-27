@@ -175,10 +175,7 @@
 .subtitle {
   @include heading-03;
 
-  width: size(482);
-
   @include mobile {
-    width: 100%;
     padding-bottom: size($spacing32);
   }
 }

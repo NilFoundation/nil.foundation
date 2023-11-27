@@ -23,6 +23,7 @@ type HeroProps = {
 const Hero = ({ className, data: { title, description, info, list } }: HeroProps) => {
   const lottieRef = useRef<HTMLDivElement>(null)
   const lottieInstance = useRef<AnimationItem | null>(null)
+  const isIntersected = useRef(false)
   const { isMobile } = useViewport()
   const prefersReduceMotion = usePrefersReducedMotion()
 
@@ -32,13 +33,29 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
         container: lottieRef.current,
         renderer: 'svg',
         loop: !prefersReduceMotion,
-        autoplay: !prefersReduceMotion,
+        autoplay: false,
         animationData,
       })
 
-      lottieInstance.current.goToAndPlay(1000, true)
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && !isIntersected.current && !prefersReduceMotion) {
+            lottieInstance.current?.goToAndPlay(650, true)
 
-      return () => lottieInstance.current?.destroy()
+            isIntersected.current = true
+          }
+        },
+        {
+          threshold: 0.5,
+        },
+      )
+
+      observer.observe(lottieRef.current)
+
+      return () => {
+        lottieInstance.current?.destroy()
+        observer.disconnect()
+      }
     }
   }, [prefersReduceMotion])
 

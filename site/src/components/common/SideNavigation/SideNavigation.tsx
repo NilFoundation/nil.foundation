@@ -41,10 +41,6 @@ function SideNavigation({
   useSideNavigationTimeline(sidebarRef, options, prefersReduceMotion)
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
     const titleElement = titleRef.current
 
     if (!titleElement || isMobile !== false || !titleAnimation) {

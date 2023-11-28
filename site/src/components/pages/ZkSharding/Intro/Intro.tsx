@@ -18,6 +18,7 @@ const IntroAnimationWidget = ({
     navigationTitle="zkSharding for Ethereum"
     navigationLinkText="Explore =nil;"
     navigationLink="https://explore.nil.foundation/"
+    sideNavigationContainerClassName={s.sideNavigationContainer}
     animatedContainerClassName={s.animatedContainer}
   />
 )

@@ -12,7 +12,7 @@
 
   @include mobile {
     height: calc(100vh - #{size(30)});
-    margin-top: size($spacing24 + 20);
+    margin-top: size($spacing24 + 25);
     padding-bottom: size(20);
 
     margin-bottom: 0;
@@ -45,6 +45,12 @@
 
   @include mobile {
     display: none;
+  }
+}
+
+.sideNavigationContainer {
+  @include mobile {
+    top: 0;
   }
 }
 

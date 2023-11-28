@@ -80,3 +80,11 @@
     display: block;
   }
 }
+
+.buttonWrapper {
+  padding: 0 size($spacing16) size($spacing24 + 5);
+}
+
+.link {
+  margin-bottom: size(10);
+}

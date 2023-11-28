@@ -19,46 +19,6 @@ export const useSideNavigationTimeline = (
   const router = useRouter()
   const timelineRef = useRef<ScrollTrigger | null>(null)
 
-  const [isImagesLoaded, setIsImagesLoaded] = useState(false)
-
-  useEffect(() => {
-    const endTrigger = document.querySelector('#footer_nav')
-
-    const images = endTrigger?.querySelectorAll('img')
-
-    if (!images) {
-      return
-    }
-
-    const arrayFromImages = Array.from(images)
-
-    if (arrayFromImages.every((img) => img.complete)) {
-      return
-    }
-
-    const imagesSrc = arrayFromImages.filter((item) => !item.complete).map((item) => item.src)
-
-    loaderAllImages(
-      imagesSrc,
-      () => {
-        setIsImagesLoaded(true)
-      },
-      () => {
-        setIsImagesLoaded(true)
-      },
-    )
-  }, [])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    if (timelineRef.current && isImagesLoaded) {
-      timelineRef.current.refresh()
-    }
-  }, [isImagesLoaded])
-
   useEffect(() => {
     const sidebar = containerRef.current
 
@@ -78,6 +38,32 @@ export const useSideNavigationTimeline = (
     })
 
     timelineRef.current = scrollTrigger
+
+    const endTrigger = document.querySelector('#footer_nav')
+
+    const images = endTrigger?.querySelectorAll('img')
+
+    if (!images) {
+      return
+    }
+
+    const arrayFromImages = Array.from(images)
+
+    if (arrayFromImages.every((img) => img.complete)) {
+      return
+    }
+
+    const imagesSrc = arrayFromImages.filter((item) => !item.complete).map((item) => item.src)
+
+    loaderAllImages(
+      imagesSrc,
+      () => {
+        scrollTrigger.refresh()
+      },
+      () => {
+        scrollTrigger.refresh()
+      },
+    )
 
     return () => {
       if (timelineRef.current) {

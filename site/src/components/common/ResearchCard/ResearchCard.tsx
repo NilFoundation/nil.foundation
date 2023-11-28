@@ -1,11 +1,10 @@
 import { memo } from 'react'
 import cx from 'classnames'
 
-import TagButton from 'components/TagButton'
-
 import s from './ResearchCard.module.scss'
 import { MappedResearch } from 'src/strapi/types/entities'
 import { Card } from 'components/Card'
+import ToggleButton from 'components/ToggleButton'
 
 type ResearchCardProps = {
   className?: string
@@ -26,7 +25,9 @@ function ResearchCard({ className, content, withTags }: ResearchCardProps) {
       {withTags && (
         <div className={s.tags}>
           {content.tags?.map((tag) => (
-            <TagButton className={s.tag} key={tag?.slug} tag={tag?.name} />
+            <ToggleButton className={s.tag} key={tag?.slug} isActive>
+              {tag?.name}
+            </ToggleButton>
           ))}
         </div>
       )}

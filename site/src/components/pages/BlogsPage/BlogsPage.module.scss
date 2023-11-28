@@ -10,9 +10,12 @@
 
 .root {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: size(259) 1fr;
+
+  column-gap: size($spacing16);
 
   @include mobile {
+    column-gap: unset;
     display: flex;
     justify-content: center;
   }
@@ -20,9 +23,16 @@
 
 .sideNavigation {
   left: size($spacing48);
+
+  width: size(259);
+
   @include mobile {
     display: none;
   }
+}
+
+.linkWrapper {
+  width: size(259);
 }
 
 .sideNavigationInner {
@@ -44,7 +54,7 @@
 
   @include mobile {
     flex-direction: row;
-    margin-bottom: size($spacing24);
+    padding-bottom: size($spacing12);
     width: max-content;
   }
 }
@@ -75,11 +85,6 @@
   color: $white;
 }
 
-.activeTag {
-  background-color: $white;
-  color: $gray900;
-}
-
 .mobileSortButtons {
   margin-top: size(50);
 
@@ -90,6 +95,7 @@
 }
 
 .scrollWrapper {
+  padding-right: size($spacing12);
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -100,15 +106,14 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: size($spacing64);
+  margin: size($spacing24) size($spacing24) size($spacing24 + 54) 0;
   gap: size($spacing16);
 
   @include mobile {
-    gap: size($spacing16);
+    gap: size($spacing24);
     flex-wrap: nowrap;
     width: max-content;
-    margin-top: size($spacing24);
-    margin-bottom: 0;
+    margin: size($spacing24) 0 0;
   }
 }
 

@@ -8,8 +8,14 @@
   position: relative;
 
   .sideNavigation {
+    width: size(259);
+
     left: size($spacing48);
     overflow: hidden;
+
+    .sideNavigationLinkWrapper {
+      width: size(259);
+    }
 
     aside {
       overflow: hidden;
@@ -23,10 +29,14 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: size(259) 1fr;
+
+  column-gap: size($spacing16);
+
   padding-top: size($spacing32);
 
   @include mobile {
+    column-gap: unset;
     padding: size($spacing24) size($spacing12) 0;
     display: flex;
     flex-direction: column;
@@ -152,4 +162,9 @@
 
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.sideTagList {
+  width: auto;
+  margin: size($spacing24) size($spacing24 + 16) size($spacing24) 0;
 }

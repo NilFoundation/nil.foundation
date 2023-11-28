@@ -194,6 +194,8 @@
 .tagsWrapper {
   display: flex;
 
+  gap: size($spacing16);
+
   @include mobile {
     flex-wrap: wrap;
     gap: size($spacing8);

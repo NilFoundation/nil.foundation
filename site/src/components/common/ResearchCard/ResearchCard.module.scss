@@ -49,14 +49,13 @@
 
 .tags {
   display: flex;
-  width: max-content;
+
+  gap: size($spacing16);
+
+  flex-wrap: wrap;
 }
 
 .tag {
   transition: border 0.3s ease;
   border: size(1) solid $grey;
-
-  &:not(:last-child) {
-    margin-right: size($spacing16);
-  }
 }

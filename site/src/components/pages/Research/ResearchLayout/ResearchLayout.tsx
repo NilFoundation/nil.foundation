@@ -35,8 +35,13 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
 
   return (
     <Container className={s.container} id="footer_nav">
-      <SideNavigation title="Research" className={s.sideNavigation} titleAnimation={false}>
-        <TagList tags={tags} activeTagSlug={activeTagSlug} onTagClick={onTagClickHandler} />
+      <SideNavigation
+        linkWrapperClassName={s.sideNavigationLinkWrapper}
+        title="Research"
+        className={s.sideNavigation}
+        titleAnimation={false}
+      >
+        <TagList className={s.sideTagList} tags={tags} activeTagSlug={activeTagSlug} onTagClick={onTagClickHandler} />
       </SideNavigation>
       <div className={s.wrapper}>
         <div className={s.contentWrapper}>

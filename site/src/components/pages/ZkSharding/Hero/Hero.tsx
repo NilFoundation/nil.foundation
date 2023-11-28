@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react'
-import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
 import lottie, { AnimationItem } from 'lottie-web'
 
@@ -14,6 +13,7 @@ import s from './Hero.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 import { WebButton } from 'components/WebButton'
+import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 
 type HeroProps = {
   className?: string
@@ -37,27 +37,23 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
         animationData,
       })
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && !isIntersected.current && !prefersReduceMotion) {
-            lottieInstance.current?.goToAndPlay(650, true)
-
-            isIntersected.current = true
-          }
-        },
-        {
-          threshold: 0.5,
-        },
-      )
-
-      observer.observe(lottieRef.current)
-
-      return () => {
-        lottieInstance.current?.destroy()
-        observer.disconnect()
-      }
+      return () => lottieInstance.current?.destroy()
     }
   }, [prefersReduceMotion])
+
+  useIntersectionObserver(
+    lottieRef,
+    ([entry]) => {
+      if (entry.isIntersecting && !isIntersected.current && !prefersReduceMotion && lottieInstance.current) {
+        lottieInstance.current.goToAndPlay(650, true)
+
+        isIntersected.current = true
+      }
+    },
+    {
+      threshold: 0.5,
+    },
+  )
 
   return (
     <div className={cx(s.root, className)}>

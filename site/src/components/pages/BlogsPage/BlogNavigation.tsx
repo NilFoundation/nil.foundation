@@ -55,7 +55,6 @@ function BlogNavigation({
               {button.name}
             </Button>
           ))}
-          er
         </div>
         {tags && (
           <div className={s.tags}>

@@ -42,17 +42,9 @@ export const useSideNavigationTimeline = (
 
     const images = endTrigger?.querySelectorAll('img')
 
-    if (!images) {
-      return
-    }
+    const arrayFromImages = images?.length ? Array.from(images) : []
 
-    const arrayFromImages = Array.from(images)
-
-    if (arrayFromImages.every((img) => img.complete)) {
-      return
-    }
-
-    const imagesSrc = arrayFromImages.filter((item) => !item.complete).map((item) => item.src)
+    const imagesSrc = arrayFromImages?.filter((item) => !item.complete).map((item) => item.src)
 
     loaderAllImages(
       imagesSrc,

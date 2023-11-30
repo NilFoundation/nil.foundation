@@ -16,7 +16,6 @@ import { stub } from './stub'
 import s from './Footer.module.scss'
 
 function Footer({ className }: InferProps<typeof Footer.propTypes>) {
-  const { isMobile } = useViewport()
   const getYear = useMemo(() => new Date().getFullYear(), [])
 
   const scrollTop = useCallback(() => {

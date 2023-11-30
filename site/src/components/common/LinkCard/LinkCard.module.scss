@@ -28,10 +28,10 @@
 }
 
 .title {
-  margin-bottom: size($spacing16);
-  transition: color 0.3s;
-
+  margin: 0 size($spacing32 + 20) size($spacing16) 0;
   color: $gray-50;
+
+  transition: color 0.3s;
 
   @include heading-03;
 

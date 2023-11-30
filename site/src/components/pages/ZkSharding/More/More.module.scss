@@ -142,7 +142,9 @@
 }
 
 .description {
-  width: auto;
+  @include mobile {
+    width: auto;
+  }
 }
 
 .list {

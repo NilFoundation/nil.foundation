@@ -19,6 +19,7 @@ IntroAnimation.propTypes = {
   children: PropTypes.any,
   animatedContainerClassName: PropTypes.string,
   className: PropTypes.string,
+  sideNavigationContainerClassName: PropTypes.string,
 }
 
 export type IntroAnimationProps = InferProps<typeof IntroAnimation.propTypes>
@@ -30,6 +31,7 @@ function IntroAnimation({
   navigationLink,
   children,
   animatedContainerClassName,
+  sideNavigationContainerClassName,
   className,
   ...props
 }: IntroAnimationProps) {
@@ -103,12 +105,13 @@ function IntroAnimation({
           title={navigationTitle}
           linkText={navigationLinkText}
           link={navigationLink}
+          className={sideNavigationContainerClassName}
           isVisible={isVisible}
           titleLarge
         />
       </div>
       <SideNavigation
-        className={s.sideNavigation}
+        className={classNames(s.sideNavigation, sideNavigationContainerClassName)}
         title={navigationTitle}
         linkText={navigationLinkText}
         link={navigationLink}

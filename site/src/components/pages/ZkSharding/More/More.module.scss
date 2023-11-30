@@ -111,10 +111,6 @@
   align-items: center;
 }
 
-.description {
-  color: $grey;
-}
-
 .heading {
   min-height: unset;
 
@@ -143,6 +139,10 @@
       width: size(271);
     }
   }
+}
+
+.description {
+  width: auto;
 }
 
 .list {

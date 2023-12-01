@@ -61,7 +61,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 
-  const { theme } = createTheme(styletron)
+  const { theme } = createTheme(styletron, {enableDefaultFonts: false})
 
   return (
     <>

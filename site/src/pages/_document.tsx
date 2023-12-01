@@ -1,15 +1,15 @@
 // @ts-ignore
-import {Server, Sheet} from 'styletron-engine-atomic';
-import {styletron} from '../styletron';
-import {DocumentContext, Head, Html, Main, NextScript} from 'next/document';
-import {Provider as StyletronProvider} from 'styletron-react';
-import React from 'react';
+import { Server, Sheet } from 'styletron-engine-atomic'
+import { styletron } from '../styletron'
+import { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { Provider as StyletronProvider } from 'styletron-react'
+import React from 'react'
 
 type Props = {
-  stylesheets: Sheet[];
-};
+  stylesheets: Sheet[]
+}
 
-const MyDocument = ({stylesheets}: Props) => {
+const MyDocument = ({ stylesheets }: Props) => {
   return (
     <Html>
       <Head>
@@ -17,7 +17,7 @@ const MyDocument = ({stylesheets}: Props) => {
           <style
             key={i}
             className="_styletron_hydrate_"
-            dangerouslySetInnerHTML={{__html: sheet.css}}
+            dangerouslySetInnerHTML={{ __html: sheet.css }}
             media={sheet.attrs.media}
             data-hydrate={sheet.attrs['data-hydrate']}
           />
@@ -28,8 +28,8 @@ const MyDocument = ({stylesheets}: Props) => {
         <NextScript />
       </body>
     </Html>
-  );
-};
+  )
+}
 
 MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const page = await ctx.renderPage({
@@ -40,9 +40,9 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
           <App {...props} />
         </StyletronProvider>
       ),
-  });
-  const stylesheets = (styletron as Server).getStylesheets() || [];
-  return {...page, stylesheets};
-};
+  })
+  const stylesheets = (styletron as Server).getStylesheets() || []
+  return { ...page, stylesheets }
+}
 
-export default MyDocument;
+export default MyDocument

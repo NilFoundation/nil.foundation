@@ -14,6 +14,10 @@ import useCalcVh from 'hooks/useCalcVh'
 import { seo } from 'constants/seo'
 import Hotjar from '@hotjar/browser'
 import { AppProps } from 'next/app'
+import { styletron } from '../styletron'
+import { Provider as StyletronProvider } from 'styletron-react'
+import { BaseProvider } from 'baseui'
+import { createTheme } from '@nilfoundation/ui-kit'
 
 type ComponentWithLayout = AppProps['Component'] & {
   getLayout?: (page: JSX.Element) => JSX.Element
@@ -57,6 +61,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 
+  const { theme } = createTheme(styletron, { enableDefaultFonts: false })
+
   return (
     <>
       <Head>
@@ -81,9 +87,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`} key="canonical" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout withFooter={router.pathname !== '/404'} config={pageProps.config}>
-        {getLayout(<Component {...pageProps} />)}
-      </Layout>
+      <StyletronProvider value={styletron}>
+        <BaseProvider theme={theme}>
+          <Layout withFooter={router.pathname !== '/404'} config={pageProps.config}>
+            {getLayout(<Component {...pageProps} />)}
+          </Layout>
+        </BaseProvider>
+      </StyletronProvider>
     </>
   )
 }

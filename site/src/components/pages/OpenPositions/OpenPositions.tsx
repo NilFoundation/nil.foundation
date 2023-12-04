@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 import { useViewport } from 'hooks/useViewport'
 
 import Container from 'components/Container'
@@ -10,8 +8,15 @@ import Icon from 'components/Icon'
 
 import s from './OpenPositions.module.scss'
 import DottedSection from './DottedSection'
+import { Job } from 'src/freshteam/types'
+import { HeadingXXLarge } from '@nilfoundation/ui-kit'
+import { getHeadingOverrides } from './overrides'
 
-const OpenPositions = () => {
+type OpenPositionsProps = {
+  jobsPostings: Job[]
+}
+
+const OpenPositions = ({jobsPostings = []}: OpenPositionsProps) => {
   const { isMobile } = useViewport()
   return (
     <>
@@ -32,14 +37,15 @@ const OpenPositions = () => {
           </StickyContainer>
         )}
         <div className={s.content}>
-          <div className={s.wrapper} id="freshteam-widget" />
+          <div className={s.wrapper}>
+            <HeadingXXLarge overrides={getHeadingOverrides()}>
+              Open Positions
+            </HeadingXXLarge>
+            <div>Inputs</div>
+          </div>
           <DottedSection />
         </div>
       </Container>
-      <Script
-        src="https://s3.amazonaws.com/files.freshteam.com/production/142690/attachments/6004875605/original/6000069521_widget.js?1662042007"
-        strategy="lazyOnload"
-      />
     </>
   )
 }

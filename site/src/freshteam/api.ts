@@ -6,13 +6,14 @@ interface Api {
 }
 
 export const api = {
-    getJobPostings: (status?: JobStatus) => {
+    getJobPostings: async (status?: JobStatus) => {
         let url = "job_postings"
 
         if (status) {
             url += `?status=${status}`
         }
 
-        return client.get<JobStatus, Job[]>(url).then((res) => res)
+        //return await client.get<JobStatus, Job[]>(url).then((res) => res)
+        return [];
     },
 } satisfies Api

@@ -48,17 +48,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }
   }, [router])
 
-  useEffect(() => {
-    const handleImport = async () => {
-      // @ts-ignore
-      await import('styles/freshteamWidget.scss')
-    }
-
-    if (router.pathname === '/careers/jobs') {
-      handleImport()
-    }
-  }, [router.pathname])
-
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 
   const { theme } = createTheme(styletron, { enableDefaultFonts: false })

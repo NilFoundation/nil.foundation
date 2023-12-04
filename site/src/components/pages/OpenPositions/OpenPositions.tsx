@@ -9,15 +9,32 @@ import Icon from 'components/Icon'
 import s from './OpenPositions.module.scss'
 import DottedSection from './DottedSection'
 import { Job } from 'src/freshteam/types'
-import { HeadingXXLarge } from '@nilfoundation/ui-kit'
-import { getHeadingOverrides } from './overrides'
+import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
+import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
+import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
+import { Filter } from './Filter/Filter'
+import { Card } from 'components/Card'
+import { useFilterPositions } from './useFilterPositions'
+import { useState } from 'react'
+import { PositionsFilter } from './types'
 
 type OpenPositionsProps = {
   jobsPostings: Job[]
 }
 
-const OpenPositions = ({jobsPostings = []}: OpenPositionsProps) => {
+const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
   const { isMobile } = useViewport()
+  const [filter, setFilter] = useState<PositionsFilter>({
+    department: '',
+    location: '',
+    type: '',
+    title: '',
+    remote: true,
+  })
+  const filteredJobsPostings = useFilterPositions(jobsPostings, filter)
+  const positionsByDepartmentMap = useGroupPositionsByDepartments(filteredJobsPostings)
+  const departments = Object.keys(positionsByDepartmentMap)
+
   return (
     <>
       <Container className={s.root}>
@@ -38,10 +55,37 @@ const OpenPositions = ({jobsPostings = []}: OpenPositionsProps) => {
         )}
         <div className={s.content}>
           <div className={s.wrapper}>
-            <HeadingXXLarge overrides={getHeadingOverrides()}>
-              Open Positions
-            </HeadingXXLarge>
-            <div>Inputs</div>
+            <HeadingXXLarge overrides={getPageTitleOverrides()}>Open Positions</HeadingXXLarge>
+            <Filter
+              filter={filter}
+              setFilter={setFilter}
+            />
+            {departments.length === 0 && (
+              <div>
+                <LabelMedium color={PRIMITIVE_COLORS.gray300}>No results</LabelMedium>
+              </div>
+            )}
+            {departments.map((department) => {
+              const positions = positionsByDepartmentMap[department]
+              return (
+                <>
+                  <div key={department} className={s.department}>
+                    <HeadingXLarge overrides={getCommonHeadingOverrides()}>{department}</HeadingXLarge>
+                    <LabelMedium color={PRIMITIVE_COLORS.gray300}>
+                      {positions.length === 1 ? '1 Open Role' : `${positions.length} Open Roles`}
+                    </LabelMedium>
+                  </div>
+                  {positions.map((position) => {
+                    return (
+                      <Card
+                        key={position.id}
+                        className={s.position}
+                      />
+                    )
+                  })}
+                </>
+              )
+            })}
           </div>
           <DottedSection />
         </div>

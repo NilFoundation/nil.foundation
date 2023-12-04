@@ -7,7 +7,7 @@ import { jobsSeoData } from 'stubs/careersPageData'
 import { api } from 'src/freshteam'
 import { InferGetStaticPropsType } from 'next'
 
-const OpenPositionsPage = ({jobsPostings}: InferGetStaticPropsType<typeof getStaticProps>) => (
+const OpenPositionsPage = ({ jobsPostings }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={jobsSeoData}>
     <OpenPositions jobsPostings={jobsPostings} />
   </MetaLayout>
@@ -17,10 +17,7 @@ export async function getStaticProps() {
   const getConfig = getSiteConfig
   const getJobPostings = api.getJobPostings
 
-  const [config, jobsPostings] = await Promise.all([
-    getConfig(),
-    getJobPostings(),
-  ])
+  const [config, jobsPostings] = await Promise.all([getConfig(), getJobPostings()])
 
   return {
     props: {

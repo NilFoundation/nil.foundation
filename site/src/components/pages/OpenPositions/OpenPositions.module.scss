@@ -45,5 +45,16 @@
 
 .wrapper {
   background-color: $gray900;
-  padding-top: 32px;
+  padding: 32px 0;
+}
+
+.department {
+  height: "64px";
+  display: flex;
+  align-items: center;
+  margin-bottom: "24px";
+}
+
+.position {
+  margin-bottom: "24px";
 }

@@ -50,7 +50,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 
-  const { theme } = createTheme(styletron, { enableDefaultFonts: false })
+  const { theme } = createTheme(styletron, {
+    enableDefaultFonts: false,
+    overrides: {
+      primaryFontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+    },
+  })
 
   return (
     <>

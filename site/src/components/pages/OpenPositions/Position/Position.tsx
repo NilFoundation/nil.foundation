@@ -1,19 +1,26 @@
 import { Card } from 'components/Card'
 import s from './Position.module.scss'
-import { Position as PositionType } from 'src/freshteam/types'
-import { LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
-import { labelOverrides } from './overrides'
+import { UIPosition } from 'src/freshteam/types'
+import { HeadingXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
+import { labelOverrides, titleOverrides } from './overrides'
+import { mapTypeToDisplayType } from '../utils/mapTypeToDisplayType'
 
 type PositionProps = {
-  position: PositionType
+  position: UIPosition
 }
 
-export const Position = ({ position: { id, remote, type } }: PositionProps) => {
+export const Position = ({ position: { id, remote, type, title, plainTextDescription } }: PositionProps) => {
   return (
     <Card key={id} className={s.position} href={{ query: { jobId: id } }}>
       <div className={s.type}>
         <LabelMedium overrides={labelOverrides}>{remote ? 'Remote' : 'Onsite'}</LabelMedium>
-        <LabelMedium overrides={labelOverrides}>{type === 'full_time' ? 'Full Time' : 'Part Time'}</LabelMedium>
+        <LabelMedium overrides={labelOverrides}>{mapTypeToDisplayType(type)}</LabelMedium>
+      </div>
+      <div className={s.title}>
+        <HeadingXLarge overrides={titleOverrides}>{title}</HeadingXLarge>
+      </div>
+      <div className={s.description}>
+        <LabelMedium color={PRIMITIVE_COLORS.gray300}>{plainTextDescription}</LabelMedium>
       </div>
     </Card>
   )

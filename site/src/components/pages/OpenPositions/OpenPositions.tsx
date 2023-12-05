@@ -8,20 +8,23 @@ import Icon from 'components/Icon'
 
 import s from './OpenPositions.module.scss'
 import DottedSection from './DottedSection'
-import { Position as PositionType } from 'src/freshteam/types'
+import { UIPosition } from 'src/freshteam/types'
 import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
 import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
 import { Filter } from './Filter/Filter'
-import { Card } from 'components/Card'
 import { useFilterPositions } from './useFilterPositions'
 import { useState } from 'react'
 import { PositionsFilter } from './types'
 import { Position } from './Position/Position'
+import { mapTypeToDisplayType } from './utils/mapTypeToDisplayType'
+import uniq from 'lodash.uniq'
 
 type OpenPositionsProps = {
-  jobsPostings: PositionType[]
+  jobsPostings: UIPosition[]
 }
+
+const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Human Resources']
 
 const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
   const { isMobile } = useViewport()
@@ -32,9 +35,15 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
     title: '',
     remote: true,
   })
+
   const filteredJobsPositions = useFilterPositions(jobsPostings, filter)
-  const positionsByDepartmentMap = useGroupPositionsByDepartments(filteredJobsPositions)
+  const sortedByTitleJobsPostings = filteredJobsPositions.sort((a, b) => a.title.localeCompare(b.title))
+  const positionsByDepartmentMap = useGroupPositionsByDepartments(sortedByTitleJobsPostings, departmensOrder)
   const departments = Object.keys(positionsByDepartmentMap)
+
+  const availableDepartments = uniq(jobsPostings.map((p) => p.department).filter((d) => !!d))
+  const availableLocations = uniq(jobsPostings.map((p) => p.branch.city).filter((d) => !!d))
+  const availableTypes = uniq(jobsPostings.map((p) => mapTypeToDisplayType(p.type)).filter((d) => !!d))
 
   return (
     <>
@@ -57,7 +66,13 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
         <div className={s.content}>
           <div className={s.wrapper}>
             <HeadingXXLarge overrides={getPageTitleOverrides()}>Open Positions</HeadingXXLarge>
-            <Filter filter={filter} setFilter={setFilter} />
+            <Filter
+              filter={filter}
+              setFilter={setFilter}
+              departments={availableDepartments}
+              locations={availableLocations}
+              types={availableTypes}
+            />
             {departments.length === 0 && (
               <div>
                 <LabelMedium justifyContent="center" color={PRIMITIVE_COLORS.gray300}>
@@ -67,6 +82,7 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
             )}
             {departments.map((department) => {
               const positions = positionsByDepartmentMap[department]
+
               return (
                 <>
                   <div key={department} className={s.department}>

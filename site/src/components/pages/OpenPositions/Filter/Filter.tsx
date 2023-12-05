@@ -1,33 +1,63 @@
-import { Checkbox, Select, Input, SearchIcon } from '@nilfoundation/ui-kit'
+import { Checkbox, Select, SELECT_SIZE } from '@nilfoundation/ui-kit'
 import { PositionsFilter } from '../types'
 import { produce } from 'immer'
 import s from './Filter.module.scss'
+import { TextFilter } from './TextFilter'
 
 type FilterProps = {
   filter: PositionsFilter
   setFilter: (filter: PositionsFilter) => void
+  departments: string[]
+  locations: string[]
+  types: string[]
 }
 
-export const Filter = ({ filter, setFilter }: FilterProps) => {
-  const setDepartment = (department: string) =>
+export const Filter = ({ filter, setFilter, departments, locations, types }: FilterProps) => {
+  const setFilterValue = (key: keyof PositionsFilter, value: PositionsFilter[typeof key]) =>
     setFilter(
       produce(filter, (draft) => {
-        draft.department = department
+        ;(draft[key] as PositionsFilter[typeof key]) = value
       }),
     )
 
+  const departmentsOptions = departments.map((department) => ({
+    label: department,
+    value: department,
+  }))
+
+  const locationsOptions = locations.map((location) => ({
+    label: location,
+    value: location,
+  }))
+
+  const typesOptions = types.map((type) => ({
+    label: type,
+    value: type,
+  }))
+
   return (
     <div className={s.filter}>
-      <Select />
-      <Select />
-      <Select />
+      <Select
+        placeholder="Choose Department"
+        size={SELECT_SIZE.small}
+        options={departmentsOptions}
+        onChange={({ value }) => setFilterValue('department', (value.at(0)?.id as string) ?? '')}
+        searchable={false}
+      />
+      <Select placeholder="Choose Work Type" size={SELECT_SIZE.small} options={typesOptions} searchable={false} />
+      <Select placeholder="Choose Location" size={SELECT_SIZE.small} options={locationsOptions} searchable={false} />
       <div className={s.remoteToggleContainer}>
-        <Checkbox checkmarkType="toggle" labelPlacement="left" checked={filter.remote}>
+        <Checkbox
+          checkmarkType="toggle"
+          labelPlacement="left"
+          checked={filter.remote}
+          onChange={({ target }) => setFilterValue('remote', target.checked)}
+        >
           Remote only
         </Checkbox>
       </div>
       <div className={s.titleTitleFilterContainer}>
-        <Input placeholder="Search Job Title" startEnhancer={<SearchIcon />} />
+        <TextFilter setFilterValue={(value) => setFilterValue('title', value)} />
       </div>
     </div>
   )

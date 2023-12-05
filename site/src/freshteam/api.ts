@@ -1,12 +1,13 @@
 import { client } from './client'
-import { Position, PositionStatus } from './types'
+import { mapPositionToUIPosition } from './mappers'
+import { PositionStatus, UIPosition } from './types'
 
 interface Api {
-  getJobPostings(s: PositionStatus): Promise<Position[]>
+  getJobPostings(s: PositionStatus): Promise<UIPosition[]>
 }
 
 export const api = {
-  getJobPostings: async (status?: PositionStatus): Promise<Position[]> => {
+  getJobPostings: async (status?: PositionStatus): Promise<UIPosition[]> => {
     let url = 'job_postings'
 
     if (status) {
@@ -14,7 +15,7 @@ export const api = {
     }
 
     const result = await client.get(url).then((res) => res)
-    console.log(Array.isArray(result), Object.keys(result))
-    return result.data
+
+    return result.data.map(mapPositionToUIPosition)
   },
 } satisfies Api

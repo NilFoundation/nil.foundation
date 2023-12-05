@@ -1,13 +1,15 @@
-import { Job } from 'src/freshteam/types'
+import { UIPosition } from 'src/freshteam/types'
 import { PositionsFilter } from './types'
 
-export const useFilterPositions = (positions: Job[], filter: PositionsFilter) => {
+export const useFilterPositions = (positions: UIPosition[], filter: PositionsFilter) => {
   const filteredPositions = positions.filter((position) => {
-    const titleFilter = filter.title ? position.title === filter.title : true
-    const departmentFilter = filter.department ? position.department.name === filter.department : true
+    const titleFilter = filter.title ? position.title.toLowerCase() === filter.title.toLowerCase() : true
+    const departmentFilter = filter.department
+      ? position.department.toLowerCase() === filter.department.toLowerCase()
+      : true
     const remoteFilter = filter.remote ? position.remote === filter.remote : true
-    const typeFilter = filter.type ? position.type === filter.type : true
-    const locationFilter = filter.location ? position.branch.city === filter.location : true
+    const typeFilter = filter.type ? position.type.toLowerCase() === filter.type.toLowerCase() : true
+    const locationFilter = filter.location ? position.branch.city.toLowerCase() === filter.location.toLowerCase() : true
 
     return titleFilter && departmentFilter && remoteFilter && typeFilter && locationFilter
   })

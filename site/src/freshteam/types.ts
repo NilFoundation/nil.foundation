@@ -50,3 +50,14 @@ export interface Position {
   branch: Branch
   department: Department
 }
+
+export interface UIPosition {
+  id: number
+  title: string
+  description: string
+  plainTextDescription: string
+  remote: boolean
+  type: string
+  branch: Branch
+  department: string
+}

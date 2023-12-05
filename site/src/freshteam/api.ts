@@ -13,7 +13,7 @@ export const api = {
     if (USE_MOCK) {
       return []
     }
-    
+
     let url = 'job_postings'
 
     if (status) {

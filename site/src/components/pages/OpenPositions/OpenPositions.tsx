@@ -14,10 +14,9 @@ import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
 import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
 import { Filter } from './Filter/Filter'
 import { useFilterPositions } from './useFilterPositions'
-import { useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { PositionsFilter } from './types'
 import { Position } from './Position/Position'
-import { mapTypeToDisplayType } from './utils/mapTypeToDisplayType'
 import uniq from 'lodash.uniq'
 
 type OpenPositionsProps = {
@@ -29,10 +28,10 @@ const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Hum
 const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
   const { isMobile } = useViewport()
   const [filter, setFilter] = useState<PositionsFilter>({
-    department: '',
-    location: '',
-    type: '',
-    title: '',
+    department: undefined,
+    location: undefined,
+    type: undefined,
+    title: undefined,
     remote: true,
   })
 
@@ -41,9 +40,18 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
   const positionsByDepartmentMap = useGroupPositionsByDepartments(sortedByTitleJobsPostings, departmensOrder)
   const departments = Object.keys(positionsByDepartmentMap)
 
-  const availableDepartments = uniq(jobsPostings.map((p) => p.department).filter((d) => !!d))
-  const availableLocations = uniq(jobsPostings.map((p) => p.branch.city).filter((d) => !!d))
-  const availableTypes = uniq(jobsPostings.map((p) => mapTypeToDisplayType(p.type)).filter((d) => !!d))
+  const availableDepartments = useMemo(
+    () => uniq(jobsPostings.map((p) => p.department).filter((d) => !!d)),
+    [jobsPostings],
+  )
+  const availableLocations = useMemo(
+    () => uniq(jobsPostings.map((p) => p.branch.city).filter((d) => !!d)),
+    [jobsPostings],
+  )
+  const availableTypes = useMemo(
+    () => uniq(jobsPostings.map((p) => p.type).filter((d) => !!d)),
+    [jobsPostings],
+  )
 
   return (
     <>
@@ -84,8 +92,8 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
               const positions = positionsByDepartmentMap[department]
 
               return (
-                <>
-                  <div key={department} className={s.department}>
+                <Fragment key={department}>
+                  <div className={s.department}>
                     <HeadingXLarge overrides={getCommonHeadingOverrides()}>{department}</HeadingXLarge>
                     <LabelMedium color={PRIMITIVE_COLORS.gray300}>
                       {positions.length === 1 ? '1 Open Role' : `${positions.length} Open Roles`}
@@ -94,7 +102,7 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
                   {positions.map((position) => {
                     return <Position key={position.id} position={position} />
                   })}
-                </>
+                </Fragment>
               )
             })}
           </div>

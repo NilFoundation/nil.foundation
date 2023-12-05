@@ -8,8 +8,19 @@ export const mapPositionToUIPosition = (position: Position): UIPosition => {
     description: position.description,
     plainTextDescription: convert(position.description, { wordwrap: false, limits: { maxBaseElements: 200 } }),
     remote: position.remote,
-    type: position.type,
+    type: mapTypeToDisplayType(position.type),
     branch: position.branch,
     department: position.department.name,
+  }
+}
+
+const mapTypeToDisplayType = (type: Position['type']): string => {
+  switch (type) {
+    case 'full_time':
+      return 'Full Time'
+    case 'part_time':
+      return 'Part Time'
+    default:
+      return ''
   }
 }

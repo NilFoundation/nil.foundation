@@ -14,7 +14,7 @@ export const useGroupPositionsByDepartments = (positions: UIPosition[], order?: 
     }, {} as Record<string, UIPosition[]>)
 
     if (order) {
-      return order
+      const orderedDepartments = order
         .filter((x) => Object.keys(departments).includes(x))
         .reduce((acc, department) => {
           return {
@@ -22,6 +22,8 @@ export const useGroupPositionsByDepartments = (positions: UIPosition[], order?: 
             [department]: departments[department],
           }
         }, {} as Record<string, UIPosition[]>)
+
+      return { ...orderedDepartments, ...departments }
     }
 
     return departments

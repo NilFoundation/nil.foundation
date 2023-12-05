@@ -23,7 +23,6 @@
     "gsap": "^3.12.1",
     "html-to-text": "^9.0.5",
     "i": "^0.3.7",
-    "immer": "^10.0.3",
     "lodash.debounce": "^4.0.8",
     "lodash.flatten": "^4.4.0",
     "lodash.uniq": "^4.5.0",

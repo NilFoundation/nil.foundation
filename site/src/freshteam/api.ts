@@ -6,8 +6,14 @@ interface Api {
   getJobPostings(s: PositionStatus): Promise<UIPosition[]>
 }
 
+const USE_MOCK = !!process.env.USE_MOCK || false
+
 export const api = {
   getJobPostings: async (status?: PositionStatus): Promise<UIPosition[]> => {
+    if (USE_MOCK) {
+      return []
+    }
+    
     let url = 'job_postings'
 
     if (status) {

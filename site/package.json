@@ -21,6 +21,7 @@
     "dayjs": "^1.11.9",
     "fs": "^0.0.1-security",
     "gsap": "^3.12.1",
+    "immer": "^10.0.3",
     "lodash.debounce": "^4.0.8",
     "lodash.flatten": "^4.4.0",
     "lottie-web": "^5.12.2",

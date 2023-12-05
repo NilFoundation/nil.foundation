@@ -15,7 +15,7 @@ const OpenPositionsPage = ({ jobsPostings }: InferGetStaticPropsType<typeof getS
 
 export async function getStaticProps() {
   const getConfig = getSiteConfig
-  const getJobPostings = api.getJobPostings
+  const getJobPostings = () => api.getJobPostings('published')
 
   const [config, jobsPostings] = await Promise.all([getConfig(), getJobPostings()])
 

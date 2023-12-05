@@ -30,16 +30,16 @@ export interface Department {
   name: string
 }
 
-export type JobStatus = 'draft' | 'published' | 'internal' | 'private' | 'on_hold' | 'closed'
+export type PositionStatus = 'draft' | 'published' | 'internal' | 'private' | 'on_hold' | 'closed'
 
-export interface Job {
+export interface Position {
   id: number
   created_at: string
   updated_at: string
   deleted: boolean
   title: string
   description: string
-  status: JobStatus
+  status: PositionStatus
   salary: Salary
   applicant_access_type: string
   remote: boolean

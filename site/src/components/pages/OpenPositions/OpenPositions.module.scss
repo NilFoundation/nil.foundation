@@ -50,11 +50,8 @@
 
 .department {
   height: "64px";
+  margin-top: 64px;
   display: flex;
   align-items: center;
-  margin-bottom: "24px";
-}
-
-.position {
-  margin-bottom: "24px";
+  justify-content: space-between;
 }

@@ -1,9 +1,9 @@
-import { Branch, Department, Job } from 'src/freshteam/types'
+import { Branch, Department, Position } from 'src/freshteam/types'
 
 export interface PositionsFilter {
-  title: Job['title']
+  title: Position['title']
   department: Department['name']
-  remote: Job['remote']
-  type: Job['type']
+  remote: Position['remote']
+  type: Position['type']
   location: Branch['city']
 }

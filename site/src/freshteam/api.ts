@@ -1,19 +1,20 @@
 import { client } from './client'
-import { Job, JobStatus } from './types'
+import { Position, PositionStatus } from './types'
 
 interface Api {
-  getJobPostings(s: JobStatus): Promise<Job[]>
+  getJobPostings(s: PositionStatus): Promise<Position[]>
 }
 
 export const api = {
-  getJobPostings: async (status?: JobStatus) => {
+  getJobPostings: async (status?: PositionStatus): Promise<Position[]> => {
     let url = 'job_postings'
 
     if (status) {
       url += `?status=${status}`
     }
 
-    //return await client.get<JobStatus, Job[]>(url).then((res) => res)
-    return []
+    const result = await client.get(url).then((res) => res)
+    console.log(Array.isArray(result), Object.keys(result))
+    return result.data
   },
 } satisfies Api

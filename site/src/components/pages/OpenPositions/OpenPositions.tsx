@@ -8,7 +8,7 @@ import Icon from 'components/Icon'
 
 import s from './OpenPositions.module.scss'
 import DottedSection from './DottedSection'
-import { Job } from 'src/freshteam/types'
+import { Position as PositionType } from 'src/freshteam/types'
 import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
 import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
@@ -17,9 +17,10 @@ import { Card } from 'components/Card'
 import { useFilterPositions } from './useFilterPositions'
 import { useState } from 'react'
 import { PositionsFilter } from './types'
+import { Position } from './Position/Position'
 
 type OpenPositionsProps = {
-  jobsPostings: Job[]
+  jobsPostings: PositionType[]
 }
 
 const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
@@ -31,8 +32,8 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
     title: '',
     remote: true,
   })
-  const filteredJobsPostings = useFilterPositions(jobsPostings, filter)
-  const positionsByDepartmentMap = useGroupPositionsByDepartments(filteredJobsPostings)
+  const filteredJobsPositions = useFilterPositions(jobsPostings, filter)
+  const positionsByDepartmentMap = useGroupPositionsByDepartments(filteredJobsPositions)
   const departments = Object.keys(positionsByDepartmentMap)
 
   return (
@@ -56,13 +57,12 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
         <div className={s.content}>
           <div className={s.wrapper}>
             <HeadingXXLarge overrides={getPageTitleOverrides()}>Open Positions</HeadingXXLarge>
-            <Filter
-              filter={filter}
-              setFilter={setFilter}
-            />
+            <Filter filter={filter} setFilter={setFilter} />
             {departments.length === 0 && (
               <div>
-                <LabelMedium color={PRIMITIVE_COLORS.gray300}>No results</LabelMedium>
+                <LabelMedium justifyContent="center" color={PRIMITIVE_COLORS.gray300}>
+                  No results
+                </LabelMedium>
               </div>
             )}
             {departments.map((department) => {
@@ -76,12 +76,7 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
                     </LabelMedium>
                   </div>
                   {positions.map((position) => {
-                    return (
-                      <Card
-                        key={position.id}
-                        className={s.position}
-                      />
-                    )
+                    return <Position key={position.id} position={position} />
                   })}
                 </>
               )

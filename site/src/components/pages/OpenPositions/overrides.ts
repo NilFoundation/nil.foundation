@@ -10,7 +10,10 @@ const headingCommonStyles: StyleObject = {
 
 export const getCommonHeadingOverrides = (): BlockOverrides => ({
   Block: {
-    style: headingCommonStyles,
+    style: {
+      marginBottom: '24px',
+      ...headingCommonStyles,
+    },
   },
 })
 

@@ -32,7 +32,7 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
     location: undefined,
     type: undefined,
     title: undefined,
-    remote: true,
+    remoteOnly: false,
   })
 
   const filteredJobsPositions = useFilterPositions(jobsPostings, filter)

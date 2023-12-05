@@ -7,7 +7,7 @@ export const useFilterPositions = (positions: UIPosition[], filter: PositionsFil
     const departmentFilter = filter.department
       ? position.department.toLowerCase() === filter.department.toLowerCase()
       : true
-    const remoteFilter = position.remote === filter.remote
+    const remoteFilter = filter.remoteOnly ? position.remote === true : true
     const typeFilter = filter.type ? position.type.toLowerCase() === filter.type.toLowerCase() : true
     const locationFilter = filter.location ? position.branch.city.toLowerCase() === filter.location.toLowerCase() : true
 

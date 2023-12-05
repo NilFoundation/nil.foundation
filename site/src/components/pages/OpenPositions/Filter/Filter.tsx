@@ -16,7 +16,7 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
   const setFilterValue = (key: keyof PositionsFilter, value: PositionsFilter[typeof key]) =>
     setFilter(
       produce(filter, (draft) => {
-        ;(draft[key] as PositionsFilter[typeof key]) = value
+        (draft[key] as PositionsFilter[typeof key]) = value
       }),
     )
 
@@ -41,7 +41,7 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         placeholder="Choose Department"
         size={SELECT_SIZE.small}
         options={departmentsOptions}
-        onChange={({ value }) => setFilterValue('department', (value.at(0)?.id as string) ?? '')}
+        onChange={({ value }) => setFilterValue('department', "Marketing")}
         searchable={false}
       />
       <Select placeholder="Choose Work Type" size={SELECT_SIZE.small} options={typesOptions} searchable={false} />

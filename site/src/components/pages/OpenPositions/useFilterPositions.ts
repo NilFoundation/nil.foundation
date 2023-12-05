@@ -3,7 +3,7 @@ import { PositionsFilter } from './types'
 
 export const useFilterPositions = (positions: UIPosition[], filter: PositionsFilter) => {
   const filteredPositions = positions.filter((position) => {
-    const titleFilter = filter.title ? position.title.toLowerCase() === filter.title.toLowerCase() : true
+    const titleFilter = filter.title ? position.title.toLowerCase().includes(filter.title.toLowerCase()) : true
     const departmentFilter = filter.department
       ? position.department.toLowerCase() === filter.department.toLowerCase()
       : true

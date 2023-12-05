@@ -75,9 +75,9 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
             />
             {departments.length === 0 && (
               <div>
-                <LabelMedium justifyContent="center" color={PRIMITIVE_COLORS.gray300}>
+                <HeadingXLarge marginTop="24px" justifyContent="center" color={PRIMITIVE_COLORS.gray300}>
                   No results
-                </LabelMedium>
+                </HeadingXLarge>
               </div>
             )}
             {departments.map((department) => {

@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 import { useViewport } from 'hooks/useViewport'
 
 import Container from 'components/Container'
@@ -10,9 +8,48 @@ import Icon from 'components/Icon'
 
 import s from './OpenPositions.module.scss'
 import DottedSection from './DottedSection'
+import { UIPosition } from 'src/freshteam/types'
+import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
+import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
+import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
+import { Filter } from './Filter/Filter'
+import { useFilterPositions } from './useFilterPositions'
+import { Fragment, useMemo, useState } from 'react'
+import { PositionsFilter } from './types'
+import { Position } from './Position/Position'
+import uniq from 'lodash.uniq'
 
-const OpenPositions = () => {
+type OpenPositionsProps = {
+  jobsPostings: UIPosition[]
+}
+
+const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Human Resources']
+
+const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
   const { isMobile } = useViewport()
+  const [filter, setFilter] = useState<PositionsFilter>({
+    department: undefined,
+    location: undefined,
+    type: undefined,
+    title: undefined,
+    remoteOnly: false,
+  })
+
+  const filteredJobsPositions = useFilterPositions(jobsPostings, filter)
+  const sortedByTitleJobsPostings = filteredJobsPositions.sort((a, b) => a.title.localeCompare(b.title))
+  const positionsByDepartmentMap = useGroupPositionsByDepartments(sortedByTitleJobsPostings, departmensOrder)
+  const departments = Object.keys(positionsByDepartmentMap)
+
+  const availableDepartments = useMemo(
+    () => uniq(jobsPostings.map((p) => p.department).filter((d) => !!d)),
+    [jobsPostings],
+  )
+  const availableLocations = useMemo(
+    () => uniq(jobsPostings.map((p) => p.branch.city).filter((d) => !!d)),
+    [jobsPostings],
+  )
+  const availableTypes = useMemo(() => uniq(jobsPostings.map((p) => p.type).filter((d) => !!d)), [jobsPostings])
+
   return (
     <>
       <Container className={s.root}>
@@ -32,14 +69,43 @@ const OpenPositions = () => {
           </StickyContainer>
         )}
         <div className={s.content}>
-          <div className={s.wrapper} id="freshteam-widget" />
+          <div className={s.wrapper}>
+            <HeadingXXLarge overrides={getPageTitleOverrides()}>Open Positions</HeadingXXLarge>
+            <Filter
+              filter={filter}
+              setFilter={setFilter}
+              departments={availableDepartments}
+              locations={availableLocations}
+              types={availableTypes}
+            />
+            {departments.length === 0 && (
+              <div>
+                <HeadingXLarge marginTop="24px" justifyContent="center" color={PRIMITIVE_COLORS.gray300}>
+                  No results
+                </HeadingXLarge>
+              </div>
+            )}
+            {departments.map((department) => {
+              const positions = positionsByDepartmentMap[department]
+
+              return (
+                <Fragment key={department}>
+                  <div className={s.department}>
+                    <HeadingXLarge overrides={getCommonHeadingOverrides()}>{department}</HeadingXLarge>
+                    <LabelMedium color={PRIMITIVE_COLORS.gray300}>
+                      {positions.length === 1 ? '1 Open Role' : `${positions.length} Open Roles`}
+                    </LabelMedium>
+                  </div>
+                  {positions.map((position) => {
+                    return <Position key={position.id} position={position} />
+                  })}
+                </Fragment>
+              )
+            })}
+          </div>
           <DottedSection />
         </div>
       </Container>
-      <Script
-        src="https://s3.amazonaws.com/files.freshteam.com/production/142690/attachments/6004875605/original/6000069521_widget.js?1662042007"
-        strategy="lazyOnload"
-      />
     </>
   )
 }

@@ -1,0 +1,15 @@
+.filter {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.remoteToggleContainer {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.titleTitleFilterContainer {
+    grid-column: 1 / 4;
+}

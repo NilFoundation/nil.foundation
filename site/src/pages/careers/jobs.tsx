@@ -4,17 +4,26 @@ import { REVALIDATE } from 'constants/common'
 import { getSiteConfig } from 'src/strapi'
 
 import { jobsSeoData } from 'stubs/careersPageData'
+import { api } from 'src/freshteam'
+import { InferGetStaticPropsType } from 'next'
 
-const OpenPositionsPage = () => (
+const OpenPositionsPage = ({ jobsPostings }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={jobsSeoData}>
-    <OpenPositions />
+    <OpenPositions jobsPostings={jobsPostings} />
   </MetaLayout>
 )
 
 export async function getStaticProps() {
-  const config = await getSiteConfig()
+  const getConfig = getSiteConfig
+  const getJobPostings = () => api.getJobPostings('published')
+
+  const [config, jobsPostings] = await Promise.all([getConfig(), getJobPostings()])
+
   return {
-    props: { config },
+    props: {
+      config,
+      jobsPostings,
+    },
     revalidate: REVALIDATE,
   }
 }

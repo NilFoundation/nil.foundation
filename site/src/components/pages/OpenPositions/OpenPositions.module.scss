@@ -42,3 +42,16 @@
   width: size(18);
   height: size(14);
 }
+
+.wrapper {
+  background-color: $gray900;
+  padding: 32px 0;
+}
+
+.department {
+  height: "64px";
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

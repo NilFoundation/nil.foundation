@@ -1,5 +1,4 @@
 import MetaLayout from 'components/MetaLayout/MetaLayout'
-import { getSiteConfig } from 'src/strapi'
 
 import { api } from 'src/freshteam'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
@@ -20,10 +19,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ id: str
     }
   }
 
-  const getConfig = getSiteConfig
-  const getJobPosting = () => api.getJobPosting(id)
-
-  const [config, jobPosting] = await Promise.all([getConfig(), getJobPosting()])
+  const jobPosting = await api.getJobPosting(id)
 
   if (!jobPosting) {
     return {
@@ -33,7 +29,6 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ id: str
 
   return {
     props: {
-      config,
       jobPosting,
       seo: {
         title: jobPosting.title,

@@ -10,7 +10,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import DottedSection from '../DottedSection'
 import { HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides } from '../overrides'
-import sanitizeHtml from 'sanitize-html';
+import sanitizeHtml from 'sanitize-html'
 
 type PositionPageProps = {
   position: UIPosition
@@ -41,8 +41,10 @@ const PositionPage = ({ position: { title, description, branch, type } }: Positi
         <div className={commonStyles.wrapper}>
           <HeadingXXLarge overrides={getPageTitleOverrides()}>{title}</HeadingXXLarge>
           <LabelMedium color={PRIMITIVE_COLORS.gray50}>{branch.city}</LabelMedium>
-          <LabelMedium color={PRIMITIVE_COLORS.gray50} marginBottom="32px">{type}</LabelMedium>
-          <div dangerouslySetInnerHTML={{__html: sanitizedDescription}} />
+          <LabelMedium color={PRIMITIVE_COLORS.gray50} marginBottom="32px">
+            {type}
+          </LabelMedium>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
         </div>
         <DottedSection />
       </div>

@@ -39,12 +39,6 @@ const pagesArr = [
   { type: 'categories', url: '/blog/category', params: {} },
 ]
 
-const jobsPages = {
-  type: 'jobs',
-  url: '/careers/jobs',
-  params: {},
-}
-
 const Sitemap = () => {}
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
@@ -65,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         re.map((slug) => `${item.url}/${slug}`),
       )
     }),
-    api.getAllPositionPages().then((re) => re.map((id) => `${jobsPages.url}/${id}`)),
+    api.getAllPositionPages().then((re) => re.map((id) => `/careers/jobs/${id}`)),
   ])
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

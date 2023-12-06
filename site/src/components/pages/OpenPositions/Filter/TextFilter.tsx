@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { useState, useRef } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import debounce from 'lodash.debounce'
 import { INPUT_SIZE, Input, SearchIcon } from '@nilfoundation/ui-kit'
 
@@ -9,11 +9,13 @@ type TextFilterProps = {
 
 export const TextFilter = ({ setFilterValue }: TextFilterProps): ReactElement => {
   const [value, setValue] = useState('')
-  const debouncedSearch = useRef(
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedSearch = useCallback(
     debounce((value) => {
       setFilterValue(value ?? '')
     }, 200),
-  ).current
+    [setFilterValue],
+  )
 
   return (
     <Input

@@ -3,7 +3,7 @@ import { getSiteConfig } from 'src/strapi'
 
 import { api } from 'src/freshteam'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import {PositionPage as PositionPageComponent} from 'pages/OpenPositions'
+import { PositionPage as PositionPageComponent } from 'pages/OpenPositions'
 
 const PositionPage = ({ jobPosting, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
@@ -45,12 +45,12 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ id: str
 }
 
 export async function getStaticPaths() {
-    const paths = await api.getAllPositionPages()
-    
-    return {
-        paths: paths.map(x => ({params: {id: x.toString()}})),
-        fallback: true,
-    }
+  const paths = await api.getAllPositionPages()
+
+  return {
+    paths: paths.map((x) => ({ params: { id: x.toString() } })),
+    fallback: true,
+  }
 }
 
 export default PositionPage

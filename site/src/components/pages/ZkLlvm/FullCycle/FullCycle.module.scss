@@ -14,15 +14,6 @@
   }
 }
 
-.left,
-.right {
-  width: 50%;
-
-  @include mobile {
-    width: 100%;
-  }
-}
-
 .right {
   margin-top: size(284);
 
@@ -56,8 +47,27 @@
   @include mobile {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: size($spacing48) size($spacing12) size($spacing64);
-    gap: size($spacing12);
+    padding: size($spacing48 + $spacing24) size($spacing12) size($spacing24 + 3);
+    gap: size($spacing8) size($spacing12);
+  }
+}
+
+.heading {
+  min-height: unset;
+
+  padding: size($spacing32 - 10) size($spacing32) size($spacing32 + 2)
+    size($spacing32);
+
+  p {
+    margin-top: size($spacing32 + 8);
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
+
+    p {
+      margin-top: size($spacing48 + 5);
+    }
   }
 }
 
@@ -73,15 +83,21 @@
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: size(276) size(258);
+
+  @include mobile {
+    grid-auto-flow: dense;
+    direction: rtl;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .buttonBlock {
-  padding: size(104) size(16) size(44);
+  padding: size($spacing12) size($spacing16) size($spacing24 + 16);
   background-color: $gray900;
+  direction: ltr;
 
   @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(40);
+    padding: size($spacing12 + 39) size($spacing12) size($spacing12 - 1);
   }
 }

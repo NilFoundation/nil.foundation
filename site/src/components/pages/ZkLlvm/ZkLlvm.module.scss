@@ -7,7 +7,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: size(259) repeat(4, 1fr);
   width: 100%;
   margin-top: size($spacing48);
 
@@ -21,45 +21,6 @@
   position: relative;
   background: url('/icons/dots.svg'), repeat;
   grid-column: span 4 / 6;
-}
-
-.joinNil {
-  margin-bottom: size(149);
-}
-
-.aboutRightFooter {
-  & > div {
-    &:nth-child(1) {
-      // margin-top: size(30);
-    }
-  }
-}
-
-.aboutRightHeader {
-  & > div {
-    &:nth-child(1) {
-      margin-top: size(39);
-    }
-    &:nth-child(2) {
-      margin-top: size(69);
-    }
-  }
-}
-
-.joinNilBox {
-  margin-top: size(283);
-
-  &:last-of-type {
-    margin-top: size(313);
-  }
-
-  @include mobile {
-    margin-top: 0;
-
-    &:last-of-type {
-      margin-top: 0;
-    }
-  }
 }
 
 .sideNavigation {

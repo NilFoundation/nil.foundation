@@ -12,6 +12,8 @@ import Icon from 'components/Icon'
 import s from './Accelerating.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 import { WebButton } from 'components/WebButton'
+import LeftColumn from 'components/Columns/LeftColumn'
+import RightColumn from 'components/Columns/RightColumn'
 
 type AcceleratingProps = {
   className?: string
@@ -23,19 +25,22 @@ const Accelerating = ({ className, data: { title, description, content, footer }
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <LeftColumn>
         <WhiteRectangle />
-        <HeadingSection title={title} description={description} />
+        <HeadingSection className={s.heading} title={title} description={description} />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </LeftColumn>
 
-      <div className={s.right}>
+      <RightColumn className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {content.map((el) => (
             <div className={s.box} key={el.title}>
               <Icon name={el.icon} className={s.icon} />
-              <span className={s.title}>{el.title}</span>
+              <div className={s.titleWrapper}>
+                <h3 className={s.title}>{el.title}</h3>
+                <Icon name="arrow-up" className={s.arrow} />
+              </div>
               <p className={s.description}>{el.description}</p>
             </div>
           ))}
@@ -52,7 +57,7 @@ const Accelerating = ({ className, data: { title, description, content, footer }
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </RightColumn>
     </div>
   )
 }

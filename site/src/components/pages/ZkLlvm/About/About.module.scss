@@ -15,25 +15,10 @@
   }
 }
 
-.left,
 .right {
-  @include mobile {
-    width: 100%;
-  }
-}
-
-.left {
-  flex-basis: size(551);
-
-  @include mobile {
-    flex-basis: unset;
-  }
-}
-
-.right {
-  flex-basis: size(534);
-
   position: relative;
+
+  margin-top: size(39);
 
   &:after {
     content: '';
@@ -50,8 +35,6 @@
   }
 
   @include mobile {
-    flex-basis: unset;
-
     margin-top: 0;
   }
 }
@@ -61,24 +44,14 @@
 
   & > div:nth-child(1) {
     flex-basis: size(276);
-    margin-top: size(32);
   }
-
   & > div:nth-child(2) {
     flex-basis: size(258);
-    margin-top: size(110);
+    margin-top: size(30);
   }
 
   & > div {
     background-color: $gray900;
-  }
-}
-
-.buttonWrapper {
-  padding: 0 size($spacing16 + 6) size($spacing16) size($spacing16);
-
-  @include mobile {
-    padding: 0 size($spacing16) size($spacing12 + 8);
   }
 }
 
@@ -91,19 +64,20 @@
 
     &:nth-child(1) {
       flex-basis: size(275);
-
-      padding-top: size($spacing12 + $spacing16);
-
-      @include mobile {
-        padding-top: size($spacing12 + $spacing16);
-        flex-basis: 50%;
-      }
     }
 
     &:nth-child(2) {
-      flex-basis: size(258);
+      flex-basis: size(259);
+    }
+  }
 
-      @include mobile {
+  @include mobile {
+    & > div {
+      &:nth-child(1) {
+        flex-basis: 50%;
+      }
+
+      &:nth-child(2) {
         flex-basis: 50%;
       }
     }
@@ -112,29 +86,34 @@
 
 .link {
   margin-bottom: size($spacing16);
-
-  @include mobile {
-    margin-bottom: size($spacing12);
-  }
 }
 
 .heading {
-  padding: size($spacing32 - 10) size($spacing32) size($spacing32);
+  min-height: size(424);
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 4)
+    size($spacing32);
 
   @include mobile {
-    padding: size($spacing24 - 7) size($spacing12) size($spacing24);
+    min-height: unset;
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
+  }
+}
+
+.headingIcons {
+  @include mobile {
+    margin-top: size($spacing48 + 8);
   }
 }
 
 .description {
-  padding: size($spacing32 - 4) size($spacing32) size($spacing64 + 4);
+  padding: size($spacing32 - 5) size($spacing32) size($spacing64 + 5);
   background-color: $gray900;
 
-  @include heading-04;
+  @include heading-03;
 
   @include mobile {
     margin-bottom: 0;
-    padding: size($spacing24 + $spacing48 - 3) size($spacing12)
+    padding: size($spacing24 + $spacing48 - 4) size($spacing12)
       size($spacing24 + 4);
   }
 }
@@ -142,6 +121,16 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.buttonWrapper {
+  padding: size($spacing16 + $spacing12) size($spacing16 + 6) size($spacing16)
+    size($spacing16);
+
+  @include mobile {
+    padding: size($spacing16 + $spacing12) size($spacing16) size($spacing16)
+      size($spacing16);
+  }
 }
 
 .button {

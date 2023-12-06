@@ -10,7 +10,7 @@ type PositionProps = {
 
 export const Position = ({ position: { id, remote, type, title, plainTextDescription } }: PositionProps) => {
   return (
-    <Card key={id} className={s.position} href={{ query: { jobId: id } }}>
+    <Card key={id} className={s.position} href={`/careers/jobs/${id}`}>
       <div className={s.type}>
         <LabelMedium overrides={labelOverrides}>{remote ? 'Remote' : 'Onsite'}</LabelMedium>
         <LabelMedium overrides={labelOverrides}>{type}</LabelMedium>

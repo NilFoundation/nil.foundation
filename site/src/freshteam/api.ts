@@ -20,6 +20,15 @@ class Api {
 
     return result.data.map(mapPositionToUIPosition)
   }
+  public async getJobPosting(id: string): Promise<UIPosition | null> {
+    if (USE_MOCK) {
+      return null
+    }
+
+    const result = await client.get(`job_postings/${id}`).then((res) => res)
+
+    return mapPositionToUIPosition(result.data)
+  }
   public async getAllPositionPages(): Promise<number[]> {
     if (USE_MOCK) {
       return []

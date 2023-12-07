@@ -8,6 +8,8 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './JoinNil.module.scss'
 import { JoinNilBaseData } from './JoinNilBaseData'
+import LeftColumn from 'components/Columns/LeftColumn'
+import RightColumn from 'components/Columns/RightColumn'
 
 type JoinNilProps<T extends JoinNilBaseData> = {
   className?: string
@@ -39,13 +41,13 @@ const JoinNil = <T extends JoinNilBaseData>({
         [s.space]: withMargin,
       })}
     >
-      <div className={s.left}>
+      <LeftColumn>
         <WhiteRectangle className={s.longRect} />
-        <HeadingSection className={s.head} title={title} socials={social} />
+        <HeadingSection className={s.head} iconsClassName={s.headIcons} title={title} socials={social} />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </LeftColumn>
 
-      <div className={s.right}>
+      <RightColumn className={s.right}>
         <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
           <p className={s.text}>{content.left}</p>
@@ -56,7 +58,7 @@ const JoinNil = <T extends JoinNilBaseData>({
           <p className={s.text}>{contentRight}</p>
           <WhiteRectangle />
         </div>
-      </div>
+      </RightColumn>
     </div>
   )
 }

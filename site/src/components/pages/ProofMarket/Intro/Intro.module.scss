@@ -19,6 +19,12 @@
   }
 }
 
+.sideNavigation {
+  @include mobile {
+    top: size(11);
+  }
+}
+
 .animationWidget {
   @include mobile {
     display: none;
@@ -56,14 +62,18 @@
   }
 }
 
+.descriptionItem {
+  margin-top: size($spacing16);
+}
+
 .descriptionMobile {
   display: none;
 
   @include mobile {
     display: block;
     position: absolute;
-    top: size($spacing24);
-    right: size($spacing8);
+    top: size($spacing24 - 9);
+    right: size($spacing8 - 3);
     left: unset;
     width: size(175);
   }

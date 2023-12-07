@@ -1,7 +1,7 @@
 import MetaLayout from 'components/MetaLayout'
 import { REVALIDATE } from 'constants/common'
 import { InferGetStaticPropsType } from 'next'
-import Home from 'pages/Home'
+import ProofMarket from 'pages/ProofMarket'
 import React from 'react'
 import { getSiteConfig } from 'src/strapi'
 import { homePageData, seoData } from 'stubs/homePageData'
@@ -9,7 +9,7 @@ import { homePageData, seoData } from 'stubs/homePageData'
 const ProofMarketPage = ({ seo, data }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <MetaLayout seo={seo}>
-      <Home data={data} />
+      <ProofMarket data={data} />
     </MetaLayout>
   )
 }

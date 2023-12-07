@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
 
@@ -11,6 +11,8 @@ import ListItem from 'components/ListItem'
 import s from './Win.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
+import LeftColumn from 'components/Columns/LeftColumn'
+import RightColumn from 'components/Columns/RightColumn'
 
 type WinProps = {
   className?: string
@@ -18,24 +20,51 @@ type WinProps = {
 }
 
 const Win = ({ className, data: { title, description, content, footer } }: WinProps) => {
+  const columnList = useMemo(
+    () =>
+      content.map((item) => {
+        return {
+          ...item,
+          list: item.list.reduce<[Array<ArrayElement<typeof item.list>>, Array<ArrayElement<typeof item.list>>]>(
+            (acc, el, index) => {
+              if (index % 2 === 0) {
+                acc[0].push(el)
+              } else {
+                acc[1].push(el)
+              }
+
+              return acc
+            },
+            [[], []],
+          ),
+        }
+      }),
+    [content],
+  )
+
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <LeftColumn>
         <WhiteRectangle />
-        <HeadingSection title={title} description={description} />
+        <HeadingSection title={title} className={s.heading} description={description} />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </LeftColumn>
 
-      <div className={s.right}>
+      <RightColumn className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
-          {content.map((el) => (
+          {columnList.map((el) => (
             <div className={s.box} key={el.title}>
               <h2 className={s.title}>{el.title}</h2>
               <div className={s.list}>
-                {el.list.map((item) => (
-                  <ListItem className={s.item} key={item} title={item} />
+                {el.list.map((arr, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <div key={index} className={s.column}>
+                    {arr.map((item) => (
+                      <ListItem className={s.item} key={item} title={item} />
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>
@@ -53,7 +82,7 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </RightColumn>
     </div>
   )
 }

@@ -23,7 +23,12 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
     <div className={cx(s.root, className)}>
       <LeftColumn>
         <WhiteRectangle />
-        <HeadingSection className={s.heading} title={title} description={description} />
+        <HeadingSection
+          className={s.heading}
+          descriptionClassName={s.headingDescription}
+          title={title}
+          description={description}
+        />
         {!isMobile && <WhiteRectangle />}
       </LeftColumn>
 

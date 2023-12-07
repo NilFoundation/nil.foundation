@@ -92,10 +92,6 @@
   align-items: center;
 }
 
-.description {
-  color: $grey;
-}
-
 .heading {
   min-height: unset;
 
@@ -123,6 +119,12 @@
     h2 {
       width: size(271);
     }
+  }
+}
+
+.description {
+  @include mobile {
+    width: auto;
   }
 }
 

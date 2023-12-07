@@ -123,6 +123,12 @@
   }
 }
 
+.headingDescription {
+  @include mobile {
+    width: auto;
+  }
+}
+
 .rightHeader {
   display: flex;
 

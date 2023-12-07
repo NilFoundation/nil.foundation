@@ -6,7 +6,7 @@ import cx from 'classnames'
 import s from './WhiteRectangleLine.module.scss'
 
 type Props = {
-  data: { id: number; margin: number }[]
+  data: { id: number; margin: number; flexBasis?: number }[]
   marginTop: number
   className?: string
 }
@@ -15,7 +15,16 @@ const WhiteRectangleLine = ({ data, marginTop, className }: Props) => {
   return (
     <div style={{ '--margin-top': marginTop } as React.CSSProperties} className={cx(s.root, className)}>
       {data.map((item, index) => (
-        <div style={{ '--line-margin': item.margin } as React.CSSProperties} key={item.id} className={s.rectangle}>
+        <div
+          style={
+            {
+              '--line-margin': item.margin,
+              '--flex-basis': item.flexBasis,
+            } as React.CSSProperties
+          }
+          key={item.id}
+          className={s.rectangle}
+        >
           <WhiteRectangle />
         </div>
       ))}

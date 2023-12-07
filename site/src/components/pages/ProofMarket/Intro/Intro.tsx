@@ -15,11 +15,13 @@ const IntroAnimationWidget = ({
   IntroAnimationProps,
   'navigationTitle' | 'navigationLinkText' | 'navigationLink' | 'animatedContainerClassName'
 >) => {
+  const { isMobile } = useViewport()
+
   return (
     <IntroAnimation
       {...props}
       items={items}
-      navigationTitle="Marketplace for zero-knowledge proofs"
+      navigationTitle={isMobile ? 'Marketplace for zero- knowledge proofs' : 'Marketplace for zero-knowledge proofs'}
       navigationLinkText="Go to Proof Market"
       navigationLink="https://proof.market/#/market/account_mina"
       animatedContainerClassName={s.animatedContainer}

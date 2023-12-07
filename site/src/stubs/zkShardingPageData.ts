@@ -43,22 +43,22 @@ export const zkShardingPageData = {
         link: '/',
       },
       {
-        icon: 'oracles',
-        title: 'Decentralized from day\u00A01',
-        description:
-          "From its launch, =nil; will be decentralized to ensure censorship resistance. As the number of nodes involved increases, Ethereum's maximal throughput scales linearly.",
-        link: '/',
-      },
-      {
         icon: 'lock',
         title: 'Secured by restaking',
         description:
           "Utilizing Ethereum staking pool’s (e.g. Lido)  and applications’ TVL, we've established robust economic liveness security. This guarantees protocol state liveness and fortifies the safety of the underlying liquidity.",
         link: '/',
       },
+      {
+        icon: 'oracles',
+        title: 'Decentralized from day\u00A01',
+        description:
+          "From its launch, =nil; will be decentralized to ensure censorship resistance. As the number of nodes involved increases, Ethereum's maximal throughput scales linearly.",
+        link: '/',
+      },
     ],
     footer: {
-      text: 'See the overview',
+      text: 'See the specification',
       link: 'https://cms.nil.foundation/uploads/zk_Sharding_Manifesto_8286652990.pdf',
     },
   },
@@ -74,14 +74,14 @@ export const zkShardingPageData = {
           'As all shards form integral parts of a singular execution layer, applications on =nil; will benefit from complete composability, free of security compromises or additional zkBridges fees.',
       },
       {
-        title: 'Transparent Ethereum data access',
+        title: 'Transparent in-EVM data access',
         description:
           'A shard within =nil; operates as an Ethereum full node, granting applications trustless read access to all in-EVM data — all at no charge and without the need for migration.',
       },
       {
         title: 'Breaking modularity’s drawbacks',
         description:
-          'With full in-EVM data access and unified liquidity, zkSharding enhances Ethereum capabilities, contrasting the fragmented liquidity and siloed environments caused by modularity.',
+          'With full in-EVM data access and unified liquidity, zkSharding enhances Ethereum capabilities, contrasting the fragmented liquidity and siloed environments caused by modular zkRollups.',
       },
     ],
   },

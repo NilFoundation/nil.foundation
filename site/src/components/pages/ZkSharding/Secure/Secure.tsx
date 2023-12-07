@@ -59,7 +59,7 @@ const Secure = ({ className, data: { title, description, content, footer } }: Se
         <div className={s.content}>
           {columnContent.map((arr, index) => (
             // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-            <div key={index}>
+            <div key={index} className={s.column}>
               {arr.map((el) => (
                 <div className={s.box} key={el.title}>
                   <div>

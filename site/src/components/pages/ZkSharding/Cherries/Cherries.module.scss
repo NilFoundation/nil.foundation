@@ -72,6 +72,10 @@
     &:not(:last-of-type) {
       margin-bottom: size($spacing48);
     }
+
+    &:last-of-type {
+      margin-bottom: size($spacing48 + 1);
+    }
   }
 }
 

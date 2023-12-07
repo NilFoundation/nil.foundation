@@ -50,7 +50,7 @@
   flex-wrap: wrap;
   background-color: $gray900;
 
-  padding-bottom: size($spacing32 + 3);
+  padding-bottom: size($spacing32 - 1);
 
   @include mobile {
     grid-template-columns: 1fr;
@@ -62,7 +62,7 @@
 }
 
 .box {
-  padding: size($spacing32);
+  padding: size($spacing32) size($spacing32) size($spacing32 + 4);
 
   @include paragraph;
 

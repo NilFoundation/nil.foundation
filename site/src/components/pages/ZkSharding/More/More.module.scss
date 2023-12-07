@@ -19,29 +19,10 @@
   }
 }
 
-.left {
-  flex-basis: size(551);
-
-  @include mobile {
-    flex-basis: unset;
-  }
-}
-
-.left,
 .right {
-  @include mobile {
-    width: 100%;
-  }
-}
-
-.right {
-  flex-basis: size(534);
-
   margin-top: size(130);
 
   @include mobile {
-    flex-basis: unset;
-
     width: 100%;
     margin-top: 0;
   }

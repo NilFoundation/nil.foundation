@@ -2,14 +2,10 @@ import { client } from './client'
 import { mapPositionToUIPosition } from './mappers'
 import { PositionStatus, UIPosition } from './types'
 
-interface Api {
-  getJobPostings(s: PositionStatus): Promise<UIPosition[]>
-}
-
 const USE_MOCK = !!process.env.USE_MOCK || false
 
-export const api = {
-  getJobPostings: async (status?: PositionStatus): Promise<UIPosition[]> => {
+class Api {
+  public async getJobPostings(status?: PositionStatus): Promise<UIPosition[]> {
     if (USE_MOCK) {
       return []
     }
@@ -23,5 +19,25 @@ export const api = {
     const result = await client.get(url).then((res) => res)
 
     return result.data.map(mapPositionToUIPosition)
-  },
-} satisfies Api
+  }
+  public async getJobPosting(id: string): Promise<UIPosition | null> {
+    if (USE_MOCK) {
+      return null
+    }
+
+    const result = await client.get(`job_postings/${id}`).then((res) => res)
+
+    return mapPositionToUIPosition(result.data)
+  }
+  public async getAllPositionPages(): Promise<number[]> {
+    if (USE_MOCK) {
+      return []
+    }
+
+    const result = await this.getJobPostings()
+
+    return result.map((x) => x.id)
+  }
+}
+
+export const api = new Api()

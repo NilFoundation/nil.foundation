@@ -35,7 +35,7 @@ const About = ({ className, data: { title, social, description } }: AboutProps) 
             </div>
           </div>
         )}
-        <div className={cx(s.description)}>{}</div>
+        <div className={cx(s.description)}>{description}</div>
         <div className={s.rightFooter}>
           <div>
             <div className={s.buttonWrapper}>

@@ -15,10 +15,10 @@
 
   @include mobile {
     width: 100%;
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 - 13) size($spacing12) size($spacing24 - 9);
 
     p {
-      margin-top: size($spacing96);
+      margin-top: size($spacing96 + 5);
     }
   }
 }
@@ -39,7 +39,7 @@
 }
 
 .linkContainer {
-  padding: size($spacing12) size($spacing16) size($spacing32 + 8);
+  padding: size($spacing12) size($spacing16) size($spacing32 + 6);
   background-color: $gray900;
 }
 

@@ -11,7 +11,7 @@ function JoinSection({ title, leftText, rightText, social, className }: InferPro
     <section className={classNames(s.container, className)}>
       <LeftColumn className={s.headingWrapper}>
         <WhiteRectangle />
-        <HeadingSection title={title} socials={social} className={s.heading} />
+        <HeadingSection title={title} socials={social} className={s.heading} iconsClassName={s.headingIcons} />
         <WhiteRectangle className={s.line} />
       </LeftColumn>
       <div className={s.contentWrapperLeft}>

@@ -8,7 +8,13 @@ import { headingIcons } from './data'
 
 import s from './HeadingSection.module.scss'
 
-function HeadingSection({ className, title, description, socials }: InferProps<typeof HeadingSection.propTypes>) {
+function HeadingSection({
+  className,
+  iconsClassName,
+  title,
+  description,
+  socials,
+}: InferProps<typeof HeadingSection.propTypes>) {
   const getIcons = useMemo(
     () =>
       headingIcons[socials as keyof typeof headingIcons]?.map((el) => (
@@ -21,13 +27,14 @@ function HeadingSection({ className, title, description, socials }: InferProps<t
     <div className={cx(s.root, className)}>
       <h2 className={s.title}>{title}</h2>
       {description && <p className={s.description}>{description}</p>}
-      {socials && <div className={s.icons}>{getIcons}</div>}
+      {socials && <div className={cx(s.icons, iconsClassName)}>{getIcons}</div>}
     </div>
   )
 }
 
 HeadingSection.propTypes = {
   className: string,
+  iconsClassName: string,
   title: string.isRequired,
   description: string,
   socials: oneOf(['community', 'corporate']),

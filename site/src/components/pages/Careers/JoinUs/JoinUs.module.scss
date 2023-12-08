@@ -58,6 +58,6 @@
 
   @include mobile {
     width: 100%;
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 - 8) size($spacing12) size($spacing48);
   }
 }

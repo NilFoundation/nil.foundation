@@ -41,7 +41,7 @@
 }
 
 .heading {
-  padding: size($spacing32);
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32);
 
   @include mobile {
     padding: size($spacing24) size($spacing12);
@@ -50,7 +50,6 @@
 
 .contentWrapper {
   position: relative;
-  width: size(272);
   margin-bottom: auto;
   background-color: $gray900;
 
@@ -77,6 +76,7 @@
 
 .contentWrapperLeft {
   composes: contentWrapper;
+  flex-basis: size(275);
   margin-top: size(206);
 
   & > .text {
@@ -95,6 +95,7 @@
 
 .contentWrapperRight {
   composes: contentWrapper;
+  flex-basis: size(259);
   margin-top: size(236);
 
   @include mobile {
@@ -105,7 +106,7 @@
 }
 
 .text {
-  padding: size($spacing32);
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
 
   @include paragraph;
 

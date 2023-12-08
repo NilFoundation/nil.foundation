@@ -11,6 +11,8 @@
 .head {
   min-height: unset;
 
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 9);
+
   @include mobile {
     width: 100%;
     padding: size($spacing24) size($spacing12);
@@ -37,12 +39,12 @@
 }
 
 .linkContainer {
-  padding: size($spacing12) size($spacing16) size(36);
+  padding: size($spacing12) size($spacing16) size($spacing32 + 8);
   background-color: $gray900;
 }
 
 .heroDescription {
-  padding: 0 size($spacing32) size($spacing32);
+  padding: 0 size($spacing32) size($spacing32 - 2);
   background-color: $gray900;
 
   @include mobile {
@@ -57,14 +59,15 @@
 }
 
 .box {
-  width: size(269);
   background-color: $gray900;
 }
 
 .box1 {
-  margin-top: size(265);
+  width: size(275);
+  margin-top: size(258);
 }
 
 .box2 {
-  margin-top: size(560);
+  width: size(259);
+  margin-top: size(564);
 }

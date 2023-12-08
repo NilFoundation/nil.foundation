@@ -3,7 +3,9 @@ export const joinNil = {
   social: 'community',
   content: {
     left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
-    right: {
+    right:
+      'Join our community to collaborate with experienced engineers on building secure, scalable and composable decentralized applications.',
+    newRight: {
       isDesktop:
         'Join our community to collaborate with experienced engineers on building secure, scalable and composable decentralized applications.',
       isMobile:

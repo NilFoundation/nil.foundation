@@ -3,6 +3,12 @@ export type JoinNilBaseData = {
   social: string
   content: {
     left: string
+    newRight:
+      | {
+          isDesktop: string
+          isMobile: string
+        }
+      | string
     right:
       | {
           isDesktop: string

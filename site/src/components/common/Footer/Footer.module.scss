@@ -17,43 +17,46 @@
 .head {
   display: flex;
   flex-direction: column;
-  padding: size($spacing128) size($spacing48) size($spacing128);
-  gap: size($spacing12);
+  padding: size($spacing128 - 5) size($spacing48) size($spacing128 - 3);
+  gap: size($spacing12 - 4);
 
   svg {
     height: size(180);
   }
 
   @include mobile {
-    padding: 0 0 size($spacing24);
+    padding: 0 0 size($spacing24 - 3);
+
+    gap: size($spacing12);
 
     svg {
       padding: 0 size($spacing12);
-      height: size(50);
+      height: size(41);
     }
   }
 }
 
 .wrapper {
   @include mobile {
-    padding: 0 size($spacing12);
+    padding: 0;
   }
 }
 
 .center {
   display: grid;
-  padding-bottom: size($spacing64);
+  padding-bottom: size($spacing64 - 11);
   grid-template-columns: repeat(5, 1fr);
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
+    gap: size($spacing16) size($spacing16);
     padding-bottom: size($spacing48);
   }
 }
 
 .linksWrapper {
   &:not(:last-of-type) {
-    margin-bottom: size($spacing32);
+    margin-bottom: size($spacing32 - 3);
   }
 
   .item {
@@ -80,23 +83,34 @@
 
   @include mobile {
     &:not(:last-of-type) {
-      margin-bottom: size($spacing24);
+      margin-bottom: size($spacing24 - 3);
     }
   }
 }
 
 .title {
-  margin-bottom: size($spacing12);
+  margin-bottom: size($spacing12 + 3);
   color: $secondary;
 }
 
 .socials {
   grid-column: span 2 / 4;
+  margin-left: size(2);
+
+  @include mobile {
+    margin-left: size(8);
+  }
 }
 
 .socialWrapper {
   &:not(:last-of-type) {
-    margin-bottom: size($spacing24);
+    margin-bottom: size($spacing24 + 5);
+  }
+
+  @include mobile {
+    &:not(:last-of-type) {
+      margin-bottom: size($spacing24 - 3);
+    }
   }
 }
 
@@ -111,16 +125,18 @@
 
 .address {
   grid-column: span 2;
+  margin-left: size(2);
 
   @include mobile {
-    margin-top: size($spacing32);
+    margin-top: size(5);
+    margin-left: 0;
   }
 }
 
 .addressWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: size($spacing32);
+  margin-top: size(-3);
 
   @include mobile {
     grid-template-columns: repeat(1, 1fr);
@@ -132,10 +148,20 @@
 .place {
   width: size(233);
 
+  &:nth-child(2) {
+    width: size(203);
+    margin-left: size(-1);
+  }
+
   @include main;
 
   @include mobile {
     width: 100%;
+
+    &:nth-child(2) {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 }
 
@@ -143,6 +169,9 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  margin-bottom: size($spacing32);
+
+  align-items: center;
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
@@ -156,7 +185,7 @@
   letter-spacing: size(-0.1);
 
   @include mobile {
-    margin-bottom: size($spacing16);
+    margin-bottom: size($spacing16 + 3);
   }
 }
 

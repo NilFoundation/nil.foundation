@@ -49,14 +49,14 @@ export const stub = {
   ],
 
   address: {
-    title: 'Address',
+    title: 'Adress',
     places: [
       {
         name: 'nil: P.O. box 2775, Artemis House, 67 Fort Street, Grand Cayman, KY1-1111, Cayman Islands',
         link: '',
       },
       {
-        name: 'nil (Cyprus) Ltd.: Vasileiou Makedonos, 59, 3040, Limassol, Cyprus',
+        name: 'nil (Cyprus) Ltd.: Vasileiou\xa0Makedonos, 59,\xa03040, Limassol, Cyprus',
         link: '',
       },
     ],

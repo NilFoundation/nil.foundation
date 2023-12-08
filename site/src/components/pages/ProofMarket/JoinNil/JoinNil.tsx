@@ -19,11 +19,11 @@ type JoinNilProps<T extends JoinNilBaseData> = {
 }
 
 function getContent(isMobile: boolean | null, content: JoinNilBaseData['content']) {
-  if (typeof content.right === 'string') {
-    return content.right
+  if (typeof content.newRight === 'string') {
+    return content.newRight
   }
 
-  return !isMobile ? content.right.isDesktop : content.right.isMobile
+  return !isMobile ? content.newRight.isDesktop : content.newRight.isMobile
 }
 
 const JoinNil = <T extends JoinNilBaseData>({

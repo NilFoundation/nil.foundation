@@ -70,9 +70,10 @@
 .icons {
   display: flex;
   flex-wrap: wrap;
-  gap: size($spacing8);
+  gap: size($spacing12);
 
   @include mobile {
+    gap: size($spacing12);
     margin-top: size($spacing48);
   }
 }

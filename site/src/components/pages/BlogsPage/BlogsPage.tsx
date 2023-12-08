@@ -54,7 +54,9 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
           <div className={s.pageHead}>
             <h1 className={cx(s.pageTitle, s.headItem)}>Blog</h1>
             <h2 className={cx(s.pageDescription, s.headItem)}>
-              Stay in touch with our products development and explore zero-knowledge technology
+              {isMobile
+                ? 'Stay in touch with our products development and explore zero\u2011knowledge technology'
+                : 'Stay in touch with our products development and explore zero-knowledge technology'}
             </h2>
             {isMobile && (
               <div className={s.mobileSortButtons}>
@@ -85,7 +87,13 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                 <div className={s.scrollWrapper}>
                   <div className={s.tags}>
                     {data.tags.map((tag) => (
-                      <ToggleButton key={tag.slug} isActive={tag.slug === activeTag} href={`/blog/tag/${tag.slug}`}>
+                      <ToggleButton
+                        size="l"
+                        key={tag.slug}
+                        className={s.toggleButton}
+                        isActive={tag.slug === activeTag}
+                        href={`/blog/tag/${tag.slug}`}
+                      >
                         {tag.name}
                       </ToggleButton>
                     ))}

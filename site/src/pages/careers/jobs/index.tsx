@@ -10,9 +10,9 @@ import { useRouter } from 'next/router'
 import NotFound from 'pages/NotFound'
 
 const OpenPositionsPage = ({ jobsPostings }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const {query} = useRouter()
+  const { query } = useRouter()
   const jobId = query.jobId
-  const jobToDisplay = jobsPostings.find(x => x.id.toString() === jobId)
+  const jobToDisplay = jobsPostings.find((x) => x.id.toString() === jobId)
 
   if (query.jobId) {
     return (
@@ -23,10 +23,11 @@ const OpenPositionsPage = ({ jobsPostings }: InferGetStaticPropsType<typeof getS
   }
 
   return (
-  <MetaLayout seo={jobsSeoData}>
-    <OpenPositions jobsPostings={jobsPostings} />
-  </MetaLayout>
-)}
+    <MetaLayout seo={jobsSeoData}>
+      <OpenPositions jobsPostings={jobsPostings} />
+    </MetaLayout>
+  )
+}
 
 export async function getStaticProps() {
   const getConfig = getSiteConfig

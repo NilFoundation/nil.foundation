@@ -5,18 +5,21 @@
 @use '~styles/paddings' as *;
 
 .root {
-  display: grid;
+  display: flex;
   margin-bottom: size(319);
-  grid-template-columns: 1fr 1fr;
 
   @include mobile {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     margin-bottom: size(60);
   }
 }
 
 .head {
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32);
+
   @include mobile {
+    padding: size($spacing24 - 8) size($spacing12 + 73) size($spacing24)
+      size($spacing12);
     min-height: auto;
   }
 }
@@ -53,7 +56,7 @@
 }
 
 .title {
-  padding: size($spacing32) size(150) size(131) size($spacing32);
+  padding: size($spacing32 - 5) size(150) size(136) size($spacing32);
   background-color: $gray900;
   word-break: break-word;
 
@@ -61,7 +64,8 @@
 
   @include mobile {
     min-height: auto;
-    padding: size(72) size($spacing12) size($spacing24);
+    padding: size($spacing48 + $spacing24 + 4) size($spacing12)
+      size($spacing24 + 4);
   }
 }
 
@@ -75,11 +79,20 @@
 }
 
 .buttonBlock {
-  padding: size(104) size(16) size(32);
+  padding: size($spacing16 + $spacing12) size($spacing16)
+    size($spacing16 + $spacing12 + 4);
   background-color: $gray900;
 
   @include mobile {
-    padding-top: size(58);
-    padding-bottom: size($spacing12);
+    padding: size($spacing12) size($spacing16)
+      size($spacing12 + $spacing24 + 14);
+    direction: ltr;
+  }
+}
+
+.button {
+  @include mobile {
+    font-size: size(12);
+    letter-spacing: -0.36px;
   }
 }

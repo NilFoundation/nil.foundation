@@ -15,20 +15,28 @@
 
 .heading {
   min-height: unset;
+
+  padding: size($spacing32 - 11) size($spacing32 - 2) size($spacing32 + 8)
+    size($spacing32);
+
+  @include mobile {
+    padding: size($spacing24 - 13) size($spacing12 + 10) size($spacing24 - 9)
+      size($spacing12);
+
+    p {
+      margin-top: size($spacing24 * 2 + $spacing48 + 5);
+      width: size(158);
+    }
+  }
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  width: 50%;
-
-  @include mobile {
-    width: 100%;
-  }
 }
 
 .heroDescription {
-  padding: 0 size($spacing32) size($spacing32);
+  padding: 0 size($spacing32) size($spacing32 + 3);
   background-color: $gray900;
 
   @include mobile {
@@ -91,10 +99,10 @@
   }
 
   @include mobile {
-    margin-top: size(-70);
+    margin-top: size(-79);
 
     p {
-      padding: size($spacing12);
+      padding: size($spacing12) 0 size($spacing12 + 3) size($spacing12);
     }
   }
 }
@@ -109,13 +117,13 @@
 }
 .right {
   display: grid;
-  width: 50%;
-  margin-top: size(265);
-  grid-template-columns: 1fr 1fr;
+  margin-top: size(297);
+  grid-template-columns: size(275) size(259);
 
   @include mobile {
     width: 100%;
     margin-top: size(60);
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -142,7 +150,7 @@
 }
 
 .rect {
-  margin-top: size(270);
+  margin-top: size(295);
 
   @include mobile {
     margin-top: 0;
@@ -154,7 +162,7 @@
   display: grid;
   background-color: $gray900;
   grid-column: span 2;
-  gap: size($spacing64);
+  gap: size($spacing64 - 2);
 
   &:after {
     content: '';
@@ -171,21 +179,23 @@
   }
 
   @include mobile {
-    gap: size($spacing24);
+    gap: size($spacing24 + 3);
   }
 }
 
 .card {
   display: grid;
-  padding: size($spacing32);
-  grid-template-columns: 1fr 1fr;
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32 + 5);
+  grid-template-columns: size(242) size(228);
 
   &.grey {
     color: $grey;
   }
 
   @include mobile {
-    padding: size($spacing32) size($spacing12);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: size($spacing8);
+    padding: size($spacing32 - 4) size($spacing12) size($spacing32);
   }
 }
 
@@ -194,13 +204,23 @@
 }
 
 .desc {
+  margin-top: size(2);
+  white-space: pre-line;
+
   p {
     @include paragraph;
-    max-width: size(228);
 
     &:not(:last-of-type) {
-      margin-bottom: size($spacing32);
+      margin-bottom: size($spacing32 - 8);
+
+      @include mobile {
+        margin-bottom: size($spacing32 - 10);
+      }
     }
+  }
+
+  @include mobile {
+    margin-top: size(1);
   }
 }
 
@@ -215,21 +235,28 @@
 
 .footerWrapper {
   display: flex;
-  align-items: center;
-  padding: size($spacing32);
+  align-items: flex-start;
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
   gap: size($spacing32);
 
   @include mobile {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: size($spacing32) size($spacing12);
-    gap: unset;
+    align-items: center;
+    padding: size($spacing32 - 4) size($spacing12) size($spacing32 + 4);
+    gap: size($spacing8);
   }
 }
 
 .socials {
+  margin-top: size(5);
   display: flex;
   gap: size($spacing12);
+
+  @include mobile {
+    gap: size($spacing8);
+    margin-top: size(7);
+  }
 }
 
 .socialButton {
@@ -241,11 +268,12 @@
 }
 
 .inTouch {
-  width: size(190);
+  flex-basis: size(211);
 
   @include heading-03;
 
   @include mobile {
-    width: size(170);
+    flex-basis: unset;
+    // width: size(170);
   }
 }

@@ -40,7 +40,7 @@
   color: $gray900;
 
   @include mobile {
-    width: size(150);
+    width: size(112);
   }
 }
 
@@ -110,8 +110,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: size(18);
-  height: size(18);
+  width: size(14);
+  height: size(14);
   overflow: auto;
   cursor: pointer;
   opacity: 0;

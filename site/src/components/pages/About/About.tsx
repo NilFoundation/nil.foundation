@@ -17,17 +17,17 @@ type AboutProps = {
   data: typeof aboutPageData
 }
 
-const whiteRectangleLineMarginTop = 142
+const whiteRectangleLineMarginTop = 143
 
 const whiteRectangleLineMobileMarginTop = 60
 
 const whiteRectangleLineMobileData = [{ id: 1, margin: 0 }]
 
 const whiteRectangleLineData = [
-  { id: 1, margin: 142 },
-  { id: 2, margin: 142 },
-  { id: 3, margin: 168 },
-  { id: 4, margin: 0 },
+  { id: 1, margin: 142, flexBasis: 275.5 },
+  { id: 2, margin: 142, flexBasis: 275.5 },
+  { id: 3, margin: 166, flexBasis: 267 },
+  { id: 4, margin: 0, flexBasis: 267 },
 ]
 
 const About = ({ data }: AboutProps) => {

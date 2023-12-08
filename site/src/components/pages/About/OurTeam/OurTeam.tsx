@@ -10,6 +10,8 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import s from './OurTeam.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
 import { WebButton } from 'components/WebButton'
+import LeftColumn from 'components/Columns/LeftColumn'
+import RightColumn from 'components/Columns/RightColumn'
 
 type OurTeamProps = {
   className?: string
@@ -20,13 +22,13 @@ const OurTeam = ({ className, data: { title, description, button } }: OurTeamPro
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <LeftColumn className={s.left}>
         <WhiteRectangle />
         <HeadingSection title={title} className={s.head} />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </LeftColumn>
 
-      <div className={s.right}>
+      <RightColumn className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <p className={s.title}>{description}</p>
         <div className={s.footer}>
@@ -40,7 +42,7 @@ const OurTeam = ({ className, data: { title, description, button } }: OurTeamPro
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </RightColumn>
     </div>
   )
 }

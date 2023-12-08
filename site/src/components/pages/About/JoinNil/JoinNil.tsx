@@ -10,12 +10,12 @@ function JoinNil({ title, leftText, rightText, social, className }: InferProps<t
     <section className={classNames(s.container, className)}>
       <div className={s.headingWrapper}>
         <WhiteRectangle />
-        <HeadingSection title={title} socials={social} className={s.heading} />
+        <HeadingSection title={title} socials={social} className={s.heading} iconsClassName={s.headingIcons} />
         <WhiteRectangle className={s.line} />
       </div>
       <div className={s.contentWrapperLeft}>
         <WhiteRectangle className={s.line} />
-        <p className={s.text}>{leftText}</p>
+        <p className={classNames(s.text, s.bigBottomPadding)}>{leftText}</p>
         <WhiteRectangle className={s.lineMobile} />
       </div>
       <div className={s.contentWrapperRight}>

@@ -8,17 +8,27 @@ import SocialButton from 'components/SocialButton'
 import s from './Hero.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
 import { useViewport } from 'hooks/useViewport'
+import LeftColumn from 'components/Columns/LeftColumn'
+import RightColumn from 'components/Columns/RightColumn'
 
 type HeroProps = {
   className?: string
   data: typeof aboutPageData.hero
 }
 
+const getContent = (isMobile: boolean | null, content: string | { isDesktop: string; isMobile: string }) => {
+  if (typeof content === 'string') {
+    return content
+  }
+
+  return isMobile ? content.isMobile : content.isDesktop
+}
+
 const Hero = ({ className, data: { title, description, info, content, future, footer } }: HeroProps) => {
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <LeftColumn className={s.left}>
         <HeadingSection className={s.heading} title={title} description={isMobile ? description : null} />
         <div className={s.heroDescription}>
           <p>{description}</p>
@@ -30,9 +40,9 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <WhiteRectangle />
           </div>
         </div>
-      </div>
+      </LeftColumn>
 
-      <div className={s.right}>
+      <RightColumn className={s.right}>
         <div className={s.rectWrapper}>
           <WhiteRectangle />
         </div>
@@ -44,7 +54,7 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
               <h3 className={s.title}>{el.title}</h3>
               <div className={s.desc}>
                 {el.description.map((item) => (
-                  <p key={item}>{item}</p>
+                  <p key={item}>{getContent(isMobile, item)}</p>
                 ))}
               </div>
             </div>
@@ -71,7 +81,7 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <WhiteRectangle className={s.wRect} />
           </div>
         </div>
-      </div>
+      </RightColumn>
     </div>
   )
 }

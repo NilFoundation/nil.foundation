@@ -15,12 +15,21 @@
   }
 }
 
-.left,
-.right {
-  width: 50%;
+.heading {
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 3);
+
+  p {
+    margin-top: size($spacing32 + 8);
+  }
 
   @include mobile {
-    width: 100%;
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
+
+    p {
+      width: size(170);
+
+      margin-top: size($spacing48 + 5);
+    }
   }
 }
 
@@ -48,21 +57,33 @@
 }
 
 .content {
-  display: flex;
-  flex-wrap: wrap;
-  padding: size($spacing32) size($spacing32) size($spacing64);
+  display: grid;
+  grid-template-columns: size(212) size(226);
+  padding: size($spacing32 - 2) size($spacing32) size($spacing64 + 2);
   background-color: $gray900;
   gap: size($spacing32);
 
   @include mobile {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: size($spacing48) size($spacing12) size($spacing64);
+    padding: size($spacing48) size($spacing12) size($spacing64 + 3);
     gap: size($spacing12);
   }
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+
+  gap: size($spacing32);
+
+  @include mobile {
+    gap: size($spacing32 + 2);
+  }
+}
+
 .item {
+  width: 100%;
+
   @include mobile {
     width: 100%;
   }
@@ -70,15 +91,19 @@
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: size(276) size(258);
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .buttonBlock {
-  padding: size(104) size(16) size(44);
+  padding: size($spacing12) size($spacing16) size($spacing24 + $spacing12 + 4);
   background-color: $gray900;
 
   @include mobile {
-    padding-top: size(58);
-    padding-bottom: size(40);
+    // padding-top: size(58);
+    // padding-bottom: size(40);
   }
 }

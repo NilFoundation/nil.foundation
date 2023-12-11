@@ -1,7 +1,7 @@
 import Container from 'components/Container'
 
-import JoinNil from 'pages/Home/JoinNil'
-import About from 'pages/Home/About'
+import JoinNil from 'pages/ProofMarket/JoinNil'
+import About from 'pages/ProofMarket/About'
 
 import Hero from './Hero'
 import FullCycle from './FullCycle'

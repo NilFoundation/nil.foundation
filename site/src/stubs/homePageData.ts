@@ -13,7 +13,7 @@ export const homePageData = {
       'Operating as a traditional commodity marketplace, Proof Market offers distinct advantages for each market participant.',
     content: [
       {
-        title: 'A shortcut for developers to establish a stable zkProof generation pipeline',
+        title: 'A shortcut for developers to\xa0establish a stable zkProof generation pipeline',
         list: [
           'Direct proof ordering for Ethereum applications',
           'Cost and time-effective proof generation process',
@@ -25,7 +25,7 @@ export const homePageData = {
         list: [
           'More orders from multiple requesters',
           'Market insights to optimize hardware profitability per order',
-          'Opportunity to strike a balance between workload and earnings',
+          'Opportunity to strike a\xa0balance\xa0between workload and earnings.',
         ],
       },
     ],
@@ -35,7 +35,7 @@ export const homePageData = {
     },
   },
   zkProof: {
-    title: 'zkProof advantages for the industry',
+    title: 'zkProof advantages for\xa0the industry',
     content: [
       {
         title: 'Scalability',
@@ -58,7 +58,7 @@ export const homePageData = {
     ],
   },
   fullCycle: {
-    title: 'Full cycle solution for creating zk-enabled Ethereum apps',
+    title: 'Full cycle solution\xa0for creating zk-enabled Ethereum apps',
     description:
       'zkLLVM circuit compiler helps to define proof statements with less effort, reducing implementation time and enhancing your Proof Market experience.',
     list: [
@@ -67,7 +67,7 @@ export const homePageData = {
         title: 'Direct circuit compilation from C++, Rust, or other mainstream languages',
       },
       {
-        title: 'Seamless integration with Proof Market for a smooth proof generation process',
+        title: 'Seamless integration with Proof Market for a\xa0smooth proof generation process',
       },
     ],
     footer: {

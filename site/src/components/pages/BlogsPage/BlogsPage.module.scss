@@ -86,9 +86,12 @@
 }
 
 .mobileSortButtons {
+  display: none;
+
   margin-top: size(50);
 
   @include mobile {
+    display: block;
     margin-top: size($spacing48);
     padding: 0;
   }

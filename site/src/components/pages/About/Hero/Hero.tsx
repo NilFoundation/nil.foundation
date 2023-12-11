@@ -53,8 +53,9 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <div className={s.card} key={el.title}>
               <h3 className={s.title}>{el.title}</h3>
               <div className={s.desc}>
-                {el.description.map((item) => (
-                  <p key={item}>{getContent(isMobile, item)}</p>
+                {el.description.map((item, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <p key={index}>{getContent(isMobile, item)}</p>
                 ))}
               </div>
             </div>

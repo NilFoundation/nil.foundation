@@ -8,6 +8,8 @@ import s from './Cherries.module.scss'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
 import { WebButton } from 'components/WebButton'
+import LeftColumn from 'components/Columns/LeftColumn'
+import RightColumn from 'components/Columns/RightColumn'
 
 type Props = {
   className?: string
@@ -19,13 +21,18 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <LeftColumn>
         <WhiteRectangle />
-        <HeadingSection className={s.heading} title={title} description={description} />
+        <HeadingSection
+          className={s.heading}
+          descriptionClassName={s.headingDescription}
+          title={title}
+          description={description}
+        />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </LeftColumn>
 
-      <div className={s.right}>
+      <RightColumn className={s.right}>
         {!isMobile && (
           <div className={s.rightHeader}>
             <div>
@@ -37,17 +44,19 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
           </div>
         )}
         <div className={s.content}>
-          {content.map((el) => (
-            <div className={s.box} key={el.title}>
-              <h2 className={s.title}>{el.title}</h2>
-              <p className={s.description}>{el.description}</p>
-            </div>
-          ))}
+          <div>
+            {content.map((el) => (
+              <div className={s.box} key={el.title}>
+                <h2 className={s.title}>{el.title}</h2>
+                <p className={s.description}>{el.description}</p>
+              </div>
+            ))}
+          </div>
           <div className={s.lineWrapper}>
             <WhiteRectangle />
           </div>
         </div>
-      </div>
+      </RightColumn>
     </div>
   )
 }

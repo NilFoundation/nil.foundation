@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
 
@@ -20,6 +20,23 @@ type SecureProps = {
 const Secure = ({ className, data: { title, description, content, footer } }: SecureProps) => {
   const { isMobile } = useViewport()
 
+  const columnContent = useMemo(
+    () =>
+      content.reduce<[ArrayElement<typeof content>[], ArrayElement<typeof content>[]]>(
+        (acc, el, index) => {
+          if (index % 2 === 0) {
+            acc[0].push(el)
+          } else {
+            acc[1].push(el)
+          }
+
+          return acc
+        },
+        [[], []],
+      ),
+    [content],
+  )
+
   return (
     <div className={cx(s.root, className)}>
       <div className={s.left}>
@@ -40,15 +57,20 @@ const Secure = ({ className, data: { title, description, content, footer } }: Se
           </div>
         )}
         <div className={s.content}>
-          {content.map((el) => (
-            <div className={s.box} key={el.title}>
-              <div>
-                <Icon name={el.icon} className={s.icon} />
-              </div>
-              <div className={s.textWrapper}>
-                <span className={s.title}>{el.title}</span>
-                <p className={s.description}>{el.description}</p>
-              </div>
+          {columnContent.map((arr, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            <div key={index} className={s.column}>
+              {arr.map((el) => (
+                <div className={s.box} key={el.title}>
+                  <div>
+                    <Icon name={el.icon} className={s.icon} />
+                  </div>
+                  <div className={s.textWrapper}>
+                    <span className={s.title}>{el.title}</span>
+                    <p className={s.description}>{el.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>

@@ -7,11 +7,13 @@
 .container {
   position: relative;
   background-color: $gray900;
-  height: 130vh;
+  height: 120vh;
+  min-height: size(818);
   margin-bottom: -10vh;
 
   @include mobile {
     height: calc(100vh - #{size(30)});
+    min-height: unset;
     margin-top: size($spacing24 + 11);
     padding-bottom: size(20);
 
@@ -22,25 +24,28 @@
 
 .animatedContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
+  grid-template-columns: size(137.5) size(137.5) size(551) size(130) size(129);
+  grid-template-rows: max(size(628), calc(get-real-vh(100) - size(46))) 1fr;
   width: 100%;
   margin-left: auto;
 
   @include mobile {
     grid-template-columns: 3fr 2fr 1fr;
+    grid-template-rows: auto;
     height: 100%;
   }
 }
 
 .description {
   position: absolute;
-  bottom: min(calc(#{size($spacing32 + 10)}), size($spacing32 + 38));
+  bottom: size($spacing32 + 36);
   width: 100%;
 
   padding: 0 size($spacing32);
 
   p {
     @include heading-04;
+    line-height: size(27);
   }
 
   @include mobile {
@@ -78,7 +83,7 @@
 }
 
 .link {
-  margin-bottom: size(10);
+  margin-bottom: size(39);
 }
 
 .animationWidgetMobile {

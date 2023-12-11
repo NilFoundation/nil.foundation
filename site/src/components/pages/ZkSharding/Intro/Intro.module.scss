@@ -34,7 +34,7 @@
 
 .description {
   position: absolute;
-  bottom: min(calc(#{size($spacing32 + 10)} + 4vh), size($spacing32 + 38));
+  bottom: min(calc(#{size($spacing32 + 10)}), size($spacing32 + 38));
   width: 100%;
 
   padding: 0 size($spacing32);

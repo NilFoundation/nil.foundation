@@ -13,18 +13,18 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
-        source: '/careers/jobs',
+        source: '/careers/jobs/',
+        destination: '/careers/jobs/:jobId',
         has: [
           {
             type: 'query',
             key: 'jobId',
           },
         ],
-        destination: '/careers/jobs/:jobId',
-        permanent: true,
-      },
+        permanent: false,
+      }
     ];
-  },
+  }
 };
 
 module.exports = nextConfig;

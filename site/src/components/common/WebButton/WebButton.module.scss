@@ -41,18 +41,6 @@
     }
   }
 
-  &:focus {
-    color: $gray-300;
-
-    .icon {
-      transform: rotate(90deg);
-    }
-
-    &::after {
-      background-color: $gray-50;
-    }
-  }
-
   &:active {
     color: $gray-300;
 

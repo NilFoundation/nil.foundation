@@ -48,6 +48,10 @@
   @include mobile {
     grid-template-columns: 3fr 1fr 1fr 1fr;
     height: 100%;
+
+    & > div {
+      width: calc(100% + 0.5px);
+    }
   }
 }
 

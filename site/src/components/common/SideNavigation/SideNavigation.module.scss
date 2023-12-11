@@ -29,7 +29,7 @@
   width: size(512);
   transform-origin: top left;
   transition: 0.4s opacity;
-  margin-top: size($spacing32);
+  margin-top: size($spacing32 - 18);
   will-change: transform, opacity;
 
   @include mobile {
@@ -70,7 +70,7 @@
 
 .linkWrapper {
   // width: size(270);
-  margin-bottom: size($spacing48);
+  margin-bottom: size($spacing48 - 3);
   background-color: $gray900;
 
   @include mobile {

@@ -75,9 +75,11 @@ function AnimatedCard({
 
     const tween = gsap.fromTo(
       container,
-      { y: '0' },
       {
-        y: ySourceValue,
+        ...(ySourceValue.endsWith('px') ? { '--yTransform': '0' } : { y: '0' }),
+      },
+      {
+        ...(ySourceValue.endsWith('px') ? { '--yTransform': ySourceValue.replace('px', '') } : { y: ySourceValue }),
         duration,
         ease: 'expo.out',
         onComplete: () => {
@@ -118,7 +120,7 @@ function AnimatedCard({
   }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
 
   return (
-    <div className={s.cardWrapper}>
+    <div className={classNames(s.cardWrapper, alignment === 'top' ? s.top : s.bottom)}>
       <div
         ref={containerRef}
         {...props}

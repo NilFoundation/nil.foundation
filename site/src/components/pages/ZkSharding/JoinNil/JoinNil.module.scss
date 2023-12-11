@@ -48,6 +48,8 @@
     flex-basis: unset;
 
     width: 100%;
+
+    margin-top: size(-1);
   }
 }
 
@@ -84,7 +86,7 @@
     margin-top: 0;
     padding-top: size($spacing24);
 
-    flex-basis: 50%;
+    flex-basis: calc(50% + 1px);
 
     &:last-of-type {
       margin-top: 0;

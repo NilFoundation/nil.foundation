@@ -1,7 +1,10 @@
 import { useMemo } from 'react'
-import { UIPosition } from 'src/freshteam/types'
+import { UIPositionWithoutDescription } from 'src/freshteam/types'
 
-export const useGroupPositionsByDepartments = (positions: UIPosition[], order?: Array<UIPosition['department']>) => {
+export const useGroupPositionsByDepartments = (
+  positions: UIPositionWithoutDescription[],
+  order?: Array<UIPositionWithoutDescription['department']>,
+) => {
   return useMemo(() => {
     const departments = positions.reduce((acc, position) => {
       const department = position.department
@@ -11,7 +14,7 @@ export const useGroupPositionsByDepartments = (positions: UIPosition[], order?: 
         ...acc,
         [department]: [...departmentPositions, position],
       }
-    }, {} as Record<string, UIPosition[]>)
+    }, {} as Record<string, UIPositionWithoutDescription[]>)
 
     if (order) {
       const orderedDepartments = order
@@ -21,7 +24,7 @@ export const useGroupPositionsByDepartments = (positions: UIPosition[], order?: 
             ...acc,
             [department]: departments[department],
           }
-        }, {} as Record<string, UIPosition[]>)
+        }, {} as Record<string, UIPositionWithoutDescription[]>)
 
       return { ...orderedDepartments, ...departments }
     }

@@ -8,7 +8,7 @@ import Icon from 'components/Icon'
 
 import s from './OpenPositions.module.scss'
 import DottedSection from './DottedSection'
-import { UIPosition } from 'src/freshteam/types'
+import { UIPositionWithoutDescription } from 'src/freshteam/types'
 import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
 import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
@@ -20,7 +20,7 @@ import { Position } from './Position/Position'
 import uniq from 'lodash.uniq'
 
 type OpenPositionsProps = {
-  jobsPostings: UIPosition[]
+  jobsPostings: UIPositionWithoutDescription[]
 }
 
 const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Human Resources']

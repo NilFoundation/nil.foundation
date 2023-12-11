@@ -1,17 +1,17 @@
-import { Position, UIPosition } from './types'
+import { Position, UIPosition, UIPositionWithoutDescription } from './types'
 import { convert } from 'html-to-text'
 
-export const mapPositionToUIPosition = (position: Position): UIPosition => {
+export const mapPositionToUIPosition = <T extends boolean>(position: Position, includeDescription: T) => {
   return {
     id: position.id,
     title: position.title,
-    description: position.description,
+    description: includeDescription ? position.description : undefined,
     plainTextDescription: convert(position.description, { wordwrap: false, limits: { maxBaseElements: 200 } }),
     remote: position.remote,
     type: mapTypeToDisplayType(position.type),
     branch: position.branch,
     department: position.department.name,
-  }
+  } as T extends true ? UIPosition : UIPositionWithoutDescription
 }
 
 const mapTypeToDisplayType = (type: Position['type']): string => {

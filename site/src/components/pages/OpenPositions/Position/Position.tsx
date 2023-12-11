@@ -1,11 +1,11 @@
 import { Card } from 'components/Card'
 import s from './Position.module.scss'
-import { UIPosition } from 'src/freshteam/types'
+import { UIPositionWithoutDescription } from 'src/freshteam/types'
 import { HeadingXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { labelOverrides, titleOverrides } from './overrides'
 
 type PositionProps = {
-  position: UIPosition
+  position: UIPositionWithoutDescription
 }
 
 export const Position = ({ position: { id, remote, type, title, plainTextDescription } }: PositionProps) => {

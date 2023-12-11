@@ -1,7 +1,7 @@
-import { UIPosition } from 'src/freshteam/types'
+import { UIPositionWithoutDescription } from 'src/freshteam/types'
 import { PositionsFilter } from './types'
 
-export const useFilterPositions = (positions: UIPosition[], filter: PositionsFilter) => {
+export const useFilterPositions = (positions: UIPositionWithoutDescription[], filter: PositionsFilter) => {
   const filteredPositions = positions.filter((position) => {
     const titleFilter = filter.title ? position.title.toLowerCase().includes(filter.title.toLowerCase()) : true
     const departmentFilter = filter.department

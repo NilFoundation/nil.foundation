@@ -61,3 +61,5 @@ export interface UIPosition {
   branch: Branch
   department: string
 }
+
+export type UIPositionWithoutDescription = Omit<UIPosition, 'description'>

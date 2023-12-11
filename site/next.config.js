@@ -18,10 +18,9 @@ const nextConfig = {
           {
             type: 'query',
             key: 'jobId',
-            value: '?<jobId>value',
           },
         ],
-        destination: '/careers/jobs/value',
+        destination: '/careers/jobs/:jobId',
         permanent: true,
       },
     ];

@@ -15,7 +15,7 @@ const OpenPositions = () => {
   const { isMobile } = useViewport()
   return (
     <>
-      <Container className={s.root}>
+      <Container className={s.root} id="footer_nav">
         {isMobile && (
           <Button className={s.btn} href="/careers">
             <Icon name="arrow-up" className={s.arrow} />

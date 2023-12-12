@@ -84,8 +84,7 @@
   background-color: $gray900;
 
   @include mobile {
-    padding: size($spacing12) size($spacing16)
-      size($spacing12 + $spacing24 + 14);
+    padding: size($spacing12 + 39) size($spacing12) size($spacing12 - 1);
     direction: ltr;
   }
 }

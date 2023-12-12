@@ -140,7 +140,7 @@ export const aboutPageData = {
     title: 'Partners',
     content: [
       {
-        title: 'Investment partners',
+        title: 'Partners',
         logos: [
           {
             url: '/images/partners/starkware.png',

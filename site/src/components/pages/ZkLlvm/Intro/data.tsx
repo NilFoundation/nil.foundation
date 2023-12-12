@@ -6,17 +6,17 @@ import { WebButton } from 'components/WebButton'
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
     id: 'z1',
-    ySourceValue: '-47%',
+    ySourceValue: '-249px',
     yTransformValue: '-99%',
   },
   {
     id: 'z2',
-    ySourceValue: '-42%',
+    ySourceValue: '-219px',
     yTransformValue: '-115%',
   },
   {
     id: 'z3',
-    ySourceValue: '-64%',
+    ySourceValue: '-352px',
     yTransformValue: '-99%',
     children: (isCompleted: boolean) => (
       <IntroDescription
@@ -28,57 +28,57 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   },
   {
     id: 'z4',
-    ySourceValue: '-59%',
+    ySourceValue: '-322px',
     yTransformValue: '-99%',
   },
   {
     id: 'z5',
-    ySourceValue: '-54%',
+    ySourceValue: '-292px',
     yTransformValue: '-80%',
   },
   {
     id: 'z6',
-    ySourceValue: '-65%',
+    ySourceValue: '-357px',
     yTransformValue: '-99%',
   },
   {
     id: 'z7',
-    ySourceValue: '-91%',
+    ySourceValue: '-518px',
     yTransformValue: '-99%',
   },
   {
     id: 'z8',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z9',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z10',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z11',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z12',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z13',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z14',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
 ]

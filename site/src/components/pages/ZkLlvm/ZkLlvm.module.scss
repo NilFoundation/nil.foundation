@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: size(259) repeat(4, 1fr);
   width: 100%;
-  margin-top: size($spacing48);
+  margin-top: size($spacing48 + 5);
 
   @include mobile {
     grid-template-columns: 1fr;

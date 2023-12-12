@@ -44,8 +44,8 @@
 
 .description {
   position: absolute;
-  left: size($spacing32);
-  bottom: min(calc(#{size($spacing24)} + 4vh), size($spacing64));
+  left: size($spacing32 + 1);
+  bottom: size($spacing32 + 34);
   width: size(226);
 
   @include mobile {

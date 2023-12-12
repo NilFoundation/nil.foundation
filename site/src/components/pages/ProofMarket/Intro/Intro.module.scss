@@ -11,7 +11,7 @@
   min-height: size(848);
 
   @include mobile {
-    height: calc(100vh - #{size(30)});
+    height: calc(100vh - #{size(25)});
     min-height: size(486);
     padding-top: 0;
     padding-bottom: size(20);
@@ -52,6 +52,7 @@
 
   @include mobile {
     grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     height: 100%;
 
     & > div {

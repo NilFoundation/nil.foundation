@@ -11,7 +11,7 @@
   min-height: size(848);
 
   @include mobile {
-    height: calc(100vh - #{size(30)});
+    height: calc(100vh - #{size(35)});
     min-height: size(476);
     margin-top: size($spacing24 + 11);
     padding-bottom: size(20);

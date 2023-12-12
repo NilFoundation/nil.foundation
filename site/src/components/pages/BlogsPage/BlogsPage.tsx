@@ -54,9 +54,12 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
           <div className={s.pageHead}>
             <h1 className={cx(s.pageTitle, s.headItem)}>Blog</h1>
             <h2 className={cx(s.pageDescription, s.headItem)}>
-              {isMobile
-                ? 'Stay in touch with our products development and explore zero\u2011knowledge technology'
-                : 'Stay in touch with our products development and explore zero-knowledge technology'}
+              <span className={s.isMobile}>
+                Stay in touch with our products development and explore zero&#8209;knowledge technology
+              </span>
+              <span className={s.isDesktop}>
+                Stay in touch with our products development and explore zero-knowledge technology
+              </span>
             </h2>
 
             <div className={s.mobileSortButtons}>

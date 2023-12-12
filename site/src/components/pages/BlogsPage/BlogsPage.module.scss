@@ -227,3 +227,15 @@
     }
   }
 }
+
+.isMobile {
+  @include notMobile {
+    display: none;
+  }
+}
+
+.isDesktop {
+  @include mobile {
+    display: none;
+  }
+}

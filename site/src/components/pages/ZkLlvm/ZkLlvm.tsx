@@ -1,8 +1,7 @@
 import Container from 'components/Container'
 
-import JoinNil from 'pages/ProofMarket/JoinNil'
-import About from 'pages/ProofMarket/About'
-
+import JoinNil from './JoinNil'
+import About from './About'
 import Hero from './Hero'
 import FullCycle from './FullCycle'
 import Accelerating from './Accelerating'
@@ -44,12 +43,8 @@ const ZkLlvm = ({ data }: ZkLlvmProps) => {
           <Accelerating data={data.accelerating} />
           <ZkEnabledApps data={data.zkProof} />
           <FullCycle data={data.fullCycle} />
-          <JoinNil data={data.joinNil} className={s.joinNil} boxClassName={s.joinNilBox} withMargin />
-          <About
-            data={data.about}
-            rightFooterClassName={s.aboutRightFooter}
-            rightHeaderClassName={s.aboutRightHeader}
-          />
+          <JoinNil data={data.joinNil} withMargin />
+          <About data={data.about} />
           <WhiteRectangleLine
             data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
             marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}

@@ -1,32 +1,24 @@
 @use '~styles/colors' as *;
 @use '~styles/helpers' as *;
 @use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
 
 .root {
   display: flex;
   align-items: flex-start;
-  margin-bottom: size(97);
+  margin-bottom: size(94);
 
   @include mobile {
     flex-direction: column;
-    margin-top: size(60);
+    margin-top: size(70);
     margin-bottom: size(60);
-  }
-}
-
-.left,
-.right {
-  width: 50%;
-  background-color: $gray900;
-
-  @include mobile {
-    width: 100%;
   }
 }
 
 .right {
   position: relative;
-  margin-top: size(215);
+  margin-top: size(214);
+  background-color: $gray900;
 
   &:after {
     content: '';
@@ -44,16 +36,56 @@
 
   @include mobile {
     margin-top: 0;
-    padding-top: size(40);
+    padding-top: size($spacing48);
   }
 }
 
 .box {
-  &:not(:last-of-type) {
-    margin-bottom: size(60);
+  gap: size($spacing32);
+
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
+
+  h2 {
+    margin-bottom: size($spacing16 + 4);
 
     @include mobile {
-      margin-bottom: size(20);
+      margin-bottom: size($spacing24 + 4);
     }
+  }
+
+  p {
+    margin-top: size(2);
+
+    @include mobile {
+      margin-top: size(1);
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: size($spacing64 + 1);
+
+    @include mobile {
+      margin-bottom: size($spacing24);
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    gap: size(16);
+    padding: size($spacing24) size($spacing12) size($spacing24);
+  }
+}
+
+.heading {
+  min-height: size(420);
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32)
+    size($spacing32);
+
+  @include mobile {
+    min-height: unset;
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
   }
 }

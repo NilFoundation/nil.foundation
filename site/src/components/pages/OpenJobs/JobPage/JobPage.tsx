@@ -1,7 +1,7 @@
 import Container from 'components/Container'
-import localStyles from './PositionPage.module.scss'
-import commonStyles from '../OpenPositions.module.scss'
-import { UIPosition } from 'src/freshteam/types'
+import localStyles from './JobPage.module.scss'
+import commonStyles from '../OpenJobs.module.scss'
+import { UIJob } from 'src/freshteam/types'
 import { useViewport } from 'hooks/useViewport'
 import Button from 'components/Button'
 import Icon from 'components/Icon'
@@ -10,15 +10,13 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import DottedSection from '../DottedSection'
 import { HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides } from '../overrides'
-import sanitizeHtml from 'sanitize-html'
 
-type PositionPageProps = {
-  position: UIPosition
+type JobPageProps = {
+  job: UIJob
 }
 
-const PositionPage = ({ position: { title, description, branch, type } }: PositionPageProps) => {
+const JobPage = ({ job: { title, description, branch, type } }: JobPageProps) => {
   const { isMobile } = useViewport()
-  const sanitizedDescription = sanitizeHtml(description)
 
   return (
     <Container className={commonStyles.root}>
@@ -44,7 +42,7 @@ const PositionPage = ({ position: { title, description, branch, type } }: Positi
           <LabelMedium color={PRIMITIVE_COLORS.gray50} marginBottom="32px">
             {type}
           </LabelMedium>
-          <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+          <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
         <DottedSection />
       </div>
@@ -52,4 +50,4 @@ const PositionPage = ({ position: { title, description, branch, type } }: Positi
   )
 }
 
-export default PositionPage
+export default JobPage

@@ -1,26 +1,59 @@
-import { Position, UIPosition, UIPositionWithoutDescription } from './types'
+import { Branch, Job, JobRole, UIJob, UIJobOverview } from './types'
 import { convert } from 'html-to-text'
+import sanitizeHtml from 'sanitize-html'
 
-export const mapPositionToUIPosition = <T extends boolean>(position: Position, includeDescription: T) => {
+export const mapRawJobToUIJob = <T extends boolean>(
+  rawJob: Job,
+  jobRoles: JobRole[],
+  branches: Branch[],
+  isOverview: T,
+) => {
+  const jobRoleMap = new Map()
+  const branchMap = new Map()
+
   return {
-    id: position.id,
-    title: position.title,
-    description: includeDescription ? position.description : undefined,
-    plainTextDescription: convert(position.description, { wordwrap: false, limits: { maxBaseElements: 200 } }),
-    remote: position.remote,
-    type: mapTypeToDisplayType(position.type),
-    branch: position.branch,
-    department: position.department.name,
-  } as T extends true ? UIPosition : UIPositionWithoutDescription
+    id: rawJob.id,
+    title: rawJob.title,
+    plainTextDescription: convert(rawJob.description, { wordwrap: false, limits: { maxBaseElements: 200 } }),
+    remote: rawJob.remote,
+    type: mapTypeToDisplayType(rawJob.job_type),
+    branch:
+      branchMap.get(rawJob.branch_id) ??
+      branchMap
+        .set(
+          rawJob.branch_id,
+          branches.find((x) => x.id === rawJob.branch_id),
+        )
+        .get(rawJob.branch_id),
+    ...(isOverview
+      ? {
+          department:
+            jobRoleMap.get(rawJob.job_role_id) ??
+            jobRoleMap
+              .set(
+                rawJob.job_role_id,
+                jobRoles.find((x) => x.id === rawJob.job_role_id),
+              )
+              .get(rawJob.job_role_id),
+        }
+      : {
+          description: removeFreshtemStyles(rawJob.description),
+        }),
+  } as T extends true ? UIJobOverview : UIJob
 }
 
-const mapTypeToDisplayType = (type: Position['type']): string => {
+const mapTypeToDisplayType = (type: Job['job_type']): string => {
   switch (type) {
-    case 'full_time':
+    case 2:
       return 'Full Time'
-    case 'part_time':
+    case 1:
       return 'Part Time'
     default:
       return ''
   }
 }
+
+const removeFreshtemStyles = (html: string) =>
+  sanitizeHtml(html, {
+    allowedStyles: {},
+  })

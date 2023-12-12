@@ -1,42 +1,39 @@
 import { client } from './client'
-import { mapPositionToUIPosition } from './mappers'
-import { Position, PositionStatus, UIPosition, UIPositionWithoutDescription } from './types'
+import { Job, JobInfo } from './types'
 
 const USE_MOCK = !!process.env.USE_MOCK || false
 
 class Api {
-  public async getJobPostings(status?: PositionStatus): Promise<UIPositionWithoutDescription[]> {
+  public async getJobInfo(): Promise<JobInfo> {
     if (USE_MOCK) {
-      return []
+      return {
+        jobs: [],
+        branches: [],
+        job_roles: [],
+      }
     }
 
-    let url = 'job_postings'
+    const result = await client.get<JobInfo>('/jobs.json').then((res) => res)
 
-    if (status) {
-      url += `?status=${status}`
-    }
-
-    const result = await client.get<Position[]>(url).then((res) => res)
-
-    return result.data.map((x) => mapPositionToUIPosition(x, false))
+    return result.data
   }
-  public async getJobPosting(id: string): Promise<UIPosition | null> {
+  public async getJobById(id: string): Promise<Job | null> {
     if (USE_MOCK) {
       return null
     }
 
-    const result = await client.get(`job_postings/${id}`).then((res) => res)
+    const result = await client.get(`/jobs/${id}.json`).then((res) => res)
 
-    return mapPositionToUIPosition(result.data, true)
+    return result.data?.job ?? null
   }
   public async getAllPositionPages(): Promise<number[]> {
     if (USE_MOCK) {
       return []
     }
 
-    const result = await this.getJobPostings()
+    const result = await this.getJobInfo()
 
-    return result.map((x) => x.id)
+    return result.jobs.map((x) => x.id)
   }
 }
 

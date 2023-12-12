@@ -1,11 +1,11 @@
 import { Checkbox, Select, SELECT_SIZE } from '@nilfoundation/ui-kit'
-import { PositionsFilter } from '../types'
+import { JobsFilter } from '../types'
 import s from './Filter.module.scss'
 import { TextFilter } from './TextFilter'
 
 type FilterProps = {
-  filter: PositionsFilter
-  setFilter: (filter: PositionsFilter) => void
+  filter: JobsFilter
+  setFilter: (filter: JobsFilter) => void
   departments: string[]
   locations: string[]
   types: string[]

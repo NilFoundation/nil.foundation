@@ -251,7 +251,7 @@
     @include paragraph;
 
     @include mobile {
-      max-width: 93vw;
+      max-width: size(335);
     }
   }
 

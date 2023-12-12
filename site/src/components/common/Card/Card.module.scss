@@ -25,10 +25,12 @@
     }
   }
 
-  &:active {
-    border-style: solid;
-    border-color: $gray-50;
-    outline: none;
+  @include desktop {
+    &:active {
+      border-style: solid;
+      border-color: $gray-50;
+      outline: none;
+    }
   }
 }
 

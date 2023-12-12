@@ -12,7 +12,7 @@
 
   @include mobile {
     height: calc(100vh - #{size(30)});
-    min-height: unset;
+    min-height: size(476);
     margin-top: size($spacing24 + 11);
     padding-bottom: size(20);
 
@@ -79,6 +79,10 @@
 
 .buttonWrapper {
   padding: 0 size($spacing16) size($spacing24 + 5);
+
+  @include mobile {
+    padding: 0 size($spacing16);
+  }
 }
 
 .link {
@@ -91,7 +95,7 @@
   @include mobile {
     display: grid;
 
-    grid-template-rows: 35% 65%;
+    // grid-template-rows: 35% 65%;
   }
 }
 

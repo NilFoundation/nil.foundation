@@ -89,7 +89,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
 export const animatedItemMobileList = [
   {
     id: 'm1',
-    ySourceValue: '-30%',
+    ySourceValue: '-36%',
     children: (
       <div className={s.buttonWrapper}>
         <WebButton className={s.link} size="l" href="https://proof.market/#/market/account_mina">
@@ -100,14 +100,14 @@ export const animatedItemMobileList = [
   },
   {
     id: 'm2',
-    ySourceValue: '-71%',
+    ySourceValue: '-51%',
   },
   {
     id: 'm3',
-    ySourceValue: '-63%',
+    ySourceValue: '-48%',
   },
   {
     id: 'm4',
-    ySourceValue: '-27%',
+    ySourceValue: '-35%',
   },
 ]

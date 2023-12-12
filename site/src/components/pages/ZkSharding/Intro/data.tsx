@@ -71,7 +71,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
 export const animatedItemMobileList = [
   {
     id: 'm1',
-    ySourceValue: '-45%',
+    ySourceValue: '-22%',
     children: (
       <div className={s.buttonWrapper}>
         <WebButton className={s.link} size="l" href="https://explore.nil.foundation/">
@@ -82,10 +82,10 @@ export const animatedItemMobileList = [
   },
   {
     id: 'm2',
-    ySourceValue: '-84%',
+    ySourceValue: '-42%',
   },
   {
     id: 'm3',
-    ySourceValue: '-42%',
+    ySourceValue: '-21%',
   },
 ]

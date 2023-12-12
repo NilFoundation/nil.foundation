@@ -11,8 +11,8 @@
   min-height: size(848);
 
   @include mobile {
-    min-height: unset;
-    height: calc(100vh - #{size(30)});
+    min-height: size(486);
+    height: calc(100vh - #{size(25)});
     padding-top: 0;
     padding-bottom: size(20);
     margin-bottom: 0;
@@ -83,6 +83,10 @@
 .link {
   padding: 0 size(16);
   margin-bottom: size(28);
+
+  @include mobile {
+    margin-bottom: size($spacing24 + $spacing12 + 2);
+  }
 }
 
 .underPatternLine {

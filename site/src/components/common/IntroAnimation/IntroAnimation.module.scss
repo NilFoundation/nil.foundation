@@ -91,6 +91,8 @@
   display: none;
 
   @include mobile {
+    position: absolute;
+    z-index: 20;
     transform-origin: top left;
     display: flex;
   }

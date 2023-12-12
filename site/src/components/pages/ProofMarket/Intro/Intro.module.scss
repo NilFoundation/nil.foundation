@@ -12,7 +12,7 @@
 
   @include mobile {
     height: calc(100vh - #{size(30)});
-    min-height: unset;
+    min-height: size(486);
     padding-top: 0;
     padding-bottom: size(20);
     box-sizing: content-box;

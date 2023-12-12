@@ -86,7 +86,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
 export const animatedItemMobileList = [
   {
     id: 'm1',
-    ySourceValue: '-51%',
+    ySourceValue: '-31%',
     children: (
       <div className={s.link}>
         <WebButton size="l" href="https://github.com/NilFoundation/zkllvm">
@@ -97,14 +97,14 @@ export const animatedItemMobileList = [
   },
   {
     id: 'm2',
-    ySourceValue: '-92%',
+    ySourceValue: '-54%',
   },
   {
     id: 'm3',
-    ySourceValue: '-92%',
+    ySourceValue: '-54%',
   },
   {
     id: 'm4',
-    ySourceValue: '-57%',
+    ySourceValue: '-34%',
   },
 ]

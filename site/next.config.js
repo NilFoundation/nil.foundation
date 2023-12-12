@@ -9,6 +9,22 @@ const nextConfig = {
   webpack: config => {
     return config;
   },
+
+  redirects: async () => {
+    return [
+      {
+        source: '/careers/jobs/',
+        destination: '/careers/jobs/:jobId',
+        has: [
+          {
+            type: 'query',
+            key: 'jobId',
+          },
+        ],
+        permanent: false,
+      }
+    ];
+  }
 };
 
 module.exports = nextConfig;

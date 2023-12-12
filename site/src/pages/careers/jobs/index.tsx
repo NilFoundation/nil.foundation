@@ -1,28 +1,31 @@
 import MetaLayout from 'components/MetaLayout/MetaLayout'
-import OpenPositions from 'pages/OpenPositions'
+import OpenJobs from 'pages/OpenJobs'
 import { REVALIDATE } from 'constants/common'
 import { getSiteConfig } from 'src/strapi'
 
 import { jobsSeoData } from 'stubs/careersPageData'
 import { api } from 'src/freshteam'
 import { InferGetStaticPropsType } from 'next'
+import { mapRawJobToUIJob } from 'src/freshteam/mappers'
 
-const OpenPositionsPage = ({ jobsPostings }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const OpenPositionsPage = ({ mappedJobs }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={jobsSeoData}>
-    <OpenPositions jobsPostings={jobsPostings} />
+    <OpenJobs jobsPostings={mappedJobs} />
   </MetaLayout>
 )
 
 export async function getStaticProps() {
   const getConfig = getSiteConfig
-  const getJobPostings = () => api.getJobPostings('published')
+  const getJobPostings = () => api.getJobInfo()
 
-  const [config, jobsPostings] = await Promise.all([getConfig(), getJobPostings()])
+  const [config, jobInfo] = await Promise.all([getConfig(), getJobPostings()])
+  const { job_roles, jobs, branches } = jobInfo
+  const mappedJobs = jobs.map((job) => mapRawJobToUIJob(job, job_roles, branches, true))
 
   return {
     props: {
       config,
-      jobsPostings,
+      mappedJobs,
     },
     revalidate: REVALIDATE,
   }

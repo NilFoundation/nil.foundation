@@ -1,14 +1,14 @@
 import { Card } from 'components/Card'
-import s from './Position.module.scss'
-import { UIPosition } from 'src/freshteam/types'
+import s from './Job.module.scss'
+import { UIJobOverview } from 'src/freshteam/types'
 import { HeadingXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { labelOverrides, titleOverrides } from './overrides'
 
-type PositionProps = {
-  position: UIPosition
+type JobProps = {
+  job: UIJobOverview
 }
 
-export const Position = ({ position: { id, remote, type, title, plainTextDescription } }: PositionProps) => {
+export const Job = ({ job: { id, remote, type, title, plainTextDescription } }: JobProps) => {
   return (
     <Card key={id} className={s.position} href={`/careers/jobs/${id}`}>
       <div className={s.type}>

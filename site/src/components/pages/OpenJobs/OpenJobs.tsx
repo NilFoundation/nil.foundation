@@ -6,28 +6,28 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import Button from 'components/Button/Button'
 import Icon from 'components/Icon'
 
-import s from './OpenPositions.module.scss'
+import s from './OpenJobs.module.scss'
 import DottedSection from './DottedSection'
-import { UIPosition } from 'src/freshteam/types'
+import { UIJobOverview } from 'src/freshteam/types'
 import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
-import { useGroupPositionsByDepartments } from './useGroupPositionsByDepartments'
+import { useGroupJobsByDepartments } from './useGroupJobsByDepartments'
 import { Filter } from './Filter/Filter'
-import { useFilterPositions } from './useFilterPositions'
+import { useFilterJobs } from './useFilterJobs'
 import { Fragment, useMemo, useState } from 'react'
-import { PositionsFilter } from './types'
-import { Position } from './Position/Position'
+import { JobsFilter } from './types'
+import { Job } from './Job/Job'
 import uniq from 'lodash.uniq'
 
-type OpenPositionsProps = {
-  jobsPostings: UIPosition[]
+type OpenJobsProps = {
+  jobsPostings: UIJobOverview[]
 }
 
 const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Human Resources']
 
-const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
+const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
   const { isMobile } = useViewport()
-  const [filter, setFilter] = useState<PositionsFilter>({
+  const [filter, setFilter] = useState<JobsFilter>({
     department: undefined,
     location: undefined,
     type: undefined,
@@ -35,13 +35,13 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
     remoteOnly: false,
   })
 
-  const filteredJobsPositions = useFilterPositions(jobsPostings, filter)
+  const filteredJobsPositions = useFilterJobs(jobsPostings, filter)
   const sortedByTitleJobsPostings = filteredJobsPositions.sort((a, b) => a.title.localeCompare(b.title))
-  const positionsByDepartmentMap = useGroupPositionsByDepartments(sortedByTitleJobsPostings, departmensOrder)
+  const positionsByDepartmentMap = useGroupJobsByDepartments(sortedByTitleJobsPostings, departmensOrder)
   const departments = Object.keys(positionsByDepartmentMap)
 
   const availableDepartments = useMemo(
-    () => uniq(jobsPostings.map((p) => p.department).filter((d) => !!d)),
+    () => uniq(jobsPostings.map((p) => p.department.name).filter((d) => !!d)),
     [jobsPostings],
   )
   const availableLocations = useMemo(
@@ -86,18 +86,18 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
               </div>
             )}
             {departments.map((department) => {
-              const positions = positionsByDepartmentMap[department]
+              const jobs = positionsByDepartmentMap[department]
 
               return (
                 <Fragment key={department}>
                   <div className={s.department}>
                     <HeadingXLarge overrides={getCommonHeadingOverrides()}>{department}</HeadingXLarge>
                     <LabelMedium color={PRIMITIVE_COLORS.gray300}>
-                      {positions.length === 1 ? '1 Open Role' : `${positions.length} Open Roles`}
+                      {jobs.length === 1 ? '1 Open Role' : `${jobs.length} Open Roles`}
                     </LabelMedium>
                   </div>
-                  {positions.map((position) => {
-                    return <Position key={position.id} position={position} />
+                  {jobs.map((job) => {
+                    return <Job key={job.id} job={job} />
                   })}
                 </Fragment>
               )
@@ -110,4 +110,4 @@ const OpenPositions = ({ jobsPostings = [] }: OpenPositionsProps) => {
   )
 }
 
-export default OpenPositions
+export default OpenJobs

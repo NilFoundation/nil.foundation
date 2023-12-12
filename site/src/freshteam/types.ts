@@ -6,52 +6,57 @@ export interface Salary {
 
 export interface Branch {
   id: number
-  created_at: string
-  updated_at: string
-  deleted: boolean
+  account_id: number
   name: string
-  state: string
+  street: string | null
   city: string
+  state: string
   country_code: string
-  zip: string
+  zip: string | null
   time_zone: string
+  contact_info: Record<string, any>
   currency: string
-  language: string
   main_office: boolean
+  deleted: boolean
+  language: string
+  location: string
   date_format: string
-  street: string
 }
 
-export interface Department {
+export interface JobRole {
   id: number
-  created_at: string
-  updated_at: string
-  deleted: boolean
   name: string
+  deleted: boolean
 }
 
 export type PositionStatus = 'draft' | 'published' | 'internal' | 'private' | 'on_hold' | 'closed'
 
-export interface Position {
+export interface Job {
   id: number
-  created_at: string
-  updated_at: string
-  deleted: boolean
   title: string
   description: string
-  status: PositionStatus
-  salary: Salary
-  applicant_access_type: string
-  remote: boolean
-  show_pursue_as_career: boolean
+  no_of_openings: number | null
+  job_type: number
+  status: number
+  position_level: string | null
+  ctc_details: string | null
+  deleted: boolean
   closing_date: string | null
-  experience: string
-  type: string
-  branch: Branch
-  department: Department
+  created_at: string
+  show_position_in_portal: boolean | null
+  url: string
+  unique_id: string
+  show_ctc_in_portal: boolean | null
+  remote: boolean
+  skip_assign_requisition_for_applicants: boolean | null
+  branch_id: number
+  jt_job_id: string | null
+  custom_field_attributes: Record<string, any>
+  preferred_remote_job_locations: string
+  job_role_id: number
 }
 
-export interface UIPosition {
+export interface UIJob {
   id: number
   title: string
   description: string
@@ -59,5 +64,13 @@ export interface UIPosition {
   remote: boolean
   type: string
   branch: Branch
-  department: string
+  department: JobRole
+}
+
+export type UIJobOverview = Omit<UIJob, 'description'>
+
+export type JobInfo = {
+  jobs: Job[]
+  branches: Branch[]
+  job_roles: JobRole[]
 }

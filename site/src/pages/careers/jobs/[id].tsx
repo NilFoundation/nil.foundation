@@ -3,11 +3,12 @@ import { getSiteConfig } from 'src/strapi'
 
 import { api } from 'src/freshteam'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { PositionPage as PositionPageComponent } from 'pages/OpenPositions'
+import { JobPage as JobPageComponent } from 'pages/OpenJobs'
+import { mapRawJobToUIJob } from 'src/freshteam/mappers'
 
-const PositionPage = ({ jobPosting, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const PositionPage = ({ mappedJob, seo }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={seo}>
-    <PositionPageComponent position={jobPosting} />
+    <JobPageComponent job={mappedJob} />
   </MetaLayout>
 )
 
@@ -21,9 +22,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ id: str
   }
 
   const getConfig = getSiteConfig
-  const getJobPosting = () => api.getJobPosting(id)
+  const getJobPosting = () => api.getJobById(id)
+  const getJobInfo = api.getJobInfo
 
-  const [config, jobPosting] = await Promise.all([getConfig(), getJobPosting()])
+  const [config, jobPosting, jobInfo] = await Promise.all([getConfig(), getJobPosting(), getJobInfo()])
 
   if (!jobPosting) {
     return {
@@ -31,13 +33,16 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ id: str
     }
   }
 
+  const { job_roles, branches } = jobInfo
+  const mappedJob = mapRawJobToUIJob(jobPosting, job_roles, branches, false)
+
   return {
     props: {
       config,
-      jobPosting,
+      mappedJob,
       seo: {
-        title: jobPosting.title,
-        description: jobPosting.plainTextDescription,
+        title: mappedJob.title,
+        description: mappedJob.plainTextDescription,
       },
     },
     revalidate: 60,

@@ -36,8 +36,6 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ id: str
   const { job_roles, branches } = jobInfo
   const mappedJob = mapRawJobToUIJob(jobPosting, job_roles, branches, false)
 
-  console.log(jobPosting)
-
   return {
     props: {
       config,

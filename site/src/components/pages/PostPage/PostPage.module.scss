@@ -53,6 +53,8 @@
   display: none;
   transition: opacity 0.3s ease;
 
+  align-items: center;
+
   @include hover {
     opacity: 0.5;
   }
@@ -247,6 +249,10 @@
     word-wrap: normal;
 
     @include paragraph;
+
+    @include mobile {
+      max-width: 93vw;
+    }
   }
 
   a {

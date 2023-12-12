@@ -7,9 +7,8 @@
 .container {
   position: relative;
   background-color: $gray900;
-  height: 120vh;
-  min-height: size(818);
-  margin-bottom: -10vh;
+  height: 126vh;
+  min-height: size(848);
 
   @include mobile {
     height: calc(100vh - #{size(30)});

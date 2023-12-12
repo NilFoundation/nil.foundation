@@ -96,28 +96,28 @@ function AnimatedCard({
     }
   }, [containerRef, ySourceValue, isVisible, duration, onComplete, prefersReduceMotion])
 
-  useEffect(() => {
-    const container = containerRef.current
+  // useEffect(() => {
+  //   const container = containerRef.current
 
-    if (prefersReduceMotion) {
-      return
-    }
+  //   if (prefersReduceMotion) {
+  //     return
+  //   }
 
-    if (timeline && container && isCompleted && (yTransformValue || yTransformValueList)) {
-      if (yTransformValueList) {
-        getTimelineWithMultipleTransform(timeline, yTransformValueList, container)
-        return
-      }
-      timeline.to(
-        container,
-        {
-          y: yTransformValue,
-          ease: 'sine.out',
-        },
-        '<',
-      )
-    }
-  }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
+  //   if (timeline && container && isCompleted && (yTransformValue || yTransformValueList)) {
+  //     if (yTransformValueList) {
+  //       getTimelineWithMultipleTransform(timeline, yTransformValueList, container)
+  //       return
+  //     }
+  //     timeline.to(
+  //       container,
+  //       {
+  //         y: yTransformValue,
+  //         ease: 'sine.out',
+  //       },
+  //       '<',
+  //     )
+  //   }
+  // }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
 
   return (
     <div className={classNames(s.cardWrapper, alignment === 'top' ? s.top : s.bottom)}>

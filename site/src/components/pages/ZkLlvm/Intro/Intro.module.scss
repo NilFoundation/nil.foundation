@@ -7,10 +7,11 @@
 .container {
   position: relative;
   background-color: $gray900;
-  height: 130vh;
-  margin-bottom: -10vh;
+  height: 126vh;
+  min-height: size(848);
 
   @include mobile {
+    min-height: unset;
     height: calc(100vh - #{size(30)});
     padding-top: 0;
     padding-bottom: size(20);
@@ -21,12 +22,16 @@
 
 .animatedContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns:
+    size(137.5) size(137.5) size(276) size(137.5) size(137.5)
+    size(130) size(129);
+  grid-template-rows: max(size(628), calc(get-real-vh(100) - size(46))) 1fr;
   width: 100%;
   margin-left: auto;
 
   @include mobile {
     grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     height: 100%;
   }
 }

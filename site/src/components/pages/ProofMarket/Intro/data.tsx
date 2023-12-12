@@ -6,17 +6,17 @@ import { WebButton } from 'components/WebButton'
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
     id: '1',
-    ySourceValue: '-20%',
+    ySourceValue: '-148px',
     yTransformValue: '-86%',
   },
   {
     id: '2',
-    ySourceValue: '-54%',
+    ySourceValue: '-349px',
     yTransformValue: '-55%',
   },
   {
     id: '3',
-    ySourceValue: '-76%',
+    ySourceValue: '-460px',
     yTransformValue: '-70%',
     children: (isCompleted: boolean) => (
       <IntroDescription
@@ -28,7 +28,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   },
   {
     id: '4',
-    ySourceValue: '-62%',
+    ySourceValue: '-331px',
     yTransformValue: '-86%',
     children: (isCompleted: boolean) => (
       <IntroDescription
@@ -40,47 +40,47 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   },
   {
     id: '5',
-    ySourceValue: '-32%',
+    ySourceValue: '-172px',
     yTransformValue: '-86%',
   },
   {
     id: '6',
-    ySourceValue: '-48%',
+    ySourceValue: '-312px',
     yTransformValue: '-86%',
   },
   {
     id: '7',
-    ySourceValue: prefersReduceMotion ? '0%' : '20%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '8',
-    ySourceValue: prefersReduceMotion ? '0%' : '20%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '9',
-    ySourceValue: '20%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '10',
-    ySourceValue: prefersReduceMotion ? '0%' : '20%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '11',
-    ySourceValue: prefersReduceMotion ? '0%' : '20%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: '12',
-    ySourceValue: prefersReduceMotion ? '0%' : '20%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },

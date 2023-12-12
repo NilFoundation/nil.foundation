@@ -93,11 +93,12 @@
 }
 
 .buttonBlock {
-  padding: size($spacing12) size($spacing16) size($spacing24 + 16);
   background-color: $gray900;
   direction: ltr;
 
+  padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
+
   @include mobile {
-    padding: size($spacing12 + 39) size($spacing12) size($spacing12 - 1);
+    padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
   }
 }

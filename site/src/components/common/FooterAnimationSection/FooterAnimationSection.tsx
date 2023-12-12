@@ -65,6 +65,7 @@ function FooterAnimationSection({
     <section ref={sectionRef as RefObject<HTMLDivElement>} className={classNames(s.container, className)}>
       <AnimatedDottedContainer
         key={timelineEnd}
+        cardWrapperClassName={s.cardWrapper}
         className={s.animatedContainer}
         items={baseItems ?? items}
         initialAnimationDuration={0}

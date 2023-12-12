@@ -199,7 +199,7 @@
   article {
     height: size(492);
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: size(275.5) size(275.5) size(275) size(243);
   }
 
   @include mobile {
@@ -208,5 +208,27 @@
 
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+}
+
+.isMobile {
+  @include notMobile {
+    display: none;
+  }
+}
+
+.isDesktop {
+  @include mobile {
+    display: none;
+  }
+}
+
+.buttonBlock {
+  padding: size($spacing12) size($spacing16) size($spacing24 + $spacing12 + 4);
+  background-color: $gray900;
+
+  @include mobile {
+    // padding-top: size(58);
+    // padding-bottom: size(40);
   }
 }

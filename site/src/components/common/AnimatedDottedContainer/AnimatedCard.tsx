@@ -53,6 +53,7 @@ function AnimatedCard({
   isVisible,
   hideLine,
   className,
+  wrapperClassName,
   children,
   ...props
 }: InferProps<typeof AnimatedCard.propTypes>) {
@@ -120,7 +121,7 @@ function AnimatedCard({
   // }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
 
   return (
-    <div className={classNames(s.cardWrapper, alignment === 'top' ? s.top : s.bottom)}>
+    <div className={classNames(s.cardWrapper, wrapperClassName, alignment === 'top' ? s.top : s.bottom)}>
       <div
         ref={containerRef}
         {...props}
@@ -145,6 +146,7 @@ AnimatedCard.propTypes = {
   isVisible: PropTypes.bool,
   hideLine: PropTypes.bool,
   className: PropTypes.string,
+  wrapperClassName: PropTypes.string,
   children: PropTypes.any,
 }
 

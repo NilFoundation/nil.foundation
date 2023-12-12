@@ -12,6 +12,7 @@ function AnimatedDottedContainer({
   isVisible,
   timeline,
   className,
+  cardWrapperClassName,
   initialAnimationDuration,
   scrollTriggerProps,
 }: InferProps<typeof AnimatedDottedContainer.propTypes>) {
@@ -41,6 +42,7 @@ function AnimatedDottedContainer({
           {...item}
           timeline={timeline ?? timelineInstance}
           onComplete={onInitialAnimationComplete}
+          wrapperClassName={cardWrapperClassName}
           isVisible={isVisible}
           duration={initialAnimationDuration}
         />
@@ -54,6 +56,7 @@ AnimatedDottedContainer.propTypes = {
   onInitialAnimationComplete: PropTypes.func,
   isVisible: PropTypes.bool,
   className: PropTypes.string,
+  cardWrapperClassName: PropTypes.string,
   timeline: PropTypes.any,
   initialAnimationDuration: PropTypes.number,
   scrollTriggerProps: PropTypes.object,

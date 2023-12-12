@@ -86,11 +86,14 @@
 }
 
 .mobileSortButtons {
+  display: none;
+
   margin-top: size(50);
 
   @include mobile {
+    display: block;
     margin-top: size($spacing48);
-    padding-left: size($spacing12);
+    padding: 0;
   }
 }
 
@@ -100,6 +103,14 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @include mobile {
+    padding: 0 size($spacing12);
+
+    &:nth-child(1) {
+      padding-left: size($spacing12 + 4);
+    }
   }
 }
 
@@ -113,7 +124,13 @@
     gap: size($spacing24);
     flex-wrap: nowrap;
     width: max-content;
-    margin: size($spacing24) 0 0;
+    margin: size($spacing24 + 5) 0 0;
+  }
+}
+
+.toggleButton {
+  @include mobile {
+    padding: size($spacing8 - 1) size($spacing12);
   }
 }
 
@@ -146,7 +163,7 @@
 
 .pageHead {
   display: flex;
-  margin-bottom: size($spacing96);
+  margin-bottom: size($spacing96 + 2);
 
   @include mobile {
     flex-direction: column;
@@ -156,20 +173,20 @@
 
 .headItem {
   width: 50%;
-  padding: size($spacing32);
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
 
   @include mobile {
     width: 100%;
-    padding: 0 size($spacing12) size($spacing12);
+    padding: size(4) size($spacing12) size($spacing12);
   }
 }
 
 .pageTitle {
   @include heading-01;
-  padding: size($spacing32);
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32);
 
   @include mobile {
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 - 13) size($spacing12) size($spacing24);
   }
 }
 

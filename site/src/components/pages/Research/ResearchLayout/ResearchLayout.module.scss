@@ -113,7 +113,6 @@
 
   @include mobile {
     flex-wrap: nowrap;
-    overflow-x: auto;
     margin-bottom: 0;
     background-color: $gray900;
   }

@@ -45,7 +45,7 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
     [jobsPostings],
   )
   const availableLocations = useMemo(
-    () => uniq(jobsPostings.map((p) => p.branch.city).filter((d) => !!d)),
+    () => uniq(jobsPostings.map((p) => p.branch.location).filter((d) => !!d)),
     [jobsPostings],
   )
   const availableTypes = useMemo(() => uniq(jobsPostings.map((p) => p.type).filter((d) => !!d)), [jobsPostings])

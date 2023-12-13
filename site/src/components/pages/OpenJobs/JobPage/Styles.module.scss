@@ -3,6 +3,14 @@
 @use '~styles/typography' as *;
 @use '~styles/colors' as *;
 
+.wrapper {
+    width: 50%;
+}
+
+.form {
+    margin: 32px 0;
+}
+
 .freshteamContent {
     > div > span {
         color: $gray-300;

@@ -66,8 +66,9 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         <Checkbox
           checkmarkType="toggle"
           labelPlacement="left"
-          checked={filter.remoteOnly}
+          checked={filter.remoteOnly && filter.location === undefined}
           onChange={({ target }) => setFilter({ ...filter, remoteOnly: target.checked })}
+          disabled={filter.location !== undefined}
         >
           Remote only
         </Checkbox>

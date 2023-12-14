@@ -11,6 +11,7 @@
     "format:fix": "npx @biomejs/biome format src --write"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "@hotjar/browser": "^1.0.9",
     "@nilfoundation/ui-kit": "^2.2.8",
     "@types/react": "^18.2.20",

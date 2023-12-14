@@ -19,7 +19,7 @@ const ApplicationForm = () => {
     console.log(data)
   })
 
-  const limitedRegister = (name: keyof ApplicationFormData) => {
+  const partialRegister = (name: keyof ApplicationFormData) => {
     const { min, max, ...rest } = register(name)
     return rest
   }
@@ -35,15 +35,15 @@ const ApplicationForm = () => {
       </div>
       <div className={s.form}>
         <FormControl label="Name" error={!!errors.name} >
-          <Input placeholder="Name" type="text" {...limitedRegister('name')} />
+          <Input placeholder="Name" type="text" {...partialRegister('name')} />
         </FormControl>
         {errors.name && <ErrorMessage message={errors.name.message} />}
         <FormControl label="Surname" error={!!errors.surname}>
-          <Input placeholder="Surname" type="text" {...limitedRegister('surname')} />
+          <Input placeholder="Surname" type="text" {...partialRegister('surname')} />
         </FormControl>
         {errors.surname && <ErrorMessage message={errors.surname.message} />}
         <FormControl label="Email *" error={!!errors.email}>
-          <Input placeholder="candidate@mail.com" type="email" {...limitedRegister('email')} />
+          <Input placeholder="candidate@mail.com" type="email" {...partialRegister('email')} />
         </FormControl>
         {errors.email && <ErrorMessage message={errors.email.message} />}
         <FormControl label="Social Network and Web Links">

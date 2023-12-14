@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import formValidationSchema, { ApplicationFormData } from './formValidationSchema'
 
 const ApplicationForm = () => {
-  const { handleSubmit, register, formState: {errors, isSubmitting} } = useForm<ApplicationFormData>({
+  const { handleSubmit, register, formState: {errors, isSubmitting, isDirty, isValid, isValidating} } = useForm<ApplicationFormData>({
     defaultValues: {
       name: '',
       surname: '',
@@ -50,7 +50,7 @@ const ApplicationForm = () => {
           <Input placeholder="Link" type="text" />
         </FormControl>
       </div>
-      <Button type="submit" disabled={isSubmitting}>Submit application</Button>
+      <Button type="submit" disabled={isSubmitting || !isDirty || !isValid || !isValidating} isLoading={isSubmitting}>Submit application</Button>
     </form>
   )
 }

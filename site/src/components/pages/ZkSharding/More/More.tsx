@@ -23,7 +23,12 @@ const More = ({ data: { title, description, contentFooter, footer }, className }
     <div className={cx(s.root, className)}>
       <div className={s.left}>
         <WhiteRectangle />
-        <HeadingSection className={s.heading} title={title} description={description} />
+        <HeadingSection
+          className={s.heading}
+          descriptionClassName={s.description}
+          title={title}
+          description={description}
+        />
         {!isMobile && <WhiteRectangle />}
       </div>
 

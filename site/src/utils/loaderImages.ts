@@ -2,7 +2,12 @@ const loaderImage = (src: string, callback: (...args: unknown[]) => unknown) => 
   const image = new Image()
 
   if (callback) {
-    image.onload = () => callback(image)
+    image.onload = () => {
+      callback(image)
+
+      image.onload = null
+      image.remove()
+    }
   }
 
   image.src = src

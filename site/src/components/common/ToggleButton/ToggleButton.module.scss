@@ -33,26 +33,28 @@
   }
 
   &-inactive {
-    &:hover:not([disabled]) {
-      color: $gray-100;
-      background: $gray-700;
-    }
+    @include desktop {
+      &:hover:not([disabled]) {
+        color: $gray-100;
+        background: $gray-700;
+      }
 
-    &:focus:not([disabled]) {
-      color: $gray-50;
-      background: $gray-800;
-      border: size(1) solid $gray-50;
-    }
+      &:focus:not([disabled]) {
+        color: $gray-50;
+        background: $gray-800;
+        border: size(1) solid $gray-50;
+      }
 
-    &:active:not([disabled]) {
-      color: $gray900;
-      background: $gray-50;
-    }
+      &:active:not([disabled]) {
+        color: $gray900;
+        background: $gray-50;
+      }
 
-    &:disabled {
-      color: $gray-400;
-      background: $gray-800;
-      cursor: not-allowed;
+      &:disabled {
+        color: $gray-400;
+        background: $gray-800;
+        cursor: not-allowed;
+      }
     }
   }
 }

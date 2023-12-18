@@ -49,7 +49,7 @@ export const stub = {
   ],
 
   address: {
-    title: 'Adress',
+    title: 'Address',
     places: [
       {
         name: 'nil: P.O. box 2775, Artemis House, 67 Fort Street, Grand Cayman, KY1-1111, Cayman Islands',

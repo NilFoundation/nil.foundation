@@ -26,30 +26,32 @@
     transition: background-color 0.15s ease;
   }
 
-  &:hover {
-    color: $gray-200;
-    transition: color 0.3s ease;
+  @include desktop {
+    &:hover {
+      color: $gray-200;
+      transition: color 0.3s ease;
 
-    .icon {
-      transition: transform 0.3s ease;
-      transform: rotate(90deg);
+      .icon {
+        transition: transform 0.3s ease;
+        transform: rotate(90deg);
+      }
+
+      &::after {
+        background-color: $gray-200;
+        transition: background-color 0.3s ease;
+      }
     }
 
-    &::after {
-      background-color: $gray-200;
-      transition: background-color 0.3s ease;
-    }
-  }
+    &:active {
+      color: $gray-300;
 
-  &:active {
-    color: $gray-300;
+      .icon {
+        transform: rotate(90deg);
+      }
 
-    .icon {
-      transform: rotate(90deg);
-    }
-
-    &::after {
-      background-color: $gray-300;
+      &::after {
+        background-color: $gray-300;
+      }
     }
   }
 
@@ -59,30 +61,6 @@
 
     &::after {
       background-color: $gray-500;
-    }
-
-    &:hover {
-      color: $gray-500;
-
-      .icon {
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        background-color: $gray-500;
-      }
-    }
-
-    &:focus {
-      color: $gray-500;
-
-      .icon {
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        background-color: $gray-500;
-      }
     }
   }
 }

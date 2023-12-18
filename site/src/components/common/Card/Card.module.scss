@@ -14,22 +14,23 @@
 
   transition: border-color 0.3s ease, color 0.3s ease;
 
-  @include hover {
-    border-color: $gray-50;
+  @include desktop {
+    @include hover {
+      border-color: $gray-50;
 
-    color: $gray-50;
+      color: $gray-50;
 
-    .arrow {
-      opacity: 1;
-      color: $buttonGray50;
+      .arrow {
+        opacity: 1;
+        color: $buttonGray50;
+      }
     }
-  }
 
-  &:focus,
-  &:focus-visible {
-    border-style: solid;
-    border-color: $gray-50;
-    outline: none;
+    &:active {
+      border-style: solid;
+      border-color: $gray-50;
+      outline: none;
+    }
   }
 }
 

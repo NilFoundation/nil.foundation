@@ -7,7 +7,7 @@
 .root {
   display: flex;
   align-items: flex-start;
-  margin-top: size(55);
+  margin-top: size(54);
 
   @include mobile {
     flex-direction: column;
@@ -15,25 +15,21 @@
   }
 }
 
-.left,
-.right {
-  width: 50%;
+.heading {
+  min-height: unset;
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 9);
 
   @include mobile {
-    width: 100%;
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
   }
 }
 
-.heading {
-  min-height: unset;
-}
-
 .heroDescription {
-  padding: 0 size($spacing32) size($spacing32);
+  padding: 0 size($spacing32) size($spacing32 + 2);
   background-color: $gray900;
 
   @include mobile {
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 + 5) size($spacing12) size($spacing24);
   }
 }
 

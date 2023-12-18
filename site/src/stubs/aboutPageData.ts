@@ -5,26 +5,36 @@ export const aboutPageData = {
   hero: {
     title: 'Enabling scalable trustless computing with zero-knowledge',
     description:
-      '=nil; Foundation is a pioneer in zero-knowledge technology, dedicated to making zkProofs and trustless data management accessible for developers.',
+      '=nil; Foundation is\xa0a\xa0pioneer in\xa0zero\u2011knowledge technology, dedicated to making zkProofs and trustless data management accessible for developers.',
     info: 'Our solutions facilitate scalable trustless computing and data access, organized in one flexible toolchain secured by Ethereum.',
     content: [
       {
         title: '2018',
         description: [
-          '=nil; Foundation established, aiming to implement best practices of database management systems to the crypto industry through research and development in applied cryptography.',
+          {
+            isDesktop:
+              '=nil; Foundation established, aiming to implement best practices of database management systems to the crypto industry through research and development in\xa0applied\xa0cryptography.',
+            isMobile:
+              '=nil; Foundation established, aiming to implement best practices of database management systems to the crypto industry through research and development in\xa0applied cryptography.',
+          },
         ],
       },
       {
         title: '2019',
         description: [
-          'Cementing the research focus on zero-knowledge technology to fit target product requirements and foster a trustless ecosystem development.',
+          {
+            isDesktop:
+              'Cementing the research focus on zero-knowledge technology to fit target product requirements and foster\na trustless ecosystem development.',
+            isMobile:
+              'Cementing the research focus on zero-knowledge technology to fit target product requirements and foster a trustless ecosystem development.',
+          },
         ],
       },
       {
         title: '2020',
         description: [
           'First version of Crypto3 suite for essential cryptographic operations released.',
-          'First public zkSharding prototype launches.',
+          'First public zkSharding prototype launches.\n\xa0',
         ],
       },
       {
@@ -190,7 +200,14 @@ export const aboutPageData = {
     },
   },
 
-  joinNil,
+  joinNil: {
+    ...joinNil,
+    content: {
+      ...joinNil.content,
+      right:
+        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on creating zk-enabled apps.',
+    },
+  },
 }
 
 export const seoData = {

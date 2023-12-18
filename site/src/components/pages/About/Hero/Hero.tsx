@@ -8,17 +8,26 @@ import SocialButton from 'components/SocialButton'
 import s from './Hero.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
 import { useViewport } from 'hooks/useViewport'
+import { Column } from 'components/Column'
 
 type HeroProps = {
   className?: string
   data: typeof aboutPageData.hero
 }
 
+const getContent = (isMobile: boolean | null, content: string | { isDesktop: string; isMobile: string }) => {
+  if (typeof content === 'string') {
+    return content
+  }
+
+  return isMobile ? content.isMobile : content.isDesktop
+}
+
 const Hero = ({ className, data: { title, description, info, content, future, footer } }: HeroProps) => {
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left" className={s.left}>
         <HeadingSection className={s.heading} title={title} description={isMobile ? description : null} />
         <div className={s.heroDescription}>
           <p>{description}</p>
@@ -30,9 +39,9 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <WhiteRectangle />
           </div>
         </div>
-      </div>
+      </Column>
 
-      <div className={s.right}>
+      <Column type="right" className={s.right}>
         <div className={s.rectWrapper}>
           <WhiteRectangle />
         </div>
@@ -43,8 +52,9 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <div className={s.card} key={el.title}>
               <h3 className={s.title}>{el.title}</h3>
               <div className={s.desc}>
-                {el.description.map((item) => (
-                  <p key={item}>{item}</p>
+                {el.description.map((item, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <p key={index}>{getContent(isMobile, item)}</p>
                 ))}
               </div>
             </div>
@@ -71,7 +81,7 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <WhiteRectangle className={s.wRect} />
           </div>
         </div>
-      </div>
+      </Column>
     </div>
   )
 }

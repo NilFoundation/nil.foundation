@@ -53,6 +53,10 @@
   display: none;
   transition: opacity 0.3s ease;
 
+  align-items: center;
+
+  @include button-small;
+
   @include hover {
     opacity: 0.5;
   }
@@ -60,13 +64,14 @@
   @include mobile {
     width: 100%;
     display: inline-flex;
-    padding: size($spacing12) 0;
+    margin-top: 0;
+    padding: 0;
   }
 }
 
 .arrow {
   transform: rotate(270deg);
-  width: size(18);
+  width: size(14);
   height: size(14);
   margin-right: size($spacing8);
 }
@@ -247,6 +252,10 @@
     word-wrap: normal;
 
     @include paragraph;
+
+    @include mobile {
+      max-width: size(335);
+    }
   }
 
   a {

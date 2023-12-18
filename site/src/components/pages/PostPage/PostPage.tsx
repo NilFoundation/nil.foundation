@@ -30,7 +30,7 @@ type PostPageProps = {
 const ArrowButton = ({ className }: ArrowButtonProps) => (
   <Button href="/blog" className={cx(s.centerItems, className)}>
     <Icon name="arrow-up" className={s.arrow} />
-    <p className={s.paragraph}>Back to Blog</p>
+    <p>Back to Blog</p>
   </Button>
 )
 

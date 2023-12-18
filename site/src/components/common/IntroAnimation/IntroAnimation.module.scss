@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: size(258) 1fr;
   width: 100%;
-  min-height: calc(100vh - #{size(30)});
+  height: 100%;
   background-color: $gray900;
 
   @include mobile {
@@ -19,7 +19,7 @@
 
 .wrapper {
   position: relative;
-  grid-area: 2 / 2;
+  grid-area: 1 / 2;
 
   &:before {
     content: '';
@@ -56,7 +56,7 @@
 }
 
 .animatedContainer {
-  height: calc(200vh - #{size(60)});
+  height: 100%;
 }
 
 .descriptionWrapper {
@@ -91,6 +91,8 @@
   display: none;
 
   @include mobile {
+    position: absolute;
+    z-index: 20;
     transform-origin: top left;
     display: flex;
   }

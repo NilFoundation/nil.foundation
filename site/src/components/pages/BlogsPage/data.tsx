@@ -1,21 +1,31 @@
 import { ANIMATION_CARD_ALIGNMENT } from 'components/AnimatedDottedContainer'
+import { WebButton } from 'components/WebButton'
+
+import s from './BlogsPage.module.scss'
 
 export const blogsPageFooterItemData = [
   {
     id: '1',
-    ySourceValue: '-89%',
+    ySourceValue: '-88%',
   },
   {
     id: '2',
-    ySourceValue: '-89%',
+    ySourceValue: '-88%',
   },
   {
     id: '3',
-    ySourceValue: '-89%',
+    ySourceValue: '-88%',
   },
   {
     id: '4',
     ySourceValue: '-60%',
+    children: (
+      <div className={s.buttonBlock}>
+        <WebButton className={s.webButton} href="#">
+          Load more
+        </WebButton>
+      </div>
+    ),
   },
   {
     id: '6',

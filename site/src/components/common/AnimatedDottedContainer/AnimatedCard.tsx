@@ -53,6 +53,7 @@ function AnimatedCard({
   isVisible,
   hideLine,
   className,
+  wrapperClassName,
   children,
   ...props
 }: InferProps<typeof AnimatedCard.propTypes>) {
@@ -75,9 +76,11 @@ function AnimatedCard({
 
     const tween = gsap.fromTo(
       container,
-      { y: '0' },
       {
-        y: ySourceValue,
+        ...(ySourceValue.endsWith('px') ? { '--yTransform': '0' } : { y: '0' }),
+      },
+      {
+        ...(ySourceValue.endsWith('px') ? { '--yTransform': ySourceValue.replace('px', '') } : { y: ySourceValue }),
         duration,
         ease: 'expo.out',
         onComplete: () => {
@@ -94,31 +97,31 @@ function AnimatedCard({
     }
   }, [containerRef, ySourceValue, isVisible, duration, onComplete, prefersReduceMotion])
 
-  useEffect(() => {
-    const container = containerRef.current
+  // useEffect(() => {
+  //   const container = containerRef.current
 
-    if (prefersReduceMotion) {
-      return
-    }
+  //   if (prefersReduceMotion) {
+  //     return
+  //   }
 
-    if (timeline && container && isCompleted && (yTransformValue || yTransformValueList)) {
-      if (yTransformValueList) {
-        getTimelineWithMultipleTransform(timeline, yTransformValueList, container)
-        return
-      }
-      timeline.to(
-        container,
-        {
-          y: yTransformValue,
-          ease: 'sine.out',
-        },
-        '<',
-      )
-    }
-  }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
+  //   if (timeline && container && isCompleted && (yTransformValue || yTransformValueList)) {
+  //     if (yTransformValueList) {
+  //       getTimelineWithMultipleTransform(timeline, yTransformValueList, container)
+  //       return
+  //     }
+  //     timeline.to(
+  //       container,
+  //       {
+  //         y: yTransformValue,
+  //         ease: 'sine.out',
+  //       },
+  //       '<',
+  //     )
+  //   }
+  // }, [timeline, isCompleted, yTransformValue, yTransformValueList, prefersReduceMotion])
 
   return (
-    <div className={s.cardWrapper}>
+    <div className={classNames(s.cardWrapper, wrapperClassName, alignment === 'top' ? s.top : s.bottom)}>
       <div
         ref={containerRef}
         {...props}
@@ -143,6 +146,7 @@ AnimatedCard.propTypes = {
   isVisible: PropTypes.bool,
   hideLine: PropTypes.bool,
   className: PropTypes.string,
+  wrapperClassName: PropTypes.string,
   children: PropTypes.any,
 }
 

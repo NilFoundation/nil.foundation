@@ -6,17 +6,17 @@ import { WebButton } from 'components/WebButton'
 export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   {
     id: 'z1',
-    ySourceValue: '-36%',
+    ySourceValue: '-232px',
     yTransformValue: '-99%',
   },
   {
     id: 'z2',
-    ySourceValue: '-48%',
+    ySourceValue: '-306px',
     yTransformValue: '-115%',
   },
   {
     id: 'z3',
-    ySourceValue: '-52%',
+    ySourceValue: '-336px',
     yTransformValue: '-99%',
     children: (isCompleted: boolean) => (
       <IntroDescription
@@ -28,41 +28,41 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
   },
   {
     id: 'z4',
-    ySourceValue: '-41%',
+    ySourceValue: '-262px',
     yTransformValue: '-99%',
   },
   {
     id: 'z5',
-    ySourceValue: '-57%',
+    ySourceValue: '-366px',
     yTransformValue: '-80%',
   },
   {
     id: 'z8',
-    ySourceValue: '36%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z9',
-    ySourceValue: '36%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z10',
-    ySourceValue: '36%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z11',
-    ySourceValue: '36%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
   {
     id: 'z12',
-    ySourceValue: '36%',
+    ySourceValue: '100%',
     yTransformValue: '20%',
     alignment: ANIMATION_CARD_ALIGNMENT.bottom,
   },
@@ -71,7 +71,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
 export const animatedItemMobileList = [
   {
     id: 'm1',
-    ySourceValue: '-45%',
+    ySourceValue: '-22%',
     children: (
       <div className={s.buttonWrapper}>
         <WebButton className={s.link} size="l" href="https://explore.nil.foundation/">
@@ -82,10 +82,10 @@ export const animatedItemMobileList = [
   },
   {
     id: 'm2',
-    ySourceValue: '-84%',
+    ySourceValue: '-42%',
   },
   {
     id: 'm3',
-    ySourceValue: '-42%',
+    ySourceValue: '-21%',
   },
 ]

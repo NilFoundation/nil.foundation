@@ -13,7 +13,6 @@
   position: relative;
   height: 100%;
   background-color: $gray900;
-  width: 50%;
 
   &:after {
     content: '';
@@ -27,10 +26,6 @@
     @include mobile {
       display: none;
     }
-  }
-
-  @include mobile {
-    width: 100%;
   }
 }
 
@@ -57,12 +52,12 @@
 
 .title {
   width: 100%;
-  padding: size($spacing32);
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 11);
 
   @include heading-01;
 
   @include mobile {
     width: 100%;
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 - 8) size($spacing12) size($spacing48);
   }
 }

@@ -11,31 +11,57 @@ import ListItem from 'components/ListItem'
 import s from './Win.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
+import { Column } from 'components/Column'
 
 type WinProps = {
   className?: string
   data: typeof homePageData.win
 }
 
+type ArrayElement<A> = A extends readonly (infer T)[] ? T : never
+
 const Win = ({ className, data: { title, description, content, footer } }: WinProps) => {
+  const columnList = content.map((item) => {
+    return {
+      ...item,
+      list: item.list.reduce<[Array<ArrayElement<typeof item.list>>, Array<ArrayElement<typeof item.list>>]>(
+        (acc, el, index) => {
+          if (index % 2 === 0) {
+            acc[0].push(el)
+          } else {
+            acc[1].push(el)
+          }
+
+          return acc
+        },
+        [[], []],
+      ),
+    }
+  })
+
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left">
         <WhiteRectangle />
-        <HeadingSection title={title} description={description} />
+        <HeadingSection title={title} className={s.heading} description={description} />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </Column>
 
-      <div className={s.right}>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
-          {content.map((el) => (
+          {columnList.map((el) => (
             <div className={s.box} key={el.title}>
               <h2 className={s.title}>{el.title}</h2>
               <div className={s.list}>
-                {el.list.map((item) => (
-                  <ListItem className={s.item} key={item} title={item} />
+                {el.list.map((arr, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <div key={index} className={s.column}>
+                    {arr.map((item) => (
+                      <ListItem className={s.item} key={item} title={item} />
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>
@@ -53,7 +79,7 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </Column>
     </div>
   )
 }

@@ -10,6 +10,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import s from './Intro.module.scss'
 import { careersPageData } from 'stubs/careersPageData'
 import { WebButton } from 'components/WebButton'
+import { Column } from 'components/Column'
 
 type IntroProps = {
   className?: string
@@ -21,7 +22,7 @@ const Intro = ({ className, data: { title, description } }: IntroProps) => {
 
   return (
     <div className={cx(s.wrapper, className)}>
-      <div className={s.main}>
+      <Column type="left" className={s.main}>
         <HeadingSection className={s.head} title={title} description={isMobile ? description : null} />
         <div className={s.heroDescription}>
           <p>{description}</p>
@@ -38,16 +39,16 @@ const Intro = ({ className, data: { title, description } }: IntroProps) => {
           </div>
         </div>
         {isMobile && <WhiteRectangle />}
-      </div>
+      </Column>
       {!isMobile && (
-        <div className={s.wrapper}>
+        <Column type="right" className={s.wrapper}>
           <div className={cx(s.box, s.box1)}>
             <WhiteRectangle />
           </div>
           <div className={cx(s.box, s.box2)}>
             <WhiteRectangle />
           </div>
-        </div>
+        </Column>
       )}
     </div>
   )

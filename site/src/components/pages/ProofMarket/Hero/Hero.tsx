@@ -12,6 +12,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import s from './Hero.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
+import { Column } from 'components/Column'
 
 type HeroProps = {
   className?: string
@@ -40,14 +41,14 @@ const Hero = ({ className, data: { title, description } }: HeroProps) => {
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left" className={s.left}>
         <HeadingSection className={s.heading} title={title} description={description} />
         {!isMobile && <WhiteRectangle />}
-      </div>
-      <div className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         <div className={s.lottieWrapper} ref={lottieRef} />
         <WhiteRectangle />
-      </div>
+      </Column>
     </div>
   )
 }

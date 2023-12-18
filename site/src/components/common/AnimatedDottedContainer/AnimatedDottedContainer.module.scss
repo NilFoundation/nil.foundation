@@ -3,13 +3,17 @@
 @import 'src/styles/mixins';
 
 .container {
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .cardWrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100% - #{size(30)});
+
+  &.top {
+    height: 100%;
+  }
 }
 
 .card {
@@ -23,6 +27,8 @@
   height: 100%;
   background-color: $gray900;
   will-change: transform;
+
+  transform: translate(0px, size(var(--yTransform)));
 }
 
 .cardTop {

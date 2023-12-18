@@ -5,6 +5,7 @@
 
 .container {
   padding: 0;
+  overflow: hidden;
 }
 
 .animatedContainer {
@@ -30,4 +31,8 @@
   @include mobile {
     margin-bottom: size($spacing12);
   }
+}
+
+.cardWrapper {
+  height: 100%;
 }

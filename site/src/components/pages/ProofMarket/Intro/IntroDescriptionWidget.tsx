@@ -16,7 +16,9 @@ const IntroDescriptionWidget = ({ isVisible }: IntroDescriptionWidgetProps) => {
       <IntroDescription
         isVisible={isVisible}
         className={s.descriptionItem}
-        text="Benefit from decentralized network of proof producers with the first marketplace for zkProof generation."
+        text={
+          'Benefit from decentralized network of proof producers with the first marketplace for zk proof generation.'
+        }
         delay={300}
       />
     </div>

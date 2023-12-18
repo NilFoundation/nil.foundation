@@ -2,7 +2,7 @@ import React, { use } from 'react'
 import IntroAnimation from 'components/IntroAnimation'
 import { useViewport } from 'hooks/useViewport'
 import WhiteRectangle from 'components/WhiteRectangle/WhiteRectangle'
-import IntroDescriptionWidget from 'pages/Home/Intro/IntroDescriptionWidget'
+import IntroDescriptionWidget from 'pages/ProofMarket/Intro/IntroDescriptionWidget'
 import s from './Intro.module.scss'
 import { getAnimatedItemList, animatedItemMobileList } from './data'
 import { IntroAnimationProps } from 'components/IntroAnimation/IntroAnimation'
@@ -15,14 +15,17 @@ const IntroAnimationWidget = ({
   IntroAnimationProps,
   'navigationTitle' | 'navigationLinkText' | 'navigationLink' | 'animatedContainerClassName'
 >) => {
+  const { isMobile } = useViewport()
+
   return (
     <IntroAnimation
       {...props}
       items={items}
-      navigationTitle="Marketplace for zero-knowledge proofs"
+      navigationTitle={isMobile ? 'Marketplace for zero- knowledge proofs' : 'Marketplace for zero-knowledge proofs'}
       navigationLinkText="Go to Proof Market"
       navigationLink="https://proof.market/#/market/account_mina"
       animatedContainerClassName={s.animatedContainer}
+      sideNavigationContainerClassName={s.sideNavigation}
     />
   )
 }

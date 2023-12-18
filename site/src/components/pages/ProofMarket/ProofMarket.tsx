@@ -9,7 +9,7 @@ import JoinNil from './JoinNil'
 import About from './About'
 import Intro from './Intro'
 
-import s from './Home.module.scss'
+import s from './ProofMarket.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import WhiteRectangleLine from 'components/WhiteRectangleLine'
 import { useViewport } from 'hooks/useViewport'
@@ -18,15 +18,15 @@ type HomeProps = {
   data: typeof homePageData
 }
 
-const whiteRectangleLineMarginTop = 123
+const whiteRectangleLineMarginTop = 124
 
 const whiteRectangleLineMobileMarginTop = 62
 
 const whiteRectangleLineData = [
-  { id: 1, margin: 184 },
-  { id: 2, margin: 184 },
-  { id: 3, margin: 214 },
-  { id: 4, margin: 0 },
+  { id: 1, margin: 184, flexBasis: 275.5 },
+  { id: 2, margin: 184, flexBasis: 275.5 },
+  { id: 3, margin: 214, flexBasis: 275 },
+  { id: 4, margin: 0, flexBasis: 259 },
 ]
 
 const whiteRectangleLineMobileData = [{ id: 1, margin: 0 }]

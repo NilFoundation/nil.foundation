@@ -11,30 +11,47 @@ import ListItem from 'components/ListItem'
 import s from './FullCycle.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
+import { Column } from 'components/Column'
 
 type FullCycleProps = {
   className?: string
   data: typeof homePageData.fullCycle
 }
 
+type ArrayElement<A> = A extends readonly (infer T)[] ? T : never
+
 const FullCycle = ({ className, data: { title, description, list, footer } }: FullCycleProps) => {
   const { isMobile } = useViewport()
+
+  const columnList = list.reduce<[Array<ArrayElement<typeof list>>, Array<ArrayElement<typeof list>>]>(
+    (acc, el, index) => {
+      if (index % 2 === 0) {
+        acc[0].push(el)
+      } else {
+        acc[1].push(el)
+      }
+
+      return acc
+    },
+    [[], []],
+  )
+
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left">
         <WhiteRectangle />
-        <HeadingSection title={title} description={description} />
+        <HeadingSection title={title} description={description} className={s.heading} />
         {!isMobile && <WhiteRectangle />}
-      </div>
-      <div className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
-          {list.map((el, i) => (
-            <div
-              className={s.list}
-              key={i} // eslint-disable-line
-            >
-              <ListItem className={s.item} key={el.title} title={el.title} />
+          {columnList.map((arr, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            <div className={s.column} key={i}>
+              {arr.map((el) => (
+                <ListItem className={s.item} key={el.title} title={el.title} />
+              ))}
             </div>
           ))}
         </div>
@@ -49,7 +66,7 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </Column>
     </div>
   )
 }

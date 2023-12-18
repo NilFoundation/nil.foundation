@@ -8,7 +8,7 @@
   display: flex;
   align-items: flex-start;
 
-  margin-bottom: size(178);
+  margin-bottom: size(177);
 
   @include mobile {
     flex-direction: column;
@@ -17,17 +17,8 @@
   }
 }
 
-.left,
 .right {
-  width: 50%;
-
-  @include mobile {
-    width: 100%;
-  }
-}
-
-.right {
-  margin-top: size(181);
+  margin-top: size(182);
 
   @include mobile {
     margin-top: 0;
@@ -37,6 +28,8 @@
 .content {
   position: relative;
   background-color: $gray900;
+
+  padding: 0 0 size($spacing64 + 2);
 
   &:after {
     content: '';
@@ -53,15 +46,35 @@
   }
 
   @include mobile {
-    padding-top: size($spacing24);
+    padding: size($spacing24) 0 size($spacing64 - 21);
+  }
+}
+
+.heading {
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 5);
+
+  p {
+    @include heading-04;
+
+    max-width: initial;
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24 + 3);
+
+    p {
+      @include small;
+
+      margin-top: size($spacing48 + 5);
+    }
   }
 }
 
 .box {
-  padding: size($spacing32);
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
 
   &:not(:last-of-type) {
-    margin-bottom: size($spacing16);
+    margin-bottom: size($spacing16 - 3);
 
     @include mobile {
       margin-bottom: unset;
@@ -69,7 +82,7 @@
   }
 
   &:last-of-type {
-    padding: 0 size($spacing32) size($spacing32);
+    padding: 0 size($spacing32);
 
     @include mobile {
       padding: size($spacing24) size($spacing12);
@@ -77,34 +90,43 @@
   }
 
   @include mobile {
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 - 4) size($spacing12) size($spacing24 - 1);
   }
 }
 
 .title {
-  margin-bottom: size($spacing24);
+  margin-bottom: size($spacing24 + 3);
 
   @include heading-03;
 
   @include mobile {
-    max-width: size(291);
-    margin-bottom: size($spacing24);
+    margin-bottom: size($spacing24 + 1);
   }
 }
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: size($spacing32);
 
   @include mobile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    gap: size($spacing24) size($spacing16);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: size($spacing32);
+
+  @include mobile {
     gap: size($spacing24);
   }
 }
 
 .item {
+  width: 100%;
+
   @include mobile {
     width: 100%;
   }
@@ -112,7 +134,11 @@
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: size(275) size(259);
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .buttonBlock {

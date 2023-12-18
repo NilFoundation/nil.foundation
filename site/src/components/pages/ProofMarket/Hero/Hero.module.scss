@@ -7,7 +7,7 @@
 .root {
   display: flex;
   align-items: flex-start;
-  padding-bottom: size(182);
+  padding-bottom: size(181);
   position: relative;
 
   @include mobile {
@@ -18,6 +18,10 @@
 }
 
 .heading {
+  min-height: size(463);
+
+  padding: size($spacing32) size($spacing32) size($spacing32 + 5);
+
   p {
     @include heading-04;
 
@@ -25,14 +29,14 @@
       @include small;
     }
   }
-}
-
-.left,
-.right {
-  width: 50%;
 
   @include mobile {
-    width: 100%;
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24 + 5);
+    min-height: unset;
+
+    p {
+      margin-top: size($spacing48 + 5);
+    }
   }
 }
 
@@ -44,8 +48,9 @@
 .right {
   display: flex;
   flex-direction: column;
-  padding-top: size($spacing32);
   background-color: $gray900;
+
+  padding-top: size(75);
 
   @include mobile {
     padding-top: unset;

@@ -17,6 +17,7 @@ const TagList = ({ tags, activeTagSlug, onTagClick, className }: TagListProps) =
       {tags.map((tagItem) => (
         <li key={tagItem.slug}>
           <ToggleButton
+            size="l"
             className={s.tabItem}
             isActive={activeTagSlug === tagItem.slug?.toString()}
             onClick={() => onTagClick?.(tagItem)}

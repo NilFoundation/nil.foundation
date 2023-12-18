@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { arrayOf, shape, string } from 'prop-types'
 import cx from 'classnames'
 
@@ -21,27 +21,23 @@ type WinProps = {
 type ArrayElement<A> = A extends readonly (infer T)[] ? T : never
 
 const Win = ({ className, data: { title, description, content, footer } }: WinProps) => {
-  const columnList = useMemo(
-    () =>
-      content.map((item) => {
-        return {
-          ...item,
-          list: item.list.reduce<[Array<ArrayElement<typeof item.list>>, Array<ArrayElement<typeof item.list>>]>(
-            (acc, el, index) => {
-              if (index % 2 === 0) {
-                acc[0].push(el)
-              } else {
-                acc[1].push(el)
-              }
+  const columnList = content.map((item) => {
+    return {
+      ...item,
+      list: item.list.reduce<[Array<ArrayElement<typeof item.list>>, Array<ArrayElement<typeof item.list>>]>(
+        (acc, el, index) => {
+          if (index % 2 === 0) {
+            acc[0].push(el)
+          } else {
+            acc[1].push(el)
+          }
 
-              return acc
-            },
-            [[], []],
-          ),
-        }
-      }),
-    [content],
-  )
+          return acc
+        },
+        [[], []],
+      ),
+    }
+  })
 
   const { isMobile } = useViewport()
   return (

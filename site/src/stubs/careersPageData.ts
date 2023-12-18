@@ -55,7 +55,14 @@ export const careersPageData = {
       link: '/',
     },
   },
-  joinNil,
+  joinNil: {
+    ...joinNil,
+    content: {
+      ...joinNil.content,
+      right:
+        'Join our fast-growing community to collaborate with experienced engineers ready to share their expertise on creating zk-enabled apps.',
+    },
+  },
 }
 
 export const seoData = {

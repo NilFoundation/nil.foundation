@@ -48,8 +48,9 @@ const ResearchLayout = ({ children, tags }: ResearchLayoutProps) => {
           <section className={s.titleWrapper}>
             <h1 className={s.title}>Research</h1>
             <p className={s.description}>
-              Our team’s latest work on trustless cloud data management, non-interactive zero-knowledge proofs,
-              decentralized cryptography, and more.
+              Our team’s latest work on{isMobile ? '\xa0' : ' '}
+              trustless&nbsp;cloud data management, non-interactive zero-knowledge proofs, decentralized cryptography,
+              and&nbsp;more.
             </p>
           </section>
           <section className={s.tagsWrapper}>

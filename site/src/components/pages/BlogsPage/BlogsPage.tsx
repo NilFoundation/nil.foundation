@@ -95,7 +95,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                       key={tag.slug}
                       className={s.toggleButton}
                       isActive={tag.slug === activeTag}
-                      href={`/blog/tag/${tag.slug}`}
+                      href={tag.slug === activeTag ? '/blog' : `/blog/tag/${tag.slug}`}
                     >
                       {tag.name}
                     </ToggleButton>

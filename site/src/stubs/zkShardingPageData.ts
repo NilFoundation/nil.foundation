@@ -43,17 +43,17 @@ export const zkShardingPageData = {
         link: '/',
       },
       {
-        icon: 'lock',
-        title: 'Secured by restaking',
-        description:
-          "Utilizing Ethereum staking pool’s (e.g. Lido)  and applications’ TVL, we've established robust economic liveness security. This guarantees protocol state liveness and fortifies the safety of the underlying liquidity.",
-        link: '/',
-      },
-      {
         icon: 'oracles',
         title: 'Decentralized from day\u00A01',
         description:
           "From its launch, =nil; will be decentralized to ensure censorship resistance. As the number of nodes involved increases, Ethereum's maximal throughput scales linearly.",
+        link: '/',
+      },
+      {
+        icon: 'lock',
+        title: 'Secured by restaking',
+        description:
+          "Utilizing Ethereum staking pool’s (e.g. Lido)  and applications’ TVL, we've established robust economic liveness security. This guarantees protocol state liveness and fortifies the safety of the underlying liquidity.",
         link: '/',
       },
     ],

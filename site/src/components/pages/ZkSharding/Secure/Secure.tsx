@@ -17,24 +17,22 @@ type SecureProps = {
   data: typeof zkShardingPageData.secure
 }
 
+type ArrayElement<A> = A extends readonly (infer T)[] ? T : never
+
 const Secure = ({ className, data: { title, description, content, footer } }: SecureProps) => {
   const { isMobile } = useViewport()
 
-  const columnContent = useMemo(
-    () =>
-      content.reduce<[ArrayElement<typeof content>[], ArrayElement<typeof content>[]]>(
-        (acc, el, index) => {
-          if (index % 2 === 0) {
-            acc[0].push(el)
-          } else {
-            acc[1].push(el)
-          }
+  const columnContent = content.reduce<[ArrayElement<typeof content>[], ArrayElement<typeof content>[]]>(
+    (acc, el, index) => {
+      if (index % 2 === 0) {
+        acc[0].push(el)
+      } else {
+        acc[1].push(el)
+      }
 
-          return acc
-        },
-        [[], []],
-      ),
-    [content],
+      return acc
+    },
+    [[], []],
   )
 
   return (

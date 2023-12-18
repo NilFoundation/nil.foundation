@@ -56,7 +56,7 @@ export const stub = {
         link: '',
       },
       {
-        name: 'nil (Cyprus) Ltd.: Vasileiou Makedonos, 59, 3040, Limassol, Cyprus',
+        name: 'nil (Cyprus) Ltd.: Vasileiou\xa0Makedonos, 59,\xa03040, Limassol, Cyprus',
         link: '',
       },
     ],

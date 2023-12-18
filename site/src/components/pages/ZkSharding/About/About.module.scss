@@ -15,24 +15,7 @@
   }
 }
 
-.left,
 .right {
-  @include mobile {
-    width: 100%;
-  }
-}
-
-.left {
-  flex-basis: size(551);
-
-  @include mobile {
-    flex-basis: unset;
-  }
-}
-
-.right {
-  flex-basis: size(534);
-
   position: relative;
 
   &:after {
@@ -50,8 +33,6 @@
   }
 
   @include mobile {
-    flex-basis: unset;
-
     margin-top: 0;
   }
 }
@@ -126,9 +107,14 @@
   }
 }
 
+.headingIcons {
+  @include mobile {
+    margin-top: size($spacing48 + 7);
+  }
+}
+
 .description {
-  padding: size($spacing32 - 4) size($spacing32) size($spacing64 + 4)
-    size($spacing32);
+  padding: size($spacing32 - 4) size($spacing32) size($spacing64 + 4);
   background-color: $gray900;
 
   @include heading-04;

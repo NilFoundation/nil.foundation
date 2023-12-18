@@ -34,28 +34,38 @@
 }
 
 .headingWrapper {
-  width: size(544);
+  flex-basis: size(551);
   margin-bottom: -1px;
   background-color: $gray900;
 
   @include mobile {
+    flex-basis: unset;
     grid-area: A;
     width: 100%;
-    padding-bottom: size($spacing48 + $spacing24 + $spacing24);
+    padding-bottom: size($spacing48 + $spacing24 - 2);
   }
 }
 
 .heading {
-  padding: size(30);
+  min-height: size(425);
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
 
   @include mobile {
-    padding: size(20) size(10);
+    min-height: unset;
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
+  }
+}
+
+.headingIcons {
+  @include mobile {
+    margin-top: size($spacing48 + 8);
+    gap: size($spacing12);
   }
 }
 
 .contentWrapper {
   position: relative;
-  width: size(272);
+  flex-basis: size(267);
   background-color: $gray900;
   margin-bottom: -1px;
 
@@ -74,6 +84,7 @@
   }
 
   @include mobile {
+    flex-basis: unset;
     width: 100%;
     margin-right: -1px;
     margin-left: -1px;
@@ -98,16 +109,24 @@
   @include mobile {
     grid-area: C;
     margin-top: 0;
-    padding-top: size(50);
+    padding-top: size(36);
     margin-bottom: 0;
   }
 }
 
 .text {
   @include paragraph;
-  padding: size($spacing32);
+  padding: size($spacing32 - 3) size($spacing32) size($spacing32 + 15);
+
+  &.bigBottomPadding {
+    padding-bottom: size($spacing32 + 63);
+  }
 
   @include mobile {
-    padding: 0 size($spacing12) size($spacing12);
+    padding: 0 size($spacing12) size($spacing12 + 3) size($spacing12 + 1);
+
+    &.bigBottomPadding {
+      padding-bottom: size($spacing12 + 3);
+    }
   }
 }

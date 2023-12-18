@@ -1,0 +1,147 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+
+  margin-bottom: size(177);
+
+  @include mobile {
+    flex-direction: column;
+
+    margin-bottom: 0;
+  }
+}
+
+.right {
+  margin-top: size(182);
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  position: relative;
+  background-color: $gray900;
+
+  padding: 0 0 size($spacing64 + 2);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $gray900;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    padding: size($spacing24) 0 size($spacing64 - 21);
+  }
+}
+
+.heading {
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 5);
+
+  p {
+    @include heading-04;
+
+    max-width: initial;
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24 + 3);
+
+    p {
+      @include small;
+
+      margin-top: size($spacing48 + 5);
+    }
+  }
+}
+
+.box {
+  padding: size($spacing32 - 5) size($spacing32) size($spacing32);
+
+  &:not(:last-of-type) {
+    margin-bottom: size($spacing16 - 3);
+
+    @include mobile {
+      margin-bottom: unset;
+    }
+  }
+
+  &:last-of-type {
+    padding: 0 size($spacing32);
+
+    @include mobile {
+      padding: size($spacing24) size($spacing12);
+    }
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 4) size($spacing12) size($spacing24 - 1);
+  }
+}
+
+.title {
+  margin-bottom: size($spacing24 + 3);
+
+  @include heading-03;
+
+  @include mobile {
+    margin-bottom: size($spacing24 + 1);
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: size($spacing32);
+
+  @include mobile {
+    gap: size($spacing24) size($spacing16);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: size($spacing32);
+
+  @include mobile {
+    gap: size($spacing24);
+  }
+}
+
+.item {
+  width: 100%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: size(275) size(259);
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.buttonBlock {
+  padding: size($spacing12) size($spacing16) size($spacing12 + $spacing24 + 4);
+  background-color: $gray900;
+}

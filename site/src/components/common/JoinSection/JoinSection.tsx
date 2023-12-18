@@ -4,15 +4,16 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import s from './JoinSection.module.scss'
+import { Column } from 'components/Column'
 
 function JoinSection({ title, leftText, rightText, social, className }: InferProps<typeof JoinSection.propTypes>) {
   return (
     <section className={classNames(s.container, className)}>
-      <div className={s.headingWrapper}>
+      <Column type="left" className={s.headingWrapper}>
         <WhiteRectangle />
-        <HeadingSection title={title} socials={social} className={s.heading} />
+        <HeadingSection title={title} socials={social} className={s.heading} iconsClassName={s.headingIcons} />
         <WhiteRectangle className={s.line} />
-      </div>
+      </Column>
       <div className={s.contentWrapperLeft}>
         <WhiteRectangle className={s.line} />
         <p className={s.text}>{leftText}</p>

@@ -2,6 +2,7 @@
 @import 'src/styles/helpers';
 @import 'src/styles/colors';
 @import 'src/styles/mixins';
+@import 'src/styles/paddings';
 
 .container {
   background-color: $gray900;
@@ -12,7 +13,7 @@
   padding-bottom: size(264);
 
   @include mobile {
-    padding-bottom: size(60);
+    padding-bottom: size(80);
   }
 }
 
@@ -25,10 +26,6 @@
 
 .bottomLine {
   composes: line;
-
-  @include mobile {
-    display: none;
-  }
 }
 
 .wrapper {
@@ -44,7 +41,7 @@
   background-color: $gray900;
 
   @include mobile {
-    padding: size(2) size(10) size(40);
+    padding: 0 size(10) size($spacing32 + 14);
     margin-top: size(-22);
   }
 }

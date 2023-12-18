@@ -71,8 +71,8 @@ function RevealText({
   const prefersReduceMotion = usePrefersReducedMotion()
 
   const words = useMemo(
-    () => getWords(children, { tag, innerTag, reduceWhiteSpace }),
-    [children], // eslint-disable-line
+    () => getWords(children, { tag, innerTag, reduceWhiteSpace, isVisible }),
+    [children, isVisible], // eslint-disable-line
   )
 
   const getElements = useCallback(() => {

@@ -33,11 +33,11 @@
 
   column-gap: size($spacing16);
 
-  padding-top: size($spacing32);
+  padding-top: size($spacing32 - 10);
 
   @include mobile {
     column-gap: unset;
-    padding: size($spacing24) size($spacing12) 0;
+    padding: size($spacing24 - 13) size($spacing12) 0;
     display: flex;
     flex-direction: column;
     min-height: unset;
@@ -59,15 +59,16 @@
   margin-bottom: size($spacing48);
 
   @include mobile {
+    margin-bottom: size($spacing48 + 3);
     grid-template-columns: 100%;
-    grid-row-gap: size($spacing24);
+    grid-row-gap: size($spacing24 + 4);
     padding-bottom: size($spacing12);
   }
 }
 
 .title {
   @include heading-01;
-  padding: 0 size($spacing32) size($spacing32);
+  padding: 0;
 
   @include mobile {
     padding: 0;
@@ -77,7 +78,7 @@
 
 .description {
   @include heading-03;
-  padding: 0 size($spacing32) size($spacing32);
+  padding: size(5) size($spacing32) size($spacing32) size($spacing32 + 8);
 
   @include mobile {
     padding: 0;
@@ -113,7 +114,6 @@
 
   @include mobile {
     flex-wrap: nowrap;
-    overflow-x: auto;
     margin-bottom: 0;
     background-color: $gray900;
   }

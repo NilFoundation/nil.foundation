@@ -11,7 +11,7 @@ import Button from 'components/Button'
 import SideNavigation from 'components/SideNavigation'
 import s from './PostPage.module.scss'
 
-import type { JoinNilBaseData } from 'pages/Home/JoinNil/JoinNilBaseData'
+import type { JoinNilBaseData } from 'pages/ProofMarket/JoinNil/JoinNilBaseData'
 import { MappedBlog, MappedBlogExtend } from 'src/strapi/types/entities'
 import ToggleButton from 'components/ToggleButton'
 
@@ -30,7 +30,7 @@ type PostPageProps = {
 const ArrowButton = ({ className }: ArrowButtonProps) => (
   <Button href="/blog" className={cx(s.centerItems, className)}>
     <Icon name="arrow-up" className={s.arrow} />
-    <p className={s.paragraph}>Back to Blog</p>
+    <p>Back to Blog</p>
   </Button>
 )
 

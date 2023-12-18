@@ -1,0 +1,109 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: size(8);
+
+  @include mobile {
+    flex-direction: column;
+    margin-bottom: size(60);
+  }
+}
+
+.heading {
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32 + 3);
+
+  p {
+    margin-top: size($spacing32 + 8);
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24);
+
+    p {
+      width: size(170);
+
+      margin-top: size($spacing48 + 5);
+    }
+  }
+}
+
+.right {
+  position: relative;
+  margin-top: size(350);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: $gray900;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    margin-top: 0;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: size(212) size(226);
+  padding: size($spacing32 - 2) size($spacing32) size($spacing64 + 2);
+  background-color: $gray900;
+  gap: size($spacing32);
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+    padding: size($spacing48) size($spacing12) size($spacing64 + 3);
+    gap: size($spacing12);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  gap: size($spacing32);
+
+  @include mobile {
+    gap: size($spacing32 + 2);
+  }
+}
+
+.item {
+  width: 100%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: size(276) size(258);
+
+  @include mobile {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.buttonBlock {
+  padding: size($spacing12) size($spacing16) size($spacing24 + $spacing12 + 4);
+  background-color: $gray900;
+
+  @include mobile {
+    // padding-top: size(58);
+    // padding-bottom: size(40);
+  }
+}

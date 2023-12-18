@@ -9,6 +9,7 @@ import BenefitsCard from 'components/BenefitsCard'
 
 import s from './ZkEnabledApps.module.scss'
 import { homePageData } from 'stubs/homePageData'
+import { Column } from 'components/Column'
 
 type ZkEnabledAppsProps = {
   className?: string
@@ -20,18 +21,26 @@ const ZkEnabledApps = ({ className, data: { title, content } }: ZkEnabledAppsPro
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left">
         <WhiteRectangle />
-        <HeadingSection title={title} />
+        <HeadingSection title={title} className={s.heading} />
         {!isMobile && <WhiteRectangle />}
-      </div>
-      <div className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
-        {content.map((el) => (
-          <BenefitsCard key={el.title} className={s.box} title={el.title} icon={el.icon} description={el.description} />
-        ))}
+        <div className={s.benefitsWrapper}>
+          {content.map((el) => (
+            <BenefitsCard
+              key={el.title}
+              className={s.box}
+              title={el.title}
+              icon={el.icon}
+              description={el.description}
+            />
+          ))}
+        </div>
         <WhiteRectangle />
-      </div>
+      </Column>
     </div>
   )
 }

@@ -21,10 +21,10 @@ const whiteRectangleLineMarginTop = 224
 const whiteRectangleLineMobileMarginTop = 60
 
 const whiteRectangleLineData = [
-  { id: 1, margin: 0 },
-  { id: 2, margin: 0 },
-  { id: 3, margin: 96 },
-  { id: 4, margin: 66 },
+  { id: 1, margin: 0, flexBasis: 275.5 },
+  { id: 2, margin: 0, flexBasis: 275.5 },
+  { id: 3, margin: 96, flexBasis: 275 },
+  { id: 4, margin: 66, flexBasis: 259 },
 ]
 
 const whiteRectangleLineMobileData = [{ id: 1, margin: 0 }]

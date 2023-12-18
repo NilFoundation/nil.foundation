@@ -1,0 +1,70 @@
+@use '~styles/colors' as *;
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+@use '~styles/typography' as *;
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: size(181);
+  position: relative;
+
+  @include mobile {
+    flex-direction: column;
+    padding-bottom: size(60);
+    margin-top: 0;
+  }
+}
+
+.heading {
+  min-height: size(463);
+
+  padding: size($spacing32) size($spacing32) size($spacing32 + 5);
+
+  p {
+    @include heading-04;
+
+    @include mobile {
+      @include small;
+    }
+  }
+
+  @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24 + 5);
+    min-height: unset;
+
+    p {
+      margin-top: size($spacing48 + 5);
+    }
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  background-color: $gray900;
+
+  padding-top: size(75);
+
+  @include mobile {
+    padding-top: unset;
+  }
+}
+
+.lottieWrapper {
+  width: 100%;
+  height: size(710);
+  padding-bottom: size($spacing24);
+
+  @include mobile {
+    height: size(470);
+    margin-bottom: size($spacing24);
+    padding-bottom: unset;
+  }
+}

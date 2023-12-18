@@ -5,13 +5,14 @@
 @use '~styles/paddings' as *;
 
 .root {
-  display: grid;
-  margin-top: size(81);
-  margin-bottom: size(508);
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  margin-top: size(79);
+  margin-bottom: size(507);
+  // grid-template-columns: 1fr 1fr;
 
   @include mobile {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    // grid-template-columns: 1fr;
     margin-top: size(60);
     margin-bottom: size(60);
   }
@@ -22,13 +23,14 @@
 }
 
 .title {
+  padding: size($spacing32 - 11) size($spacing32) size($spacing32);
   @include mobile {
-    padding: size($spacing24) size($spacing12);
+    padding: size($spacing24 - 8) size($spacing12) size($spacing24 + 4);
   }
 }
 
 .right {
-  margin-top: size(180);
+  margin-top: size(182);
 
   @include mobile {
     margin-top: unset;

@@ -29,6 +29,11 @@
 .centerItems {
   display: flex;
   align-items: center;
+
+  @include mobile {
+    align-items: flex-start;
+    margin-top: size($spacing24);
+  }
 }
 
 .mobileHead {
@@ -48,6 +53,10 @@
   display: none;
   transition: opacity 0.3s ease;
 
+  align-items: center;
+
+  @include button-small;
+
   @include hover {
     opacity: 0.5;
   }
@@ -55,13 +64,14 @@
   @include mobile {
     width: 100%;
     display: inline-flex;
-    padding: size($spacing12) 0;
+    margin-top: 0;
+    padding: 0;
   }
 }
 
 .arrow {
   transform: rotate(270deg);
-  width: size(18);
+  width: size(14);
   height: size(14);
   margin-right: size($spacing8);
 }
@@ -127,6 +137,7 @@
 
 .wrapper {
   @include mobile {
+    width: auto;
     padding: 0 size($spacing12);
   }
 }
@@ -141,7 +152,7 @@
   margin-right: size($spacing16);
 
   @include mobile {
-    margin-top: size(20);
+    margin-top: 0;
   }
 }
 
@@ -199,7 +210,6 @@
   @include mobile {
     flex-wrap: wrap;
     gap: size($spacing8);
-    margin-top: size($spacing24);
   }
 }
 
@@ -242,6 +252,10 @@
     word-wrap: normal;
 
     @include paragraph;
+
+    @include mobile {
+      max-width: size(335);
+    }
   }
 
   a {

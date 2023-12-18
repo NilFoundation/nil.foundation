@@ -7,16 +7,16 @@ import HeadingSection from 'components/HeadingSection'
 import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './About.module.scss'
-import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
 import { Column } from 'components/Column'
+import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
 type AboutProps = {
   className?: string
   rightHeaderClassName?: string
   rightFooterClassName?: string
   rightDescriptionClassName?: string
-  data: typeof homePageData.about
+  data: typeof zkllvmPageData.about
 }
 
 function getContent(isMobile: boolean | null, content: string | { isDesktop: string; isMobile: string }) {

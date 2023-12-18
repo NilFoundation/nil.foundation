@@ -41,7 +41,7 @@ const JoinNil = <T extends JoinNilBaseData>({
     >
       <div className={s.left}>
         <WhiteRectangle className={s.longRect} />
-        <HeadingSection className={s.head} title={title} socials={social} />
+        <HeadingSection className={s.head} iconsClassName={s.headIcons} title={title} socials={social} />
         {!isMobile && <WhiteRectangle />}
       </div>
 

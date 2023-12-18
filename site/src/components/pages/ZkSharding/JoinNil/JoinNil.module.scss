@@ -32,6 +32,12 @@
   }
 }
 
+.headIcons {
+  @include mobile {
+    margin-top: size($spacing48 + 7);
+  }
+}
+
 .right {
   display: flex;
   align-items: flex-start;
@@ -42,6 +48,8 @@
     flex-basis: unset;
 
     width: 100%;
+
+    margin-top: size(-1);
   }
 }
 
@@ -78,7 +86,7 @@
     margin-top: 0;
     padding-top: size($spacing24);
 
-    flex-basis: 50%;
+    flex-basis: calc(50% + 1px);
 
     &:last-of-type {
       margin-top: 0;
@@ -97,7 +105,7 @@
 
   @include mobile {
     margin-bottom: unset;
-    padding: size(0) size($spacing12) size($spacing12 + 2);
+    padding: size(0) size($spacing12) size($spacing12 + 3);
     margin-bottom: 0px;
     height: initial;
   }
@@ -106,7 +114,7 @@
     padding-bottom: size($spacing32 + 88);
 
     @include mobile {
-      padding-bottom: size($spacing12 + 2);
+      padding-bottom: size($spacing12 + 3);
     }
   }
 }

@@ -13,4 +13,6 @@
   background-color: $gray900;
 
   margin-top: size(var(--line-margin));
+
+  flex-basis: size(var(--flex-basis));
 }

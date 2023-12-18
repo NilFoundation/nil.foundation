@@ -85,7 +85,11 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                 <div className={s.scrollWrapper}>
                   <div className={s.tags}>
                     {data.tags.map((tag) => (
-                      <ToggleButton key={tag.slug} isActive={tag.slug === activeTag} href={`/blog/tag/${tag.slug}`}>
+                      <ToggleButton
+                        key={tag.slug}
+                        isActive={tag.slug === activeTag}
+                        href={tag.slug === activeTag ? '/blog' : `/blog/tag/${tag.slug}`}
+                      >
                         {tag.name}
                       </ToggleButton>
                     ))}

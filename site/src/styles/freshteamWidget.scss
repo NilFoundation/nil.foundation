@@ -315,12 +315,12 @@
     padding: size(5.5) size(16) size(5.5) size(38) !important;
     border-radius: 0 !important;
     border: none !important;
-    background: $gray-50 !important;
+    background: $gray-800 !important;
     font-family: HelveticaNeue !important;
     font-size: size(15) !important;
     line-height: size(15) !important;
     letter-spacing: size(-0.54) !important;
-    color: $gray900 !important;
+    color: $gray-200 !important;
 
     @include mobile {
       margin-top: 0 !important;
@@ -471,12 +471,12 @@
       top: 0 !important;
       right: size(16) !important;
       border: none !important;
-      width: 12px !important;
+      width: size(16) !important;
       height: 100% !important;
       background: url(/icons/arrow-down.svg) no-repeat !important;
       background-size: contain !important;
       background-position: center !important;
-      transform: rotate(270deg) !important ;
+      // transform: rotate(270deg) !important ;
 
       @include mobile {
         width: 12px !important;
@@ -503,7 +503,7 @@
       top: 0 !important;
       right: size(16) !important;
       border: none !important;
-      width: size(12) !important;
+      width: size(16) !important;
       height: 100% !important;
       background: url(/icons/arrow-down.svg) no-repeat !important;
       background-size: contain !important;
@@ -665,6 +665,10 @@
       height: min-content !important;
       padding: size(4) size(16) !important;
       font-size: size(15) !important;
+
+      .icon-tick {
+        width: size(16);
+      }
     }
   }
 }
@@ -715,7 +719,7 @@
   justify-content: space-between !important;
   height: 100% !important;
   padding: size(5.5) size(32) size(5.5) size(16) !important;
-  background-color: $gray-50 !important;
+  background-color: $gray-800 !important;
 }
 
 .remote-toggle-mobile {

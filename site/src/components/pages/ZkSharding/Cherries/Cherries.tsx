@@ -27,7 +27,6 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
           title={title}
           description={description}
         />
-        ß
         {!isMobile && <WhiteRectangle />}
       </Column>
 

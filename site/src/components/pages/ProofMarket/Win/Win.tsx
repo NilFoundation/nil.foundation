@@ -18,6 +18,8 @@ type WinProps = {
   data: typeof homePageData.win
 }
 
+type ArrayElement<A> = A extends readonly (infer T)[] ? T : never
+
 const Win = ({ className, data: { title, description, content, footer } }: WinProps) => {
   const columnList = useMemo(
     () =>

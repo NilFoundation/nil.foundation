@@ -14,6 +14,7 @@ import { zkllvmPageData } from 'stubs/zkllvmPageData'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 import { WebButton } from 'components/WebButton'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
+import { Column } from 'components/Column'
 
 type HeroProps = {
   className?: string
@@ -57,7 +58,7 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left" className={s.left}>
         <HeadingSection className={s.heading} title={title} />
         <div className={s.box}>
           <div className={s.info}>
@@ -66,9 +67,9 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
           </div>
           {!isMobile && <WhiteRectangle />}
         </div>
-      </div>
+      </Column>
 
-      <div className={s.right}>
+      <Column type="right">
         <div className={s.contentWrapper}>
           <div className={s.lottieWrapper} ref={lottieRef} />
         </div>
@@ -83,7 +84,7 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </Column>
     </div>
   )
 }

@@ -45,3 +45,19 @@ $mobile: 767;
     @content;
   }
 }
+
+@mixin leftColumn {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+@mixin rightColumn {
+  flex-basis: size(534);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}

@@ -4,10 +4,10 @@ import cx from 'classnames'
 
 import s from './ListItem.module.scss'
 
-function ListItem({ className, title, description }: InferProps<typeof ListItem.propTypes>) {
+function ListItem({ className, classNameTitle, title, description }: InferProps<typeof ListItem.propTypes>) {
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.title}>{title}</div>
+      <div className={cx(s.title, classNameTitle)}>{title}</div>
       {description && <p className={s.description}>{description}</p>}
     </div>
   )
@@ -15,6 +15,7 @@ function ListItem({ className, title, description }: InferProps<typeof ListItem.
 
 ListItem.propTypes = {
   className: string,
+  classNameTitle: string,
   title: string,
   description: string,
 }

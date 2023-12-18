@@ -18,6 +18,8 @@ type FullCycleProps = {
   data: typeof homePageData.fullCycle
 }
 
+type ArrayElement<A> = A extends readonly (infer T)[] ? T : never
+
 const FullCycle = ({ className, data: { title, description, list, footer } }: FullCycleProps) => {
   const { isMobile } = useViewport()
 

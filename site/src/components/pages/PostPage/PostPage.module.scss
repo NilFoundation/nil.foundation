@@ -29,6 +29,11 @@
 .centerItems {
   display: flex;
   align-items: center;
+
+  @include mobile {
+    align-items: flex-start;
+    margin-top: size($spacing24);
+  }
 }
 
 .mobileHead {
@@ -127,6 +132,7 @@
 
 .wrapper {
   @include mobile {
+    width: auto;
     padding: 0 size($spacing12);
   }
 }
@@ -141,7 +147,7 @@
   margin-right: size($spacing16);
 
   @include mobile {
-    margin-top: size(20);
+    margin-top: 0;
   }
 }
 
@@ -199,7 +205,6 @@
   @include mobile {
     flex-wrap: wrap;
     gap: size($spacing8);
-    margin-top: size($spacing24);
   }
 }
 

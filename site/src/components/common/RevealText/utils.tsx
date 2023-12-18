@@ -193,7 +193,7 @@ export const getWords = (children: React.ReactNode, props: RevealTextProps) => {
         const key = `${el}-${i}-${textString}`
         newArrayChildren.push(
           <As className={cx(s.element, 'wrap')} key={key}>
-            <InnerAs className={cx(s.element, s.innerElement)}>{el}</InnerAs>
+            <InnerAs className={cx(s.element, { [s.isVisible]: props.isVisible }, s.innerElement)}>{el}</InnerAs>
           </As>,
           ' ',
         )

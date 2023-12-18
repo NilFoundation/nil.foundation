@@ -54,49 +54,55 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
           <div className={s.pageHead}>
             <h1 className={cx(s.pageTitle, s.headItem)}>Blog</h1>
             <h2 className={cx(s.pageDescription, s.headItem)}>
-              Stay in touch with our products development and explore zero-knowledge technology
+              <span className={s.isMobile}>
+                Stay in touch with our products development and explore zero&#8209;knowledge technology
+              </span>
+              <span className={s.isDesktop}>
+                Stay in touch with our products development and explore zero-knowledge technology
+              </span>
             </h2>
-            {isMobile && (
-              <div className={s.mobileSortButtons}>
-                <div className={s.scrollWrapper}>
-                  <div className={s.buttonsWrapper}>
+
+            <div className={s.mobileSortButtons}>
+              <div className={s.scrollWrapper}>
+                <div className={s.buttonsWrapper}>
+                  <Button
+                    cbData="All"
+                    onClick={() => router.push('/blog')}
+                    className={cx(s.filterButtons, {
+                      [s.activeButton]: !activeCategory && !activeTag,
+                    })}
+                  >
+                    All
+                  </Button>
+                  {data.categories.map((button) => (
                     <Button
-                      cbData="All"
-                      onClick={() => router.push('/blog')}
+                      key={button.slug}
+                      onClick={() => router.push(`/blog/category/${button.slug}`)}
                       className={cx(s.filterButtons, {
-                        [s.activeButton]: !activeCategory && !activeTag,
+                        [s.activeButton]: activeCategory === button.slug,
                       })}
                     >
-                      All
+                      {button.name}
                     </Button>
-                    {data.categories.map((button) => (
-                      <Button
-                        key={button.slug}
-                        onClick={() => router.push(`/blog/category/${button.slug}`)}
-                        className={cx(s.filterButtons, {
-                          [s.activeButton]: activeCategory === button.slug,
-                        })}
-                      >
-                        {button.name}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-                <div className={s.scrollWrapper}>
-                  <div className={s.tags}>
-                    {data.tags.map((tag) => (
-                      <ToggleButton
-                        key={tag.slug}
-                        isActive={tag.slug === activeTag}
-                        href={tag.slug === activeTag ? '/blog' : `/blog/tag/${tag.slug}`}
-                      >
-                        {tag.name}
-                      </ToggleButton>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
-            )}
+              <div className={s.scrollWrapper}>
+                <div className={s.tags}>
+                  {data.tags.map((tag) => (
+                    <ToggleButton
+                      size="l"
+                      key={tag.slug}
+                      className={s.toggleButton}
+                      isActive={tag.slug === activeTag}
+                      href={tag.slug === activeTag ? '/blog' : `/blog/tag/${tag.slug}`}
+                    >
+                      {tag.name}
+                    </ToggleButton>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           <div className={cx(s.content, s.centeredItems)}>
             {data.posts && data.posts.length > 0 ? (

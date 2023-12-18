@@ -13,4 +13,10 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+
+  opacity: 0;
+
+  &.isVisible {
+    opacity: 1;
+  }
 }

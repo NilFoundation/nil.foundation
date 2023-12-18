@@ -17,16 +17,16 @@ type JoinNilProps<T extends JoinNilBaseData> = {
 }
 
 function getContent(isMobile: boolean | null, content: JoinNilBaseData['content']) {
-  if (typeof content.right === 'string') {
-    return content.right
+  if (typeof content.newRight === 'string') {
+    return content.newRight
   }
 
-  return !isMobile ? content.right.isDesktop : content.right.isMobile
+  return !isMobile ? content.newRight.isDesktop : content.newRight.isMobile
 }
 
 const JoinNil = <T extends JoinNilBaseData>({
   className,
-  boxClassName,
+
   data: { title, social, content },
   withMargin,
 }: JoinNilProps<T>) => {
@@ -41,17 +41,17 @@ const JoinNil = <T extends JoinNilBaseData>({
     >
       <div className={s.left}>
         <WhiteRectangle className={s.longRect} />
-        <HeadingSection className={s.head} iconsClassName={s.headIcons} title={title} socials={social} />
+        <HeadingSection className={s.head} iconsClassName={s.headingIcons} title={title} socials={social} />
         {!isMobile && <WhiteRectangle />}
       </div>
 
       <div className={s.right}>
-        <div className={cx(s.box, boxClassName)}>
+        <div className={s.box}>
           {!isMobile && <WhiteRectangle />}
           <p className={cx(s.text, s.bigPadding)}>{content.left}</p>
           <WhiteRectangle />
         </div>
-        <div className={cx(s.box, boxClassName)}>
+        <div className={s.box}>
           {!isMobile && <WhiteRectangle />}
           <p className={s.text}>{contentRight}</p>
           <WhiteRectangle />

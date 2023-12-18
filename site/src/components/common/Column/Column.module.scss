@@ -1,0 +1,26 @@
+@use '~styles/mixins' as *;
+@use '~styles/helpers' as *;
+@use '~styles/paddings' as *;
+
+.root {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.type {
+  &-left {
+    flex-basis: size(551);
+    @include mobile {
+      flex-basis: unset;
+    }
+  }
+
+  &-right {
+    flex-basis: size(534);
+
+    @include mobile {
+      flex-basis: unset;
+    }
+  }
+}

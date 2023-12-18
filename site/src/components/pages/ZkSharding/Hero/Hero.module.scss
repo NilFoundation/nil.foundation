@@ -9,6 +9,7 @@
   display: flex;
   align-items: flex-start;
   padding-bottom: size(91);
+  margin-top: size(-1);
   z-index: 2;
 
   @include mobile {
@@ -23,6 +24,7 @@
 
   @include mobile {
     padding-left: size($spacing12);
+    padding-top: size($spacing24 - 8);
 
     p {
       display: none;
@@ -30,30 +32,10 @@
   }
 }
 
-.left,
-.right {
-  @include mobile {
-    width: 100%;
-  }
-}
-
-.right {
-  flex-basis: size(534);
-
-  @include mobile {
-    flex-basis: unset;
-  }
-}
-
 .left {
   display: flex;
   flex-direction: column;
-
-  flex-basis: size(551);
-
-  @include mobile {
-    flex-basis: unset;
-  }
+  background-color: $gray900;
 }
 
 .box {
@@ -83,7 +65,7 @@
 
     gap: size($spacing16);
 
-    padding: size($spacing48 - 5) size($spacing12) size($spacing24 + 6);
+    padding: size($spacing48 - 19) size($spacing12) size($spacing24 + 6);
 
     p {
       width: 100%;

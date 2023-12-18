@@ -7,9 +7,7 @@ import { useViewport } from 'hooks/useViewport'
 import s from './Cherries.module.scss'
 import WhiteRectangle from 'components/WhiteRectangle'
 import HeadingSection from 'components/HeadingSection'
-import { WebButton } from 'components/WebButton'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type Props = {
   className?: string
@@ -21,7 +19,7 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection
           className={s.heading}
@@ -29,10 +27,11 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
           title={title}
           description={description}
         />
+        ß
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
+      </Column>
 
-      <RightColumn className={s.right}>
+      <Column type="right" className={s.right}>
         {!isMobile && (
           <div className={s.rightHeader}>
             <div>
@@ -56,7 +55,7 @@ const Cherries = ({ data: { title, description, content }, className }: Props) =
             <WhiteRectangle />
           </div>
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

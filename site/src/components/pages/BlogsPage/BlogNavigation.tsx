@@ -59,7 +59,11 @@ function BlogNavigation({
         {tags && (
           <div className={s.tags}>
             {tags.map((tag) => (
-              <ToggleButton key={tag.slug} isActive={tag.slug === activeTag} href={`/blog/tag/${tag.slug}`}>
+              <ToggleButton
+                key={tag.slug}
+                isActive={tag.slug === activeTag}
+                href={tag.slug === activeTag ? '/blog' : `/blog/tag/${tag.slug}`}
+              >
                 {tag.name}
               </ToggleButton>
             ))}

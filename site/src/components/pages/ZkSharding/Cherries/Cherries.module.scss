@@ -17,29 +17,10 @@
   }
 }
 
-.left {
-  flex-basis: size(551);
-
-  @include mobile {
-    flex-basis: unset;
-  }
-}
-
-.left,
 .right {
-  @include mobile {
-    width: 100%;
-  }
-}
-
-.right {
-  flex-basis: size(534);
-
   margin-top: size(92);
 
   @include mobile {
-    flex-basis: unset;
-
     width: 100%;
     margin-top: 0;
   }
@@ -67,6 +48,10 @@
     margin-bottom: size($spacing64);
   }
 
+  &:last-of-type {
+    margin-bottom: size($spacing64 + $spacing32 - 8);
+  }
+
   @include paragraph;
 
   @include mobile {
@@ -86,6 +71,10 @@
 
     &:not(:last-of-type) {
       margin-bottom: size($spacing48);
+    }
+
+    &:last-of-type {
+      margin-bottom: size($spacing48 + 1);
     }
   }
 }

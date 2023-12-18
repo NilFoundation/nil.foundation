@@ -4,11 +4,11 @@ import { joinNil } from './joinPartData'
 export const zkllvmPageData = {
   hero: {
     title: 'Experience the zkLLVM circuit compiler',
-    description: 'Tap into the potential of a tool that simplifies proving application code to Ethereum.',
+    description: 'Tap into the potential of a\xa0tool that simplifies proving application code to Ethereum.',
     info: 'Our compiler automatically transforms mainstream development languages into circuits for efficient proof generation.',
     list: [
-      `Compile circuits from existing code, don't start from scratch`,
-      `Superior circuit performance with no zkVMs involved`,
+      "Compile circuits from existing code, don't start from scratch",
+      'Superior circuit performance with no zkVMs involved',
       'Eliminates the need for custom zero-knowledge DSLs',
       'Effortless ongoing maintenance of circuits',
       'Proves C++, Rust, and other mainstream languages',
@@ -41,7 +41,7 @@ export const zkllvmPageData = {
       {
         icon: 'ml',
         title: 'ML',
-        description: 'Providing transparency to ML models',
+        description: 'Providing transparency to\xa0ML\xa0models',
         link: '/',
       },
       {
@@ -57,7 +57,7 @@ export const zkllvmPageData = {
     },
   },
   zkProof: {
-    title: 'Why building zk-enabled apps',
+    title: 'Why building zk\u2011enabled apps',
     content: [
       {
         title: 'Lower execution costs',
@@ -69,10 +69,10 @@ export const zkllvmPageData = {
         title: 'Boost data throughput',
         icon: 'lightning',
         description:
-          'Proving computations with zero-knowledge increases protocol capacity and significantly cuts average time required to process an operation.',
+          'Proving computations with zero-knowledge increases protocol capacity and significantly cuts average time\xa0required\xa0to process an\xa0operation.\xa0',
       },
       {
-        title: 'Enhance privacy and security',
+        title: 'Enhance Privacy and Security',
         icon: 'key',
         description:
           'Zero-knowledge technology lets applications selectively share data with third parties, ensuring privacy without sacrificing the security and trust of your users.',
@@ -80,17 +80,23 @@ export const zkllvmPageData = {
     ],
   },
   fullCycle: {
-    title: 'Full cycle solution for creating zk-enabled Ethereum apps',
-    description: `zkLLVM circuit compiler helps to define proof statements with less effort, reducing implementation time and enhancing your Proof Market experience.`,
+    title: 'Full cycle solution\xa0for creating zk-enabled Ethereum apps',
+    description:
+      "In tandem with Proof Market, our decentralized marketplace for zkProof generation, zkLLVM provides end-to-end support for your application's lifecycle.",
     list: [
       {
-        title: 'High-quality circuits without the need to learn custom DSLS',
+        title: 'Fast-track proof generation setup',
+        description:
+          '=nil; toolchain establishes quick and robust proof generation pipeline, reducing time to market for zk-enabled apps.',
       },
       {
-        title: 'Direct circuit compilation from C++, Rust, or other mainstream languages',
+        title: 'Cost-effective decentralized proof generation',
+        description:
+          "Take advantage of an efficient decentralized proof generation process, reducing each proof's operational costs with zkLLVM circuits.",
       },
       {
-        title: 'Seamless integration with Proof Market for a smooth proof generation process',
+        title: 'Incentives for circuit\xa0developers',
+        description: 'Developers get rewards for adding new circuits that gain demand.',
       },
     ],
     footer: {

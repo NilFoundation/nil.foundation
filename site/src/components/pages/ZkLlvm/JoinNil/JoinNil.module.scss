@@ -32,7 +32,7 @@
   }
 }
 
-.headIcons {
+.headingIcons {
   @include mobile {
     margin-top: size($spacing48 + 7);
   }
@@ -48,8 +48,6 @@
     flex-basis: unset;
 
     width: 100%;
-
-    margin-top: size(-1);
   }
 }
 
@@ -58,7 +56,7 @@
 
   flex-basis: size(276);
 
-  margin-top: size(206);
+  margin-top: size(283);
 
   background-color: $gray900;
 
@@ -79,21 +77,21 @@
   &:last-of-type {
     flex-basis: size(258);
 
-    margin-top: size(306);
+    margin-top: size(313);
   }
 
   @include mobile {
     margin-top: 0;
     padding-top: size($spacing24);
 
-    flex-basis: calc(50% + 1px);
+    flex-basis: 50%;
 
     &:last-of-type {
       margin-top: 0;
 
       flex-basis: 50%;
 
-      padding-top: size($spacing24);
+      padding-top: size($spacing24 + 36);
     }
   }
 }
@@ -105,16 +103,16 @@
 
   @include mobile {
     margin-bottom: unset;
-    padding: size(0) size($spacing12) size($spacing12 + 3);
+    padding: size(0) size($spacing12) size($spacing12 + 2);
     margin-bottom: 0px;
     height: initial;
   }
 
   &.bigPadding {
-    padding-bottom: size($spacing32 + 88);
+    padding-bottom: size($spacing32 + 18);
 
     @include mobile {
-      padding-bottom: size($spacing12 + 3);
+      padding-bottom: size($spacing12 + 2);
     }
   }
 }

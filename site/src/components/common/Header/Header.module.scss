@@ -2,6 +2,7 @@
 @use '~styles/colors' as *;
 @use '~styles/mixins' as *;
 @use '~styles/paddings' as *;
+@use '~styles/typography' as *;
 
 .root {
   position: fixed;
@@ -19,8 +20,8 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: size(262) size(480) 1fr;
-  padding: size(14) size($spacing16);
+  grid-template-columns: size(324) size(480) 1fr;
+  padding: size($spacing12) size($spacing16);
   background-color: $gray-50;
 
   @include mobile {
@@ -48,7 +49,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: size($spacing24);
+  gap: size($spacing24 + 3);
 
   @include mobile {
     display: none;
@@ -59,15 +60,19 @@
   display: flex;
   align-items: center;
   transition: color 0.3s ease;
-  font-size: size(18);
+  // font-size: size(18);
+
+  @include main;
+
+  line-height: size(22);
 
   @include mobile {
     display: none;
   }
 
   .square {
-    width: size(8);
-    height: size(8);
+    width: size(12);
+    height: size(12);
     margin-right: size($spacing12);
     background-color: transparent;
     transition: background-color 0.3s ease;

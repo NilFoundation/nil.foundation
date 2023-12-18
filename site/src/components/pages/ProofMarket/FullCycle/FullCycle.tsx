@@ -11,8 +11,7 @@ import ListItem from 'components/ListItem'
 import s from './FullCycle.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type FullCycleProps = {
   className?: string
@@ -41,12 +40,12 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection title={title} description={description} className={s.heading} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
-      <RightColumn className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {columnList.map((arr, i) => (
@@ -69,7 +68,7 @@ const FullCycle = ({ className, data: { title, description, list, footer } }: Fu
           </div>
           <WhiteRectangle />
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

@@ -11,8 +11,7 @@ import ListItem from 'components/ListItem'
 import s from './Win.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type WinProps = {
   className?: string
@@ -45,13 +44,13 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection title={title} className={s.heading} description={description} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
+      </Column>
 
-      <RightColumn className={s.right}>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {columnList.map((el) => (
@@ -82,7 +81,7 @@ const Win = ({ className, data: { title, description, content, footer } }: WinPr
           </div>
           <WhiteRectangle />
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

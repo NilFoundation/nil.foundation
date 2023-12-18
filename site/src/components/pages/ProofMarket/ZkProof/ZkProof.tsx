@@ -9,8 +9,7 @@ import BenefitsCard from 'components/BenefitsCard'
 
 import s from './ZkProof.module.scss'
 import { homePageData } from 'stubs/homePageData'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type ZkProofProps = {
   className?: string
@@ -22,12 +21,12 @@ const ZkProof = ({ className, data: { title, content } }: ZkProofProps) => {
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn className={s.left}>
+      <Column type="left" className={s.left}>
         <WhiteRectangle />
         <HeadingSection title={title} className={s.heading} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
-      <RightColumn className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && (
           <div className={s.rightHeader}>
             <div>
@@ -51,7 +50,7 @@ const ZkProof = ({ className, data: { title, content } }: ZkProofProps) => {
           ))}
         </div>
         <WhiteRectangle />
-      </RightColumn>
+      </Column>
     </div>
   )
 }

@@ -10,6 +10,7 @@ import s from './HeadingSection.module.scss'
 
 function HeadingSection({
   className,
+  iconsClassName,
   descriptionClassName,
   title,
   description,
@@ -27,13 +28,14 @@ function HeadingSection({
     <div className={cx(s.root, className)}>
       <h2 className={s.title}>{title}</h2>
       {description && <p className={cx(s.description, descriptionClassName)}>{description}</p>}
-      {socials && <div className={s.icons}>{getIcons}</div>}
+      {socials && <div className={cx(s.icons, iconsClassName)}>{getIcons}</div>}
     </div>
   )
 }
 
 HeadingSection.propTypes = {
   className: string,
+  iconsClassName: string,
   descriptionClassName: string,
   title: string.isRequired,
   description: string,

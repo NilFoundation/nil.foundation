@@ -10,6 +10,7 @@ import { useViewport } from 'hooks/useViewport'
 import { WebButton } from 'components/WebButton'
 import ShieldImageSvg from './assets/ShieldImageSvg'
 import Icon from 'components/Icon'
+import { Column } from 'components/Column'
 
 type Props = {
   className?: string
@@ -21,7 +22,7 @@ const More = ({ data: { title, description, contentFooter, footer }, className }
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection
           className={s.heading}
@@ -30,9 +31,9 @@ const More = ({ data: { title, description, contentFooter, footer }, className }
           description={description}
         />
         {!isMobile && <WhiteRectangle />}
-      </div>
+      </Column>
 
-      <div className={s.right}>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
 
         <div className={s.imageBlock}>
@@ -55,7 +56,7 @@ const More = ({ data: { title, description, contentFooter, footer }, className }
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </Column>
     </div>
   )
 }

@@ -61,6 +61,7 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         onChange={({ value }) => {
           setFilter({ ...filter, location: value[0]?.value as string })
         }}
+        disabled={filter.remoteOnly}
       />
       <div className={s.remoteToggleContainer}>
         <Checkbox

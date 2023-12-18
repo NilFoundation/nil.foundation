@@ -1,11 +1,24 @@
-import { Button, FormControl, HeadingLarge, Input, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
+import {
+  Button,
+  FormControl,
+  HeadingLarge,
+  HeadingMedium,
+  Input,
+  LabelMedium,
+  PRIMITIVE_COLORS,
+} from '@nilfoundation/ui-kit'
 import s from './Styles.module.scss'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import formValidationSchema, { ApplicationFormData } from './formValidationSchema'
+import FileInput from '../FileInput/FileInput'
 
 const ApplicationForm = () => {
-  const { handleSubmit, register, formState: {errors, isSubmitting, isDirty, isValid, isValidating} } = useForm<ApplicationFormData>({
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting, isDirty, isValid, isValidating },
+  } = useForm<ApplicationFormData>({
     defaultValues: {
       name: '',
       surname: '',
@@ -31,10 +44,14 @@ const ApplicationForm = () => {
       </HeadingLarge>
       <div>
         <LabelMedium>Send resume as a file</LabelMedium>
-        <LabelMedium>Attach resume in docx, doc, pdf to apply for this vacancy.</LabelMedium>
+        <LabelMedium color={PRIMITIVE_COLORS.gray300} marginBottom="16px">
+          Attach resume in <span className={s.lightText}>docx</span>, <span className={s.lightText}>doc</span>,{' '}
+          <span className={s.lightText}>pdf</span> to apply for this vacancy.
+        </LabelMedium>
+        <FileInput {...partialRegister('file')} />
       </div>
       <div className={s.form}>
-        <FormControl label="Name" error={!!errors.name} >
+        <FormControl label="Name" error={!!errors.name}>
           <Input placeholder="Name" type="text" {...partialRegister('name')} />
         </FormControl>
         {errors.name && <ErrorMessage message={errors.name.message} />}
@@ -50,7 +67,9 @@ const ApplicationForm = () => {
           <Input placeholder="Link" type="text" />
         </FormControl>
       </div>
-      <Button type="submit" disabled={isSubmitting || !isDirty || !isValid || !isValidating} isLoading={isSubmitting}>Submit application</Button>
+      <Button type="submit" disabled={isSubmitting || !isDirty || !isValid || !isValidating} isLoading={isSubmitting}>
+        Submit application
+      </Button>
     </form>
   )
 }
@@ -58,5 +77,17 @@ const ApplicationForm = () => {
 export default ApplicationForm
 
 const ErrorMessage = ({ message }: { message?: string }) => (
-    <LabelMedium color={PRIMITIVE_COLORS.red500}>{message}</LabelMedium>
-);
+  <LabelMedium color={PRIMITIVE_COLORS.red500}>{message}</LabelMedium>
+)
+
+const SubmitSuccessfulMessage = () => {
+  return (
+    <div>
+      <HeadingMedium>Application sent</HeadingMedium>
+      <LabelMedium color={PRIMITIVE_COLORS.gray300}>
+        Thank you for your application, our HR team will contact you within the{' '}
+        <span className={s.lightText}>next 7 days.</span>
+      </LabelMedium>
+    </div>
+  )
+}

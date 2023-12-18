@@ -21,13 +21,13 @@ $mobile: 767;
 }
 
 @mixin hover {
-  @media ( hover: hover ) {
+  @media (hover: hover) {
     &:hover {
       @content;
     }
   }
 
-  @media ( hover: none ) {
+  @media (hover: none) {
     &:active {
       @content;
     }
@@ -37,5 +37,21 @@ $mobile: 767;
 @mixin reducedMotion {
   @media (prefers-reduced-motion: reduce) {
     @content;
+  }
+}
+
+@mixin leftColumn {
+  flex-basis: size(551);
+
+  @include mobile {
+    flex-basis: unset;
+  }
+}
+
+@mixin rightColumn {
+  flex-basis: size(534);
+
+  @include mobile {
+    flex-basis: unset;
   }
 }

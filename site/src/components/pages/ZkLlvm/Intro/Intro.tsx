@@ -19,6 +19,7 @@ const IntroAnimationWidget = ({
     navigationLinkText="Discover zkLLVM"
     navigationLink="https://github.com/NilFoundation/zkllvm"
     animatedContainerClassName={s.animatedContainer}
+    sideNavigationContainerClassName={s.sideNavigationContainer}
   />
 )
 

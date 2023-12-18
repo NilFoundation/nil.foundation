@@ -10,6 +10,7 @@ import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
 import s from './FullCycle.module.scss'
 import { WebButton } from 'components/WebButton'
+import { Column } from 'components/Column'
 
 type FullCycleProps = {
   className?: string
@@ -22,12 +23,12 @@ function FullCycle({ className, data }: FullCycleProps) {
 
   return (
     <div className={cx(s.root, className)}>
-      <div className={s.left}>
+      <Column type="left">
         <WhiteRectangle />
-        <HeadingSection title={title} description={description} />
+        <HeadingSection title={title} description={description} className={s.heading} />
         {!isMobile && <WhiteRectangle />}
-      </div>
-      <div className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {list.map((el, i) => (
@@ -36,7 +37,7 @@ function FullCycle({ className, data }: FullCycleProps) {
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={i} // eslint-disable-line
             >
-              <ListItem className={s.item} key={el.title} title={el.title} />
+              <ListItem className={s.item} key={el.title} title={el.title} description={el.description} />
             </div>
           ))}
         </div>
@@ -51,7 +52,7 @@ function FullCycle({ className, data }: FullCycleProps) {
           </div>
           <WhiteRectangle />
         </div>
-      </div>
+      </Column>
     </div>
   )
 }

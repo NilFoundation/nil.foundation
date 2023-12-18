@@ -31,6 +31,12 @@
   }
 }
 
+.sideNavigationContainer {
+  @include mobile {
+    top: size(11);
+  }
+}
+
 .description {
   position: absolute;
   left: size($spacing32);
@@ -48,8 +54,8 @@
   @include mobile {
     display: block;
     position: absolute;
-    top: size($spacing24);
-    right: size($spacing8);
+    top: size($spacing24 - 10);
+    right: size(5);
     left: unset;
     width: size(175);
   }

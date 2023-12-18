@@ -8,7 +8,7 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  padding-bottom: size(162);
+  padding-bottom: size(163);
   z-index: 2;
 
   @include mobile {
@@ -19,23 +19,17 @@
 }
 
 .heading {
-  min-height: size(326);
+  min-height: size(332);
   padding-bottom: 0;
+
   @include mobile {
+    padding: size($spacing24 - 8) size($spacing12) 0;
+
     min-height: unset;
 
     p {
       display: none;
     }
-  }
-}
-
-.left,
-.right {
-  width: 50%;
-
-  @include mobile {
-    width: 100%;
   }
 }
 
@@ -51,7 +45,7 @@
 }
 
 .heroDescription {
-  padding: 0 size($spacing32) size($spacing32);
+  padding: 0 size($spacing32) size($spacing32 + 3);
   background-color: $gray900;
 
   @include mobile {
@@ -61,7 +55,7 @@
 
 .heroDescription p {
   @include paragraph;
-  max-width: size(200);
+  max-width: size(220);
   background-color: $gray900;
 }
 
@@ -74,13 +68,14 @@
 
   p {
     @include paragraph;
-    padding: 0 size(30) size(30);
+    padding: 0 size($spacing32) size($spacing32 + 3);
+    margin-top: size(-3);
   }
 
   @include mobile {
     display: flex;
     align-items: flex-start;
-    padding: size($spacing48) size($spacing12) 0;
+    padding: size($spacing48 + 8) size($spacing12) 0;
 
     p {
       width: 100%;
@@ -94,7 +89,7 @@
 
   @include mobile {
     display: inline-block;
-    margin-right: size(10);
+    margin-right: size($spacing8);
   }
 }
 
@@ -120,22 +115,26 @@
 
 .list {
   padding: size($spacing32);
-  display: flex;
-  flex-wrap: wrap;
-  gap: size($spacing32);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: size($spacing32) size($spacing32);
   margin-bottom: size($spacing32);
 
   @include mobile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: size(10);
+    gap: size($spacing24) 0;
     padding: size($spacing48) size($spacing12) size($spacing24);
-    margin-bottom: size($spacing24);
+    margin-bottom: size($spacing24 + 3);
   }
 }
 
 .item {
   @include mobile {
     width: 100%;
+  }
+}
+
+.itemTitle {
+  &::before {
+    margin-top: size(5);
   }
 }

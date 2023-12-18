@@ -8,8 +8,7 @@ import SocialButton from 'components/SocialButton'
 import s from './Hero.module.scss'
 import { aboutPageData } from 'stubs/aboutPageData'
 import { useViewport } from 'hooks/useViewport'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type HeroProps = {
   className?: string
@@ -28,7 +27,7 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn className={s.left}>
+      <Column type="left" className={s.left}>
         <HeadingSection className={s.heading} title={title} description={isMobile ? description : null} />
         <div className={s.heroDescription}>
           <p>{description}</p>
@@ -40,9 +39,9 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <WhiteRectangle />
           </div>
         </div>
-      </LeftColumn>
+      </Column>
 
-      <RightColumn className={s.right}>
+      <Column type="right" className={s.right}>
         <div className={s.rectWrapper}>
           <WhiteRectangle />
         </div>
@@ -82,7 +81,7 @@ const Hero = ({ className, data: { title, description, info, content, future, fo
             <WhiteRectangle className={s.wRect} />
           </div>
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

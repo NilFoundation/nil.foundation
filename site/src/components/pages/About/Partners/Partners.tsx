@@ -13,8 +13,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import s from './Partners.module.scss'
 import Item from './Item'
 import { aboutPageData } from 'stubs/aboutPageData'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type PartnersProps = {
   className?: string
@@ -39,13 +38,13 @@ const Partners = ({ className, data: { title, content } }: PartnersProps) => {
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn className={s.left}>
+      <Column type="left" className={s.left}>
         <WhiteRectangle />
         <HeadingSection className={s.title} title={title} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
+      </Column>
 
-      <RightColumn className={s.right}>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {content.map((el, index) => (
@@ -61,7 +60,7 @@ const Partners = ({ className, data: { title, content } }: PartnersProps) => {
           ))}
         </div>
         <WhiteRectangle />
-      </RightColumn>
+      </Column>
     </div>
   )
 }

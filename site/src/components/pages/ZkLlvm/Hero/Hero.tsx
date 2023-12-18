@@ -14,8 +14,7 @@ import ListItem from 'components/ListItem'
 import s from './Hero.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type HeroProps = {
   className?: string
@@ -46,7 +45,7 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn className={s.left}>
+      <Column type="left" className={s.left}>
         <HeadingSection className={s.heading} title={title} />
         <div className={s.heroDescription}>
           <p>{description}</p>
@@ -59,9 +58,9 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
             {!isMobile && <WhiteRectangle />}
           </div>
         </div>
-      </LeftColumn>
+      </Column>
 
-      <RightColumn className={s.right}>
+      <Column type="right" className={s.right}>
         <div className={s.lottieWrapper} ref={lottieRef} />
         <div className={s.list}>
           {list.map((el) => (
@@ -69,7 +68,7 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
           ))}
         </div>
         <WhiteRectangle />
-      </RightColumn>
+      </Column>
     </div>
   )
 }

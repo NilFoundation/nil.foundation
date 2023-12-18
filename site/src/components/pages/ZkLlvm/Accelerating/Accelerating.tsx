@@ -12,8 +12,7 @@ import Icon from 'components/Icon'
 import s from './Accelerating.module.scss'
 import { zkllvmPageData } from 'stubs/zkllvmPageData'
 import { WebButton } from 'components/WebButton'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type AcceleratingProps = {
   className?: string
@@ -25,13 +24,13 @@ const Accelerating = ({ className, data: { title, description, content, footer }
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection className={s.heading} title={title} description={description} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
+      </Column>
 
-      <RightColumn className={s.right}>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {content.map((el) => (
@@ -57,7 +56,7 @@ const Accelerating = ({ className, data: { title, description, content, footer }
           </div>
           <WhiteRectangle />
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

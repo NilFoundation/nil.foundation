@@ -9,8 +9,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import s from './About.module.scss'
 import { homePageData } from 'stubs/homePageData'
 import { WebButton } from 'components/WebButton'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type AboutProps = {
   className?: string
@@ -37,12 +36,12 @@ const About = ({
   const { isMobile } = useViewport()
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection title={title} socials={social} className={s.heading} iconsClassName={s.headingIcons} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
-      <RightColumn className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && (
           <div className={cx(s.rightHeader, rightHeaderClassName)}>
             <div>
@@ -67,7 +66,7 @@ const About = ({
             <WhiteRectangle />
           </div>
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

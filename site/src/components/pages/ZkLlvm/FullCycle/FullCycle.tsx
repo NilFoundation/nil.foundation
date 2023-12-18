@@ -10,8 +10,7 @@ import { zkllvmPageData } from 'stubs/zkllvmPageData'
 
 import s from './FullCycle.module.scss'
 import { WebButton } from 'components/WebButton'
-import LeftColumn from 'components/Columns/LeftColumn'
-import RightColumn from 'components/Columns/RightColumn'
+import { Column } from 'components/Column'
 
 type FullCycleProps = {
   className?: string
@@ -24,12 +23,12 @@ function FullCycle({ className, data }: FullCycleProps) {
 
   return (
     <div className={cx(s.root, className)}>
-      <LeftColumn>
+      <Column type="left">
         <WhiteRectangle />
         <HeadingSection title={title} description={description} className={s.heading} />
         {!isMobile && <WhiteRectangle />}
-      </LeftColumn>
-      <RightColumn className={s.right}>
+      </Column>
+      <Column type="right" className={s.right}>
         {!isMobile && <WhiteRectangle />}
         <div className={s.content}>
           {list.map((el, i) => (
@@ -53,7 +52,7 @@ function FullCycle({ className, data }: FullCycleProps) {
           </div>
           <WhiteRectangle />
         </div>
-      </RightColumn>
+      </Column>
     </div>
   )
 }

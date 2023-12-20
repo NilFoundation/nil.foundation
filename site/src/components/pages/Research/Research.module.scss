@@ -18,6 +18,7 @@
     grid-template-columns: 100%;
     gap: size($spacing24);
     margin-bottom: size($spacing24);
+    padding: 0 #{$spacing12}px;
   }
 }
 

@@ -101,6 +101,6 @@
   @include mobile {
     gap: size($spacing24);
 
-    padding: 0 size($spacing12) size($spacing24);
+    padding: 0 #{$spacing12}px size($spacing24);
   }
 }

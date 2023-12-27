@@ -57,7 +57,7 @@ export interface Job {
 }
 
 export interface UIJob {
-  id: number
+  id: string
   title: string
   description: string
   plainTextDescription: string

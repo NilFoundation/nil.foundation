@@ -53,7 +53,7 @@ export async function getStaticPaths() {
   const paths = await api.getAllPositionPages()
 
   return {
-    paths: paths.map((x) => ({ params: { id: x.toString() } })),
+    paths: paths.map((x) => ({ params: { id: x } })),
     fallback: 'blocking',
   }
 }

@@ -10,13 +10,14 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import DottedSection from '../DottedSection'
 import { HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides } from '../overrides'
-import ApplicationForm from './ApplicationForm'
+//import ApplicationForm from './ApplicationForm'
+import FreshteamForEmbed from './FreshteamForEmbed'
 
 type JobPageProps = {
   job: UIJob
 }
 
-const JobPage = ({ job: { title, description, branch, type } }: JobPageProps) => {
+const JobPage = ({ job: { title, description, branch, type, id } }: JobPageProps) => {
   const { isMobile } = useViewport()
 
   return (
@@ -44,7 +45,7 @@ const JobPage = ({ job: { title, description, branch, type } }: JobPageProps) =>
             {type}
           </LabelMedium>
           <div className={localStyles.freshteamContent} dangerouslySetInnerHTML={{ __html: description }} />
-          <ApplicationForm />
+          <FreshteamForEmbed jobId={id} />
         </div>
         <DottedSection />
       </div>

@@ -12,7 +12,7 @@ export const mapRawJobToUIJob = <T extends boolean>(
   const branchMap = new Map()
 
   return {
-    id: rawJob.id,
+    id: rawJob.unique_id,
     title: rawJob.title,
     plainTextDescription: convert(rawJob.description, { wordwrap: false, limits: { maxBaseElements: 200 } }),
     remote: rawJob.remote,

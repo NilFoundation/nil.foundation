@@ -23,8 +23,14 @@ type ComponentWithLayout = AppProps['Component'] & {
   getLayout?: (page: JSX.Element) => JSX.Element
 }
 
+const handleImportFreshteamCss = async () => {
+  // @ts-ignore
+  await import('styles/freshteamWidget.scss')
+}
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
+  const isOnJobsPage = router.pathname.includes('/careers/jobs')
   useCalcVh()
 
   // using hotjar analytics. currently it's on
@@ -47,6 +53,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router])
+
+  useEffect(() => {
+    if (isOnJobsPage) {
+      handleImportFreshteamCss()
+    }
+  }, [isOnJobsPage])
 
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 

@@ -11,7 +11,7 @@ import DottedSection from '../DottedSection'
 import { HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides } from '../overrides'
 //import ApplicationForm from './ApplicationForm'
-import FreshteamForEmbed from './FreshteamForEmbed'
+import FreshteamEmbed from './FreshteamEmbed'
 
 type JobPageProps = {
   job: UIJob
@@ -45,7 +45,7 @@ const JobPage = ({ job: { title, description, branch, type, id } }: JobPageProps
             {type}
           </LabelMedium>
           <div className={localStyles.freshteamContent} dangerouslySetInnerHTML={{ __html: description }} />
-          <FreshteamForEmbed jobId={id} />
+          <FreshteamEmbed />
         </div>
         <DottedSection />
       </div>

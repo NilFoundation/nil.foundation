@@ -1,13 +1,12 @@
-import { Branch, Job, JobRole, UIJob, UIJobOverview } from './types'
+import { Branch, Job, JobRole, UIJob } from './types'
 import { convert } from 'html-to-text'
 import sanitizeHtml from 'sanitize-html'
 
-export const mapRawJobToUIJob = <T extends boolean>(
+export const mapRawJobToUIJob = (
   rawJob: Job,
   jobRoles: JobRole[],
   branches: Branch[],
-  isOverview: T,
-) => {
+): UIJob => {
   const jobRoleMap = new Map()
   const branchMap = new Map()
 
@@ -34,7 +33,7 @@ export const mapRawJobToUIJob = <T extends boolean>(
         )
         .get(rawJob.job_role_id),
     description: removeFreshtemStyles(rawJob.description),
-  } as T extends true ? UIJobOverview : UIJob
+  }
 }
 
 const mapTypeToDisplayType = (type: Job['job_type']): string => {

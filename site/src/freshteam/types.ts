@@ -67,8 +67,6 @@ export interface UIJob {
   department: JobRole
 }
 
-export type UIJobOverview = Omit<UIJob, 'description'>
-
 export type JobInfo = {
   jobs: Job[]
   branches: Branch[]

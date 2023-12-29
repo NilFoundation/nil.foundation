@@ -28,7 +28,7 @@ export async function getStaticProps() {
 
   const [config, jobInfo] = await Promise.all([getConfig(), getJobPostings()])
   const { job_roles, jobs, branches } = jobInfo
-  const mappedJobs = jobs.map((job) => mapRawJobToUIJob(job, job_roles, branches, false))
+  const mappedJobs = jobs.map((job) => mapRawJobToUIJob(job, job_roles, branches))
 
   return {
     props: {

@@ -1,11 +1,11 @@
 import { Card } from 'components/Card'
 import s from './Job.module.scss'
-import { UIJobOverview } from 'src/freshteam/types'
+import { UIJob } from 'src/freshteam/types'
 import { HeadingXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { labelOverrides, titleOverrides } from './overrides'
 
 type JobProps = {
-  job: UIJobOverview
+  job: UIJob
 }
 
 export const Job = ({ job: { id, remote, type, title, plainTextDescription } }: JobProps) => {

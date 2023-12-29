@@ -15,6 +15,7 @@ const FreshteamEmbed = () => {
     formId: 'applicant-form',
     buttonId: 'freshteam-job-apply',
     setIsLoading: setLoading,
+    setIsError: setDisplayError,
   })
   const [css] = useStyletron()
 

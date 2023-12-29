@@ -1,0 +1,443 @@
+@use '~styles/colors' as *;
+@use '~styles/text' as *;
+@use '~styles/mixins' as *;
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/fonts' as *;
+
+#freshteam-widget {
+    position: relative !important;
+    width: 100% !important;
+    max-width: size(1075) !important;
+    margin-left: auto !important;
+    color: $grey !important;
+
+    .content {
+        width: 100% !important;
+    }
+
+    &.loading {
+        &::before {
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            margin: auto !important;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+
+    @include mobile {
+        display: flex;
+        justify-content: center;
+    }
+
+    @include fontType(H);
+
+    #freshteam-widget .advanced-search .form-control {
+        @include mobile {
+            margin-bottom: size(21);
+        }
+    }
+
+    .job-details-header {
+        background-color: $gray900 !important;
+    }
+
+    .btn-primary {
+        border: size(1) solid $white !important;
+        background: $gray900 !important;
+        transition: all 0.1s ease-in-out !important;
+
+        @include hover {
+            background: $white !important;
+            color: $gray900 !important;
+        }
+    }
+
+    .section-header>.section-description {
+        display: none !important;
+    }
+
+    .section-title::after {
+        display: block;
+        font-weight: normal !important;
+        font-size: 14px !important;
+        content: 'Provide us with links to know about your previous work (Git/Blog/Medium/LinkedIn)';
+    }
+
+    .job-details-content span,
+    .job-details-content li,
+    .job-details-content p,
+    .job-details-content strong {
+        color: $white !important;
+    }
+
+    .row {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+    }
+
+    .job-location {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        margin-bottom: size(32) !important;
+        padding: 0 !important;
+
+        @include mobile {
+            margin-bottom: size(24) !important;
+        }
+    }
+
+    .job-details-content {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .location-info {
+        font-size: size(16) !important;
+        line-height: size(22) !important;
+        color: $secondary !important;
+
+        br {
+            display: none !important;
+        }
+
+        @include mobile {
+            font-size: size(12) !important;
+            line-height: size(12) !important;
+            letter-spacing: size(-0.36) !important;
+        }
+    }
+
+    .col-xs-8 {
+        display: flex !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 0 !important;
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    .col-xs-4 {
+        padding: 0 !important;
+
+        @include mobile {
+            align-self: center !important;
+        }
+    }
+
+    .job-list.job-title {
+        margin-bottom: 0 !important;
+    }
+
+    .location-icon {
+        width: size(12) !important;
+        height: size(12) !important;
+        margin-left: 0 !important;
+        margin-right: size(1) !important;
+        background: url(/icons/arrow-link.svg) no-repeat;
+        background-size: contain;
+
+        svg {
+            display: none;
+        }
+    }
+
+    .job-role-list>ul>li {
+        &:not(:last-child) {
+            margin-bottom: size(64) !important;
+
+            @include mobile {
+                margin-bottom: size(48) !important;
+            }
+        }
+
+        @include mobile {
+            padding: 0 !important;
+        }
+    }
+}
+
+.job-details-header {
+    padding-bottom: 0 !important;
+
+    .content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: size(24) !important;
+
+        @include mobile {
+            gap: size(16) !important;
+        }
+    }
+
+    .text-color {
+        display: flex !important;
+        align-self: flex-end !important;
+        gap: size(10) !important;
+        text-align: center !important;
+
+        @include mobile {
+            align-self: center !important;
+            gap: size(5) !important;
+            margin-top: size(10) !important;
+        }
+
+        div {
+            width: max-content !important;
+        }
+    }
+}
+
+.row {
+    margin: 0 !important;
+}
+
+@media only screen and (min-width: 720px) {
+
+    #freshteam-widget .remote-toggle-mobile,
+    #freshteam-widget .clear-button-mobile {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    #freshteam-widget .remote-toggle-mobile {
+        margin: 20px 0 0 5px;
+    }
+}
+
+.toggle-and-clear {
+    z-index: 10;
+    display: flex !important;
+    justify-content: flex-start !important;
+    flex: 0 100% !important;
+    gap: size(5) !important;
+    height: 20px !important;
+    margin-bottom: 0 !important;
+
+    @include mobile {
+        justify-content: center !important;
+    }
+
+    .remote-toggle {
+        display: flex !important;
+        align-items: center !important;
+        gap: size(8) !important;
+
+        @include mobile {
+            gap: 8px !important;
+        }
+
+        span {
+            margin: 0 !important;
+            font-family: HelveticaNeue !important;
+            font-size: size(18) !important;
+            line-height: size(18) !important;
+            letter-spacing: size(-0.54) !important;
+            color: $secondary !important;
+
+            @include mobile {
+                font-size: 15px !important;
+                line-height: 15px !important;
+            }
+        }
+    }
+}
+
+.clear-button {
+    margin-top: size(2) !important;
+
+    @include mobile {
+        display: none !important;
+    }
+
+    button {
+        margin: 0 !important;
+        font-family: HelveticaNeue !important;
+        font-size: size(18) !important;
+        line-height: size(18) !important;
+        letter-spacing: size(-0.54) !important;
+        color: $secondary !important;
+    }
+}
+
+#freshteam-careers {
+    padding-bottom: size(20) !important;
+    font-family: HelveticaNeue !important;
+
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+        max-width: size(340) !important;
+        margin-bottom: size(48) !important;
+        padding: 0 !important;
+    }
+
+    .advanced-search {
+        padding: 0 !important;
+        background-color: $gray900 !important;
+
+        @include mobile {
+            max-width: size(340);
+            padding: 0 !important;
+        }
+
+        .input-field {
+            position: relative;
+
+            @include mobile {
+                order: 3 !important;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: size(16);
+                top: size(10);
+                width: size(18) !important;
+                height: size(18) !important;
+                background: url(/icons/search.svg) no-repeat;
+                background-size: contain;
+            }
+
+            svg {
+                display: none !important;
+            }
+
+            .close-icon {
+                font-size: size(18) !important;
+                top: size(2) !important;
+            }
+        }
+
+        @include mobile {
+            padding-bottom: size(24) !important;
+        }
+    }
+
+    .content {
+        width: 100% !important;
+
+        @include mobile {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: size(16) !important;
+        }
+
+        .page-title {
+            @include fontType(H);
+
+            @include heading-01;
+
+            height: size(180);
+            padding: size(32) 0 !important;
+            margin-bottom: 0 !important;
+            font-weight: normal !important;
+            color: $white;
+
+            @include mobile {
+                height: auto !important;
+                padding: 0 !important;
+                margin-bottom: size(60) !important;
+                font-size: size(45) !important;
+                line-height: size(40.5) !important;
+                letter-spacing: size(-1.35) !important;
+            }
+        }
+    }
+}
+
+#freshteam-jobs-back {
+    @include mobile {
+        display: flex !important;
+    }
+}
+
+.role-count {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: HelveticaNeue !important;
+    font-size: size(18) !important;
+    line-height: size(24) !important;
+    background-color: transparent !important;
+    color: $gray-300;
+
+    @include mobile {
+        font-size: size(18) !important;
+        line-height: size(24) !important;
+    }
+}
+
+.form-control {
+    border-color: $grey !important;
+    color: $white !important;
+    background-color: $gray900 !important;
+
+    @include mobile {
+        bottom: 0 !important;
+    }
+
+    &:focus {
+        border-color: $white !important;
+    }
+}
+
+.remote-toggle {
+    span {
+        color: $white !important;
+    }
+}
+
+#job-details-header {
+    display: none !important;
+}
+
+.left-content > div:first-child {
+    display: none !important;
+}
+
+#freshteam-widget .container-fluid {
+    padding: 0 !important;
+}
+
+#freshteam-widget .brand-color {
+    color: $gray-50 !important;
+    margin-top: 0 !important;
+    margin-bottom: 32px !important;
+}
+
+#freshteam-widget .complex-field {
+    display: none !important;
+}
+
+div.form-group:has(input#fteam-mobile) {
+    display: none !important;
+}
+
+div.form-group:has(input#fteam-phone) {
+    display: none !important;
+}
+
+#freshteam-widget .application-form {
+    margin: 0 !important;
+}
+
+#freshteam-widget::before {
+    display: none !important;
+}

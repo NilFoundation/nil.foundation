@@ -22,18 +22,25 @@ class Api {
       return null
     }
 
-    const result = await client.get(`/jobs/${id}.json`).then((res) => res)
+    const allJobs = (await this.getJobInfo()).jobs
+    const job = allJobs.find((x) => x.unique_id === id)
+
+    if (!job) {
+      return null
+    }
+
+    const result = await client.get(`/jobs/${job.id}.json`).then((res) => res)
 
     return result.data?.job ?? null
   }
-  public async getAllPositionPages(): Promise<number[]> {
+  public async getAllPositionPages(): Promise<string[]> {
     if (USE_MOCK) {
       return []
     }
 
     const result = await this.getJobInfo()
 
-    return result.jobs.map((x) => x.id)
+    return result.jobs.map((x) => x.unique_id)
   }
 }
 

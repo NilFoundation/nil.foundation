@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = process.env.FRESHTEAM_API_URL
+const API_URL = `${process.env.FRESHTEAM_API_URL}/hire/widgets`
 
 export const client = axios.create({
   baseURL: `${API_URL}`,

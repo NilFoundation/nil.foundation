@@ -1,4 +1,4 @@
-import { Checkbox, Select, SELECT_SIZE } from '@nilfoundation/ui-kit'
+import { Checkbox, Select } from '@nilfoundation/ui-kit'
 import { JobsFilter } from '../types'
 import s from './Filter.module.scss'
 import { TextFilter } from './TextFilter'
@@ -33,7 +33,6 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
     <div className={s.filter}>
       <Select
         placeholder="Choose Department"
-        size={SELECT_SIZE.small}
         options={departmentsOptions}
         value={selectedDepartment}
         onChange={({ value }) => {
@@ -44,7 +43,6 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
       />
       <Select
         placeholder="Choose Work Type"
-        size={SELECT_SIZE.small}
         options={typesOptions}
         searchable={false}
         value={selectedType}
@@ -54,20 +52,21 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
       />
       <Select
         placeholder="Choose Location"
-        size={SELECT_SIZE.small}
         options={locationsOptions}
         searchable={false}
         value={selectedLocation}
         onChange={({ value }) => {
           setFilter({ ...filter, location: value[0]?.value as string })
         }}
+        disabled={filter.remoteOnly}
       />
       <div className={s.remoteToggleContainer}>
         <Checkbox
           checkmarkType="toggle"
           labelPlacement="left"
-          checked={filter.remoteOnly}
+          checked={filter.remoteOnly && filter.location === undefined}
           onChange={({ target }) => setFilter({ ...filter, remoteOnly: target.checked })}
+          disabled={filter.location !== undefined}
         >
           Remote only
         </Checkbox>

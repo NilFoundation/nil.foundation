@@ -1,5 +1,5 @@
 import Container from 'components/Container'
-import localStyles from './JobPage.module.scss'
+import localStyles from './Styles.module.scss'
 import commonStyles from '../OpenJobs.module.scss'
 import { UIJob } from 'src/freshteam/types'
 import { useViewport } from 'hooks/useViewport'
@@ -10,12 +10,13 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import DottedSection from '../DottedSection'
 import { HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides } from '../overrides'
+import FreshteamEmbed from './FreshteamEmbed'
 
 type JobPageProps = {
   job: UIJob
 }
 
-const JobPage = ({ job: { title, description, branch, type } }: JobPageProps) => {
+const JobPage = ({ job: { title, description, branch, type, id } }: JobPageProps) => {
   const { isMobile } = useViewport()
 
   return (
@@ -38,11 +39,12 @@ const JobPage = ({ job: { title, description, branch, type } }: JobPageProps) =>
       <div className={commonStyles.content}>
         <div className={commonStyles.wrapper}>
           <HeadingXXLarge overrides={getPageTitleOverrides()}>{title}</HeadingXXLarge>
-          <LabelMedium color={PRIMITIVE_COLORS.gray50}>{branch.city}</LabelMedium>
+          <LabelMedium color={PRIMITIVE_COLORS.gray50}>{branch.location}</LabelMedium>
           <LabelMedium color={PRIMITIVE_COLORS.gray50} marginBottom="32px">
             {type}
           </LabelMedium>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <div className={localStyles.freshteamContent} dangerouslySetInnerHTML={{ __html: description }} />
+          <FreshteamEmbed />
         </div>
         <DottedSection />
       </div>

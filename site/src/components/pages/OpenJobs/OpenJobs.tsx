@@ -8,7 +8,7 @@ import Icon from 'components/Icon'
 
 import s from './OpenJobs.module.scss'
 import DottedSection from './DottedSection'
-import { UIJobOverview } from 'src/freshteam/types'
+import { UIJob } from 'src/freshteam/types'
 import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
 import { useGroupJobsByDepartments } from './useGroupJobsByDepartments'
@@ -20,7 +20,7 @@ import { Job } from './Job/Job'
 import uniq from 'lodash.uniq'
 
 type OpenJobsProps = {
-  jobsPostings: UIJobOverview[]
+  jobsPostings: UIJob[]
 }
 
 const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Human Resources']
@@ -45,7 +45,7 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
     [jobsPostings],
   )
   const availableLocations = useMemo(
-    () => uniq(jobsPostings.map((p) => p.branch.city).filter((d) => !!d)),
+    () => uniq(jobsPostings.map((p) => p.branch.location).filter((d) => !!d)),
     [jobsPostings],
   )
   const availableTypes = useMemo(() => uniq(jobsPostings.map((p) => p.type).filter((d) => !!d)), [jobsPostings])

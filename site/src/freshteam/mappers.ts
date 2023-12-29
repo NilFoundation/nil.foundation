@@ -1,18 +1,13 @@
-import { Branch, Job, JobRole, UIJob, UIJobOverview } from './types'
+import { Branch, Job, JobRole, UIJob } from './types'
 import { convert } from 'html-to-text'
 import sanitizeHtml from 'sanitize-html'
 
-export const mapRawJobToUIJob = <T extends boolean>(
-  rawJob: Job,
-  jobRoles: JobRole[],
-  branches: Branch[],
-  isOverview: T,
-) => {
+export const mapRawJobToUIJob = (rawJob: Job, jobRoles: JobRole[], branches: Branch[]): UIJob => {
   const jobRoleMap = new Map()
   const branchMap = new Map()
 
   return {
-    id: rawJob.id,
+    id: rawJob.unique_id,
     title: rawJob.title,
     plainTextDescription: convert(rawJob.description, { wordwrap: false, limits: { maxBaseElements: 200 } }),
     remote: rawJob.remote,
@@ -25,21 +20,16 @@ export const mapRawJobToUIJob = <T extends boolean>(
           branches.find((x) => x.id === rawJob.branch_id),
         )
         .get(rawJob.branch_id),
-    ...(isOverview
-      ? {
-          department:
-            jobRoleMap.get(rawJob.job_role_id) ??
-            jobRoleMap
-              .set(
-                rawJob.job_role_id,
-                jobRoles.find((x) => x.id === rawJob.job_role_id),
-              )
-              .get(rawJob.job_role_id),
-        }
-      : {
-          description: removeFreshtemStyles(rawJob.description),
-        }),
-  } as T extends true ? UIJobOverview : UIJob
+    department:
+      jobRoleMap.get(rawJob.job_role_id) ??
+      jobRoleMap
+        .set(
+          rawJob.job_role_id,
+          jobRoles.find((x) => x.id === rawJob.job_role_id),
+        )
+        .get(rawJob.job_role_id),
+    description: removeFreshtemStyles(rawJob.description),
+  }
 }
 
 const mapTypeToDisplayType = (type: Job['job_type']): string => {

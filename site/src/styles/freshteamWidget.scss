@@ -437,3 +437,7 @@ div.form-group:has(input#fteam-phone) {
 #freshteam-widget .application-form {
     margin: 0 !important;
 }
+
+#freshteam-widget::before {
+    display: none !important;
+}

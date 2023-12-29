@@ -25,20 +25,15 @@ export const mapRawJobToUIJob = <T extends boolean>(
           branches.find((x) => x.id === rawJob.branch_id),
         )
         .get(rawJob.branch_id),
-    ...(isOverview
-      ? {
-          department:
-            jobRoleMap.get(rawJob.job_role_id) ??
-            jobRoleMap
-              .set(
-                rawJob.job_role_id,
-                jobRoles.find((x) => x.id === rawJob.job_role_id),
-              )
-              .get(rawJob.job_role_id),
-        }
-      : {
-          description: removeFreshtemStyles(rawJob.description),
-        }),
+    department:
+      jobRoleMap.get(rawJob.job_role_id) ??
+      jobRoleMap
+        .set(
+          rawJob.job_role_id,
+          jobRoles.find((x) => x.id === rawJob.job_role_id),
+        )
+        .get(rawJob.job_role_id),
+    description: removeFreshtemStyles(rawJob.description),
   } as T extends true ? UIJobOverview : UIJob
 }
 

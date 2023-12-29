@@ -4,7 +4,6 @@ import { GetServerSideProps } from 'next'
 import { getAllPath } from 'src/strapi'
 import { CollectionType } from 'src/strapi/types/CollectionType'
 import { Blog } from '../../../admin/src/api/blog/content-types/blog/blog'
-import { api } from 'src/freshteam'
 
 const fileExtensionsRegexp = /\.(js|jsx|ts|tsx)$/gi
 
@@ -59,7 +58,6 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         re.map((slug) => `${item.url}/${slug}`),
       )
     }),
-    api.getAllPositionPages().then((re) => re.map((id) => `/careers/jobs/${id}`)),
   ])
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

@@ -10,7 +10,6 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import DottedSection from '../DottedSection'
 import { HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
 import { getPageTitleOverrides } from '../overrides'
-//import ApplicationForm from './ApplicationForm'
 import FreshteamEmbed from './FreshteamEmbed'
 
 type JobPageProps = {

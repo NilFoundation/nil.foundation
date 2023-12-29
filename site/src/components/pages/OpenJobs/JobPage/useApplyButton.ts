@@ -1,47 +1,37 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 type UseApplyButtonProps = {
-    widgetContainerRef: React.RefObject<HTMLDivElement>;
-    buttonId: string;
+  formId: string
+  buttonId: string
+  setIsLoading: (isLoading: boolean) => void
+  maxWaitFormLoadTime?: number
 }
 
-export const useApplyButton = ({widgetContainerRef, buttonId}: UseApplyButtonProps) => {
-    useEffect(() => {
-        const widgetContainer = widgetContainerRef.current;
+export const useApplyButton = ({ formId, buttonId, setIsLoading, maxWaitFormLoadTime = 5000 }: UseApplyButtonProps) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const form = document.getElementById(formId)
 
-        if (!widgetContainer) {
-            return;
-        }
+      if (form) {
+        setIsLoading(false)
+        clearInterval(interval)
+      }
 
-        const mutationObserver = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === 'childList') {
-                    
-                    if (!document.querySelector('.rc-anchor-content')) {
-                        return;
-                    }
+      const button = document.getElementById(buttonId)
 
-                    setTimeout(() => {
-                        const button = document.getElementById(buttonId);
-                        button && button.click();
-                        console.log(window.freshTeam.JobWidget);
-                        mutationObserver.disconnect();
-                    }, 0);
+      if (button) {
+        button.click()
+      }
+    }, 150)
 
-                    console.log(window.freshTeam.JobWidget);
-                }
-            });
-        });
+    const timeout = setTimeout(() => {
+      clearInterval(interval)
+      setIsLoading(false)
+    }, maxWaitFormLoadTime)
 
-        mutationObserver.observe(widgetContainer, {
-            attributes: false,
-            childList: true,
-            subtree: true,
-            characterData: false,
-        });
-
-        return () => {
-            mutationObserver.disconnect();
-        };
-    }, [widgetContainerRef, buttonId]);
-};
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timeout)
+    }
+  }, [formId, buttonId, setIsLoading, maxWaitFormLoadTime])
+}

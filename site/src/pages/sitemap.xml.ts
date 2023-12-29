@@ -37,6 +37,7 @@ const pagesArr = [
   },
   { type: 'categories', url: '/blog/category', params: {} },
 ]
+const otherPaths = [{ url: 'careers/jobs' }]
 
 const Sitemap = () => {}
 
@@ -52,13 +53,13 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       return `${process.env.NEXT_PUBLIC_BASE_URL}/${staticPagePath}`
     }) // adding base url
 
-  const dynamicPages = await Promise.all([
-    ...pagesArr.map(async (item) => {
+  const dynamicPages = await Promise.all(
+    pagesArr.map(async (item) => {
       return getAllPath<Blog>(`${item.type}` as CollectionType, item.params).then((re) =>
         re.map((slug) => `${item.url}/${slug}`),
       )
     }),
-  ])
+  )
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -93,6 +94,19 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
               `
           })
           .join('')}
+
+           ${otherPaths
+            .map(
+              (el) => `
+                <url>
+                  <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
+                  <lastmod>${new Date().toISOString()}</lastmod>
+                  <changefreq>monthly</changefreq>
+                  <priority>0.7</priority>
+                </url>
+                `,
+            )
+            .join('')}
     </urlset>
   `
 

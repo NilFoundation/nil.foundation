@@ -96,8 +96,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
           .join('')}
 
            ${otherPaths
-            .map(
-              (el) => `
+             .map(
+               (el) => `
                 <url>
                   <loc>${process.env.NEXT_PUBLIC_BASE_URL}/${el.url}</loc>
                   <lastmod>${new Date().toISOString()}</lastmod>
@@ -105,8 +105,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                   <priority>0.7</priority>
                 </url>
                 `,
-            )
-            .join('')}
+             )
+             .join('')}
     </urlset>
   `
 

@@ -2,11 +2,7 @@ import { Branch, Job, JobRole, UIJob } from './types'
 import { convert } from 'html-to-text'
 import sanitizeHtml from 'sanitize-html'
 
-export const mapRawJobToUIJob = (
-  rawJob: Job,
-  jobRoles: JobRole[],
-  branches: Branch[],
-): UIJob => {
+export const mapRawJobToUIJob = (rawJob: Job, jobRoles: JobRole[], branches: Branch[]): UIJob => {
   const jobRoleMap = new Map()
   const branchMap = new Map()
 

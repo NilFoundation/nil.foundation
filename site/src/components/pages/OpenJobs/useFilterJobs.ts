@@ -1,7 +1,7 @@
-import { UIJobOverview } from 'src/freshteam/types'
+import { UIJob } from 'src/freshteam/types'
 import { JobsFilter } from './types'
 
-export const useFilterJobs = (positions: UIJobOverview[], filter: JobsFilter) => {
+export const useFilterJobs = (positions: UIJob[], filter: JobsFilter) => {
   const filteredPositions = positions.filter((position) => {
     const titleFilter = filter.title ? position.title.toLowerCase().includes(filter.title.toLowerCase()) : true
     const departmentFilter = filter.department

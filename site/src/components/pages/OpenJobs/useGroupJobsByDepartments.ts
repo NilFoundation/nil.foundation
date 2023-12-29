@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { JobRole, UIJobOverview } from 'src/freshteam/types'
+import { JobRole, UIJob } from 'src/freshteam/types'
 
-export const useGroupJobsByDepartments = (jobs: UIJobOverview[], order?: Array<JobRole['name']>) => {
+export const useGroupJobsByDepartments = (jobs: UIJob[], order?: Array<JobRole['name']>) => {
   return useMemo(() => {
     const departments = jobs.reduce((acc, job) => {
       const departmentName = job.department.name
@@ -11,7 +11,7 @@ export const useGroupJobsByDepartments = (jobs: UIJobOverview[], order?: Array<J
         ...acc,
         [departmentName]: [...departmentJobs, job],
       }
-    }, {} as Record<string, UIJobOverview[]>)
+    }, {} as Record<string, UIJob[]>)
 
     if (order) {
       const orderedDepartments = order
@@ -21,7 +21,7 @@ export const useGroupJobsByDepartments = (jobs: UIJobOverview[], order?: Array<J
             ...acc,
             [department]: departments[department],
           }
-        }, {} as Record<string, UIJobOverview[]>)
+        }, {} as Record<string, UIJob[]>)
 
       return { ...orderedDepartments, ...departments }
     }

@@ -25,19 +25,6 @@ type OpenJobsProps = {
 
 const departmensOrder = ['Engineering', 'Developer Relations', 'Marketing', 'Human Resources']
 
-const whiteRectangleLineMarginTop = 143
-
-const whiteRectangleLineMobileMarginTop = 60
-
-const whiteRectangleLineMobileData = [{ id: 1, margin: 0 }]
-
-const whiteRectangleLineData = [
-  { id: 1, margin: 400, flexBasis: 275.5 },
-  { id: 2, margin: 142, flexBasis: 275.5 },
-  { id: 3, margin: 166, flexBasis: 267 },
-  { id: 4, margin: 0, flexBasis: 267 },
-]
-
 const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
   const { isMobile } = useViewport()
   const [filter, setFilter] = useState<JobsFilter>({
@@ -115,10 +102,7 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
               )
             })}
           </div>
-          <WhiteRectangleLine
-            marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
-            data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
-          />
+          <DottedSection />
         </div>
       </Container>
     </>

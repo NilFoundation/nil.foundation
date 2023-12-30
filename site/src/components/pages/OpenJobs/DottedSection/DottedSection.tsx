@@ -4,6 +4,17 @@ import WhiteRectangle from 'components/WhiteRectangle'
 import Button from 'components/Button/Button'
 import s from './DottedSection.module.scss'
 
+const whiteRectangleLineMarginTop = 224
+
+const whiteRectangleLineMobileMarginTop = 60
+
+const whiteRectangleLineData = [
+  { id: 1, margin: 0, flexBasis: 275.5 },
+  { id: 2, margin: 0, flexBasis: 275.5 },
+  { id: 3, margin: 96, flexBasis: 275 },
+  { id: 4, margin: 66, flexBasis: 259 },
+]
+
 const DottedSection = () => {
   return (
     <section className={s.container}>
@@ -19,10 +30,14 @@ const DottedSection = () => {
             <WhiteRectangle className={s.line} />
           </div>
         </div>
-        <WhiteRectangle className={s.bottomLine} />
       </DottedCard>
     </section>
   )
 }
 
 export default DottedSection
+
+          // <WhiteRectangleLine
+          //   marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+          //   data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+          // />

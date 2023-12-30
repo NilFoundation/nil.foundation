@@ -22,6 +22,7 @@ export const useApplyButton = ({
       if (form) {
         setIsLoading(false)
         clearInterval(interval)
+        clearTimeout(timeout)
       }
 
       const button = document.getElementById(buttonId)

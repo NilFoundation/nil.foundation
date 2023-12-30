@@ -17,6 +17,16 @@ export const titleOverrides: BlockOverrides = {
       color: PRIMITIVE_COLORS.gray50,
       fontWeight: 400,
       letterSpacing: '-0.96px',
+      lineHeight: '40px',
+    },
+  },
+}
+
+export const descriptionOverrides: BlockOverrides = {
+  Block: {
+    style: {
+      color: PRIMITIVE_COLORS.gray300,
+      fontWeight: 400,
     },
   },
 }

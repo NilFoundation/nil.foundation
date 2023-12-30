@@ -25,3 +25,11 @@ export const getPageTitleOverrides = (): BlockOverrides => ({
     },
   },
 })
+
+export const rolesCountOverrides: BlockOverrides = {
+  Block: {
+    style: {
+      fontWeight: '400',
+    },
+  },
+}

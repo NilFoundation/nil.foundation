@@ -37,7 +37,7 @@ const DottedSection = () => {
 
 export default DottedSection
 
-          // <WhiteRectangleLine
-          //   marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
-          //   data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
-          // />
+// <WhiteRectangleLine
+//   marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}
+//   data={isMobile ? whiteRectangleLineMobileData : whiteRectangleLineData}
+// />

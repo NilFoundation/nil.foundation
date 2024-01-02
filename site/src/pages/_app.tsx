@@ -18,6 +18,7 @@ import { styletron } from '../styletron'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { BaseProvider } from 'baseui'
 import { createTheme } from '@nilfoundation/ui-kit'
+import { typographyOverrides } from 'src/typographyOverrides'
 
 type ComponentWithLayout = AppProps['Component'] & {
   getLayout?: (page: JSX.Element) => JSX.Element
@@ -62,14 +63,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
 
-  const { theme, fonts } = createTheme(styletron, {
-    enableDefaultFonts: true,
+  const { theme } = createTheme(styletron, {
+    enableDefaultFonts: false,
     overrides: {
-      primaryFontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+      typography: typographyOverrides,
     },
   })
-
-  console.log(fonts)
 
   return (
     <>

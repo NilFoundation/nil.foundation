@@ -21,9 +21,7 @@ export const Job = ({ job: { id, remote, type, title, plainTextDescription } }: 
       <div className={s.title}>
         <HeadingXLarge overrides={getTitleOverrides(!!isMobile)}>{title}</HeadingXLarge>
       </div>
-      <div className={s.description}>
-        {plainTextDescription}
-      </div>
+      <div className={s.description}>{plainTextDescription}</div>
     </Card>
   )
 }

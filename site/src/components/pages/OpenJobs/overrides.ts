@@ -20,7 +20,7 @@ export const getCommonHeadingOverrides = (isMobile: boolean): BlockOverrides => 
 export const getPageTitleOverrides = (isMobile: boolean): BlockOverrides => ({
   Block: {
     style: {
-      marginBottom: isMobile ? '60px' :'32px',
+      marginBottom: isMobile ? '60px' : '32px',
       ...getHeadingCommonStyles(isMobile),
     },
   },

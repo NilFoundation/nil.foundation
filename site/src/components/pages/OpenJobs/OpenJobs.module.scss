@@ -11,6 +11,7 @@
   @include mobile {
     display: flex;
     flex-direction: column;
+    padding: 0 12px;
   }
 }
 
@@ -33,7 +34,7 @@
   }
 
   @include mobile {
-    margin: size(10) size(20) size(18) size(16);
+    margin-top: size(24);
   }
 }
 
@@ -46,6 +47,10 @@
 .wrapper {
   background-color: $gray900;
   padding: 32px 0;
+
+  @include mobile {
+    padding: 24px 0;
+  }
 }
 
 .department {
@@ -54,4 +59,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include mobile {
+    margin-top: 48px;
+    margin-bottom: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
 }

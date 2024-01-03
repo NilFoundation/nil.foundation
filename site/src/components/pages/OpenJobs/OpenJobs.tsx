@@ -2,15 +2,14 @@ import { useViewport } from 'hooks/useViewport'
 
 import Container from 'components/Container'
 import StickyContainer from 'components/StickyContainer'
-import WhiteRectangle from 'components/WhiteRectangle'
 import Button from 'components/Button/Button'
 import Icon from 'components/Icon'
 
 import s from './OpenJobs.module.scss'
 import DottedSection from './DottedSection'
 import { UIJob } from 'src/freshteam/types'
-import { HeadingXLarge, HeadingXXLarge, LabelMedium, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
-import { getPageTitleOverrides, getCommonHeadingOverrides } from './overrides'
+import { HeadingXLarge, HeadingXXLarge, LabelLarge, PRIMITIVE_COLORS } from '@nilfoundation/ui-kit'
+import { getPageTitleOverrides, getCommonHeadingOverrides, rolesCountOverrides } from './overrides'
 import { useGroupJobsByDepartments } from './useGroupJobsByDepartments'
 import { Filter } from './Filter/Filter'
 import { useFilterJobs } from './useFilterJobs'
@@ -18,6 +17,7 @@ import { Fragment, useMemo, useState } from 'react'
 import { JobsFilter } from './types'
 import { Job } from './Job/Job'
 import uniq from 'lodash.uniq'
+import WhiteRectangleLine from 'components/WhiteRectangleLine'
 
 type OpenJobsProps = {
   jobsPostings: UIJob[]
@@ -65,12 +65,11 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
               <Icon name="arrow-up" className={s.arrow} />
               Careers
             </Button>
-            <WhiteRectangle />
           </StickyContainer>
         )}
         <div className={s.content}>
           <div className={s.wrapper}>
-            <HeadingXXLarge overrides={getPageTitleOverrides()}>Open Positions</HeadingXXLarge>
+            <HeadingXXLarge overrides={getPageTitleOverrides(!!isMobile)}>Open Positions</HeadingXXLarge>
             <Filter
               filter={filter}
               setFilter={setFilter}
@@ -91,10 +90,10 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
               return (
                 <Fragment key={department}>
                   <div className={s.department}>
-                    <HeadingXLarge overrides={getCommonHeadingOverrides()}>{department}</HeadingXLarge>
-                    <LabelMedium color={PRIMITIVE_COLORS.gray300}>
+                    <HeadingXLarge overrides={getCommonHeadingOverrides(!!isMobile)}>{department}</HeadingXLarge>
+                    <LabelLarge color={PRIMITIVE_COLORS.gray300} overrides={rolesCountOverrides}>
                       {jobs.length === 1 ? '1 Open Role' : `${jobs.length} Open Roles`}
-                    </LabelMedium>
+                    </LabelLarge>
                   </div>
                   {jobs.map((job) => {
                     return <Job key={job.id} job={job} />

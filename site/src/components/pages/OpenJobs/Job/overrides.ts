@@ -11,12 +11,23 @@ export const labelOverrides: BlockOverrides = {
   },
 }
 
-export const titleOverrides: BlockOverrides = {
+export const getTitleOverrides = (isMobile: boolean): BlockOverrides => ({
   Block: {
     style: {
       color: PRIMITIVE_COLORS.gray50,
       fontWeight: 400,
-      letterSpacing: '-0.96px',
+      letterSpacing: isMobile ? '-0.48px' : '-0.96px',
+      fontSize: isMobile ? '24px' : '32px',
+      lineHeight: isMobile ? '32px' : '40px',
+    },
+  },
+})
+
+export const descriptionOverrides: BlockOverrides = {
+  Block: {
+    style: {
+      color: PRIMITIVE_COLORS.gray300,
+      fontWeight: 400,
     },
   },
 }

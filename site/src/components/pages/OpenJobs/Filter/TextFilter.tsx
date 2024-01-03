@@ -19,7 +19,7 @@ export const TextFilter = ({ setFilterValue }: TextFilterProps): ReactElement =>
 
   return (
     <Input
-      placeholder="Search by title"
+      placeholder="Search Job Title"
       value={value}
       onChange={(e) => {
         setValue(e.target.value)

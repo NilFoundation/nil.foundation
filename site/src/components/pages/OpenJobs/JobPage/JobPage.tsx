@@ -38,7 +38,7 @@ const JobPage = ({ job: { title, description, branch, type, id } }: JobPageProps
       )}
       <div className={commonStyles.content}>
         <div className={commonStyles.wrapper}>
-          <HeadingXXLarge overrides={getPageTitleOverrides()}>{title}</HeadingXXLarge>
+          <HeadingXXLarge overrides={getPageTitleOverrides(!!isMobile)}>{title}</HeadingXXLarge>
           <LabelMedium color={PRIMITIVE_COLORS.gray50}>{branch.location}</LabelMedium>
           <LabelMedium color={PRIMITIVE_COLORS.gray50} marginBottom="32px">
             {type}

@@ -69,7 +69,7 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
         )}
         <div className={s.content}>
           <div className={s.wrapper}>
-            <HeadingXXLarge overrides={getPageTitleOverrides()}>Open Positions</HeadingXXLarge>
+            <HeadingXXLarge overrides={getPageTitleOverrides(!!isMobile)}>Open Positions</HeadingXXLarge>
             <Filter
               filter={filter}
               setFilter={setFilter}
@@ -90,7 +90,7 @@ const OpenJobs = ({ jobsPostings = [] }: OpenJobsProps) => {
               return (
                 <Fragment key={department}>
                   <div className={s.department}>
-                    <HeadingXLarge overrides={getCommonHeadingOverrides()}>{department}</HeadingXLarge>
+                    <HeadingXLarge overrides={getCommonHeadingOverrides(!!isMobile)}>{department}</HeadingXLarge>
                     <LabelLarge color={PRIMITIVE_COLORS.gray300} overrides={rolesCountOverrides}>
                       {jobs.length === 1 ? '1 Open Role' : `${jobs.length} Open Roles`}
                     </LabelLarge>

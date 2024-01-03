@@ -1,27 +1,27 @@
 import { BlockOverrides } from 'baseui/block'
 import { StyleObject } from 'styletron-react'
 
-const headingCommonStyles: StyleObject = {
-  fontSize: '64px',
+const getHeadingCommonStyles = (isMobile: boolean): StyleObject => ({
+  fontSize: isMobile ? '45px' : '64px',
   lineHeight: '1',
   fontWeight: '400',
-  letterSpacing: '-1.28px',
-}
+  letterSpacing: isMobile ? '-1.05px' : '-1.28px',
+})
 
-export const getCommonHeadingOverrides = (): BlockOverrides => ({
+export const getCommonHeadingOverrides = (isMobile: boolean): BlockOverrides => ({
   Block: {
     style: {
-      marginBottom: '24px',
-      ...headingCommonStyles,
+      marginBottom: isMobile ? '10px' : '24px',
+      ...getHeadingCommonStyles(isMobile),
     },
   },
 })
 
-export const getPageTitleOverrides = (): BlockOverrides => ({
+export const getPageTitleOverrides = (isMobile: boolean): BlockOverrides => ({
   Block: {
     style: {
-      marginBottom: '32px',
-      ...headingCommonStyles,
+      marginBottom: isMobile ? '60px' :'32px',
+      ...getHeadingCommonStyles(isMobile),
     },
   },
 })

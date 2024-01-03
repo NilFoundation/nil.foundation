@@ -11,6 +11,13 @@
     width: 100%;
     height: 198px;
 
+    @include mobile {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 16px;
+        height: auto;
+    }
+
     &:not(:last-child) {
         margin-bottom: 24px;
     }
@@ -34,4 +41,8 @@
     grid-column: 2 / 3;
     height: 48px;
     overflow: hidden;
+
+    @include mobile {
+        grid-column: 1 / 2;
+    }
 }

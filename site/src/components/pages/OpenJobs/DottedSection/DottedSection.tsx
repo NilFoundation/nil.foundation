@@ -1,17 +1,17 @@
 import React from 'react'
-import DottedCard from 'components/DottedCard'
 import WhiteRectangle from 'components/WhiteRectangle'
 import Button from 'components/Button/Button'
 import s from './DottedSection.module.scss'
 import { useViewport } from 'hooks/useViewport'
 
 const DottedSection = () => {
-  const isMobile = useViewport()
+  const {isMobile} = useViewport()
 
   return (
     <section className={s.container}>
       <div>
         <WhiteRectangle className={s.whiteRectTop} />
+        {isMobile && <WhiteRectangle className={s.whiteRectBottom} />}
       </div>
       <div className={s.titleWrapper}>
         <p className={s.title}>
@@ -23,16 +23,18 @@ const DottedSection = () => {
         <WhiteRectangle className={s.whiteRectBottom} />
       </div>
       <div>
-        <WhiteRectangle className={s.whiteRectTop} />
+        <WhiteRectangle className={isMobile ? s.whiteRectBottom : s.whiteRectTop} />
       </div>
-      <div className={s.subgrid}>
-        <div>
-          <WhiteRectangle className={s.whiteRectBottom} />
+      {!isMobile && (
+        <div className={s.subgrid}>
+          <div>
+            <WhiteRectangle className={s.whiteRectBottom} />
+          </div>
+          <div>
+            <WhiteRectangle className={s.whiteRectTop} />
+          </div>
         </div>
-        <div>
-          <WhiteRectangle className={s.whiteRectTop} />
-        </div>
-      </div>
+      )}
     </section>
   )
 }

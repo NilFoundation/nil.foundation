@@ -5,7 +5,7 @@ import s from './DottedSection.module.scss'
 import { useViewport } from 'hooks/useViewport'
 
 const DottedSection = () => {
-  const {isMobile} = useViewport()
+  const { isMobile } = useViewport()
 
   return (
     <section className={s.container}>

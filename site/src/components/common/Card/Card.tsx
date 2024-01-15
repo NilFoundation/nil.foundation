@@ -1,15 +1,14 @@
 import Button from 'components/Button'
 import Icon from 'components/Icon'
-import React, { ComponentPropsWithoutRef } from 'react'
+import React from 'react'
 
 import s from './Card.module.scss'
 
 import cx from 'classnames'
-import Link from 'next/link'
 
 type CardProps = {
   children?: React.ReactNode
-  href?: ComponentPropsWithoutRef<typeof Link>['href']
+  href?: string
   onClick?: (e: MouseEvent) => void
   className?: string
 }

@@ -5,9 +5,11 @@ import { StrapiParamters } from './types/parameters'
 
 export const client = axios.create({
   baseURL: `${config.API_URL}`,
-  headers: {
-    Authorization: `bearer ${config.TOKEN}`,
-  },
+})
+
+client.interceptors.request.use((configInterception: InternalAxiosRequestConfig) => {
+  configInterception.headers.authorization = `bearer ${config.TOKEN}`
+  return configInterception
 })
 
 export const queryList = async <T>(contentType: string, params: StrapiParamters = {}): Promise<T[]> => {

@@ -1,13 +1,3 @@
-import { UrlObject } from 'url'
-
-type Url = string | UrlObject
-
-const isExternalLink = (link: Url) => {
-  if (typeof link === 'string') {
-    return /^https?:\/\//.test(link) || link.startsWith('mailto:')
-  }
-
-  return false
-}
+const isExternalLink = (link: string) => /^https?:\/\//.test(link) || link.startsWith('mailto:')
 
 export default isExternalLink

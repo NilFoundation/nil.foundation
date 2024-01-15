@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef, useMemo } from 'react'
+import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from 'react'
 import Link from 'next/link'
 import cx from 'classnames'
 
@@ -12,7 +12,7 @@ type ButtonElementProps<T extends ElementType = ElementType> = ComponentProps<T>
 type ButtonOwnProps<T extends ElementType = ElementType> = {
   as?: T
   hover?: 'underline' | 'none'
-  href?: ComponentPropsWithoutRef<typeof Link>['href']
+  href?: string
   children?: ReactNode
   className?: string
   onClick?: () => void

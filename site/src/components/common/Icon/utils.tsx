@@ -21,7 +21,6 @@ import Cross from './icons/Cross'
 import Squares from './icons/Squares'
 import DevPortal from './icons/DevPortal'
 import { SvgIconComponent } from './SvgIconComponent'
-import Upload from './icons/Upload'
 
 export const getIcon = (name: string): SvgIconComponent | null => {
   switch (name) {
@@ -90,9 +89,6 @@ export const getIcon = (name: string): SvgIconComponent | null => {
 
     case 'squares':
       return Squares
-
-    case 'upload':
-      return Upload
 
     default:
       return null

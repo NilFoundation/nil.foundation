@@ -14,13 +14,24 @@ import useCalcVh from 'hooks/useCalcVh'
 import { seo } from 'constants/seo'
 import Hotjar from '@hotjar/browser'
 import { AppProps } from 'next/app'
+import { styletron } from '../styletron'
+import { Provider as StyletronProvider } from 'styletron-react'
+import { BaseProvider } from 'baseui'
+import { createTheme } from '@nilfoundation/ui-kit'
+import { typographyOverrides } from 'src/typographyOverrides'
 
 type ComponentWithLayout = AppProps['Component'] & {
   getLayout?: (page: JSX.Element) => JSX.Element
 }
 
+const handleImportFreshteamCss = async () => {
+  // @ts-ignore
+  await import('styles/freshteamWidget.scss')
+}
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
+  const isOnJobsPage = router.pathname.includes('/careers/jobs')
   useCalcVh()
 
   // using hotjar analytics. currently it's on
@@ -45,17 +56,19 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [router])
 
   useEffect(() => {
-    const handleImport = async () => {
-      // @ts-ignore
-      await import('styles/freshteamWidget.scss')
+    if (isOnJobsPage) {
+      handleImportFreshteamCss()
     }
-
-    if (router.pathname === '/careers/jobs') {
-      handleImport()
-    }
-  }, [router.pathname])
+  }, [isOnJobsPage])
 
   const getLayout = (Component as ComponentWithLayout).getLayout || ((page: JSX.Element) => page)
+
+  const { theme } = createTheme(styletron, {
+    enableDefaultFonts: false,
+    overrides: {
+      typography: typographyOverrides,
+    },
+  })
 
   return (
     <>
@@ -81,9 +94,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="canonical" href={`${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`} key="canonical" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout withFooter={router.pathname !== '/404'} config={pageProps.config}>
-        {getLayout(<Component {...pageProps} />)}
-      </Layout>
+      <StyletronProvider value={styletron}>
+        <BaseProvider theme={theme}>
+          <Layout withFooter={router.pathname !== '/404'} config={pageProps.config}>
+            {getLayout(<Component {...pageProps} />)}
+          </Layout>
+        </BaseProvider>
+      </StyletronProvider>
     </>
   )
 }

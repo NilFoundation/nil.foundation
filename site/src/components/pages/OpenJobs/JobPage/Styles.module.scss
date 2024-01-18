@@ -1,0 +1,54 @@
+@use '~styles/helpers' as *;
+@use '~styles/mixins' as *;
+@use '~styles/typography' as *;
+@use '~styles/colors' as *;
+
+.wrapper {
+    width: 50%;
+}
+
+.form {
+    margin: 32px 0;
+}
+
+.lightText {
+    color: $gray-50;
+}
+
+.freshteamContent {
+    > div > span {
+        color: $gray-300;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 22px;
+        color: $gray-300;
+        margin: 32px 0;
+    }
+
+    strong {
+        font-weight: inherit;
+        color: $gray-50;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 32px;
+        margin: 32px 0;
+    }
+
+    h4 {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        margin: 32px 0;
+    }
+
+    br {
+        display: none;
+    }
+}

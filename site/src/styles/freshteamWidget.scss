@@ -428,7 +428,7 @@
 
 $hiddenFields: 2, 5, 6, 7, 8;
 @each $field in $hiddenFields {
-    div.form-group:nth-child(#{$field}) {
+    div#public-fields-container > div.form-group:nth-child(#{$field}) {
         display: none !important;
     }
 }

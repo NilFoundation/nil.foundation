@@ -1,7 +1,7 @@
 import { client } from './client'
 import { Job, JobInfo } from './types'
 
-const USE_MOCK = false
+const USE_MOCK = !!process.env.USE_MOCK || false
 
 class Api {
   public async getJobInfo(): Promise<JobInfo> {

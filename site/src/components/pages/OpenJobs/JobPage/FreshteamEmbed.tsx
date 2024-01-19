@@ -16,6 +16,7 @@ const FreshteamEmbed = () => {
     buttonId: 'freshteam-job-apply',
     setIsLoading: setLoading,
     setIsError: setDisplayError,
+    maxWaitFormLoadTime: 10000,
   })
   const [css] = useStyletron()
 
@@ -47,6 +48,7 @@ const FreshteamEmbed = () => {
           className={css({
             display: 'flex',
             justifyContent: 'center',
+            maxHeight: '32px',
           })}
         >
           <Spinner size={SPINNER_SIZE.large} animation />

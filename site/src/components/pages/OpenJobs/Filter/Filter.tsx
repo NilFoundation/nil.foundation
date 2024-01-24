@@ -14,20 +14,20 @@ type FilterProps = {
 export const Filter = ({ filter, setFilter, departments, locations, types }: FilterProps) => {
   const departmentsOptions = departments.map((department) => ({
     label: department,
-    value: department,
+    id: department,
   }))
   const locationsOptions = locations.map((location) => ({
     label: location,
-    value: location,
+    id: location,
   }))
   const typesOptions = types.map((type) => ({
     label: type,
-    value: type,
+    id: type,
   }))
 
-  const selectedDepartment = filter.department ? [{ label: filter.department, value: filter.department }] : undefined
-  const selectedType = filter.type ? [{ label: filter.type, value: filter.type }] : undefined
-  const selectedLocation = filter.location ? [{ label: filter.location, value: filter.location }] : undefined
+  const selectedDepartment = filter.department ? [{ label: filter.department, id: filter.department }] : undefined
+  const selectedType = filter.type ? [{ label: filter.type, id: filter.type }] : undefined
+  const selectedLocation = filter.location ? [{ label: filter.location, id: filter.location }] : undefined
 
   return (
     <div className={s.filter}>
@@ -36,7 +36,7 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         options={departmentsOptions}
         value={selectedDepartment}
         onChange={({ value }) => {
-          setFilter({ ...filter, department: value[0]?.value as string })
+          setFilter({ ...filter, department: value[0]?.id as string })
         }}
         searchable={false}
         valueKey="label"
@@ -47,7 +47,7 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         searchable={false}
         value={selectedType}
         onChange={({ value }) => {
-          setFilter({ ...filter, type: value[0]?.value as string })
+          setFilter({ ...filter, type: value[0]?.id as string })
         }}
       />
       <Select
@@ -56,7 +56,7 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         searchable={false}
         value={selectedLocation}
         onChange={({ value }) => {
-          setFilter({ ...filter, location: value[0]?.value as string })
+          setFilter({ ...filter, location: value[0]?.id as string })
         }}
         disabled={filter.remoteOnly}
       />

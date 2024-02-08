@@ -61,6 +61,5 @@ export const stub = {
       },
     ],
   },
-
-  creators: [{ name: 'Designed by Redis', link: 'https://www.redis.agency/' }],
+  creators: [{ name: 'Designed by Koji', link: 'https://www.koji.team/' }],
 }

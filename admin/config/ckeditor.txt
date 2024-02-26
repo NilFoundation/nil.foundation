@@ -1,7 +1,7 @@
 globalThis.CKEditorConfig = {
     configs:{
         custom:{
-            
+
             /* Styles for this specific editor.
             This will be passed into the editor's parent container. */
 
@@ -36,6 +36,9 @@ globalThis.CKEditorConfig = {
             },
             /* CKEditor configuration */
             editorConfig:{
+               link: {
+                			addTargetToExternalLinks: true
+               },
                 /* All available built-in plugins
                 you can find in admin/src/components/Input/CKEditor/configs/base.js */
                 plugins: [
@@ -48,8 +51,11 @@ globalThis.CKEditorConfig = {
                     CKEditor5.image.ImageStyle,
                     CKEditor5.image.ImageToolbar,
                     CKEditor5.image.ImageUpload,
+                    CKEditor5.image.ImageResizeEditing,
+                    CKEditor5.image.ImageResizeHandles,
                     CKEditor5.indent.Indent,
                     CKEditor5.link.Link,
+                    CKEditor5.link.AutoLink,
                     CKEditor5.list.List,
                     CKEditor5.paragraph.Paragraph,
                     CKEditor5.pasteFromOffice.PasteFromOffice,
@@ -60,7 +66,7 @@ globalThis.CKEditorConfig = {
                     CKEditor5.strapiPlugins.StrapiMediaLib,
                     CKEditor5.strapiPlugins.StrapiUploadAdapter,
                     CKEditor5.blockQuote.BlockQuote,
-                    CKEditor5.basicStyles.Code, 
+                    CKEditor5.basicStyles.Code,
                     CKEditor5.codeBlock.CodeBlock,
                   ],
 

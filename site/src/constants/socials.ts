@@ -4,5 +4,5 @@ export const socialLinks = {
   telegram: 'https://t.me/nilfoundation',
   twitter: 'https://twitter.com/nil_foundation',
   linkedin: 'https://www.linkedin.com/company/nil-foundation',
-  devPortal: 'https://docs.nil.foundation/nil/',
+  devPortal: 'https://docs.nil.foundation',
 }

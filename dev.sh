@@ -63,11 +63,12 @@ echo Token: $token
 # check exists .env
 if [ ! -f site/.env ]; then
   echo "create .env for site"
-  echo "STRAPI_API_URL=http://localhost:1337/api" > site/.env
-  echo "STRAPI_URL=http://localhost:1337" > site/.env
+  echo "STRAPI_API_URL=http://127.0.0.1:1337/api" >> site/.env
+  echo "STRAPI_URL=http://127.0.0.1:1337" >> site/.env
   # add token 
   echo "STRAPI_API_KEY=$token" >> site/.env
   echo "NEXT_PUBLIC_BASE_URL=http://localhost:3000" >> site/.env
+  echo "FRESHTEAM_API_URL=http://nil.freshteam.com" >> site/.env
 fi
 npm run build --prefix site
 

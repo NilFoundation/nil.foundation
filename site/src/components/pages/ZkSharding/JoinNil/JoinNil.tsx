@@ -8,7 +8,8 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './JoinNil.module.scss'
 import { JoinNilBaseData } from './JoinNilBaseData'
-import Button from 'components/Button'
+import { WebButton } from 'components/WebButton'
+import { seo } from 'constants/seo'
 
 type JoinNilProps<T extends JoinNilBaseData> = {
   className?: string
@@ -51,9 +52,9 @@ const JoinNil = <T extends JoinNilBaseData>({
           {!isMobile && <WhiteRectangle />}
           <p className={cx(s.text, s.bigPadding)}>
             {content.left}
-            <Button className={s.devnet} href="https://wsrr1ntszgn.typeform.com/nil-devnet">
-              devnet
-            </Button>
+            <WebButton className={s.devnet} href={seo.devnetLink}>
+              Join our devnet
+            </WebButton>
           </p>
           {!isMobile && <div style={{ height: '80px' }}></div>}
           <WhiteRectangle />

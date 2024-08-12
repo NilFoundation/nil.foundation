@@ -6,6 +6,8 @@ import PropTypes, { InferProps } from 'prop-types'
 import s from './JoinNil.module.scss'
 import { useViewport } from 'hooks/useViewport'
 import Button from 'components/Button'
+import { WebButton } from 'components/WebButton'
+import { seo } from 'constants/seo'
 
 function JoinNil({ title, leftText, rightText, social, className }: InferProps<typeof JoinNil.propTypes>) {
   const { isMobile } = useViewport()
@@ -21,9 +23,9 @@ function JoinNil({ title, leftText, rightText, social, className }: InferProps<t
         <WhiteRectangle className={s.line} />
         <p className={classNames(s.text, s.bigBottomPadding)}>
           {leftText}
-          <Button className={s.devnet} href="https://wsrr1ntszgn.typeform.com/nil-devnet">
-            devnet
-          </Button>
+          <WebButton className={s.devnet} href={seo.devnetLink}>
+            Join our devnet
+          </WebButton>
         </p>
         {!isMobile && <div style={{ height: '80px' }}></div>}
         <WhiteRectangle className={s.lineMobile} />

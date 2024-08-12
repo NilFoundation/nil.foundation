@@ -2,7 +2,7 @@ export const joinNil = {
   title: 'Join our community',
   social: 'community',
   content: {
-    left: `Want to build? Apply to join our`,
+    left: `Want to build?`,
     right:
       'Join our community to collaborate with experienced engineers on building secure, scalable and composable decentralized applications.',
     newRight: {

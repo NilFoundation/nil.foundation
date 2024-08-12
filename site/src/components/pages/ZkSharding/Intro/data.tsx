@@ -19,11 +19,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     ySourceValue: '-336px',
     yTransformValue: '-99%',
     children: (isCompleted: boolean) => (
-      <IntroDescription
-        className={s.description}
-        text="Built to Outlast that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications."
-        isVisible={isCompleted}
-      />
+      <IntroDescription className={s.description} text="Built to Outlast" isVisible={isCompleted} />
     ),
   },
   {

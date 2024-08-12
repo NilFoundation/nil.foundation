@@ -1,8 +1,8 @@
 export const joinNil = {
-  title: 'Join our community for expert help',
+  title: 'Join our community',
   social: 'community',
   content: {
-    left: `Whether you're a seasoned developer or a zk enthusiast taking your first steps, we've got your back!`,
+    left: `Want to build? Apply to join our`,
     right:
       'Join our community to collaborate with experienced engineers on building secure, scalable and composable decentralized applications.',
     newRight: {

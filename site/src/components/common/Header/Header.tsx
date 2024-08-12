@@ -59,7 +59,7 @@ function Header({ className, config }: HeaderProps) {
           <Icon name="logo" className={s.logo} />
         </Button>
         <div className={s.mainWrapper}>
-          {realLinks.main.map((el) => (
+          {/* {realLinks.main.map((el) => (
             <Button
               key={el.name}
               className={cx(s.btn, {
@@ -70,7 +70,7 @@ function Header({ className, config }: HeaderProps) {
               <div className={s.square} />
               {el.name}
             </Button>
-          ))}
+          ))} */}
         </div>
         <div className={s.box}>
           {realLinks.other.map((el) => (

@@ -21,7 +21,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     children: (isCompleted: boolean) => (
       <IntroDescription
         className={s.description}
-        text="=nil; is a zkRollup that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications."
+        text="Built to Outlast that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications."
         isVisible={isCompleted}
       />
     ),

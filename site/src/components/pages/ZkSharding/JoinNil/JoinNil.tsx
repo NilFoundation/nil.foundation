@@ -8,6 +8,7 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './JoinNil.module.scss'
 import { JoinNilBaseData } from './JoinNilBaseData'
+import Button from 'components/Button'
 
 type JoinNilProps<T extends JoinNilBaseData> = {
   className?: string
@@ -31,7 +32,7 @@ const JoinNil = <T extends JoinNilBaseData>({
   withMargin,
 }: JoinNilProps<T>) => {
   const { isMobile } = useViewport()
-  const contentRight = getContent(isMobile, content)
+  //const contentRight = getContent(isMobile, content)
 
   return (
     <div
@@ -48,12 +49,19 @@ const JoinNil = <T extends JoinNilBaseData>({
       <div className={s.right}>
         <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
-          <p className={cx(s.text, s.bigPadding)}>{content.left}</p>
+          <p className={cx(s.text, s.bigPadding)}>
+            {content.left}
+            <Button className={s.devnet} href="https://wsrr1ntszgn.typeform.com/nil-devnet">
+              devnet
+            </Button>
+          </p>
+          {!isMobile && <div style={{ height: '80px' }}></div>}
           <WhiteRectangle />
         </div>
         <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
-          <p className={s.text}>{contentRight}</p>
+          {/* <p className={s.text}>{contentRight}</p> */}
+          <div style={{ height: '180px' }}></div>
           <WhiteRectangle />
         </div>
       </div>

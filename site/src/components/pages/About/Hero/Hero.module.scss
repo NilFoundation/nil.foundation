@@ -46,7 +46,7 @@
 
 .heroDescription p {
   @include paragraph;
-  max-width: size(247);
+  max-width: size(494);
   background-color: $gray900;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .line {
-  width: 50%;
+  width: 100%;
 }
 
 .info {

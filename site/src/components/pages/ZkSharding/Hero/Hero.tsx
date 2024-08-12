@@ -15,13 +15,14 @@ import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 import { WebButton } from 'components/WebButton'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 import { Column } from 'components/Column'
+import { zkShardingPageData } from 'stubs/zkShardingPageData'
 
 type HeroProps = {
   className?: string
-  data: typeof zkllvmPageData.hero
+  data: typeof zkShardingPageData.hero
 }
 
-const Hero = ({ className, data: { title, description, info, list } }: HeroProps) => {
+const Hero = ({ className, data: { title, description, list } }: HeroProps) => {
   const lottieRef = useRef<HTMLDivElement>(null)
   const lottieInstance = useRef<AnimationItem | null>(null)
   const isIntersected = useRef(false)
@@ -63,7 +64,6 @@ const Hero = ({ className, data: { title, description, info, list } }: HeroProps
         <div className={s.box}>
           <div className={s.info}>
             <p>{description}</p>
-            <p>{info}</p>
           </div>
           {!isMobile && <WhiteRectangle />}
         </div>

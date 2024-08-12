@@ -6,7 +6,8 @@ import PropTypes, { InferProps } from 'prop-types'
 import s from './JoinSection.module.scss'
 import { Column } from 'components/Column'
 import { useViewport } from 'hooks/useViewport'
-import Button from 'components/Button'
+import { WebButton } from 'components/WebButton'
+import { seo } from 'constants/seo'
 
 function JoinSection({ title, leftText, rightText, social, className }: InferProps<typeof JoinSection.propTypes>) {
   const { isMobile } = useViewport()
@@ -22,9 +23,9 @@ function JoinSection({ title, leftText, rightText, social, className }: InferPro
         <WhiteRectangle className={s.line} />
         <p className={s.text}>
           {leftText}
-          <Button className={s.devnet} href="https://wsrr1ntszgn.typeform.com/nil-devnet">
-            devnet
-          </Button>
+          <WebButton className={s.devnet} href={seo.devnetLink}>
+            Join our devnet
+          </WebButton>
         </p>
         {!isMobile && <div style={{ height: '80px' }}></div>}
         <WhiteRectangle className={s.bottomLine} />

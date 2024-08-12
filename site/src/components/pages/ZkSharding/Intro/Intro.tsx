@@ -37,7 +37,7 @@ const Intro = () => {
               duration={700}
               delay={500}
               isVisible={isVisible}
-              text="Built to Outlast that uses zkSharding to securely scale Ethereum to 60,000+ TPS, empowering web3 developers to build scalable, secure, and composable applications."
+              text="Built to Outlast"
             />
           )}
         </IntroAnimationWidget>

@@ -70,9 +70,7 @@ const Hero = ({ className, data: { title, description, list } }: HeroProps) => {
       </Column>
 
       <Column type="right">
-        <div className={s.contentWrapper}>
-          {/* <div className={s.lottieWrapper} ref={lottieRef} /> */}
-        </div>
+        <div className={s.contentWrapper}>{/* <div className={s.lottieWrapper} ref={lottieRef} /> */}</div>
         <div className={s.rightFooter}>
           <div className={s.footerLeftBox}>
             <div className={s.buttonWrapper}>

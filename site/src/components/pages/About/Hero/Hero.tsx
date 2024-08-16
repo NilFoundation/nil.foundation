@@ -31,7 +31,7 @@ const Hero = ({ className, data: { title, description } }: HeroProps) => {
         <HeadingSection className={s.heading} title={title} description={isMobile ? description : null} />
         <div className={s.heroDescription}>
           <p>{description}</p>
-          <div style={{ height: '100px' }}></div>
+          <div style={{ height: '50px' }}></div>
         </div>
         <div className={s.box}>
           <WhiteRectangle className={s.line} />
@@ -42,10 +42,7 @@ const Hero = ({ className, data: { title, description } }: HeroProps) => {
       </Column>
       {!isMobile && (
         <Column type="right" className={s.right}>
-          <div className={s.rectWrapper}>
-            <WhiteRectangle />
-          </div>
-          <WhiteRectangle className={s.rect} />
+          {null}
         </Column>
       )}
     </div>

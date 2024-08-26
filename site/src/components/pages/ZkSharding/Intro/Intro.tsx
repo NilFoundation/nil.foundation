@@ -15,7 +15,7 @@ const IntroAnimationWidget = ({
 >) => (
   <IntroAnimation
     {...props}
-    navigationTitle="An Ethereum L2, powered by zkSharding"
+    navigationTitle="zkSharding for Ethereum"
     navigationLinkText="Explore =nil;"
     navigationLink="https://explore.nil.foundation/"
     sideNavigationContainerClassName={s.sideNavigationContainer}
@@ -37,7 +37,7 @@ const Intro = () => {
               duration={700}
               delay={500}
               isVisible={isVisible}
-              text=""
+              text="=nil; is a zkRollup that uses zkSharding to securely scale Ethereum to 60,000+ TPS, empowering web3 developers to build scalable, secure, and composable applications."
             />
           )}
         </IntroAnimationWidget>

@@ -18,7 +18,13 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     id: 'z3',
     ySourceValue: '-336px',
     yTransformValue: '-99%',
-    children: (isCompleted: boolean) => <IntroDescription className={s.description} text="" isVisible={isCompleted} />,
+    children: (isCompleted: boolean) => (
+      <IntroDescription
+        className={s.description}
+        text="=nil; is a zkRollup that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications."
+        isVisible={isCompleted}
+      />
+    ),
   },
   {
     id: 'z4',

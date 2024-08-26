@@ -38,6 +38,7 @@ const Intro = ({ className, data: { title, description } }: IntroProps) => {
             <WhiteRectangle />
           </div>
         </div>
+        {isMobile && <WhiteRectangle />}
       </Column>
       {!isMobile && (
         <Column type="right" className={s.wrapper}>

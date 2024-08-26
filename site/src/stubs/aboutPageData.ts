@@ -3,9 +3,10 @@ import { joinNil } from './joinPartData'
 
 export const aboutPageData = {
   hero: {
-    title: "We're dedicated to solving hard problems",
+    title: 'Enabling scalable trustless computing with zero-knowledge',
     description:
-      'Founded in 2018, =nil; Foundation has been consistently developing and executing novel ideas that leverage state-of-the-art cryptography, specifically ZK.',
+      '=nil; Foundation is\xa0a\xa0pioneer in\xa0zero\u2011knowledge technology, dedicated to making zkProofs and trustless data management accessible for developers.',
+    info: 'Our solutions facilitate scalable trustless computing and data access, organized in one flexible toolchain secured by Ethereum.',
     content: [
       {
         title: '2018',
@@ -80,14 +81,15 @@ export const aboutPageData = {
   },
 
   toolchain: {
-    title: 'Explore our work',
+    title: 'Robust toolchain to accelerate the development of zk-enabled applications',
     description:
       'Implementing zero-knowledge technology into products development and data management is now transparent and cost-effective.',
     content: [
       {
         id: 1,
-        title: '=nil;',
-        description: 'An Ethereum L2, powered by zkSharding',
+        title: '=nil; zkSharding',
+        description:
+          'A zkRollup that securely scales Ethereum to 60,000+ TPS through zkSharding, empowering web3 developers to build scalable, secure, and composable applications.',
         link: '/blog/post/database-management-system',
         list: [
           {
@@ -98,7 +100,8 @@ export const aboutPageData = {
       {
         id: 2,
         title: 'Proof Market',
-        description: 'Marketplace for zero-knowledge proofs.',
+        description:
+          'Decentralized marketplace for zero-knowledge proofs. Automatic generation of high-performance circuits for multiple protocols',
         link: 'https://github.com/NilFoundation/proof-market-toolchain',
         list: [
           {
@@ -109,7 +112,8 @@ export const aboutPageData = {
       {
         id: 3,
         title: 'zkLLVM',
-        description: 'Circuit compiler from C++ and Rust.',
+        description:
+          'Circuit compiler from C++, Rust, or other mainstream languages. Outsourcing zkProof generation to optimize time & cost of zk implementation',
         link: 'https://github.com/NilFoundation/zkllvm',
         list: [
           {
@@ -119,8 +123,9 @@ export const aboutPageData = {
       },
       {
         id: 4,
-        title: 'Placeholder & Crypto3',
-        description: 'Flexible zero-knowledge proof system and cryptography suite.',
+        title: 'Placeholder & Crypto3 suite',
+        description:
+          'A highly flexible general-purpose zero-knowledge proof system and cryptography suite for fast and safe prototyping',
         link: 'https://github.com/NilFoundation/crypto3',
         list: [
           {
@@ -187,8 +192,8 @@ export const aboutPageData = {
   },
 
   ourTeam: {
-    title: 'Join the team',
-    description: 'Learn more about open positions.',
+    title: 'Become part of our team',
+    description: 'Learn more about our team and discover current open positions.',
     button: {
       text: 'Go to Careers page',
       link: '/careers',

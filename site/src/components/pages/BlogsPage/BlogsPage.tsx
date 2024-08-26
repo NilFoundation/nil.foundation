@@ -27,6 +27,7 @@ import ToggleButton from 'components/ToggleButton'
 
 type BlogsPageProps = {
   data: {
+    tags: MappedTag[]
     posts: MappedBlog[]
     categories: MappedCategory[]
   }
@@ -52,6 +53,14 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
         <div className={s.inner}>
           <div className={s.pageHead}>
             <h1 className={cx(s.pageTitle, s.headItem)}>Blog</h1>
+            <h2 className={cx(s.pageDescription, s.headItem)}>
+              <span className={s.isMobile}>
+                Stay in touch with our products development and explore zero&#8209;knowledge technology
+              </span>
+              <span className={s.isDesktop}>
+                Stay in touch with our products development and explore zero-knowledge technology
+              </span>
+            </h2>
 
             <div className={s.mobileSortButtons}>
               <div className={s.scrollWrapper}>
@@ -79,7 +88,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                 </div>
               </div>
               <div className={s.scrollWrapper}>
-                {/* <div className={s.tags}>
+                <div className={s.tags}>
                   {data.tags.map((tag) => (
                     <ToggleButton
                       size="l"
@@ -91,7 +100,7 @@ function BlogsPage({ data, activeTag, activeCategory }: BlogsPageProps) {
                       {tag.name}
                     </ToggleButton>
                   ))}
-                </div> */}
+                </div>
               </div>
             </div>
           </div>

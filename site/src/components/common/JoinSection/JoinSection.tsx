@@ -5,13 +5,8 @@ import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import s from './JoinSection.module.scss'
 import { Column } from 'components/Column'
-import { useViewport } from 'hooks/useViewport'
-import { WebButton } from 'components/WebButton'
-import { seo } from 'constants/seo'
 
 function JoinSection({ title, leftText, rightText, social, className }: InferProps<typeof JoinSection.propTypes>) {
-  const { isMobile } = useViewport()
-
   return (
     <section className={classNames(s.container, className)}>
       <Column type="left" className={s.headingWrapper}>
@@ -21,19 +16,12 @@ function JoinSection({ title, leftText, rightText, social, className }: InferPro
       </Column>
       <div className={s.contentWrapperLeft}>
         <WhiteRectangle className={s.line} />
-        <p className={s.text}>
-          {leftText}
-          <WebButton className={s.devnet} href={seo.devnetLink}>
-            Join our devnet
-          </WebButton>
-        </p>
-        {!isMobile && <div style={{ height: '80px' }}></div>}
+        <p className={s.text}>{leftText}</p>
         <WhiteRectangle className={s.bottomLine} />
       </div>
       <div className={s.contentWrapperRight}>
         <WhiteRectangle className={s.line} />
-        {/* <p className={classNames(s.text, s.textRight)}>{rightText}</p> */}
-        <div style={{ height: '220px' }}></div>
+        <p className={classNames(s.text, s.textRight)}>{rightText}</p>
         <WhiteRectangle className={s.bottomLine} />
         {/* <WhiteRectangle className={s.lineMobile} /> */}
       </div>

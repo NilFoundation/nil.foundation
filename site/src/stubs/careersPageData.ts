@@ -2,8 +2,8 @@ import { joinNil } from './joinPartData'
 
 export const careersPageData = {
   intro: {
-    title: 'Work on hard problems at the frontier of blockchain scalability',
-    description: 'Join our global team and work from anywhere.',
+    title: 'Work at the forefront of zero-knowledge development',
+    description: 'Be it from our Cyprus office, from home, or fully remote.',
   },
   joinUs: {
     title: 'Contribute to our cutting edge toolchain',

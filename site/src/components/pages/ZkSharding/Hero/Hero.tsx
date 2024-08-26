@@ -15,14 +15,13 @@ import { usePrefersReducedMotion } from 'hooks/usePrefersReduceMotion'
 import { WebButton } from 'components/WebButton'
 import { useIntersectionObserver } from 'hooks/useIntersectionObserver'
 import { Column } from 'components/Column'
-import { zkShardingPageData } from 'stubs/zkShardingPageData'
 
 type HeroProps = {
   className?: string
-  data: typeof zkShardingPageData.hero
+  data: typeof zkllvmPageData.hero
 }
 
-const Hero = ({ className, data: { title, description, list } }: HeroProps) => {
+const Hero = ({ className, data: { title, description, info, list } }: HeroProps) => {
   const lottieRef = useRef<HTMLDivElement>(null)
   const lottieInstance = useRef<AnimationItem | null>(null)
   const isIntersected = useRef(false)
@@ -64,17 +63,20 @@ const Hero = ({ className, data: { title, description, list } }: HeroProps) => {
         <div className={s.box}>
           <div className={s.info}>
             <p>{description}</p>
+            <p>{info}</p>
           </div>
           {!isMobile && <WhiteRectangle />}
         </div>
       </Column>
 
       <Column type="right">
-        <div className={s.contentWrapper}>{/* <div className={s.lottieWrapper} ref={lottieRef} /> */}</div>
+        <div className={s.contentWrapper}>
+          <div className={s.lottieWrapper} ref={lottieRef} />
+        </div>
         <div className={s.rightFooter}>
           <div className={s.footerLeftBox}>
             <div className={s.buttonWrapper}>
-              <WebButton className={s.link} href="https://docs.nil.foundation">
+              <WebButton className={s.link} href="https://nil.foundation/blog/post/nil_zkSharding">
                 Learn more
               </WebButton>
             </div>

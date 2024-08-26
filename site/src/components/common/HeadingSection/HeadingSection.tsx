@@ -15,7 +15,6 @@ function HeadingSection({
   title,
   description,
   socials,
-  offset,
 }: InferProps<typeof HeadingSection.propTypes>) {
   const getIcons = useMemo(
     () =>
@@ -29,7 +28,6 @@ function HeadingSection({
     <div className={cx(s.root, className)}>
       <h2 className={s.title}>{title}</h2>
       {description && <p className={cx(s.description, descriptionClassName)}>{description}</p>}
-      {offset && <div style={{ height: offset }} />}
       {socials && <div className={cx(s.icons, iconsClassName)}>{getIcons}</div>}
     </div>
   )
@@ -42,7 +40,6 @@ HeadingSection.propTypes = {
   title: string.isRequired,
   description: string,
   socials: oneOf(['community', 'corporate']),
-  offset: string,
 }
 
 export default HeadingSection

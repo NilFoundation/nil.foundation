@@ -28,7 +28,7 @@ const More = ({ data: { title, description, contentFooter, footer }, className }
           className={s.heading}
           descriptionClassName={s.description}
           title={title}
-          offset={isMobile ? '20px' : '120px'}
+          description={description}
         />
         {!isMobile && <WhiteRectangle />}
       </Column>

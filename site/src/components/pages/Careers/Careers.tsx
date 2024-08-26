@@ -38,7 +38,7 @@ const Careers = ({ data }: CareersProps) => {
       <div className={s.root}>
         <div className={s.content}>
           <Intro data={data.intro} />
-          {!isMobile && <JoinUs data={data.joinUs} className={s.joinUs} />}
+          <JoinUs data={data.joinUs} className={s.joinUs} />
           <JoinSection {...getJoinSectionProps(data)} />
           <WhiteRectangleLine
             marginTop={isMobile ? whiteRectangleLineMobileMarginTop : whiteRectangleLineMarginTop}

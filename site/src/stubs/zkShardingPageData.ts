@@ -3,10 +3,10 @@ import { joinNil } from './joinPartData'
 
 export const zkShardingPageData = {
   hero: {
-    title: 'Why build on =nil;?',
+    title: 'Scale starting at 60,000 TPS',
     description:
-      'zkSharding enables a new generation of highly scalable applications by distributing workloads across shards.',
-    // info: 'As the number of these dedicated shards grows, so does the maximum Ethereum throughput, linearly.',
+      'By implementing dynamic zkSharding, =nil; enables secure parallel execution of transactions across shards operating independently. ',
+    info: 'As the number of these dedicated shards grows, so does the maximum Ethereum throughput, linearly.',
     list: [
       `Compile circuits from existing code, don't start from scratch`,
       'Superior circuit performance with no zkVMs involved',
@@ -18,7 +18,8 @@ export const zkShardingPageData = {
   },
   more: {
     title: 'More than just another zkRollup',
-    description: '"Tap into the power of hundreds of rollups from a single network."',
+    description:
+      'zkSharding facilitates scalable transaction processing and data availability, all without fragmenting liquidity or economic security.',
 
     contentFooter:
       'Separate decentralized shards compose a single execution layer. The main shard at the top validates transactions across all shards and proves them to Ethereum.',

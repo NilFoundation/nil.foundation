@@ -54,7 +54,7 @@
   padding: size(7) size($spacing32) size($spacing32 + 3) size($spacing32);
 
   p {
-    flex-basis: 100%;
+    flex-basis: 50%;
 
     @include paragraph;
   }

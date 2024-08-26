@@ -18,9 +18,7 @@ export const getAnimatedItemList = (prefersReduceMotion?: boolean) => [
     id: 'z3',
     ySourceValue: '-336px',
     yTransformValue: '-99%',
-    children: (isCompleted: boolean) => (
-      <IntroDescription className={s.description} text="Built to Outlast" isVisible={isCompleted} />
-    ),
+    children: (isCompleted: boolean) => <IntroDescription className={s.description} text="" isVisible={isCompleted} />,
   },
   {
     id: 'z4',

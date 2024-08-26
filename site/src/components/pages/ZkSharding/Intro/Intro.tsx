@@ -37,7 +37,7 @@ const Intro = () => {
               duration={700}
               delay={500}
               isVisible={isVisible}
-              text="Built to Outlast"
+              text=""
             />
           )}
         </IntroAnimationWidget>

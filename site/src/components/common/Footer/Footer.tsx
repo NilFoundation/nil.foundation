@@ -59,6 +59,19 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
           </div>
 
           <div className={s.address}>
+            {stub.corporate.map((el) => (
+              <div key={el.title} className={s.socialWrapper}>
+                <div className={s.title}>{el.title}</div>
+                <div className={s.icons}>
+                  {el.icons.map((item) => (
+                    <SocialButton key={item.icon} href={item.link} icon={item.icon} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* <div className={s.address}>
             <div className={s.title}>{stub.address.title}</div>
             <div className={s.addressWrapper}>
               {stub.address.places.map((el) => (
@@ -67,7 +80,7 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className={s.bottom}>

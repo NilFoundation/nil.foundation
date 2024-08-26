@@ -2,20 +2,20 @@ import { socialLinks } from 'constants/socials'
 
 export const stub = {
   list: [
-    {
-      title: 'Products',
-      links: [
-        { name: '=nil;', link: '/' },
-        { name: 'Proof Market ', link: '/proof-market' },
-        { name: 'zkLLVM Compiler', link: '/zkLLVM' },
-      ],
-    },
+    // {
+    //   title: 'Products',
+    //   links: [
+    //     { name: '=nil;', link: '/' },
+    //     { name: 'Proof Market ', link: '/proof-market' },
+    //     { name: 'zkLLVM Compiler', link: '/zkLLVM' },
+    //   ],
+    // },
     {
       title: 'Navigation',
       links: [
         { name: 'Blog', link: '/blog' },
         { name: 'Careers', link: '/careers' },
-        { name: 'Research', link: '/research' },
+        // { name: 'Research', link: '/research' },
         {
           name: 'Documentation',
           link: 'https://docs.nil.foundation/',
@@ -36,6 +36,19 @@ export const stub = {
         { icon: 'dev-portal', link: socialLinks.devPortal },
       ],
     },
+    // {
+    //   title: 'Corporate',
+    //   icons: [
+    //     {
+    //       icon: 'linkedin',
+    //       link: socialLinks.linkedin,
+    //     },
+    //     { icon: 'twitter', link: socialLinks.twitter },
+    //   ],
+    // },
+  ],
+
+  corporate: [
     {
       title: 'Corporate',
       icons: [

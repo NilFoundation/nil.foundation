@@ -35,17 +35,19 @@
 
 .heroDescription p {
   @include paragraph;
-  max-width: size(200);
+  max-width: size(400);
   background-color: $gray900;
+  margin-bottom: size($spacing32);
 
   @include mobile {
-    max-width: 50%;
+    max-width: 100%;
+    margin-bottom: size(0);
   }
 }
 
 .right {
   position: relative;
-  margin-top: size(240);
+  margin-top: size(0);
   background-color: $gray900;
 
   &:after {

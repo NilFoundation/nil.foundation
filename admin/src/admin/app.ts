@@ -4,11 +4,10 @@ import 'katex/dist/katex.min.css'
 import * as k from 'katex/dist/katex.min.js'
 
 window.katex = k
-console.log(k)
 
 declare global {
   interface Window {
-    MathJax: any
+    // biome-ignore lint: we don't have katex typing
     katex: any
   }
 }

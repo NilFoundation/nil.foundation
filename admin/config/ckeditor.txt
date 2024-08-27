@@ -36,6 +36,12 @@ globalThis.CKEditorConfig = {
             },
             /* CKEditor configuration */
             editorConfig:{
+              math: {
+                engine: 'katex',
+                outputType: 'script',
+                forceOutputType: false,
+                enablePreview: true
+              },
                link: {
                 			addTargetToExternalLinks: true
                },
@@ -68,6 +74,9 @@ globalThis.CKEditorConfig = {
                     CKEditor5.blockQuote.BlockQuote,
                     CKEditor5.basicStyles.Code,
                     CKEditor5.codeBlock.CodeBlock,
+                    CKEditor5.htmlEmbed.HtmlEmbed,
+                    CKEditor5.htmlEmbed.HtmlEmbedUI,
+                    CKEditor5.math.Math,
                   ],
 
                   /* By default, for plugin's UI will use
@@ -91,7 +100,7 @@ globalThis.CKEditorConfig = {
                     '|',
                     'bold', 'italic', 'link', 'bulletedList', 'numberedList',
                     '|',
-                    'insertImage','mediaEmbed','strapiMediaLib','link','blockquote','insertTable','specialCharacters','htmlEmbed','codeBlock',
+                    'insertImage','mediaEmbed','strapiMediaLib','link','blockquote','insertTable','specialCharacters','htmlEmbed', 'math','codeBlock',
                     '|',
                     'undo', 'redo'
                   ],

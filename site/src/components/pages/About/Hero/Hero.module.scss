@@ -25,7 +25,7 @@
 
     p {
       margin-top: size($spacing24 * 2 + $spacing48 + 5);
-      width: size(158);
+      width: size(300);
     }
   }
 }
@@ -46,7 +46,7 @@
 
 .heroDescription p {
   @include paragraph;
-  max-width: size(247);
+  max-width: size(494);
   background-color: $gray900;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .line {
-  width: 50%;
+  width: 100%;
 }
 
 .info {
@@ -117,7 +117,7 @@
 }
 .right {
   display: grid;
-  margin-top: size(297);
+  margin-top: size(457);
   grid-template-columns: size(275) size(259);
 
   @include mobile {
@@ -132,7 +132,7 @@
   display: flex;
   align-items: flex-start;
   height: 100%;
-  background-color: $gray900;
+  background-color: "transparent";
 
   &:after {
     content: '';
@@ -150,7 +150,7 @@
 }
 
 .rect {
-  margin-top: size(295);
+  margin-top: size(200);
 
   @include mobile {
     margin-top: 0;

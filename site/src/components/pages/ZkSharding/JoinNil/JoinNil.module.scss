@@ -126,3 +126,8 @@
     margin-bottom: size(60);
   }
 }
+
+.devnet {
+  padding-left: 0.5ch;
+  @include paragraph;
+}

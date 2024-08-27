@@ -17,7 +17,8 @@ const JoinUs = ({ className, data: { title, cards } }: JoinUsProps) => {
   return (
     <div className={cx(s.wrapper, className)}>
       <Column type="right" className={s.content}>
-        <h2 className={s.title}>{title}</h2>
+        <div style={{ height: '180px' }}></div>
+        {/* <h2 className={s.title}>{title}</h2>
         <div className={s.cardsWrapper}>
           {cards.map((card) => (
             // <div
@@ -27,7 +28,7 @@ const JoinUs = ({ className, data: { title, cards } }: JoinUsProps) => {
             <CareerCard key={card.title} linkTo={card.linkTo} title={card.title} description={card.description} />
             // </div>
           ))}
-        </div>
+        </div> */}
         <WhiteRectangle />
       </Column>
     </div>

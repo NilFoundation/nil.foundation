@@ -58,7 +58,7 @@ function BlogNavigation({
         </div>
         {tags && (
           <div className={s.tags}>
-            {tags.map((tag) => (
+            {/* {tags.map((tag) => (
               <ToggleButton
                 key={tag.slug}
                 isActive={tag.slug === activeTag}
@@ -66,7 +66,7 @@ function BlogNavigation({
               >
                 {tag.name}
               </ToggleButton>
-            ))}
+            ))} */}
           </div>
         )}
       </div>

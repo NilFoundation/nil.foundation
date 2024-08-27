@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^2.0.4",
+    "@isaul32/ckeditor5-math": "^41.4.2",
     "@strapi/plugin-i18n": "4.11.3",
     "@strapi/plugin-users-permissions": "4.11.3",
     "@strapi/strapi": "4.11.3",
@@ -24,6 +25,8 @@
     "chokidar": "^3.5.3",
     "commander": "^11.0.0",
     "copy-webpack-plugin": "^11.0.0",
+    "katex": "^0.16.11",
+    "mathjax": "^2.7.4",
     "sharp": "^0.32.5",
     "strapi-plugin-schemas-to-ts": "^1.1.10",
     "tsx": "^3.12.10"
@@ -41,6 +44,7 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.2.2",
+    "ckeditor5-math": "^36.0.2",
     "typescript-cp": "^0.1.9"
   }
 }

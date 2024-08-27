@@ -21,6 +21,7 @@
     "dayjs": "^1.11.9",
     "gsap": "^3.12.1",
     "html-to-text": "^9.0.5",
+    "katex": "^0.16.11",
     "lodash.debounce": "^4.0.8",
     "lodash.flatten": "^4.4.0",
     "lodash.uniq": "^4.5.0",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.2.2",
     "@types/html-to-text": "^9.0.4",
+    "@types/katex": "^0.16.7",
     "@types/lodash.debounce": "^4.0.7",
     "@types/lodash.flatten": "^4.4.7",
     "@types/lodash.uniq": "^4.5.9",

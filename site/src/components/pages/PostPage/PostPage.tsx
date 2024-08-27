@@ -10,10 +10,13 @@ import Button from 'components/Button'
 
 import SideNavigation from 'components/SideNavigation'
 import s from './PostPage.module.scss'
+import 'katex/dist/katex.min.css'
+import katex from 'katex'
 
 import type { JoinNilBaseData } from 'pages/ProofMarket/JoinNil/JoinNilBaseData'
 import { MappedBlog, MappedBlogExtend } from 'src/strapi/types/entities'
 import ToggleButton from 'components/ToggleButton'
+import { useEffect, useLayoutEffect } from 'react'
 
 type ArrowButtonProps = {
   className?: string
@@ -52,6 +55,29 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
       link: `https://twitter.com/intent/tweet?text=${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}${router.asPath}`,
     },
   ]
+
+  useLayoutEffect(() => {
+    // use katex for every script with type math/tex anything start with it
+    const mathElements = document.querySelectorAll('script[type^="math/tex"]')
+    mathElements.forEach((element) => {
+      const tex = element.textContent || ''
+      // if element has mode display span should be inline element
+      const el = document.createElement('span')
+      el.style.display = 'inline-block'
+      if (element.getAttribute('type') === 'math/tex; mode=display') {
+        el.style.display = 'block'
+      }
+      try {
+        katex.render(tex, el, {
+          displayMode: true,
+        })
+        element.replaceWith(el)
+      } catch (e) {
+        console.error(e)
+      }
+    })
+
+  }, [post])
 
   return (
     <Container className={s.container} id="footer_nav">

@@ -76,7 +76,6 @@ const PostPage = ({ post, recommendedPosts = [], content }: PostPageProps) => {
         console.error(e)
       }
     })
-
   }, [post])
 
   return (

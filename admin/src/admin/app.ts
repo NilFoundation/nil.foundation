@@ -1,16 +1,16 @@
-import "ckeditor5/build/ckeditor5-dll.js";
-import '@isaul32/ckeditor5-math/build/math.js';
-import 'katex/dist/katex.min.css';
-import * as k from 'katex/dist/katex.min.js';
+import 'ckeditor5/build/ckeditor5-dll.js'
+import '@isaul32/ckeditor5-math/build/math.js'
+import 'katex/dist/katex.min.css'
+import * as k from 'katex/dist/katex.min.js'
 
-window.katex = k;
+window.katex = k
 console.log(k)
 
 declare global {
-    interface Window {
-        MathJax: any;
-        katex: any;
-    }
+  interface Window {
+    MathJax: any
+    katex: any
+  }
 }
 
 const config = {
@@ -46,7 +46,6 @@ const config = {
 
 const bootstrap = (app) => {
   console.log(app)
-  
 }
 
 export default {

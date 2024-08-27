@@ -1,7 +1,6 @@
-import ckeditor5Dll from "ckeditor5/build/ckeditor5-dll.js";
+import ckeditor5Dll from 'ckeditor5/build/ckeditor5-dll.js'
 
-import '@isaul32/ckeditor5-math/build/math.js';
-
+import '@isaul32/ckeditor5-math/build/math.js'
 
 const config = {
   locales: [

@@ -41,8 +41,8 @@ const ZkSharding = ({ data }: Props) => {
         <div className={s.content}>
           <Hero data={data.hero} />
           <More data={data.more} />
-          <Secure data={data.secure} />
-          <Cherries data={data.cherries} />
+          {/* <Secure data={data.secure} /> */}
+          {/* <Cherries data={data.cherries} /> */}
           <JoinNil data={data.joinNil} className={s.joinNilRoot} boxClassName={s.JoinNinBox} />
           <About data={data.about} />
           <WhiteRectangleLine

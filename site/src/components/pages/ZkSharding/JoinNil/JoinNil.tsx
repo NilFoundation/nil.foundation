@@ -8,6 +8,8 @@ import WhiteRectangle from 'components/WhiteRectangle'
 
 import s from './JoinNil.module.scss'
 import { JoinNilBaseData } from './JoinNilBaseData'
+import { WebButton } from 'components/WebButton'
+import { seo } from 'constants/seo'
 
 type JoinNilProps<T extends JoinNilBaseData> = {
   className?: string
@@ -31,7 +33,7 @@ const JoinNil = <T extends JoinNilBaseData>({
   withMargin,
 }: JoinNilProps<T>) => {
   const { isMobile } = useViewport()
-  const contentRight = getContent(isMobile, content)
+  //const contentRight = getContent(isMobile, content)
 
   return (
     <div
@@ -48,12 +50,19 @@ const JoinNil = <T extends JoinNilBaseData>({
       <div className={s.right}>
         <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
-          <p className={cx(s.text, s.bigPadding)}>{content.left}</p>
+          <p className={cx(s.text, s.bigPadding)}>
+            {content.left}
+            <WebButton className={s.devnet} href={seo.devnetLink}>
+              Join our devnet
+            </WebButton>
+          </p>
+          {!isMobile && <div style={{ height: '80px' }}></div>}
           <WhiteRectangle />
         </div>
         <div className={cx(s.box, boxClassName)}>
           {!isMobile && <WhiteRectangle />}
-          <p className={s.text}>{contentRight}</p>
+          {/* <p className={s.text}>{contentRight}</p> */}
+          <div style={{ height: '180px' }}></div>
           <WhiteRectangle />
         </div>
       </div>

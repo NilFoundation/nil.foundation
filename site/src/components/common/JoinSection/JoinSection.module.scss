@@ -139,3 +139,8 @@
     margin-top: size(3);
   }
 }
+
+.devnet {
+  padding-left: 0.5ch;
+  @include paragraph;
+}

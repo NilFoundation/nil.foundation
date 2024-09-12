@@ -96,6 +96,6 @@ export const zkShardingPageData = {
 }
 
 export const seoData = {
-  title: '=nil; zkSharding for Ethereum',
-  description: 'Secure Ethereum scaling to 60,000+ TPS through zkSharding',
+  title: '=nil; is an Ethereum L2, powered by zkSharding',
+  description: '',
 }

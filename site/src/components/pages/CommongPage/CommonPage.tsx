@@ -23,9 +23,9 @@ type ArrowButtonProps = {
 
 type CommonPageProps = {
   page: {
-    title: string,
-    content: string,
-  },
+    title: string
+    content: string
+  }
   content: {
     joinNil: JoinNilBaseData
   }

@@ -7,21 +7,18 @@ import { REVALIDATE } from 'constants/common'
 
 import { postPage } from 'stubs/postPageData'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { Page } from '../../../../admin/src/api/page/content-types/page/page';
+import { Page } from '../../../../admin/src/api/page/content-types/page/page'
 import CommonPage from 'pages/CommongPage/CommonPage'
 
 const Post = ({ data, content }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <MetaLayout seo={{ title: data.title }}>
-    <CommonPage page={data}  content={content} />
+    <CommonPage page={data} content={content} />
   </MetaLayout>
 )
 
 export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: string }>) {
   const slug = params?.slug ?? ''
-  const [article, config] = await Promise.all([
-    getCommonPageBySlug(slug),
-    getSiteConfig(),
-  ])
+  const [article, config] = await Promise.all([getCommonPageBySlug(slug), getSiteConfig()])
 
   if (!article) {
     return {

@@ -1,0 +1,408 @@
+@use '~styles/helpers' as *;
+@use '~styles/colors' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/paddings' as *;
+
+.container {
+    position: relative;
+}
+
+.sideNavigation {
+    left: size($spacing48);
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.root {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    @include mobile {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.centerItems {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+        align-items: flex-start;
+        margin-top: size($spacing24);
+    }
+}
+
+.mobileHead {
+    position: relative;
+    z-index: 3;
+    margin-top: size($spacing32);
+
+    @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 size($spacing12);
+        z-index: 0;
+    }
+}
+
+.mobileArrowButton {
+    display: none;
+    transition: opacity 0.3s ease;
+
+    align-items: center;
+
+    @include button-small;
+
+    @include hover {
+        opacity: 0.5;
+    }
+
+    @include mobile {
+        width: 100%;
+        display: inline-flex;
+        margin-top: 0;
+        padding: 0;
+    }
+}
+
+.arrow {
+    transform: rotate(270deg);
+    width: size(14);
+    height: size(14);
+    margin-right: size($spacing8);
+}
+
+.social {
+    margin-bottom: size($spacing24);
+    padding: size($spacing24) 0;
+
+    @include mobile {
+        margin-bottom: unset;
+    }
+}
+
+.socialLink {
+    width: size(60);
+    height: size(60);
+    padding: size($spacing12);
+    margin-top: size($spacing12);
+
+    &:not(:last-child) {
+        margin-right: size($spacing12);
+
+        @include mobile {
+            margin-right: size($spacing8);
+        }
+    }
+
+    @include mobile {
+        margin-top: size($spacing24);
+    }
+}
+
+.paragraph {
+    @include paragraph;
+}
+
+.tag {
+    @include sm-paragraph;
+    margin-right: size($spacing16);
+
+    @include mobile {
+        margin-right: 0;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 2;
+
+    @include mobile {
+        width: size(370);
+    }
+}
+
+.head {
+    padding: size($spacing32);
+
+    @include mobile {
+        padding: 0;
+    }
+}
+
+.wrapper {
+    @include mobile {
+        width: auto;
+        padding: 0 size($spacing12);
+    }
+}
+
+.info {
+    display: flex;
+    color: $gray-50;
+}
+
+.type {
+    @include paragraph;
+    margin-right: size($spacing16);
+
+    @include mobile {
+        margin-top: 0;
+    }
+}
+
+.marginBlock {
+    margin-bottom: size($spacing32);
+
+    @include mobile {
+        margin-bottom: size($spacing24);
+    }
+}
+
+.title {
+    @include heading-01;
+}
+
+.blogTitle {
+    @include mobile {
+        width: 100%;
+        margin-bottom: size($spacing24);
+    }
+}
+
+.whiteRecatngle {
+    margin-bottom: size(140);
+
+    @include mobile {
+        margin-bottom: size(60);
+    }
+}
+
+.subtitle {
+    @include heading-03;
+
+    @include mobile {
+        padding-bottom: size($spacing32);
+    }
+}
+
+.author {
+    margin-right: size($spacing12);
+}
+
+.moreSection {
+    background: url(/icons/dots.svg), repeat;
+
+    @include mobile {}
+}
+
+.tagsWrapper {
+    display: flex;
+
+    gap: size($spacing16);
+
+    @include mobile {
+        flex-wrap: wrap;
+        gap: size($spacing8);
+    }
+}
+
+.types {}
+
+.main {
+    width: size(816);
+    padding: 0 size($spacing32);
+
+    @include mobile {
+        width: 100%;
+        padding: 0 size($spacing12);
+    }
+
+    h2 {
+        margin-bottom: size($spacing32);
+        @include heading-02;
+    }
+
+    h3 {
+        margin-bottom: size($spacing32);
+        @include heading-03;
+    }
+
+    h4 {
+        margin-bottom: size($spacing32);
+        @include heading-04;
+    }
+
+    pre {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: size($spacing12);
+        margin: 0 0 size($spacing32) 0;
+        border: size(1) solid $secondary;
+        border-radius: size(2);
+        background-color: $fullBlack;
+        color: $gray-50;
+        word-wrap: normal;
+
+        @include paragraph;
+
+        @include mobile {
+            max-width: size(335);
+        }
+    }
+
+    a {
+        position: relative;
+        width: max-content;
+        cursor: pointer;
+        margin-bottom: size($spacing16);
+        transition: opacity 0.3s ease;
+
+        @include p-article;
+
+        @include hover {
+            opacity: 0.5;
+        }
+
+        &::after {
+            content: url('/icons/arrow.svg');
+            position: absolute;
+            right: size(-30);
+            top: -10%;
+            transform: rotate(135deg) scale(0.7);
+        }
+
+        @include mobile {
+            white-space: nowrap;
+        }
+    }
+
+    p {
+        margin-bottom: size($spacing32);
+        color: $secondary;
+
+        @include p-article;
+
+        a {
+            color: $gray-50;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &::after {
+                content: '';
+            }
+
+            @include mobile {
+                white-space: break-spaces;
+            }
+        }
+
+        @include mobile {
+            margin-bottom: size($spacing24);
+        }
+    }
+
+    li {
+        margin: 0 0 size($spacing32) size($spacing24);
+        color: $secondary;
+
+        @include p-article;
+
+        a {
+            color: $gray-50;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &::after {
+                content: '';
+            }
+        }
+
+        @include mobile {
+            margin: 0 0 size($spacing24) size($spacing24);
+        }
+    }
+
+    ol {
+        li {
+            list-style-type: number;
+        }
+    }
+
+    ul {
+        li {
+            list-style-type: disc;
+        }
+    }
+
+    img {
+        margin-bottom: size($spacing4);
+        width: 100%;
+    }
+
+    h5 {
+        color: $secondary;
+        margin-bottom: size(30);
+
+        @include sm-paragraph;
+    }
+
+    blockquote {
+        border-left: size(4) solid $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 0 0 size($spacing24);
+        margin-bottom: size($spacing32);
+
+        p {
+            margin-bottom: 0;
+            color: $white;
+
+            &:not(:last-child) {
+                margin-bottom: size(30);
+            }
+
+            @include mobile {
+                word-wrap: break-word;
+            }
+        }
+
+        @include mobile {
+            margin-bottom: size($spacing24);
+        }
+    }
+}
+
+.footerSection {
+    @include mobile {
+        display: none;
+    }
+}
+
+.lastSection {
+    display: none;
+
+    @include mobile {
+        display: block;
+        overflow: hidden;
+    }
+}
+
+.lastSectionWrapper {
+    width: calc(100% + 4px);
+    margin-left: -2px;
+    margin-right: -2px;
+}
+
+.recommendedWrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: size(20);
+}

@@ -21,6 +21,7 @@ export const stub = {
           link: 'https://docs.nil.foundation/',
         },
         { name: 'About', link: '/about' },
+        { name: 'Devcon Game 2024 Terms and Conditions', link: '/pages/devcon_game_tc' },
         // TODO: return after create this page
         // { name: 'Glossary', link: '/glossary' },
       ],

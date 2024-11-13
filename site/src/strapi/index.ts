@@ -13,6 +13,9 @@ import { Researches } from '../../../admin/src/api/researches/content-types/rese
 import { Category } from '../../../admin/src/api/category/content-types/category/category'
 import { Glossary, Glossary_Plain } from '../../../admin/src/api/glossary/content-types/glossary/glossary'
 import { MappedGlossary } from './types/entities'
+import { Page } from '../../../admin/src/api/page/content-types/page/page'
+import { title } from 'process'
+import { processHtml } from './utils'
 
 export const getBlogPosts = async (params: StrapiParamters = {}) => {
   if (config.USE_MOCK) {
@@ -40,6 +43,28 @@ export const getBlogPostBySlug = async (slug: string) => {
   if (!blog[0]) return null
 
   return mapBlogItemExtend(blog[0])
+}
+
+export const getCommonPageBySlug = async (slug: string) => {
+  if (config.USE_MOCK) {
+    return null
+  }
+
+  const page = await queryList<Page>(`pages`, {
+    filters: {
+      slug: {
+        $eq: slug,
+      },
+    },
+  })
+
+  if (!page[0]) return null
+
+  return {
+    title: page[0].attributes.title || '',
+    content: processHtml(page[0].attributes.content) || '',
+    slug: page[0].attributes.slug,
+  }
 }
 
 export const getTags = async (params: StrapiParamters = {}) => {

@@ -36,6 +36,7 @@ const pagesArr = [
     },
   },
   { type: 'categories', url: '/blog/category', params: {} },
+  { type: 'pages', url: '/pages', params: {} },
 ]
 const otherPaths = [{ url: 'careers/jobs' }]
 

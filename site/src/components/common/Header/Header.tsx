@@ -16,7 +16,7 @@ import { Config } from 'src/strapi/types/Config'
 
 type HeaderProps = {
   className?: string
-  config: Config
+  config: Config,
 }
 
 function Header({ className, config }: HeaderProps) {
@@ -58,20 +58,6 @@ function Header({ className, config }: HeaderProps) {
         <Button href="/">
           <Icon name="logo" className={s.logo} />
         </Button>
-        <div className={s.mainWrapper}>
-          {/* {realLinks.main.map((el) => (
-            <Button
-              key={el.name}
-              className={cx(s.btn, {
-                [s.isActive]: router.asPath === el.link,
-              })}
-              href={el.link}
-            >
-              <div className={s.square} />
-              {el.name}
-            </Button>
-          ))} */}
-        </div>
         <div className={s.box}>
           {realLinks.other.map((el) => (
             <Button

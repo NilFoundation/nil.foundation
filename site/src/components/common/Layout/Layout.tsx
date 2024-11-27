@@ -26,7 +26,7 @@ const Layout = ({ children, withFooter = true, config }: LayoutProps) => (
         gtag('config', 'G-CB8D65YWRZ');
       `}
     </Script>
-    <Header config={config} />
+    <Header config={config}  />
     <div className={s.wrapper}>{children}</div>
     {withFooter && <Footer />}
   </>

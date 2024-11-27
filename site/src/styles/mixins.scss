@@ -61,3 +61,92 @@ $mobile: 767;
     flex-basis: unset;
   }
 }
+
+@mixin spacePrefix {
+  &::before {
+    content: '\00a0\00a0\00a0';
+    display: inline;
+  }
+}
+
+@mixin borderRadiusItems($radius, $color) {
+  &__top_left {
+    @include borderRadius(left, top, $radius, $color);
+  }
+
+  &__top_middle {
+    @include borderRadius(middle, top, $radius, $color);
+  }
+
+  &__top_right {
+    @include borderRadius(right, top, $radius, $color);
+  }
+
+  &__middle_left {
+    @include borderRadius(left, middle, $radius, $color);
+  }
+
+  &__middle_middle {
+    @include borderRadius(middle, middle, $radius, $color);
+  }
+
+  &__middle_right {
+    @include borderRadius(right, middle, $radius, $color);
+  }
+
+  &__bottom_left {
+    @include borderRadius(left, bottom, $radius, $color);
+  }
+
+  &__bottom_middle {
+    @include borderRadius(middle, bottom, $radius, $color);
+  }
+
+  &__bottom_right {
+    @include borderRadius(right, bottom, $radius, $color);
+  }
+}
+
+@mixin borderRadius($hPositional, $vPositional, $radius, $color) {
+  @if $hPositional ==left {
+    @if ($vPositional ==top) {
+      border-radius: 0 0 $radius 0;
+    }
+
+    @else if ($vPositional ==bottom) {
+      border-radius: 0 $radius 0 0;
+    }
+
+    @else {
+      border-radius: 0 $radius $radius 0;
+    }
+  }
+
+  @else if $hPositional ==right {
+    @if ($vPositional ==top) {
+      border-radius: 0 0 0 $radius;
+    }
+
+    @else if ($vPositional ==bottom) {
+      border-radius: $radius 0 0 0;
+    }
+
+    @else {
+      border-radius: $radius 0 0 $radius;
+    }
+  }
+
+  @else {
+    @if ($vPositional ==top) {
+      border-radius: 0 0 $radius $radius;
+    }
+
+    @else if ($vPositional ==bottom) {
+      border-radius: $radius $radius 0 0;
+    }
+
+    @else {
+      border-radius: $radius;
+    }
+  }
+}

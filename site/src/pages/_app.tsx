@@ -70,6 +70,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     },
   })
 
+  console.log('router.pathname', router.pathname)
+
   return (
     <>
       <Head>

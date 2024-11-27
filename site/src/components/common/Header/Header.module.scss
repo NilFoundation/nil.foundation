@@ -20,13 +20,45 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: size(324) size(480) 1fr;
+  grid-template-columns: size(324) 1fr;
   padding: size($spacing12) size($spacing16);
   background-color: $gray-50;
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
     padding: size(3) size($spacing12);
+  }
+
+  &_fixed {
+    max-width: 1920px;
+    padding: sizeMax1920($spacing12) sizeMax1920($spacing16);
+    grid-template-columns: sizeMax1920(324) 1fr;
+    margin: 0 auto;
+
+    .square {
+      width: sizeMax1920(12);
+      height: sizeMax1920(12);
+    }
+
+    .box {
+      gap: sizeMax1920($spacing24 + 3);
+    }
+
+    .btn {
+      font-size: sizeMax1920(18);
+    }
+
+    .mainWrapper {
+      gap: sizeMax1920($spacing24);
+    }
+
+    .logo {
+      width: sizeMax1920(141.7);
+
+      @include mobile {
+        width: sizeMax1920(112);
+      }
+    }
   }
 }
 

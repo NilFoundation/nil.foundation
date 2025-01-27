@@ -16,22 +16,20 @@ const sponsors = [
   { src: bitscale.src, alt: 'Bitscale' },
   { src: hasu.src, alt: 'Hasu' },
   { src: sergey.src, alt: 'Sergey' },
-  { src: colin.src, alt: 'Colin' }
+  { src: colin.src, alt: 'Colin' },
 ]
 
 export const Sponsors = () => {
-    return <div className={s.sponsors}>
-        <div className={s.sponsors__title}>Backed by</div>
-        <div className={s.sponsors__list}>
-          {sponsors.map((sponsor, index) => (
-            <div className={s.sponsors__item} key={index}>
-              <img
-                key={index}
-                src={sponsor.src}
-                alt={sponsor.alt}
-              />
-            </div>
-          ))}
-        </div>
+  return (
+    <div className={s.sponsors}>
+      <div className={s.sponsors__title}>Backed by</div>
+      <div className={s.sponsors__list}>
+        {sponsors.map((sponsor, index) => (
+          <div className={s.sponsors__item} key={index}>
+            <img key={index} src={sponsor.src} alt={sponsor.alt} />
+          </div>
+        ))}
+      </div>
     </div>
+  )
 }

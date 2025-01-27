@@ -1,28 +1,26 @@
-import { FC, useMemo, useState } from 'react';
-import ethIcon from './assets/eth.svg';
-import usdtIcon from './assets/usdt.svg';
-import usdcIcon from './assets/usdc.svg';
-import { ArrowIcon } from './ArrowIcon';
-import styles from './SwapInput.module.scss';
-import { CurrencySymbol } from './types';
-
-
+import { FC, useMemo, useState } from 'react'
+import ethIcon from './assets/eth.svg'
+import usdtIcon from './assets/usdt.svg'
+import usdcIcon from './assets/usdc.svg'
+import { ArrowIcon } from './ArrowIcon'
+import styles from './SwapInput.module.scss'
+import { CurrencySymbol } from './types'
 
 const currencyIcons: Record<CurrencySymbol, any> = {
   eth: ethIcon,
   usdt: usdtIcon,
-  usdc: usdcIcon
-};
+  usdc: usdcIcon,
+}
 
 interface SwapInputProps {
-  label: string;
-  value: string;
-  currencies: CurrencySymbol[];
-  selectedCurrency: CurrencySymbol;
-  disabled?: boolean;
-  usdValue?: string;
-  onChange?: (value: string) => void;
-  onCurrencySelect?: (currency: CurrencySymbol) => void;
+  label: string
+  value: string
+  currencies: CurrencySymbol[]
+  selectedCurrency: CurrencySymbol
+  disabled?: boolean
+  usdValue?: string
+  onChange?: (value: string) => void
+  onCurrencySelect?: (currency: CurrencySymbol) => void
 }
 
 export const SwapInput: FC<SwapInputProps> = ({
@@ -35,19 +33,19 @@ export const SwapInput: FC<SwapInputProps> = ({
   onChange,
   onCurrencySelect,
 }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const key = useMemo(() => Math.random().toString(), []);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const key = useMemo(() => Math.random().toString(), [])
 
   const handleCurrencySelect = (currency: CurrencySymbol) => {
-    onCurrencySelect?.(currency);
-    setIsDropdownOpen(false);
-  };
+    onCurrencySelect?.(currency)
+    setIsDropdownOpen(false)
+  }
 
   const handleSelectorClick = () => {
     if (!disabled) {
-      setIsDropdownOpen(!isDropdownOpen);
+      setIsDropdownOpen(!isDropdownOpen)
     }
-  };
+  }
 
   return (
     <div className={styles.container}>
@@ -61,7 +59,7 @@ export const SwapInput: FC<SwapInputProps> = ({
           placeholder="0"
           id={key}
         />
-        <button 
+        <button
           className={`${styles.currencySelector} ${disabled ? styles.disabled : ''}`}
           onClick={handleSelectorClick}
           disabled={disabled}
@@ -77,11 +75,7 @@ export const SwapInput: FC<SwapInputProps> = ({
         {!disabled && isDropdownOpen && (
           <div className={styles.dropdown}>
             {currencies.map((currency) => (
-              <button
-                key={currency}
-                className={styles.dropdownItem}
-                onClick={() => handleCurrencySelect(currency)}
-              >
+              <button key={currency} className={styles.dropdownItem} onClick={() => handleCurrencySelect(currency)}>
                 <div className={styles.currencyIcon}>
                   <img src={currencyIcons[currency].src} alt={currency.toUpperCase()} />
                 </div>
@@ -93,5 +87,5 @@ export const SwapInput: FC<SwapInputProps> = ({
       </label>
       {usdValue && <div className={styles.usdValue}>{usdValue}</div>}
     </div>
-  );
-};
+  )
+}

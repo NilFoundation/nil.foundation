@@ -16,7 +16,7 @@ import { Config } from 'src/strapi/types/Config'
 
 type HeaderProps = {
   className?: string
-  config: Config,
+  config: Config
 }
 
 function Header({ className, config }: HeaderProps) {

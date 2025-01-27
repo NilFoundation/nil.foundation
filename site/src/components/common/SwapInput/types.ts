@@ -1,1 +1,1 @@
-export type CurrencySymbol = 'eth' | 'usdt' | 'usdc';
+export type CurrencySymbol = 'eth' | 'usdt' | 'usdc'

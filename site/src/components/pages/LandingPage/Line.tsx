@@ -1,5 +1,5 @@
-import commonStyle from './common.module.scss';
+import commonStyle from './common.module.scss'
 
 export const Line = () => {
-    return <div className={commonStyle.line} />
+  return <div className={commonStyle.line} />
 }

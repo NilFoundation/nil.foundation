@@ -31,15 +31,22 @@ export const Sponsors = () => {
           {/* Original list */}
           {sponsors.map((sponsor, index) => (
             <div className={s.sponsors__item} key={`original-${index}`}>
-              <div className={cn(s.sponsors__img, sponsor.className || '')} style={{ backgroundImage: `url('${sponsor.src}')` }} />
+              <div
+                className={cn(s.sponsors__img, sponsor.className || '')}
+                style={{ backgroundImage: `url('${sponsor.src}')` }}
+              />
             </div>
           ))}
           {/* Duplicate list for seamless infinite scroll */}
-          {isMobile && sponsors.map((sponsor, index) => (
-            <div className={s.sponsors__item} key={`duplicate-${index}`}>
-              <div className={cn(s.sponsors__img, sponsor.className || '')} style={{ backgroundImage: `url('${sponsor.src}')` }} />
-            </div>
-          ))}
+          {isMobile &&
+            sponsors.map((sponsor, index) => (
+              <div className={s.sponsors__item} key={`duplicate-${index}`}>
+                <div
+                  className={cn(s.sponsors__img, sponsor.className || '')}
+                  style={{ backgroundImage: `url('${sponsor.src}')` }}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>

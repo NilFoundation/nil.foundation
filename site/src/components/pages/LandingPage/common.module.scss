@@ -1,0 +1,32 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+@use '~styles/mixins' as *;
+@use '~styles/colors' as *;
+
+.wrap {
+    padding: 0 calc((48 / var(--screen-size)) * 100 * 1vw);
+
+    @media screen and (max-width: 768px) {
+        padding: 0 16px;
+    }
+}
+
+.arrow {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.arrowContainer {
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+.line {
+    width: 100%;
+    height: size(1);
+    padding: 0 calc((48 / var(--screen-size)) * 100 * 1vw);
+    background: var(--Gray-pallete-gray-700, #444);
+}

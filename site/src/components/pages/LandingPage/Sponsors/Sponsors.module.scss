@@ -1,0 +1,62 @@
+@use '~styles/helpers' as *;
+@use '~styles/typography' as *;
+
+.sponsors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: size(80);
+    overflow: hidden;
+
+    &__title {
+        color: var(--Gray-pallete-gray-200, #BDBDBD);
+        text-align: center;
+        @include new-paragraph;
+        margin-bottom: size(40);
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5vw;
+        justify-content: center;
+        align-items: center;
+
+
+        @media screen and (max-width: 768px) {
+            gap: 16px;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            margin-bottom: 100px;
+            position: relative;
+            justify-content: flex-start;
+        }
+    }
+
+    &__item {
+        width: auto;
+        min-width: 200px;
+
+        img {
+            width: size(190);
+            height: size(82);
+        }
+
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+
+        @media screen and (max-width: 768px) {
+            min-width: 150px;
+
+            :last-child {
+                padding-right: 16px;
+            }
+
+            :first-child {
+                padding-left: 16px;
+            }
+        }
+    }
+}

@@ -33,7 +33,6 @@ export const stub = {
       icons: [
         { icon: 'github', link: socialLinks.github },
         { icon: 'telegram', link: socialLinks.telegram },
-        { icon: 'dev-portal', link: socialLinks.devPortal },
       ],
     },
     // {
@@ -50,7 +49,7 @@ export const stub = {
 
   corporate: [
     {
-      title: 'Corporate',
+      title: 'Follow us',
       icons: [
         {
           icon: 'linkedin',
@@ -74,5 +73,5 @@ export const stub = {
       },
     ],
   },
-  creators: [{ name: 'Designed by Koji', link: 'https://www.koji.team/' }],
+  creators: [],
 }

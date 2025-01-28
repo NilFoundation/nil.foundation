@@ -85,11 +85,6 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
 
         <div className={s.bottom}>
           <div className={s.copyright}>© All rights reserved. =nil; Foundation {getYear}</div>
-          {stub.creators.map((el) => (
-            <div className={s.creators} key={el.name}>
-              <Button href={el.link}>{el.name}</Button>
-            </div>
-          ))}
           <Button className={s.arrow} onClick={scrollTop}>
             <Icon name="arrow-up" />
           </Button>

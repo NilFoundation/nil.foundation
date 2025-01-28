@@ -55,7 +55,7 @@
     flex-direction: column;
     align-items: flex-start;
     width: size(700);
-    margin-top: size(240);
+    margin-top: size(80);
 
     @media screen and (max-width: 768px) {
         width: 100%;
@@ -133,7 +133,7 @@
         .block__title {
             &::after {
                 display: inline-block;
-                content: '\00a0→';
+                content: "\00a0→";
                 position: static;
             }
         }
@@ -146,9 +146,10 @@
     @media screen and (max-width: 768px) {
         .block__title {
             &::after {
-                display: inline-block;
+                display: inline;
                 content: '\00a0→';
                 position: static;
+                white-space: nowrap;
             }
         }
 

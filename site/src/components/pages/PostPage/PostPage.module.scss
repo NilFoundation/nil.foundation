@@ -121,6 +121,18 @@
   display: flex;
   flex-direction: column;
   grid-column: 2 / 2;
+  overflow: visible;
+
+  :global(.table) {
+    display: block;
+    width: 100%;
+    margin-bottom: size($spacing32);
+
+    @media screen and (max-width: 768px) {
+      max-width: 100vw;
+      overflow-x: auto;
+    }
+  }
 
   @include mobile {
     width: size(370);
@@ -218,30 +230,34 @@
   width: size(816);
   padding: 0 size($spacing32);
 
-  figure.table {
-    @media screen and (max-width: 768px) {
-      max-width: 100vw;
-      overflow-x: auto;
+  tr {
+    &:nth-child(even) {
+      background: var(--Gray-pallete-gray-800, #2F2F2F);
     }
   }
 
   table {
-
     @include p-article;
 
-    @media screen and (max-width: 768px) {
-      overflow: hidden;
-    }
-
     th {
-      border: size(1) solid $gray-50;
-      padding: size($spacing12);
+      border: size(1) solid var(--Gray-pallete-gray-200, #BDBDBD);
+      background: var(--Gray-pallete-gray-50, #F1F1F1);
+      padding: size(8) size(12);
+      color: var(--Gray-pallete-gray-500, #727272);
+      position: sticky;
+      top: size(35);
+      z-index: 1;
 
+      @media screen and (max-width: 768px) {
+        top: size(0);
+      }
     }
 
     td {
       border: size(1) solid $gray-50;
       padding: size($spacing12);
+      vertical-align: top;
+      text-align: left;
     }
   }
 

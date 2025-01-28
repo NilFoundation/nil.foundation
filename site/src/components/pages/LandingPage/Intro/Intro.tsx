@@ -9,9 +9,8 @@ import { landingPageData } from 'stubs/landingPageData'
 import { useViewport } from 'hooks/useViewport'
 import { Line } from '../Line'
 
-const text = `=nil; is what Ethereum should have 
-been – a sharded blockchain 
-powered by ZK.`
+const text = `=nil; is an Ethereum L2,
+powered by zkSharding`
 
 const items: { title: string; description: string; link: string }[] = [
   {
@@ -43,7 +42,6 @@ const indexToStyle = (baseClass: string, index: number) => {
 
 export const Intro = () => {
   const [css] = useStyletron()
-  const { isMobile } = useViewport()
   return (
     <>
       <div className={s.intro}>
@@ -93,7 +91,7 @@ export const Intro = () => {
           apps. <a href="https://nil.foundation/blog/post/nil_zkSharding">Learn about zkSharding.</a>
         </div>
       </div>
-      {isMobile ? <Line /> : null}
+      <Line />
     </>
   )
 }

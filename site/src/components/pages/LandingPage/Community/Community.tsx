@@ -146,7 +146,7 @@ export const Community = () => {
   return (
     <div className={commonStyle.wrap}>
       <div className={s.info}>
-        <p className={s.info__title}>Unified global state with zero fragmentation</p>
+        <p className={s.info__title}>Unified global state without fragmentation</p>
         <p className={s.info__description}>
           zkSharding combines a sharded architecture with zero knowledge security to enable horizontal scaling across a
           unified network of shards.

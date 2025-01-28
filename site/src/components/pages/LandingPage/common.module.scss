@@ -25,8 +25,8 @@
 }
 
 .line {
-    width: 100%;
+    display: block;
     height: size(1);
-    padding: 0 calc((48 / var(--screen-size)) * 100 * 1vw);
     background: var(--Gray-pallete-gray-700, #444);
+    margin: 0 calc((48 / var(--screen-size)) * 100 * 1vw);
 }

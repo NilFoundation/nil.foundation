@@ -5,6 +5,7 @@ import { Roadmap } from './Roadmap/Roadmap'
 import { Sponsors } from './Sponsors/Sponsors'
 import { Line } from './Line'
 import { Uniswap } from './Uniswap/Uniswap'
+import ClientOnly from './Uniswap/ClientOnly'
 
 const showUniswap = !!process.env.NEXT_PUBLIC_SHOW_UNISWAP
 
@@ -13,7 +14,7 @@ export class LandingPage extends Component {
     return (
       <div>
         <Intro />
-        {showUniswap && <Uniswap />}
+        {showUniswap && <ClientOnly><Uniswap /></ClientOnly>}
         <Community />
         <Roadmap />
         <Line />

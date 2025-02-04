@@ -42,6 +42,11 @@ $fontSize: size(16);
     color: #fff;
     outline: none;
     padding: 0;
+
+    &.disabled {
+        cursor: default;
+        color: var(--Buttons-Button-gray-200, #C8C8C8);
+    }
 }
 
 .currencySelector {
@@ -117,6 +122,11 @@ $fontSize: size(16);
     }
 }
 
+.error {
+    font-size: size(14);
+    color: var(--Buttons-Button-gray-200, #C8C8C8);
+}
+
 .dropdown {
     position: absolute;
     top: calc(100% + 4px);
@@ -152,4 +162,33 @@ $fontSize: size(16);
     .currencyText {
         font-size: 16px;
     }
+}
+
+$base-color: #444444;
+$shine-color: #727272;
+
+@mixin background-gradient {
+    background-image: linear-gradient(90deg, $base-color 0, $shine-color 24%, $base-color 50%);
+    background-size: 600px;
+}
+
+@keyframes shine-lines {
+    0% {
+        background-position: -100px;
+    }
+
+    40%,
+    100% {
+        background-position: 140px;
+    }
+}
+
+.loading {
+    flex: 1;
+    width: 100%;
+    height: $fontSize;
+
+
+    @include background-gradient;
+    animation: shine-lines 1s infinite linear;
 }

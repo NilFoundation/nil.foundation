@@ -5,6 +5,7 @@ import { Category } from '../../../category/content-types/category/category';
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Tag_Plain } from '../../../tag/content-types/tag/tag';
 import { Category_Plain } from '../../../category/content-types/category/category';
+import { Media_Plain } from '../../../../common/schemas-to-ts/Media';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface Blog {
@@ -37,8 +38,8 @@ export interface Blog_Plain {
   category?: Category_Plain;
   isFeature?: boolean;
   recommendedBlogs: Blog_Plain[];
-  share_image?: Media;
-  generated_share_image?: Media;
+  share_image?: Media_Plain;
+  generated_share_image?: Media_Plain;
   generated_share_text?: string;
 }
 
@@ -71,7 +72,7 @@ export interface Blog_AdminPanelLifeCycle {
   category?: AdminPanelRelationPropertyModification<Category_Plain>;
   isFeature?: boolean;
   recommendedBlogs: AdminPanelRelationPropertyModification<Blog_Plain>;
-  share_image?: AdminPanelRelationPropertyModification<Media>;
-  generated_share_image?: AdminPanelRelationPropertyModification<Media>;
+  share_image?: AdminPanelRelationPropertyModification<Media_Plain>;
+  generated_share_image?: AdminPanelRelationPropertyModification<Media_Plain>;
   generated_share_text?: string;
 }

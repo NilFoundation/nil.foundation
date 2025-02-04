@@ -29,4 +29,8 @@
     height: size(1);
     background: var(--Gray-pallete-gray-700, #444);
     margin: 0 calc((48 / var(--screen-size)) * 100 * 1vw);
+
+    @media screen and (max-width: 768px) {
+        margin: 0 16px;
+    }
 }

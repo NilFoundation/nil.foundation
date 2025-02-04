@@ -1,10 +1,11 @@
-import { FC, useMemo, useState } from 'react'
+import { FC, useCallback, useMemo, useState } from 'react'
 import ethIcon from './assets/eth.svg'
 import usdtIcon from './assets/usdt.svg'
 import usdcIcon from './assets/usdc.svg'
 import { ArrowIcon } from './ArrowIcon'
 import styles from './SwapInput.module.scss'
 import { CurrencySymbol } from './types'
+import { COLORS } from '@nilfoundation/ui-kit'
 
 const currencyIcons: Record<CurrencySymbol, any> = {
   eth: ethIcon,
@@ -12,15 +13,20 @@ const currencyIcons: Record<CurrencySymbol, any> = {
   usdc: usdcIcon,
 }
 
+COLORS
+
 interface SwapInputProps {
   label: string
   value: string
   currencies: CurrencySymbol[]
   selectedCurrency: CurrencySymbol
   disabled?: boolean
+  disableCurrencySelector?: boolean
   usdValue?: string
   onChange?: (value: string) => void
   onCurrencySelect?: (currency: CurrencySymbol) => void
+  error?: string
+  loading?: boolean
 }
 
 export const SwapInput: FC<SwapInputProps> = ({
@@ -29,50 +35,63 @@ export const SwapInput: FC<SwapInputProps> = ({
   currencies,
   selectedCurrency,
   disabled = false,
+  disableCurrencySelector = false,
   usdValue,
   onChange,
   onCurrencySelect,
+  error,
+  loading,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const key = useMemo(() => Math.random().toString(), [])
 
   const handleCurrencySelect = (currency: CurrencySymbol) => {
-    onCurrencySelect?.(currency)
     setIsDropdownOpen(false)
+    onCurrencySelect?.(currency)
   }
 
-  const handleSelectorClick = () => {
-    if (!disabled) {
+  const handleSelectorClick = useCallback(() => {
+    if (!disableCurrencySelector) {
       setIsDropdownOpen(!isDropdownOpen)
     }
+  }, [disableCurrencySelector, isDropdownOpen])
+
+  const keyOption: { htmlFor?: string } = {}
+  if (!disabled || !loading) {
+    keyOption['htmlFor'] = key
   }
 
   return (
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
-      <label className={styles.inputContainer} htmlFor={key}>
-        <input
-          type="number"
-          value={value}
-          onChange={(e) => onChange?.(e.target.value)}
-          className={styles.input}
-          placeholder="0"
-          id={key}
-        />
+      <label className={`${styles.inputContainer} ${error ? styles.error : ''}`} {...keyOption}>
+        {loading ? (
+          <button className={styles.loading} />
+        ) : (
+          <input
+            disabled={disabled}
+            type="number"
+            value={value}
+            onChange={(e) => onChange?.(e.target.value)}
+            className={`${styles.input} ${disabled ? styles.disabled : ''}`}
+            id={key}
+          />
+        )}
         <button
-          className={`${styles.currencySelector} ${disabled ? styles.disabled : ''}`}
+          className={`${styles.currencySelector} ${disableCurrencySelector ? styles.disabled : ''}`}
           onClick={handleSelectorClick}
-          disabled={disabled}
+          disabled={disableCurrencySelector}
+          key="selectedCurrency"
         >
           <div className={styles.currencyIcon}>
             <img src={currencyIcons[selectedCurrency].src} alt={selectedCurrency.toUpperCase()} />
           </div>
           <span className={styles.currencyText}>{selectedCurrency.toUpperCase()}</span>
           <div className={`${styles.arrow} ${isDropdownOpen ? styles.open : ''}`}>
-            <ArrowIcon disabled={disabled} />
+            <ArrowIcon disabled={disableCurrencySelector} />
           </div>
         </button>
-        {!disabled && isDropdownOpen && (
+        {!disableCurrencySelector && isDropdownOpen && (
           <div className={styles.dropdown}>
             {currencies.map((currency) => (
               <button key={currency} className={styles.dropdownItem} onClick={() => handleCurrencySelect(currency)}>
@@ -86,6 +105,7 @@ export const SwapInput: FC<SwapInputProps> = ({
         )}
       </label>
       {usdValue && <div className={styles.usdValue}>{usdValue}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </div>
   )
 }

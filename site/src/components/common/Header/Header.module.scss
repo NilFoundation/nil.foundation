@@ -4,6 +4,9 @@
 @use '~styles/paddings' as *;
 @use '~styles/typography' as *;
 
+$mobileBannerHeight: 24px;
+$desktopBannerHeight: 42;
+
 .root {
   position: fixed;
   z-index: 100;
@@ -12,11 +15,94 @@
   height: size(30);
   color: $grey;
 
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+
   @include mobile {
     width: 100vw;
     height: auto;
   }
 }
+
+.banner {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  height: size($desktopBannerHeight);
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--Gray-pallete-gray-700, #444);
+  background: var(--Gray-pallete-gray-900, #212121);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+
+  @media screen and (max-width: 768px) {
+    height: $mobileBannerHeight;
+  }
+
+  &_hidden {
+    transform: translateY(-100%);
+
+    &+.root {
+      transform: translateY(size(-$desktopBannerHeight));
+
+      @media screen and (max-width: 768px) {
+        transform: translateY(-$mobileBannerHeight);
+      }
+    }
+  }
+
+  // infinite scroll
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  &__container {
+    width: fit-content;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: size(16);
+    padding-right: size(16);
+    animation: scroll 70s linear infinite;
+    transition: all 0.3s ease;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__text {
+    font-size: size(15);
+    white-space: nowrap;
+  }
+
+  &__arrow {
+    height: size(16);
+    width: size(16);
+    flex-shrink: 0;
+  }
+
+  &+.root {
+    top: size($desktopBannerHeight);
+
+    @media screen and (max-width: 768px) {
+      top: $mobileBannerHeight;
+    }
+  }
+}
+
 
 .wrapper {
   display: grid;

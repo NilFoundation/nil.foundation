@@ -183,7 +183,7 @@ export const Community = () => {
           </div>
         </div>
         {isMobile && (
-          <LimitedButton arrow primary className={s.community__button} href={landingPageData.anounceLink}>
+          <LimitedButton arrow primary className={s.community__button} href={landingPageData.announceLink}>
             Join the community
           </LimitedButton>
         )}
@@ -198,7 +198,7 @@ export const Community = () => {
           </p>
           <div className={s.join__avatars}>
             {supportImages.map((avatar, index) => (
-              <a className={s.tile} key={index} href={landingPageData.anounceLink}>
+              <a className={s.tile} key={index} href={landingPageData.announceLink}>
                 <img
                   key={index}
                   src={avatar}
@@ -207,7 +207,7 @@ export const Community = () => {
                 />
               </a>
             ))}
-            <a className={s.tile} href={landingPageData.anounceLink}>
+            <a className={s.tile} href={landingPageData.announceLink}>
               <div className={s.tile__dots}>
                 <div className={s.tile__dot} />
                 <div className={s.tile__dot} />
@@ -215,7 +215,7 @@ export const Community = () => {
               </div>
             </a>
           </div>
-          <LimitedButton arrow primary className={s.join__button} href={landingPageData.anounceLink}>
+          <LimitedButton arrow primary className={s.join__button} href={landingPageData.announceLink}>
             Get in touch
           </LimitedButton>
         </div>

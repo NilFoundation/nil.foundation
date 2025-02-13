@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "default_user": "strapi admin:create-user --firstname=Admin --lastname=Adin --email=admin@nil.foundation --password=XYgiXDOcg4Lfpv6g",
+    "default_user": "strapi admin:create-user --firstname=Admin --lastname=Admin --email=admin@nil.foundation --password=XYgiXDOcg4Lfpv6g",
     "lint": "npx @biomejs/biome check src",
     "lint:fix": "npx @biomejs/biome check src --apply",
     "format": "npx @biomejs/biome check src --organize-imports-enabled=false --linter-enabled=false",

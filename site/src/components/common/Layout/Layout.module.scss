@@ -2,9 +2,9 @@
 @use '~styles/mixins' as *;
 
 .wrapper {
-  margin-top: size(46);
+  margin-top: size(76);
 
   @include mobile {
-    margin-top: size(25);
+    margin-top: size(45);
   }
 }

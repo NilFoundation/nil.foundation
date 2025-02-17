@@ -65,7 +65,7 @@ const stages = [
     ] as const;
 
 export const Uniswap = () => {
-  const [sell, setSell] = useState('0.01')
+  const [sell, setSell] = useState('0.1')
   const [buy, setBuy] = useState('')
   const [loading, setLoading] = useState(false)
   const [buyCurrency, setBuyCurrency] = useState<CurrencySymbol>('usdt')
@@ -162,7 +162,7 @@ export const Uniswap = () => {
     }
   }, [messageRef.current, screenWidth])
 
-  
+  const targetIndex = buyCurrency === 'usdt' ? 2 : 3;
 
   return (
     <div className={commonStyle.wrap}>
@@ -180,6 +180,7 @@ export const Uniswap = () => {
             onChange={onSetSell}
           />
           <SwapInput
+            disabled={animate !== 'idle'}
             label="Buy"
             currencies={['usdt', 'usdc']}
             selectedCurrency={buyCurrency}
@@ -377,19 +378,19 @@ export const Uniswap = () => {
               ...defaultCloudPos[2],
               opacity: hiddenOpacity,
             },
-            seven: {
+            seven: buyCurrency === 'usdt' ? {
               opacity: 1,
               background: '#F1F1F1',
               color: '#212121',
-            },
+            } : {},
             eight: {
               opacity: hiddenOpacity,
             },
-            nine: {
+            nine: buyCurrency === 'usdt' ?{
               opacity: 1,
               background: '#F1F1F1',
               color: '#212121',
-            },
+            } : {},
             thirteen: {
               opacity: hiddenOpacity,
             },
@@ -433,9 +434,19 @@ export const Uniswap = () => {
               ...defaultCloudPos[3],
               opacity: hiddenOpacity,
             },
+            seven: buyCurrency === 'usdc' ? {
+              opacity: 1,
+              background: '#F1F1F1',
+              color: '#212121',
+            } : {},
             eight: {
               opacity: hiddenOpacity,
             },
+            nine: buyCurrency === 'usdc' ? {
+              opacity: 1,
+              background: '#F1F1F1',
+              color: '#212121',
+            } : {},
             thirteen: {
               opacity: hiddenOpacity,
             },
@@ -552,8 +563,8 @@ export const Uniswap = () => {
             },
             seven: {
               opacity: 1,
-              x: (size(defaultCloudPos[2].x) + size(cloudWidth)  - size(cloudPartInner * cloudWidth) - messageWH.tx.width/2),
-              y: (size(defaultCloudPos[2].y) + size(cloudHeight/2) - messageWH.tx.height/2),
+              x: (size(defaultCloudPos[targetIndex].x) + size(cloudWidth)  - size(cloudPartInner * cloudWidth) - messageWH.tx.width/2),
+              y: (size(defaultCloudPos[targetIndex].y) + size(cloudHeight/2) - messageWH.tx.height/2),
               width: 'auto',
             },
             eight: {
@@ -565,8 +576,8 @@ export const Uniswap = () => {
             },
             nine: {
               opacity: 1,
-              x: (size(defaultCloudPos[2].x) + size(cloudWidth)  - size(cloudPartInner * cloudWidth) - messageWH.tx.width/2),
-              y: (size(defaultCloudPos[2].y) + size(cloudHeight/2) - messageWH.tx.height/2),
+              x: (size(defaultCloudPos[targetIndex].x) + size(cloudWidth)  - size(cloudPartInner * cloudWidth) - messageWH.tx.width/2),
+              y: (size(defaultCloudPos[targetIndex].y) + size(cloudHeight/2) - messageWH.tx.height/2),
               width: 'auto',
             },
             ten: {

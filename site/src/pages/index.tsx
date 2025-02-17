@@ -10,7 +10,7 @@ import { LandingPage } from 'pages/LandingPage/LandingPage'
 const HomePage = ({ data, seo }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <MetaLayout seo={seo}>
-      <LandingPage />
+      <LandingPage  />
     </MetaLayout>
   )
 }

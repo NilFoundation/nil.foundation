@@ -1,3 +1,4 @@
+import { EventHandler } from 'react'
 import s from './LimitedButton.module.scss'
 import cn from 'classnames'
 
@@ -8,11 +9,14 @@ export type LimitedButtonProps = {
   arrow?: boolean
   href?: string
   icon?: React.ReactNode
+  onClick?: EventHandler<any>
 }
 
-export const LimitedButton = ({ children, className, primary, arrow, href, icon }: LimitedButtonProps) => {
-  return (
-    <a className={cn(s.button, primary ? s.button_primary : null, className)} href={href || ''}>
+export const LimitedButton = ({ children, className, primary, arrow, href, icon, onClick }: LimitedButtonProps) => {
+    const Element = href ? 'a' : 'button'
+    
+    return (
+    <Element className={cn(s.button, primary ? s.button_primary : null, className)} onClick={onClick}>
       <div className={cn(s.wrap, arrow || icon ? s.wrap_arrow : null)}>
         {children}
         {icon
@@ -31,6 +35,6 @@ export const LimitedButton = ({ children, className, primary, arrow, href, icon 
               </svg>
             )}
       </div>
-    </a>
+    </Element>
   )
 }

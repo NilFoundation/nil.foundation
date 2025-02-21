@@ -21,6 +21,7 @@ interface SwapInputProps {
   usdValue?: string
   onChange?: (value: string) => void
   onCurrencySelect?: (currency: CurrencySymbol) => void
+  error?: string
 }
 
 export const SwapInput: FC<SwapInputProps> = ({
@@ -32,6 +33,7 @@ export const SwapInput: FC<SwapInputProps> = ({
   usdValue,
   onChange,
   onCurrencySelect,
+  error,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const key = useMemo(() => Math.random().toString(), [])
@@ -86,6 +88,7 @@ export const SwapInput: FC<SwapInputProps> = ({
         )}
       </label>
       {usdValue && <div className={styles.usdValue}>{usdValue}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </div>
   )
 }

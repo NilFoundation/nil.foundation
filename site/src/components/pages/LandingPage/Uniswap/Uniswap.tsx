@@ -5,7 +5,6 @@ import commonStyle from '../common.module.scss'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { SwapInput } from 'components/SwapInput/SwapInput'
 import classNames from 'classnames'
-import { CurrencySymbol } from 'components/SwapInput/types'
 import { LimitedButton } from 'components/LimitedButton/LimitedButton'
 import { Magic } from './Magic'
 import { Cloud } from './Cloud'
@@ -13,6 +12,9 @@ import { useAnimate, motion, MotionConfig, Variants } from "motion/react"
 import { useScreenWidth } from 'hooks/useScreenWidth';
 import { Network } from './Network';
 import Lottie from 'lottie-react';
+import { useUnit } from 'effector-react';
+import './init'
+import { $buyAmount, $sellAmount, $buyCurrency, swapFx, setSellAmount, swap, setBuyCurrency, $isSwapLoading, $swapError } from './model';
 
 const cloudWidth = 256;
 const cloudCoefficent = 2.03174603175;
@@ -65,10 +67,7 @@ const stages = [
     ] as const;
 
 export const Uniswap = () => {
-  const [sell, setSell] = useState('0.1')
-  const [buy, setBuy] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [buyCurrency, setBuyCurrency] = useState<CurrencySymbol>('usdt')
+  const [sellAmount, buyAmount, buyCurrency, isLoading, swapError] = useUnit([$sellAmount, $buyAmount, $buyCurrency, $isSwapLoading, $swapError])
   const [stage, setStage] = useState<'idle' | typeof stages[number]>('idle')
   const [messageWH, setMessageWH] = useState({
     rpc: {
@@ -101,20 +100,9 @@ export const Uniswap = () => {
 
   const onSetSell = useCallback(
     async (value: string) => {
-      setSell(value)
-      setLoading(true)
-      setBuy('0')
-      setLoading(false)
+      setSellAmount(value)
     },
-    [setSell, buyCurrency, setBuy, setLoading],
-  )
-
-  const onSetBuy = useCallback(
-    async (value: string) => {
-      setBuy(value)
-      setLoading(true)
-    },
-    [setBuy, buyCurrency, setSell, setLoading],
+    [],
   )
 
   const stageTime = 2000;
@@ -125,7 +113,7 @@ export const Uniswap = () => {
       clearTimeout(timer)
     }
     timers.current = []
-    setLoading(true)
+    swap()
     
     for (let i=0; i<stages.length; i++) {
       const stage = stages[i]
@@ -133,14 +121,11 @@ export const Uniswap = () => {
         setStage(stage)
       }, stageTime*i))
     }
-    timers.current.push(setTimeout(() => {
-      setLoading(false)
-    }, stageTime*stages.length))
-  }, [setLoading])
+  }, [])
 
   const defaultStage = 'idle'
 
-  const animate = loading ? stage : defaultStage
+  const animate = isLoading ? stage : defaultStage
 
 
   useLayoutEffect(() => {
@@ -176,20 +161,20 @@ export const Uniswap = () => {
             label="Sell"
             currencies={['eth']}
             selectedCurrency="eth"
-            value={sell}
+            value={sellAmount}
             onChange={onSetSell}
+            error={swapError || undefined}
           />
           <SwapInput
             disabled={animate !== 'idle'}
             label="Buy"
             currencies={['usdt', 'usdc']}
             selectedCurrency={buyCurrency}
-            value={buy}
-            onChange={onSetBuy}
+            value={buyAmount}
             onCurrencySelect={(currency) => setBuyCurrency(currency)}
           />
-          <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap}>
-            Swap
+          <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap} disabled={isLoading}>
+            Swap 
           </LimitedButton>
         </div>
         <MotionConfig transition={{ease: defaultEasing, duration: 1}}>
@@ -650,9 +635,7 @@ export const Uniswap = () => {
             <div className={s.completion__text}>Swap completed</div>
 </motion.div>}
           </motion.div>
-          </motion.div>
-          
-        <motion.div></motion.div>
+          </motion.div>          
         </MotionConfig>
         <div className={classNames(s.block, s.block__bottom, s.block__bottom_left)} />
         <div className={classNames(s.block, s.block__bottom, s.block__bottom_right)} />

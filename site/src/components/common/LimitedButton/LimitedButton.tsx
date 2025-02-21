@@ -10,13 +10,14 @@ export type LimitedButtonProps = {
   href?: string
   icon?: React.ReactNode
   onClick?: EventHandler<any>
+  disabled?: boolean
 }
 
-export const LimitedButton = ({ children, className, primary, arrow, href, icon, onClick }: LimitedButtonProps) => {
+export const LimitedButton = ({ children, className, primary, arrow, href, icon, onClick, disabled }: LimitedButtonProps) => {
     const Element = href ? 'a' : 'button'
     
     return (
-    <Element className={cn(s.button, primary ? s.button_primary : null, className)} onClick={onClick}>
+    <Element className={cn(s.button, primary ? s.button_primary : null, className)} onClick={onClick} disabled={disabled}>
       <div className={cn(s.wrap, arrow || icon ? s.wrap_arrow : null)}>
         {children}
         {icon

@@ -94,7 +94,7 @@
 }
 
 .socials {
-  grid-column: span 2 / 4;
+  grid-column: 2 / 4;
   margin-left: size(2);
 
   @include mobile {

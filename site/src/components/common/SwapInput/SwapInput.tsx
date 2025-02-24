@@ -22,6 +22,7 @@ interface SwapInputProps {
   onChange?: (value: string) => void
   onCurrencySelect?: (currency: CurrencySymbol) => void
   error?: string
+  loading?: boolean
 }
 
 export const SwapInput: FC<SwapInputProps> = ({
@@ -58,7 +59,6 @@ export const SwapInput: FC<SwapInputProps> = ({
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
           className={styles.input}
-          placeholder="0"
           id={key}
         />
         <button

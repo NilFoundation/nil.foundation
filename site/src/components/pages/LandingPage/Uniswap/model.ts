@@ -39,8 +39,8 @@ export const infoFx = createEffect<{
 
 export const $swapError = createStore<string | null>(null);
 
-export const $buyAmount = createStore<string>('1');
-export const $sellAmount = createStore<string>('1')
+export const $buyAmount = createStore<string>('');
+export const $sellAmount = createStore<string>('0.1')
 
 export const $buyCurrency = createStore<CurrencySymbol>('usdt');
 export const setBuyCurrency = createEvent<CurrencySymbol>();

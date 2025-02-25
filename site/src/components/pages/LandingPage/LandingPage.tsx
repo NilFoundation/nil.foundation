@@ -11,7 +11,9 @@ export const LandingPage = () => {
   return (
     <div>
       <Intro />
-      <ClientOnly><Uniswap /></ClientOnly>
+      <ClientOnly>
+        <Uniswap />
+      </ClientOnly>
       <Community />
       <Roadmap />
       <Line />

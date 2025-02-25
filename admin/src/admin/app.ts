@@ -7,6 +7,7 @@ window.katex = k
 
 declare global {
   interface Window {
+    // biome-ignore lint: katex needs to be globally available for CKEditor math plugin
     katex: any
   }
 }

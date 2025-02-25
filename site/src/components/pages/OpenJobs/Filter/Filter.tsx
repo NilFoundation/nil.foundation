@@ -1,4 +1,4 @@
-import { Checkbox, Select } from '@nilfoundation/ui-kit'
+import { Select, Toggle } from '@nilfoundation/ui-kit'
 import { JobsFilter } from '../types'
 import s from './Filter.module.scss'
 import { TextFilter } from './TextFilter'
@@ -61,15 +61,14 @@ export const Filter = ({ filter, setFilter, departments, locations, types }: Fil
         disabled={filter.remoteOnly}
       />
       <div className={s.remoteToggleContainer}>
-        <Checkbox
-          checkmarkType="toggle"
+        <Toggle
           labelPlacement="left"
           checked={filter.remoteOnly && filter.location === undefined}
           onChange={({ target }) => setFilter({ ...filter, remoteOnly: target.checked })}
           disabled={filter.location !== undefined}
         >
           Remote only
-        </Checkbox>
+        </Toggle>
       </div>
       <div className={s.titleTitleFilterContainer}>
         <TextFilter setFilterValue={(value) => setFilter({ ...filter, title: value })} />

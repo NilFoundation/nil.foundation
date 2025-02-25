@@ -25,10 +25,14 @@
     "chokidar": "^3.5.3",
     "commander": "^11.0.0",
     "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^7.1.2",
     "katex": "^0.16.11",
+    "lodash": "^4.17.21",
     "mathjax": "^2.7.4",
+    "react-dom": "18",
     "sharp": "^0.32.5",
-    "strapi-plugin-schemas-to-ts": "^1.1.10",
+    "strapi-plugin-schemas-to-ts": "^1.3.2",
+    "style-loader": "^4.0.0",
     "tsx": "^3.12.10"
   },
   "author": {
@@ -46,5 +50,21 @@
     "@biomejs/biome": "1.2.2",
     "ckeditor5-math": "^36.0.2",
     "typescript-cp": "^0.1.9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "@strapi/strapi",
+      "better-sqlite3",
+      "esbuild",
+      "sharp"
+    ],
+    "packageExtensions": {
+      "better-sqlite3": {
+        "optionalDependencies": {
+          "node-gyp": "*"
+        }
+      }
+    }
   }
 }

@@ -105,7 +105,7 @@ infoFx.use(async ({ hash }) => {
     const outputMinedCount = txs.reduce((acc, tx) => { return acc + tx.Txs.length; }, 0);
 
     return {
-        tx: txs,
+        txs: txs,
         done: outputCount === outputMinedCount,
     };
 })

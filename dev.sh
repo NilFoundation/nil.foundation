@@ -3,11 +3,11 @@
 # install deps if not exists
 
 if [ ! -d admin/node_modules ]; then
-  npm ci --prefix admin
+  pushd admin && pnpm install && popd
 fi
 
 if [ ! -d site/node_modules ]; then
-  npm ci --prefix site
+  pushd site && pnpm install && popd
 fi
 
 # check env
@@ -17,17 +17,18 @@ fi
 
 
 # default token
-npm run default_user --prefix admin
+pnpm run default_user --prefix admin
 
 
 # start strapi
-npm run develop --prefix admin &
-
+pushd admin && pnpm run develop &
+echo $! > strapi.pid
+popd
 echo "run strapi on http://localhost:1337"
 
 # save pid of strapi
 
-echo $! > strapi.pid
+
 
 # wait for strapi to start curl it to check
 echo "wait for strapi to start"
@@ -70,16 +71,18 @@ if [ ! -f site/.env ]; then
   echo "NEXT_PUBLIC_BASE_URL=http://localhost:3000" >> site/.env
   echo "FRESHTEAM_API_URL=http://nil.freshteam.com" >> site/.env
 fi
-npm run build --prefix site
+cd site
+pnpm run build
 
 # run in another thread
 
-npm run dev --prefix site &
+pnpm run dev &
+echo $! > site.pid
 
 echo "run site on http://localhost:3000"
 # save pid of site
 
-echo $! > site.pid
+
 
 # wait till ctrl+c is pressed
 

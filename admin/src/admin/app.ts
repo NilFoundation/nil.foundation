@@ -7,7 +7,6 @@ window.katex = k
 
 declare global {
   interface Window {
-    // biome-ignore lint: we don't have katex typing
     katex: any
   }
 }
@@ -43,6 +42,7 @@ const config = {
   ],
 }
 
+// @ts-ignore
 const bootstrap = (app) => {
   console.log(app)
 }

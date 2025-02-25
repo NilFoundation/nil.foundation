@@ -7,7 +7,7 @@ window.katex = k
 
 declare global {
   interface Window {
-    // biome-ignore lint: we don't have katex typing
+    // biome-ignore lint: katex needs to be globally available for CKEditor math plugin
     katex: any
   }
 }
@@ -43,6 +43,7 @@ const config = {
   ],
 }
 
+// @ts-ignore
 const bootstrap = (app) => {
   console.log(app)
 }

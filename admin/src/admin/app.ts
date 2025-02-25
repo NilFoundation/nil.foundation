@@ -7,7 +7,7 @@ window.katex = k
 
 declare global {
   interface Window {
-    katex: any,
+    katex: any
   }
 }
 

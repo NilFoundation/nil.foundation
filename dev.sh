@@ -71,14 +71,14 @@ if [ ! -f site/.env ]; then
   echo "NEXT_PUBLIC_BASE_URL=http://localhost:3000" >> site/.env
   echo "FRESHTEAM_API_URL=http://nil.freshteam.com" >> site/.env
 fi
-cd site
+pushd site
 pnpm run build
 
 # run in another thread
 
 pnpm run dev &
-echo $! > site.pid
-
+echo $! > ../site.pid
+popd
 echo "run site on http://localhost:3000"
 # save pid of site
 

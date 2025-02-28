@@ -4,7 +4,7 @@ import qs from 'qs'
 import { StrapiParamters } from './types/parameters'
 
 export const client = axios.create({
-  baseURL: `${config.API_URL}`,
+  baseURL: `/api`,
   headers: {
     Authorization: `bearer ${config.TOKEN}`,
   },

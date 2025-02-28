@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { loadClient } from 'src/loadClient'
-import { HashRequest } from '../../_types'
+import { HashRequest } from '../../../_types'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {

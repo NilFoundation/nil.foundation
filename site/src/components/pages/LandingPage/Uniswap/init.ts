@@ -27,7 +27,7 @@ $swapError.on(swapFx.failData, (_, error) => error.message)
 swapFx.use(async ({ buyCurrency, amount }) => {
   console.log('swapFx')
 
-  const result = await fetch('/api/swap', {
+  const result = await fetch('/uniswap/swap', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -66,7 +66,7 @@ $buyAmount.on(quoteFx.doneData, (_, data) => {
 })
 
 quoteFx.use(async ({ buyCurrency, amount }) => {
-  const result = await fetch('/api/quote', {
+  const result = await fetch('/uniswap/quote', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -95,7 +95,7 @@ const flatTxs = (tx: UniswapTransactionInfo): UniswapTransactionInfo[] => {
 }
 
 infoFx.use(async ({ hash }) => {
-  const result = await fetch('/api/swapInfo', {
+  const result = await fetch('/uniswap/swapInfo', {
     headers: {
       'Content-Type': 'application/json',
     },

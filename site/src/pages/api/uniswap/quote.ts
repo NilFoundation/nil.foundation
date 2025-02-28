@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { loadClient } from 'src/loadClient'
-import { SwapRequest } from '../../_types'
+import { SwapRequest } from '../../../_types'
 import { convertEthToWei, toHex } from '@nilfoundation/niljs'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

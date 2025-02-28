@@ -117,6 +117,11 @@ $fontSize: size(16);
     }
 }
 
+.error {
+    font-size: size(14);
+    color: var(--Buttons-Button-gray-200, #C8C8C8);
+}
+
 .dropdown {
     position: absolute;
     top: calc(100% + 4px);

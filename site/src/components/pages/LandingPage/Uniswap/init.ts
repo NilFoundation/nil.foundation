@@ -7,6 +7,7 @@ import {
   $swapError,
   $transactions,
   infoFx,
+  loadedUniswap,
   quoteFx,
   setBuyCurrency,
   setSellAmount,
@@ -53,7 +54,7 @@ sample({
 })
 
 sample({
-  clock: [$sellAmount, $buyCurrency],
+  clock: [$sellAmount, $buyCurrency, loadedUniswap],
   source: combine({
     buyCurrency: $buyCurrency,
     amount: $sellAmount,
@@ -64,6 +65,7 @@ sample({
 $buyAmount.on(quoteFx.doneData, (_, data) => {
   return data.amount.toString()
 })
+
 
 quoteFx.use(async ({ buyCurrency, amount }) => {
   const result = await fetch('/uniswap/quote', {

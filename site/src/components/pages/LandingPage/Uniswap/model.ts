@@ -1,6 +1,7 @@
 import { CurrencySymbol } from 'components/SwapInput/types'
 import { createStore, createEffect, createEvent, combine, sample } from 'effector'
 import { interval } from 'patronum'
+import { guardedList, stages } from './const'
 
 export const swap = createEvent()
 
@@ -64,6 +65,14 @@ export const quoteFx = createEffect<
 export const $transactions = createStore<UniswapTransactionInfo[]>([])
 export const $sendedTransactionHash = createStore<string | null>(null)
 
+export const $stage = createStore<typeof stages[number]>('idle')
+
+export const setStage = createEvent<typeof stages[number]>()
+
+export const loadedUniswap = createEvent()
+
+$stage.on(setStage, (_, stage) => stage)
+
 export const $isSwapLoading = combine(
   swapFx.pending,
   $sendedTransactionHash,
@@ -79,4 +88,15 @@ export const { tick, isRunning } = interval({
   }),
   leading: true,
   timeout: 1000,
+})
+
+
+export const guardedTransactions = combine($transactions, $stage, (txs, stage) => {
+  const stageIndex = stages.indexOf(stage)
+  let showNum = 0
+  for (const guard of guardedList) {
+    if (guard >= stageIndex) break
+    showNum++
+  }
+  return txs.slice(0, showNum)
 })

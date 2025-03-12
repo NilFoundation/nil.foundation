@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import { LimitedButton } from 'components/LimitedButton/LimitedButton'
 import { Magic } from './Magic'
 import { Cloud } from './Cloud'
-import { useAnimate, motion, MotionConfig, Variants } from 'motion/react'
+import { useAnimate, motion, MotionConfig, Variants, AnimatePresence } from 'motion/react'
 import { useScreenWidth } from 'hooks/useScreenWidth'
 import { Network } from './Network'
 import Lottie from 'lottie-react'
@@ -24,13 +24,24 @@ import {
   setBuyCurrency,
   $isSwapLoading,
   $swapError,
+  $transactions,
+  setStage,
+  $stage,
+  guardedTransactions,
+  loadedUniswap,
 } from './model'
+import { animationData, stages } from './const'
+import { useViewport } from 'hooks/useViewport'
 
 const cloudWidth = 256
+const cloudWidthMobile = 128
 const cloudCoefficent = 2.03174603175
 const cloudHeight = cloudWidth / cloudCoefficent
+const cloudHeightMobile = cloudWidthMobile / cloudCoefficent
 const defaultEasing = 'easeInOut'
 const gap = 16
+
+const txView = (tx: string) => `${tx.slice(0, 8)}...${tx.slice(-4)}`
 
 const defaultBlockSize = 42
 
@@ -57,34 +68,39 @@ const defaultCloudPos = [
   },
 ]
 
+const defaultMobileCloudPos = [
+  {
+    x: 0,
+    y: 0,
+  },
+  {
+    x: cloudWidthMobile + gap,
+    y: 0,
+  },
+  {
+    x: 0,
+    y: cloudHeightMobile + gap,
+  },
+  {
+    x: cloudWidthMobile + gap,
+    y: cloudHeightMobile + gap,
+  },
+]
+
 const zoomCoefficient = 0.7
 
-const stages = [
-  'first',
-  'f2',
-  'second',
-  'third',
-  'fourth',
-  'fifth',
-  'sixth',
-  'seven',
-  'eight',
-  'nine',
-  'ten',
-  'eleven',
-  'twelve',
-  'thirteen',
-] as const
-
 export const Uniswap = () => {
-  const [sellAmount, buyAmount, buyCurrency, isLoading, swapError] = useUnit([
+  const [sellAmount, buyAmount, buyCurrency, isLoading, swapError, transactions, stage] = useUnit([
     $sellAmount,
     $buyAmount,
     $buyCurrency,
     $isSwapLoading,
     $swapError,
+    guardedTransactions,
+    $stage,
   ])
-  const [stage, setStage] = useState<'idle' | typeof stages[number]>('idle')
+  const { isMobile } = useViewport()
+  
   const [messageWH, setMessageWH] = useState({
     rpc: {
       width: 0,
@@ -140,6 +156,10 @@ export const Uniswap = () => {
   const defaultStage = 'idle'
 
   const animate = isLoading ? stage : defaultStage
+  const convertedPos = (isMobile ? defaultMobileCloudPos : defaultCloudPos).map((pos) => ({
+    x: size(pos.x),
+    y: size(pos.y),
+  }))
 
   useLayoutEffect(() => {
     if (messageRef.current && txRef.current && notificationRef.current) {
@@ -156,13 +176,16 @@ export const Uniswap = () => {
       })
     }
   }, [screenWidth])
+  useEffect(() => {
+    loadedUniswap();
+  }, [])
 
   const targetIndex = buyCurrency === 'usdt' ? 2 : 3
 
   return (
     <div className={commonStyle.wrap}>
       <div className={s.title}>Check out how Uniswap v2 works on =nil;</div>
-      <div className={s.blocks}>
+      <div className={classNames(s.blocks, stage !=='idle' ? s.blocks__swap : '')}>
         <div className={classNames(s.block, s.block__top, s.block__top_left)} />
         <div className={classNames(s.block, s.block__top, s.block__top_right)} />
         <div className={classNames(s.block, s.block__middle, s.block__middle_left, s.swap)}>
@@ -198,7 +221,7 @@ export const Uniswap = () => {
                 text="Browser"
                 className="browser"
                 initial={{
-                  ...defaultCloudPos[0],
+                  ...convertedPos[0],
                   opacity: 1,
                   zoom: 1,
                   background: '#444',
@@ -206,7 +229,7 @@ export const Uniswap = () => {
                 }}
                 variants={{
                   idle: {
-                    ...defaultCloudPos[0],
+                    ...convertedPos[0],
                     opacity: 1,
                     zoom: 1,
                     background: '#444',
@@ -237,25 +260,25 @@ export const Uniswap = () => {
                     zoom: 1,
                   },
                   second: {
-                    ...defaultCloudPos[0],
+                    ...convertedPos[0],
                     opacity: 1,
                     background: '#F1F1F1',
                     color: '#212121',
                   },
                   third: {
-                    ...defaultCloudPos[0],
+                    ...convertedPos[0],
                     opacity: 1,
                     background: '#444',
                     color: '#F1F1F1',
                   },
                   fourth: {
-                    ...defaultCloudPos[0],
+                    ...convertedPos[0],
                     opacity: 1,
                     background: '#444',
                     color: '#F1F1F1',
                   },
                   fifth: {
-                    ...defaultCloudPos[0],
+                    ...convertedPos[0],
                     opacity: hiddenOpacity,
                     background: '#444',
                     color: '#F1F1F1',
@@ -279,39 +302,39 @@ export const Uniswap = () => {
                 className="walelt"
                 key="shard_1"
                 initial={{
-                  ...defaultCloudPos[1],
+                  ...convertedPos[1],
                   opacity: 1,
                 }}
                 variants={{
                   idle: {
-                    ...defaultCloudPos[1],
+                    ...convertedPos[1],
                     opacity: 1,
                   },
                   first: {
-                    ...defaultCloudPos[1],
+                    ...convertedPos[1],
                     opacity: 0,
                     zoom: 2,
                   },
                   f2: {
-                    ...defaultCloudPos[1],
+                    ...convertedPos[1],
                     zoom: 2,
                     opacity: 0,
                   },
                   second: {
-                    ...defaultCloudPos[1],
+                    ...convertedPos[1],
                     opacity: 1,
                     zoom: 1,
                     background: '#444',
                     color: '#F1F1F1',
                   },
                   third: {
-                    ...defaultCloudPos[1],
+                    ...convertedPos[1],
                     opacity: 1,
                     background: '#F1F1F1',
                     color: '#212121',
                   },
                   fourth: {
-                    ...defaultCloudPos[1],
+                    ...convertedPos[1],
                     background: '#F1F1F1',
                     color: '#212121',
                     opacity: 1,
@@ -345,39 +368,39 @@ export const Uniswap = () => {
                 className="eth_usdt"
                 key="shard_2"
                 initial={{
-                  ...defaultCloudPos[2],
+                  ...convertedPos[2],
                   opacity: 1,
                 }}
                 variants={{
                   idle: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     opacity: 1,
                   },
                   first: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     zoom: 2,
                     opacity: 0,
                   },
                   f2: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     zoom: 2,
                     opacity: 0,
                   },
                   second: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     zoom: 1,
                     opacity: 1,
                   },
                   third: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     opacity: 1,
                   },
                   fourth: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     opacity: 1,
                   },
                   fifth: {
-                    ...defaultCloudPos[2],
+                    ...convertedPos[2],
                     opacity: hiddenOpacity,
                   },
                   seven:
@@ -410,40 +433,40 @@ export const Uniswap = () => {
                 className="eth_usdc"
                 key="shard_3"
                 initial={{
-                  ...defaultCloudPos[3],
+                  ...convertedPos[3],
                   opacity: 1,
                 }}
                 variants={{
                   idle: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     opacity: 1,
                   },
                   first: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     zoom: 2,
                     opacity: 0,
                   },
                   f2: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     zoom: 2,
                     opacity: 0,
                   },
                   second: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     zoom: 1,
                     opacity: 1,
                   },
                   third: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     zoom: 1,
                     opacity: 1,
                   },
                   fourth: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     opacity: 1,
                   },
                   fifth: {
-                    ...defaultCloudPos[3],
+                    ...convertedPos[3],
                     opacity: hiddenOpacity,
                   },
                   seven:
@@ -758,232 +781,43 @@ export const Uniswap = () => {
                       height: '80%',
                     }}
                     loop={false}
-                    animationData={{
-                      v: '5.5.7',
-                      meta: { g: 'LottieFiles AE 0.1.20', a: '', k: '', d: '', tc: '' },
-                      fr: 48,
-                      ip: 0,
-                      op: 100,
-                      w: 300,
-                      h: 300,
-                      nm: 'Comp 1',
-                      ddd: 0,
-                      assets: [],
-                      layers: [
-                        {
-                          ddd: 0,
-                          ind: 1,
-                          ty: 4,
-                          nm: 'Shape Layer 2',
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [141.5, 157.5, 0], ix: 2 },
-                            a: { a: 0, k: [0, 0, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100, 100], ix: 6 },
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: 'gr',
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: 'sh',
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [0, 0],
-                                        [0, 0],
-                                        [0, 0],
-                                        [11.136, 21.089],
-                                      ],
-                                      o: [
-                                        [0, 0],
-                                        [0, 0],
-                                        [0, 0],
-                                        [-5.211, -9.869],
-                                      ],
-                                      v: [
-                                        [-26.875, 0.75],
-                                        [-4.219, 22.75],
-                                        [58.369, -39.92],
-                                        [62.961, -74.703],
-                                      ],
-                                      c: false,
-                                    },
-                                    ix: 2,
-                                  },
-                                  nm: 'Path 1',
-                                  mn: 'ADBE Vector Shape - Group',
-                                  hd: false,
-                                },
-                                {
-                                  ty: 'st',
-                                  c: { a: 0, k: [1, 1, 1, 1], ix: 3 },
-                                  o: { a: 0, k: 100, ix: 4 },
-                                  w: { a: 0, k: 5, ix: 5 },
-                                  lc: 1,
-                                  lj: 1,
-                                  ml: 4,
-                                  bm: 0,
-                                  nm: 'Stroke 1',
-                                  mn: 'ADBE Vector Graphic - Stroke',
-                                  hd: false,
-                                },
-                                {
-                                  ty: 'tr',
-                                  p: { a: 0, k: [0, 0], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [83, 83], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: 'Transform',
-                                },
-                              ],
-                              nm: 'Shape 1',
-                              np: 3,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: 'ADBE Vector Group',
-                              hd: false,
-                            },
-                            {
-                              ty: 'tm',
-                              s: {
-                                a: 1,
-                                k: [
-                                  { i: { x: [0.623], y: [1] }, o: { x: [0.335], y: [0] }, t: 55, s: [100] },
-                                  { t: 80, s: [0] },
-                                ],
-                                ix: 1,
-                              },
-                              e: {
-                                a: 1,
-                                k: [
-                                  { i: { x: [0.137], y: [1] }, o: { x: [0.152], y: [0] }, t: 64, s: [100] },
-                                  { t: 80, s: [76.5] },
-                                ],
-                                ix: 2,
-                              },
-                              o: { a: 0, k: 0, ix: 3 },
-                              m: 1,
-                              ix: 2,
-                              nm: 'Trim Paths 1',
-                              mn: 'ADBE Vector Filter - Trim',
-                              hd: false,
-                            },
-                          ],
-                          ip: 0,
-                          op: 246,
-                          st: 0,
-                          bm: 0,
-                        },
-                        {
-                          ddd: 0,
-                          ind: 2,
-                          ty: 4,
-                          nm: 'Shape Layer 1',
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [150, 150.327, 0], ix: 2 },
-                            a: { a: 0, k: [5.556, 0.327, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100, 100], ix: 6 },
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: 'gr',
-                              it: [
-                                {
-                                  d: 1,
-                                  ty: 'el',
-                                  s: { a: 0, k: [143.791, 143.791], ix: 2 },
-                                  p: { a: 0, k: [0, 0], ix: 3 },
-                                  nm: 'Ellipse Path 1',
-                                  mn: 'ADBE Vector Shape - Ellipse',
-                                  hd: false,
-                                },
-                                {
-                                  ty: 'st',
-                                  c: { a: 0, k: [1, 1, 1, 1], ix: 3 },
-                                  o: { a: 0, k: 100, ix: 4 },
-                                  w: { a: 0, k: 4, ix: 5 },
-                                  lc: 1,
-                                  lj: 1,
-                                  ml: 4,
-                                  bm: 0,
-                                  nm: 'Stroke 1',
-                                  mn: 'ADBE Vector Graphic - Stroke',
-                                  hd: false,
-                                },
-                                {
-                                  ty: 'tr',
-                                  p: { a: 0, k: [5.556, 0.327], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: {
-                                    a: 1,
-                                    k: [
-                                      { i: { x: [0.533], y: [1.037] }, o: { x: [0.431], y: [0] }, t: 12, s: [0] },
-                                      { t: 92, s: [231] },
-                                    ],
-                                    ix: 6,
-                                  },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: 'Transform',
-                                },
-                              ],
-                              nm: 'Ellipse 1',
-                              np: 3,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: 'ADBE Vector Group',
-                              hd: false,
-                            },
-                            {
-                              ty: 'tm',
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: {
-                                a: 1,
-                                k: [
-                                  { i: { x: [0.397], y: [1.103] }, o: { x: [0.531], y: [0] }, t: 12, s: [0] },
-                                  { t: 87.869140625, s: [100] },
-                                ],
-                                ix: 2,
-                              },
-                              o: { a: 0, k: 0, ix: 3 },
-                              m: 1,
-                              ix: 2,
-                              nm: 'Trim Paths 1',
-                              mn: 'ADBE Vector Filter - Trim',
-                              hd: false,
-                            },
-                          ],
-                          ip: 0,
-                          op: 246,
-                          st: 0,
-                          bm: 0,
-                        },
-                      ],
-                      markers: [],
-                    }}
+                    animationData={animationData}
                   />
                   <div className={s.completion__text}>Swap completed</div>
                 </motion.div>
               )}
+              
             </motion.div>
+            <motion.div className={s.transactions} variants={{
+                  fifth: {
+                    opacity: 0,
+                  },
+                  eight: {
+                    opacity: 0,
+                  },
+                }}>
+                <AnimatePresence>
+                  {transactions.map((tx, index) => <motion.div key={tx.Tx}
+                    initial={{ opacity: 0, y: size(44) }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: size(44) }}
+                    className={s.transactions__item}
+                  >
+                    {tx.External ? 'External t' : 'T'}ransaction 
+                    <a href={`https://explore.nil.foundation${tx.Tx}`}>{txView(tx.Tx)}</a>
+                    {' '}
+                    {!tx.External ? (
+                      index === 1 ? <>from <span className={s.transactions__info}>wallet</span></> : <>from <span className={s.transactions__info}>pair</span></>
+                      ) : ''
+                    }
+                    {' '}
+                    {!tx.External ? (index === 1 ? <>to <span className={s.transactions__info}>pair</span></> : <>to <span className={s.transactions__info}>wallet</span></>) : ''}
+                    {tx.Tokens.length > 0 && <>{' '}({tx.Tokens.map((v) => {
+                      return `${v.Name}: ${((+v.Amount) / 10 ** 18).toFixed(4)}`
+                    }).join(', ')})</>}
+                    </motion.div>)}
+                </AnimatePresence>
+              </motion.div>
           </motion.div>
         </MotionConfig>
         <div className={classNames(s.block, s.block__bottom, s.block__bottom_left)} />

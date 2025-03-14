@@ -6,7 +6,7 @@
 $fontSize: size(12);
 
 $cloudWidth: 256;
-$cloudWidthMobile: 128;
+$cloudWidthMobile: 160px;
 $cloudGap: 16;
 $cloudCoefficent: 2.03174603175;
 
@@ -104,7 +104,7 @@ $cloudCoefficent: 2.03174603175;
         }
 
         .animation {
-            display: block;
+            display: flex;
         }
     }
 }
@@ -154,6 +154,10 @@ $cloudCoefficent: 2.03174603175;
     align-items: center;
 
     @media screen and (max-width: 768px) {
+        justify-content: flex-start;
+    }
+
+    @media screen and (max-width: 768px) {
         display: none;
         min-height: 100vh;
     }
@@ -165,6 +169,11 @@ $cloudCoefficent: 2.03174603175;
         height: size(250);
         gap: size(8);
         position: relative;
+
+        @media screen and (max-width: 768px) {
+            width: $cloudWidthMobile * 2 + $cloudGap;
+            height: $cloudWidthMobile / $cloudCoefficent * 2 + $cloudGap;
+        }
     }
 }
 
@@ -182,8 +191,8 @@ $cloudCoefficent: 2.03174603175;
     mask-size: contain;
 
     @media screen and (max-width: 768px) {
-        height: size($cloudWidthMobile/$cloudCoefficent);
-        width: size($cloudWidthMobile);
+        height: $cloudWidthMobile/$cloudCoefficent;
+        width: $cloudWidthMobile;
     }
 
     background: var(--Gray-pallete-gray-700, #444);
@@ -236,6 +245,12 @@ $cloudCoefficent: 2.03174603175;
     position: absolute;
     left: 0;
     top: 0;
+
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
     /* 133.333% */
 }
 
@@ -257,6 +272,12 @@ $cloudCoefficent: 2.03174603175;
     left: 0;
     top: 0;
 
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        line-height: 12px;
+        height: 24px;
+    }
+
     /* 133.333% */
     &__elements {
         position: absolute;
@@ -266,6 +287,13 @@ $cloudCoefficent: 2.03174603175;
         top: size(42);
         width: size($cloudWidth * 2);
         height: size($cloudWidth / $cloudCoefficent);
+
+        @media screen and (max-width: 768px) {
+            width: $cloudWidthMobile * 2;
+            height: $cloudWidthMobile / $cloudCoefficent;
+            padding-top: 16px;
+            top: 24px;
+        }
     }
 
     &__element {
@@ -281,6 +309,11 @@ $cloudCoefficent: 2.03174603175;
         align-items: center;
         white-space: break-spaces;
         padding: size(8);
+
+        @media screen and (max-width: 768px) {
+            font-size: 16px;
+            line-height: 16px;
+        }
     }
 
     &__wrapper {

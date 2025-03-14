@@ -32,9 +32,10 @@ import {
 } from './model'
 import { animationData, stages } from './const'
 import { useViewport } from 'hooks/useViewport'
+import { is } from 'effector'
 
 const cloudWidth = 256
-const cloudWidthMobile = 128
+const cloudWidthMobile = 160
 const cloudCoefficent = 2.03174603175
 const cloudHeight = cloudWidth / cloudCoefficent
 const cloudHeightMobile = cloudWidthMobile / cloudCoefficent
@@ -156,10 +157,13 @@ export const Uniswap = () => {
   const defaultStage = 'idle'
 
   const animate = isLoading ? stage : defaultStage
-  const convertedPos = (isMobile ? defaultMobileCloudPos : defaultCloudPos).map((pos) => ({
+  const convertedPos = isMobile ? defaultMobileCloudPos : (defaultCloudPos.map((pos) => ({
     x: size(pos.x),
     y: size(pos.y),
-  }))
+  })))
+
+  const realCloudWidth = isMobile ? cloudWidthMobile : size(cloudWidth)
+  const realCloudHeight = isMobile ? cloudHeightMobile : size(cloudHeight)
 
   useLayoutEffect(() => {
     if (messageRef.current && txRef.current && notificationRef.current) {
@@ -175,12 +179,16 @@ export const Uniswap = () => {
         height: containerRef.current.offsetHeight,
       })
     }
-  }, [screenWidth])
+  }, [screenWidth, stage === 'idle'])
   useEffect(() => {
     loadedUniswap();
   }, [])
 
   const targetIndex = buyCurrency === 'usdt' ? 2 : 3
+
+  console.log(realCloudHeight, realCloudWidth)
+
+  console.log(messageWH)
 
   return (
     <div className={commonStyle.wrap}>
@@ -338,6 +346,9 @@ export const Uniswap = () => {
                     background: '#F1F1F1',
                     color: '#212121',
                     opacity: 1,
+                  },
+                  fifth: {
+                    opacity: hiddenOpacity,
                   },
                   sixth: {
                     background: '#F1F1F1',
@@ -500,12 +511,12 @@ export const Uniswap = () => {
                 initial={{
                   opacity: 0,
                   x:
-                    (size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                    (convertedPos[1].x +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.rpc.width / 2) /
                     zoomCoefficient,
-                  y: (size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.rpc.height * 2) / zoomCoefficient,
+                  y: ((convertedPos[1].y) + (realCloudHeight / 2) - messageWH.rpc.height * 2) / zoomCoefficient,
                   zoom: zoomCoefficient,
                 }}
                 variants={{
@@ -518,36 +529,36 @@ export const Uniswap = () => {
                   second: {
                     opacity: 1,
                     x:
-                      (defaultCloudPos[0].x +
-                        size(cloudWidth) -
-                        size(cloudPartInner * cloudWidth) -
+                      (convertedPos[0].x +
+                        realCloudWidth -
+                        (cloudPartInner * realCloudWidth) -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y: (defaultCloudPos[0].y + size(cloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                    y: (convertedPos[0].y + (realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   third: {
                     opacity: 1,
                     x:
-                      (size(defaultCloudPos[1].x) +
-                        size(cloudWidth) -
-                        size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x +
+                        realCloudWidth -
+                        cloudPartInner * realCloudWidth -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
                     y:
-                      (size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                      (convertedPos[1].y + size(realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   fourth: {
                     opacity: 0,
                     x:
-                      (size(defaultCloudPos[1].x) +
-                        size(cloudWidth) -
-                        size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x +
+                        realCloudWidth -
+                        (cloudPartInner * realCloudWidth) -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
                     y:
-                      (size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.rpc.height * 2) / zoomCoefficient,
+                      (convertedPos[1].y + (realCloudHeight / 2) - messageWH.rpc.height * 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                 }}
@@ -561,47 +572,47 @@ export const Uniswap = () => {
                 initial={{
                   opacity: 0,
                   x:
-                    size(defaultCloudPos[1].x) +
-                    size(cloudWidth) -
-                    size(cloudPartInner * cloudWidth) -
+                    (convertedPos[1].x) +
+                    realCloudWidth -
+                    (cloudPartInner * realCloudWidth) -
                     messageWH.rpc.width / 2,
-                  y: size(defaultCloudPos[1].y) + size(cloudHeight * 2) - messageWH.rpc.height / 2,
+                  y: (convertedPos[1].y) + (realCloudHeight * 2) - messageWH.rpc.height / 2,
                 }}
                 variants={{
                   eleven: {
                     opacity: 1,
                     x:
-                      (size(defaultCloudPos[1].x) +
-                        size(cloudWidth) -
-                        size(cloudPartInner * cloudWidth) -
+                      ((convertedPos[1].x) +
+                        realCloudWidth -
+                        (cloudPartInner * realCloudWidth) -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
                     y:
-                      (size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                      (convertedPos[1].y + realCloudHeight / 2 - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   twelve: {
                     opacity: 1,
                     x:
-                      (size(defaultCloudPos[0].x) +
-                        size(cloudWidth) -
-                        size(cloudPartInner * cloudWidth) -
+                      (size(convertedPos[0].x) +
+                        realCloudWidth -
+                        (cloudPartInner * realCloudWidth) -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
                     y:
-                      (size(defaultCloudPos[0].y) + size(cloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                      ((convertedPos[0].y) + (realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   thirteen: {
                     opacity: 0,
                     x:
-                      (size(defaultCloudPos[0].x) +
-                        size(cloudWidth) -
-                        size(cloudPartInner * cloudWidth) -
+                      (convertedPos[0].x +
+                        realCloudWidth -
+                        (cloudPartInner * realCloudWidth) -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
                     y:
-                      (size(defaultCloudPos[0].y) + size(cloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                      (convertedPos[0].y + (realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                 }}
@@ -633,95 +644,95 @@ export const Uniswap = () => {
                   second: {
                     opacity: 0,
                     x:
-                      size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      convertedPos[1].x +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[1].y) + size(cloudHeight) + messageWH.tx.height,
+                    y: (convertedPos[1].y) + (realCloudHeight) + messageWH.tx.height,
                     width: 'auto',
                   },
                   third: {
                     opacity: 0,
                     x:
-                      size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[1].y) + size(cloudHeight) + messageWH.tx.height,
+                    y: (convertedPos[1].y) + (realCloudHeight) + messageWH.tx.height,
                     width: 'auto',
                   },
                   fourth: {
                     opacity: 1,
                     x:
-                      size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.tx.height / 2,
+                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   fifth: {
                     opacity: 1,
                     x: 0,
                     y: 0,
-                    height: size(44 + cloudHeight),
-                    width: size(cloudWidth * 2),
+                    height: 44 + realCloudHeight,
+                    width: (realCloudWidth * 2) + gap,
                   },
                   sixth: {
                     opacity: 1,
                     x:
-                      size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.tx.height / 2,
+                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   seven: {
                     opacity: 1,
                     x:
-                      size(defaultCloudPos[targetIndex].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[targetIndex].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[targetIndex].y) + size(cloudHeight / 2) - messageWH.tx.height / 2,
+                    y: (convertedPos[targetIndex].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   eight: {
                     opacity: 1,
                     x: 0,
                     y: 0,
-                    height: size(44 + cloudHeight),
-                    width: size(cloudWidth * 2),
+                    height: 44 + realCloudHeight,
+                    width: (realCloudWidth * 2) + gap,
                   },
                   nine: {
                     opacity: 1,
                     x:
-                      size(defaultCloudPos[targetIndex].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[targetIndex].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[targetIndex].y) + size(cloudHeight / 2) - messageWH.tx.height / 2,
+                    y: (convertedPos[targetIndex].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   ten: {
                     opacity: 1,
                     x:
-                      size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.tx.height / 2,
+                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   eleven: {
                     opacity: 0,
                     x:
-                      size(defaultCloudPos[1].x) +
-                      size(cloudWidth) -
-                      size(cloudPartInner * cloudWidth) -
+                      (convertedPos[1].x) +
+                      realCloudWidth -
+                      cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: size(defaultCloudPos[1].y) + size(cloudHeight / 2) - messageWH.tx.height * 2,
+                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height * 2,
                     width: 'auto',
                   },
                 }}
@@ -749,14 +760,14 @@ export const Uniswap = () => {
                     left: '50%',
                     top: '100%',
                     x: '-50%',
-                    y: -size(cloudHeight / 2),
+                    y: -(realCloudHeight / 2),
                   },
                   eight: {
                     opacity: 1,
                     left: '50%',
                     top: '100%',
                     x: '-50%',
-                    y: -size(cloudHeight / 2),
+                    y: -(realCloudHeight / 2),
                   },
                 }}
               />

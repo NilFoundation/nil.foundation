@@ -66,7 +66,6 @@ $buyAmount.on(quoteFx.doneData, (_, data) => {
   return data.amount.toString()
 })
 
-
 quoteFx.use(async ({ buyCurrency, amount }) => {
   const result = await fetch('/uniswap/quote', {
     headers: {

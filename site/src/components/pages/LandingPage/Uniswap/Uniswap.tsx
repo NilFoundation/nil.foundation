@@ -29,6 +29,7 @@ import {
   $stage,
   guardedTransactions,
   loadedUniswap,
+  quoteFx,
 } from './model'
 import { animationData, stages } from './const'
 import { useViewport } from 'hooks/useViewport'
@@ -91,7 +92,7 @@ const defaultMobileCloudPos = [
 const zoomCoefficient = 0.7
 
 export const Uniswap = () => {
-  const [sellAmount, buyAmount, buyCurrency, isLoading, swapError, transactions, stage] = useUnit([
+  const [sellAmount, buyAmount, buyCurrency, isLoading, swapError, transactions, stage, quotePending] = useUnit([
     $sellAmount,
     $buyAmount,
     $buyCurrency,
@@ -99,6 +100,7 @@ export const Uniswap = () => {
     $swapError,
     guardedTransactions,
     $stage,
+    quoteFx.pending,
   ])
   const { isMobile } = useViewport()
   
@@ -212,6 +214,7 @@ export const Uniswap = () => {
             currencies={['usdt', 'usdc']}
             selectedCurrency={buyCurrency}
             value={buyAmount}
+            loading={quotePending}
             onCurrencySelect={(currency) => setBuyCurrency(currency)}
           />
           <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap} disabled={isLoading}>

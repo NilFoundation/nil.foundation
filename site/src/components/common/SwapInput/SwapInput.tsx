@@ -35,6 +35,7 @@ export const SwapInput: FC<SwapInputProps> = ({
   onChange,
   onCurrencySelect,
   error,
+  loading,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const key = useMemo(() => Math.random().toString(), [])
@@ -54,13 +55,13 @@ export const SwapInput: FC<SwapInputProps> = ({
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
       <label className={styles.inputContainer} htmlFor={key}>
-        <input
+        {loading ? <div className={styles.loading} /> : <input
           type="number"
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
           className={styles.input}
           id={key}
-        />
+        />}
         <button
           className={`${styles.currencySelector} ${disabled ? styles.disabled : ''}`}
           onClick={handleSelectorClick}

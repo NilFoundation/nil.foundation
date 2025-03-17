@@ -9,6 +9,7 @@ import {
   infoFx,
   loadedUniswap,
   quoteFx,
+  resetTransactionHash,
   setBuyCurrency,
   setSellAmount,
   swap,
@@ -141,7 +142,15 @@ sample({
 
 $sendedTransactionHash.on(swapFx.doneData, (_, data) => data.hash)
 $sendedTransactionHash.reset(swapFx)
+$sendedTransactionHash.reset(resetTransactionHash)
 $transactions.reset(swapFx)
 $transactions.on(infoFx.doneData, (_, data) => {
   return data.txs
 })
+
+sample({
+  clock: infoFx.done,
+  filter: infoFx.doneData.map(({ done }) => done),
+  target: resetTransactionHash,
+})
+

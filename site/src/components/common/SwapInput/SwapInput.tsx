@@ -5,12 +5,15 @@ import usdcIcon from './assets/usdc.svg'
 import { ArrowIcon } from './ArrowIcon'
 import styles from './SwapInput.module.scss'
 import { CurrencySymbol } from './types'
+import { COLORS } from '@nilfoundation/ui-kit'
 
 const currencyIcons: Record<CurrencySymbol, any> = {
   eth: ethIcon,
   usdt: usdtIcon,
   usdc: usdcIcon,
 }
+
+COLORS
 
 interface SwapInputProps {
   label: string

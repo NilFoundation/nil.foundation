@@ -76,7 +76,8 @@ $stage.on(setStage, (_, stage) => stage)
 export const $isSwapLoading = combine(
   swapFx.pending,
   $sendedTransactionHash,
-  (pending, hash) => pending || hash !== null,
+  $stage,
+  (pending, hash, stage) => pending || hash !== null || stage !== 'idle',
 )
 
 export const { tick, isRunning } = interval({
@@ -100,3 +101,5 @@ export const guardedTransactions = combine($transactions, $stage, (txs, stage) =
   }
   return txs.slice(0, showNum)
 })
+
+export const resetTransactionHash = createEvent()

@@ -147,7 +147,7 @@ $cloudCoefficent: 2.03174603175;
 }
 
 .animation {
-    min-height: size(400);
+    min-height: size(500);
     position: relative;
     display: flex;
     justify-content: center;
@@ -169,8 +169,10 @@ $cloudCoefficent: 2.03174603175;
         height: size(250);
         gap: size(8);
         position: relative;
+        margin-top: size(-120);
 
         @media screen and (max-width: 768px) {
+            margin-top: 0;
             width: $cloudWidthMobile * 2 + $cloudGap;
             height: $cloudWidthMobile / $cloudCoefficent * 2 + $cloudGap;
         }

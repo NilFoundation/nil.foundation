@@ -20,7 +20,14 @@
             }
 
         }
+
+        &.button_disabled {
+            background: var(--Buttons-Button-gray-800, #2F2F2F);
+            color: transparent;
+        }
     }
+
+
 }
 
 .wrap {

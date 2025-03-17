@@ -27,7 +27,7 @@ export const LimitedButton = ({
 
   return (
     <Element
-      className={cn(s.button, primary ? s.button_primary : null, className)}
+      className={cn(s.button, primary ? s.button_primary : null, className, disabled ? s.button_disabled : null)}
       onClick={onClick}
       disabled={disabled}
     >

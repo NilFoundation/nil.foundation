@@ -33,7 +33,6 @@ import {
 } from './model'
 import { animationData, stages } from './const'
 import { useViewport } from 'hooks/useViewport'
-import { is } from 'effector'
 
 const cloudWidth = 256
 const cloudWidthMobile = 160
@@ -187,6 +186,7 @@ export const Uniswap = () => {
   }, [])
 
   const targetIndex = buyCurrency === 'usdt' ? 2 : 3
+  const targetCurrency = buyCurrency === 'usdt' ? 'USDT' : 'USDC'
 
   console.log(realCloudHeight, realCloudWidth)
 
@@ -217,8 +217,8 @@ export const Uniswap = () => {
             loading={quotePending}
             onCurrencySelect={(currency) => setBuyCurrency(currency)}
           />
-          <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap} disabled={isLoading}>
-            Swap
+          <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap} disabled={isLoading || quotePending}>
+            {isLoading || quotePending ? '' : 'Swap'}
           </LimitedButton>
         </div>
         <MotionConfig transition={{ ease: defaultEasing, duration: 1 }}>
@@ -744,7 +744,7 @@ export const Uniswap = () => {
                 <div className={s.inclusion__elements}>
                   <div className={s.inclusion__wrapper}>
                     <div className={s.inclusion__element}>Transaction</div>
-                    <div className={s.inclusion__element}>attached token ({animate === 'eight' ? 'USDT' : 'ETH'})</div>
+                    <div className={s.inclusion__element}>attached token ({['eight', 'nine'].includes(animate) ? targetCurrency : 'ETH'})</div>
                     <div className={s.inclusion__plus}>+</div>
                   </div>
                 </div>

@@ -14,7 +14,7 @@ $cloudCoefficent: 2.03174603175;
     @include new-heading;
     @include spacePrefix;
     width: 60%;
-    margin-top: size(240);
+    margin-top: size(80);
 
     @media screen and (max-width: 768px) {
         width: 100%;
@@ -388,10 +388,17 @@ $cloudCoefficent: 2.03174603175;
 .transactions {
     position: absolute;
     bottom: size(20);
+    width: size($cloudWidth * 2 + $cloudGap);
+
+    @media screen and (max-width: 768px) {
+        width: $cloudWidthMobile * 2 + $cloudGap;
+    }
 
     &__item {
         @include new-paragraph;
         font-size: size(14);
+        letter-spacing: 0;
+        margin-bottom: size(8);
 
         a {
             color: var(--Blue-pallete-blue-300, #87B6FC);

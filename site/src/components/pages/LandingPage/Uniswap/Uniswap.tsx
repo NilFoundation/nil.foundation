@@ -33,6 +33,8 @@ import {
 } from './model'
 import { animationData, stages } from './const'
 import { useViewport } from 'hooks/useViewport'
+import { convertEthToWei } from '@nilfoundation/niljs'
+import { CurrencySymbol } from 'components/SwapInput/types'
 
 const cloudWidth = 256
 const cloudWidthMobile = 160
@@ -89,6 +91,7 @@ const defaultMobileCloudPos = [
 ]
 
 const zoomCoefficient = 0.7
+const currencies: CurrencySymbol[] = ['usdt', 'usdc']
 
 export const Uniswap = () => {
   const [sellAmount, buyAmount, buyCurrency, isLoading, swapError, transactions, stage, quotePending] = useUnit([
@@ -188,6 +191,8 @@ export const Uniswap = () => {
   const targetIndex = buyCurrency === 'usdt' ? 2 : 3
   const targetCurrency = buyCurrency === 'usdt' ? 'USDT' : 'USDC'
 
+  const tooMuch = +sellAmount > 1 ? 'You could sell only less than 1 eth' : null
+
   console.log(realCloudHeight, realCloudWidth)
 
   console.log(messageWH)
@@ -200,25 +205,28 @@ export const Uniswap = () => {
         <div className={classNames(s.block, s.block__top, s.block__top_right)} />
         <div className={classNames(s.block, s.block__middle, s.block__middle_left, s.swap)}>
           <SwapInput
-            disabled
+            disableCurrencySelector
             label="Sell"
+            key="sellCurrency"
             currencies={['eth']}
             selectedCurrency="eth"
             value={sellAmount}
             onChange={onSetSell}
-            error={swapError || undefined}
+            error={tooMuch || undefined}
           />
           <SwapInput
-            disabled={animate !== 'idle'}
+            disabled
+            key={'buyCurrency'}
+            disableCurrencySelector={animate !== 'idle'}  
             label="Buy"
-            currencies={['usdt', 'usdc']}
+            currencies={currencies}
             selectedCurrency={buyCurrency}
             value={buyAmount}
             loading={quotePending}
             onCurrencySelect={(currency) => setBuyCurrency(currency)}
           />
           <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap} disabled={isLoading || quotePending}>
-            {isLoading || quotePending ? '' : 'Swap'}
+            Swap
           </LimitedButton>
         </div>
         <MotionConfig transition={{ ease: defaultEasing, duration: 1 }}>
@@ -817,8 +825,8 @@ export const Uniswap = () => {
                     exit={{ opacity: 0, y: size(44) }}
                     className={s.transactions__item}
                   >
-                    {tx.External ? 'External t' : 'T'}ransaction 
-                    <a href={`https://explore.nil.foundation${tx.Tx}`}>{txView(tx.Tx)}</a>
+                    {tx.External ? 'External t' : 'T'}ransaction{' '}
+                    <a href={`https://explore.nil.foundation/tx/${tx.Tx}`}>{txView(tx.Tx)}</a>
                     {' '}
                     {!tx.External ? (
                       index === 1 ? <>from <span className={s.transactions__info}>wallet</span></> : <>from <span className={s.transactions__info}>pair</span></>

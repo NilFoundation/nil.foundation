@@ -105,7 +105,7 @@ export const Uniswap = () => {
     quoteFx.pending,
   ])
   const { isMobile } = useViewport()
-  
+
   const [messageWH, setMessageWH] = useState({
     rpc: {
       width: 0,
@@ -161,10 +161,12 @@ export const Uniswap = () => {
   const defaultStage = 'idle'
 
   const animate = isLoading ? stage : defaultStage
-  const convertedPos = isMobile ? defaultMobileCloudPos : (defaultCloudPos.map((pos) => ({
-    x: size(pos.x),
-    y: size(pos.y),
-  })))
+  const convertedPos = isMobile
+    ? defaultMobileCloudPos
+    : defaultCloudPos.map((pos) => ({
+        x: size(pos.x),
+        y: size(pos.y),
+      }))
 
   const realCloudWidth = isMobile ? cloudWidthMobile : size(cloudWidth)
   const realCloudHeight = isMobile ? cloudHeightMobile : size(cloudHeight)
@@ -185,7 +187,7 @@ export const Uniswap = () => {
     }
   }, [screenWidth, stage === 'idle'])
   useEffect(() => {
-    loadedUniswap();
+    loadedUniswap()
   }, [])
 
   const targetIndex = buyCurrency === 'usdt' ? 2 : 3
@@ -200,7 +202,7 @@ export const Uniswap = () => {
   return (
     <div className={commonStyle.wrap}>
       <div className={s.title}>Check out how Uniswap v2 works on =nil;</div>
-      <div className={classNames(s.blocks, stage !=='idle' ? s.blocks__swap : '')}>
+      <div className={classNames(s.blocks, stage !== 'idle' ? s.blocks__swap : '')}>
         <div className={classNames(s.block, s.block__top, s.block__top_left)} />
         <div className={classNames(s.block, s.block__top, s.block__top_right)} />
         <div className={classNames(s.block, s.block__middle, s.block__middle_left, s.swap)}>
@@ -217,7 +219,7 @@ export const Uniswap = () => {
           <SwapInput
             disabled
             key={'buyCurrency'}
-            disableCurrencySelector={animate !== 'idle'}  
+            disableCurrencySelector={animate !== 'idle'}
             label="Buy"
             currencies={currencies}
             selectedCurrency={buyCurrency}
@@ -225,7 +227,13 @@ export const Uniswap = () => {
             loading={quotePending}
             onCurrencySelect={(currency) => setBuyCurrency(currency)}
           />
-          <LimitedButton primary icon={<Magic />} className={s.swap__button} onClick={onSwap} disabled={isLoading || quotePending}>
+          <LimitedButton
+            primary
+            icon={<Magic />}
+            className={s.swap__button}
+            onClick={onSwap}
+            disabled={isLoading || quotePending}
+          >
             Swap
           </LimitedButton>
         </div>
@@ -522,12 +530,9 @@ export const Uniswap = () => {
                 initial={{
                   opacity: 0,
                   x:
-                    (convertedPos[1].x +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.rpc.width / 2) /
+                    (convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2) /
                     zoomCoefficient,
-                  y: ((convertedPos[1].y) + (realCloudHeight / 2) - messageWH.rpc.height * 2) / zoomCoefficient,
+                  y: (convertedPos[1].y + realCloudHeight / 2 - messageWH.rpc.height * 2) / zoomCoefficient,
                   zoom: zoomCoefficient,
                 }}
                 variants={{
@@ -540,36 +545,25 @@ export const Uniswap = () => {
                   second: {
                     opacity: 1,
                     x:
-                      (convertedPos[0].x +
-                        realCloudWidth -
-                        (cloudPartInner * realCloudWidth) -
-                        messageWH.rpc.width / 2) /
+                      (convertedPos[0].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y: (convertedPos[0].y + (realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                    y: (convertedPos[0].y + realCloudHeight / 2 - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   third: {
                     opacity: 1,
                     x:
-                      (convertedPos[1].x +
-                        realCloudWidth -
-                        cloudPartInner * realCloudWidth -
-                        messageWH.rpc.width / 2) /
+                      (convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y:
-                      (convertedPos[1].y + size(realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                    y: (convertedPos[1].y + size(realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   fourth: {
                     opacity: 0,
                     x:
-                      (convertedPos[1].x +
-                        realCloudWidth -
-                        (cloudPartInner * realCloudWidth) -
-                        messageWH.rpc.width / 2) /
+                      (convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y:
-                      (convertedPos[1].y + (realCloudHeight / 2) - messageWH.rpc.height * 2) / zoomCoefficient,
+                    y: (convertedPos[1].y + realCloudHeight / 2 - messageWH.rpc.height * 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                 }}
@@ -582,24 +576,16 @@ export const Uniswap = () => {
                 className={s.message}
                 initial={{
                   opacity: 0,
-                  x:
-                    (convertedPos[1].x) +
-                    realCloudWidth -
-                    (cloudPartInner * realCloudWidth) -
-                    messageWH.rpc.width / 2,
-                  y: (convertedPos[1].y) + (realCloudHeight * 2) - messageWH.rpc.height / 2,
+                  x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2,
+                  y: convertedPos[1].y + realCloudHeight * 2 - messageWH.rpc.height / 2,
                 }}
                 variants={{
                   eleven: {
                     opacity: 1,
                     x:
-                      ((convertedPos[1].x) +
-                        realCloudWidth -
-                        (cloudPartInner * realCloudWidth) -
-                        messageWH.rpc.width / 2) /
+                      (convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y:
-                      (convertedPos[1].y + realCloudHeight / 2 - messageWH.rpc.height / 2) / zoomCoefficient,
+                    y: (convertedPos[1].y + realCloudHeight / 2 - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   twelve: {
@@ -607,23 +593,18 @@ export const Uniswap = () => {
                     x:
                       (size(convertedPos[0].x) +
                         realCloudWidth -
-                        (cloudPartInner * realCloudWidth) -
+                        cloudPartInner * realCloudWidth -
                         messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y:
-                      ((convertedPos[0].y) + (realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                    y: (convertedPos[0].y + realCloudHeight / 2 - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                   thirteen: {
                     opacity: 0,
                     x:
-                      (convertedPos[0].x +
-                        realCloudWidth -
-                        (cloudPartInner * realCloudWidth) -
-                        messageWH.rpc.width / 2) /
+                      (convertedPos[0].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.rpc.width / 2) /
                       zoomCoefficient,
-                    y:
-                      (convertedPos[0].y + (realCloudHeight / 2) - messageWH.rpc.height / 2) / zoomCoefficient,
+                    y: (convertedPos[0].y + realCloudHeight / 2 - messageWH.rpc.height / 2) / zoomCoefficient,
                     zoom: zoomCoefficient,
                   },
                 }}
@@ -654,32 +635,20 @@ export const Uniswap = () => {
                   },
                   second: {
                     opacity: 0,
-                    x:
-                      convertedPos[1].x +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.tx.width / 2,
-                    y: (convertedPos[1].y) + (realCloudHeight) + messageWH.tx.height,
+                    x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.tx.width / 2,
+                    y: convertedPos[1].y + realCloudHeight + messageWH.tx.height,
                     width: 'auto',
                   },
                   third: {
                     opacity: 0,
-                    x:
-                      (convertedPos[1].x) +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.tx.width / 2,
-                    y: (convertedPos[1].y) + (realCloudHeight) + messageWH.tx.height,
+                    x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.tx.width / 2,
+                    y: convertedPos[1].y + realCloudHeight + messageWH.tx.height,
                     width: 'auto',
                   },
                   fourth: {
                     opacity: 1,
-                    x:
-                      (convertedPos[1].x) +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.tx.width / 2,
-                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
+                    x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.tx.width / 2,
+                    y: convertedPos[1].y + realCloudHeight / 2 - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   fifth: {
@@ -687,26 +656,22 @@ export const Uniswap = () => {
                     x: 0,
                     y: 0,
                     height: 44 + realCloudHeight,
-                    width: (realCloudWidth * 2) + gap,
+                    width: realCloudWidth * 2 + gap,
                   },
                   sixth: {
                     opacity: 1,
-                    x:
-                      (convertedPos[1].x) +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.tx.width / 2,
-                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
+                    x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.tx.width / 2,
+                    y: convertedPos[1].y + realCloudHeight / 2 - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   seven: {
                     opacity: 1,
                     x:
-                      (convertedPos[targetIndex].x) +
+                      convertedPos[targetIndex].x +
                       realCloudWidth -
                       cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: (convertedPos[targetIndex].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
+                    y: convertedPos[targetIndex].y + realCloudHeight / 2 - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   eight: {
@@ -714,36 +679,28 @@ export const Uniswap = () => {
                     x: 0,
                     y: 0,
                     height: 44 + realCloudHeight,
-                    width: (realCloudWidth * 2) + gap,
+                    width: realCloudWidth * 2 + gap,
                   },
                   nine: {
                     opacity: 1,
                     x:
-                      (convertedPos[targetIndex].x) +
+                      convertedPos[targetIndex].x +
                       realCloudWidth -
                       cloudPartInner * realCloudWidth -
                       messageWH.tx.width / 2,
-                    y: (convertedPos[targetIndex].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
+                    y: convertedPos[targetIndex].y + realCloudHeight / 2 - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   ten: {
                     opacity: 1,
-                    x:
-                      (convertedPos[1].x) +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.tx.width / 2,
-                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height / 2,
+                    x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.tx.width / 2,
+                    y: convertedPos[1].y + realCloudHeight / 2 - messageWH.tx.height / 2,
                     width: 'auto',
                   },
                   eleven: {
                     opacity: 0,
-                    x:
-                      (convertedPos[1].x) +
-                      realCloudWidth -
-                      cloudPartInner * realCloudWidth -
-                      messageWH.tx.width / 2,
-                    y: (convertedPos[1].y) + (realCloudHeight / 2) - messageWH.tx.height * 2,
+                    x: convertedPos[1].x + realCloudWidth - cloudPartInner * realCloudWidth - messageWH.tx.width / 2,
+                    y: convertedPos[1].y + realCloudHeight / 2 - messageWH.tx.height * 2,
                     width: 'auto',
                   },
                 }}
@@ -752,7 +709,9 @@ export const Uniswap = () => {
                 <div className={s.inclusion__elements}>
                   <div className={s.inclusion__wrapper}>
                     <div className={s.inclusion__element}>Transaction</div>
-                    <div className={s.inclusion__element}>attached token ({['eight', 'nine'].includes(animate) ? targetCurrency : 'ETH'})</div>
+                    <div className={s.inclusion__element}>
+                      attached token ({['eight', 'nine'].includes(animate) ? targetCurrency : 'ETH'})
+                    </div>
                     <div className={s.inclusion__plus}>+</div>
                   </div>
                 </div>
@@ -808,38 +767,69 @@ export const Uniswap = () => {
                   <div className={s.completion__text}>Swap completed</div>
                 </motion.div>
               )}
-              
             </motion.div>
-            <motion.div className={s.transactions} variants={{
-                  fifth: {
-                    opacity: 0,
-                  },
-                  eight: {
-                    opacity: 0,
-                  },
-                }}>
-                <AnimatePresence>
-                  {transactions.map((tx, index) => <motion.div key={tx.Tx}
+            <motion.div
+              className={s.transactions}
+              variants={{
+                fifth: {
+                  opacity: 0,
+                },
+                eight: {
+                  opacity: 0,
+                },
+              }}
+            >
+              <AnimatePresence>
+                {transactions.map((tx, index) => (
+                  <motion.div
+                    key={tx.Tx}
                     initial={{ opacity: 0, y: size(44) }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: size(44) }}
                     className={s.transactions__item}
                   >
                     {tx.External ? 'External t' : 'T'}ransaction{' '}
-                    <a href={`https://explore.nil.foundation/tx/${tx.Tx}`}>{txView(tx.Tx)}</a>
-                    {' '}
+                    <a href={`https://explore.nil.foundation/tx/${tx.Tx}`}>{txView(tx.Tx)}</a>{' '}
                     {!tx.External ? (
-                      index === 1 ? <>from <span className={s.transactions__info}>wallet</span></> : <>from <span className={s.transactions__info}>pair</span></>
-                      ) : ''
-                    }
-                    {' '}
-                    {!tx.External ? (index === 1 ? <>to <span className={s.transactions__info}>pair</span></> : <>to <span className={s.transactions__info}>wallet</span></>) : ''}
-                    {tx.Tokens.length > 0 && <>{' '}({tx.Tokens.map((v) => {
-                      return `${v.Name}: ${((+v.Amount) / 10 ** 18).toFixed(4)}`
-                    }).join(', ')})</>}
-                    </motion.div>)}
-                </AnimatePresence>
-              </motion.div>
+                      index === 1 ? (
+                        <>
+                          from <span className={s.transactions__info}>wallet</span>
+                        </>
+                      ) : (
+                        <>
+                          from <span className={s.transactions__info}>pair</span>
+                        </>
+                      )
+                    ) : (
+                      ''
+                    )}{' '}
+                    {!tx.External ? (
+                      index === 1 ? (
+                        <>
+                          to <span className={s.transactions__info}>pair</span>
+                        </>
+                      ) : (
+                        <>
+                          to <span className={s.transactions__info}>wallet</span>
+                        </>
+                      )
+                    ) : (
+                      ''
+                    )}
+                    {tx.Tokens.length > 0 && (
+                      <>
+                        {' '}
+                        (
+                        {tx.Tokens.map((v) => {
+                          return `${v.Name}: ${(+v.Amount / 10 ** 18).toFixed(4)}`
+                        }).join(', ')}
+                        )
+                      </>
+                    )}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </motion.div>
         </MotionConfig>
         <div className={classNames(s.block, s.block__bottom, s.block__bottom_left)} />

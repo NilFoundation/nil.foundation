@@ -6,7 +6,7 @@ import { getScreenWidth } from 'utils/getScreenSize'
 export const useScreenWidth = () => {
   const [width, setWidth] = useState(getScreenWidth())
   useEffect(() => {
-    let localWidth = getScreenWidth();
+    let localWidth = getScreenWidth()
     const onResize = () => {
       const newWidth = getScreenWidth()
       if (localWidth !== newWidth) {

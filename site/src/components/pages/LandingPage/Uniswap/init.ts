@@ -153,4 +153,3 @@ sample({
   filter: infoFx.doneData.map(({ done }) => done),
   target: resetTransactionHash,
 })
-

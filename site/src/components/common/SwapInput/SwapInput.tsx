@@ -1,19 +1,16 @@
-import { FC, useCallback, useMemo, useState } from 'react'
+import { FC, MouseEventHandler, useCallback, useMemo, useState } from 'react'
 import ethIcon from './assets/eth.svg'
 import usdtIcon from './assets/usdt.svg'
 import usdcIcon from './assets/usdc.svg'
 import { ArrowIcon } from './ArrowIcon'
 import styles from './SwapInput.module.scss'
 import { CurrencySymbol } from './types'
-import { COLORS } from '@nilfoundation/ui-kit'
 
 const currencyIcons: Record<CurrencySymbol, any> = {
   eth: ethIcon,
   usdt: usdtIcon,
   usdc: usdcIcon,
 }
-
-COLORS
 
 interface SwapInputProps {
   label: string
@@ -50,15 +47,18 @@ export const SwapInput: FC<SwapInputProps> = ({
     onCurrencySelect?.(currency)
   }
 
-  const handleSelectorClick = useCallback((e) => {
-    e.stopPropagation()
-    e.preventDefault()
-    if (!disableCurrencySelector) {
-      setIsDropdownOpen(!isDropdownOpen)
-    }
-  }, [disableCurrencySelector])
+  const handleSelectorClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
+    (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+      if (!disableCurrencySelector) {
+        setIsDropdownOpen(!isDropdownOpen)
+      }
+    },
+    [disableCurrencySelector],
+  )
 
-  const keyOption: {'htmlFor'?: string} = {}
+  const keyOption: { htmlFor?: string } = {}
   if (!disabled || !loading) {
     keyOption['htmlFor'] = key
   }
@@ -67,14 +67,18 @@ export const SwapInput: FC<SwapInputProps> = ({
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
       <label className={`${styles.inputContainer} ${error ? styles.error : ''}`} {...keyOption}>
-        {loading ? <button className={styles.loading} /> : <input
-          disabled={disabled}
-          type="number"
-          value={value}
-          onChange={(e) => onChange?.(e.target.value)}
-          className={`${styles.input} ${disabled ? styles.disabled : ''}`}
-          id={key}
-        />}
+        {loading ? (
+          <button className={styles.loading} />
+        ) : (
+          <input
+            disabled={disabled}
+            type="number"
+            value={value}
+            onChange={(e) => onChange?.(e.target.value)}
+            className={`${styles.input} ${disabled ? styles.disabled : ''}`}
+            id={key}
+          />
+        )}
         <button
           className={`${styles.currencySelector} ${disableCurrencySelector ? styles.disabled : ''}`}
           onClick={handleSelectorClick}

@@ -189,7 +189,7 @@ export const Community = () => {
         )}
       </div>
       <div className={s.join}>
-        <img src={heart.src} className={s.join__heart} alt='Heart' />
+        <img src={heart.src} className={s.join__heart} alt="Heart" />
         <div className={s.join__block}>
           <h2 className={s.join__title}>Here to support you</h2>
           <p className={s.join__description}>

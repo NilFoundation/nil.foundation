@@ -91,7 +91,6 @@ export const { tick, isRunning } = interval({
   timeout: 1000,
 })
 
-
 export const guardedTransactions = combine($transactions, $stage, (txs, stage) => {
   const stageIndex = stages.indexOf(stage)
   let showNum = 0

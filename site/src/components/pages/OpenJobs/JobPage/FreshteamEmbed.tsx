@@ -51,7 +51,7 @@ const FreshteamEmbed = () => {
             maxHeight: '32px',
           })}
         >
-          <Spinner size={SPINNER_SIZE.large} animation />
+          <Spinner size={SPINNER_SIZE.large} />
         </div>
       )}
     </>

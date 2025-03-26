@@ -14,6 +14,8 @@ It's repo of site. It has 2 parts: admin and site.
 
 **./dev.sh** - it's generate default User with `admin@nil.foundation:XYgiXDOcg4Lfpv6g` accessible on `http://localhost:1337/admin`, site will be available here `http://localhost:3000/`
 
+Prerequesite: it depends on pnpm.
+
 ## How to deploy in production
 
 You should use ansible role **site** from (infra repository)[https://github.com/nilFoundation/infra].

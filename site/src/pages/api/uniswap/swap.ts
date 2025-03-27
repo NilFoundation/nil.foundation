@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       params: [fromToken.toUpperCase(), toToken.toUpperCase(), toHex(wei)],
     })
 
-    const expectedInWei = BigInt(Math.round((quote * slippage)))
+    const expectedInWei = BigInt(Math.round(quote * slippage))
 
     const hash = await loadClient.request({
       method: 'nilloadgen_callSwap',

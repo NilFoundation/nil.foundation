@@ -84,7 +84,10 @@ function Footer({ className }: InferProps<typeof Footer.propTypes>) {
         </div>
 
         <div className={s.bottom}>
-          <div className={s.copyright}>© All rights reserved. =nil; Foundation {getYear} | <span className={s.registerNumber}>nil LLC reg. number 389585</span></div>
+          <div className={s.copyright}>
+            © All rights reserved. =nil; Foundation {getYear} |{' '}
+            <span className={s.registerNumber}>nil LLC reg. number 389585</span>
+          </div>
           <Button className={s.arrow} onClick={scrollTop}>
             <Icon name="arrow-up" />
           </Button>

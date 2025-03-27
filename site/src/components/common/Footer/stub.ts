@@ -22,6 +22,7 @@ export const stub = {
         },
         { name: 'About', link: '/about' },
         { name: 'Conference Game General T&C', link: '/pages/devcon_game_tc' },
+        { name: 'Privacy policy', link: '/pages/privacy-policy' },
         // TODO: return after create this page
         // { name: 'Glossary', link: '/glossary' },
       ],

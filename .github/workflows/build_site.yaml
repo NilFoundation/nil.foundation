@@ -8,7 +8,7 @@ jobs:
       USE_MOCK: 1
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
